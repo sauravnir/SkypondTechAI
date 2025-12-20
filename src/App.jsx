@@ -1,11 +1,17 @@
-import { useState } from 'react'
+import { React, useState} from 'react';
 import './App.css'
+import {Button} from '@/components/ui/button'
 
 function App() {
-  
+  const [test, setTest] = useState(0);
+
+  const clicking = () => {
+    setTest(test - 1);
+  }
   return (
     <>
-      <span className='text-4xl text-secondary font-light'>Tailwind Css is working. Yay! This much for today , tomorrow I will kill it totally!</span>
+    <div className='bg-accent'><Button onClick={clicking}>Garo cha hai</Button></div>
+    <h1>{test}</h1>
     </>
   )
 }
