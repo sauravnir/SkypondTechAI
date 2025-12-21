@@ -1,0 +1,77 @@
+Plus Jakarta Sans (Headings)
+2️⃣ Inter (Body)
+3️⃣ Urbanist (Secondary / UI)
+
+Correct usage pattern
+
+
+Hero headline	 Plus Jakarta Sans  
+Section headings	 Plus Jakarta Sans
+Paragraphs	  Inter
+Buttons	  Inter / Urbanist
+Badges / Labels	Urbanist
+Navigation	 Inter
+
+
+Font sizes:
+
+| Role       | Class         | Size            | Usage          |
+| ---------- | ------------- | --------------- | -------------- |
+| Hero Title | `text-hero`   | 72px / 4rem     | Landing hero   |
+| H1         | `text-h1`     | 48px / 3rem     | Page titles    |
+| H2         | `text-h2`     | 36px / 2.25rem  | Section titles |
+| H3         | `text-h3`     | 28px / 1.75rem  | Card titles    |
+| Body       | `text-body`   | 18px / 1.125rem | Paragraphs     |
+| Small      | `text-small`  | 14px / 0.875rem | Labels         |
+| Button     | `text-button` | 16px / 1rem     | Buttons        |
+
+
+Colors Usage: 
+
+| Element           | Color                     |
+| ----------------- | ------------------------- |
+| Headings          | `text-heading`            |
+| Paragraphs        | `text-body`               |
+| Small text        | `text-muted`              |
+| Primary Button BG | `bg-primary`              |
+| Button Text       | `text-primary-foreground` |
+| Hover             | `hover:bg-accent`         |
+
+
+
+Custom Tailwind CSS Classes :
+
+| Class          | Font Used         |
+| -------------- | ----------------- |
+| `font-heading` | Plus Jakarta Sans |
+| `font-body`    | Inter             |
+| `font-ui`      | Urbanist          |
+
+
+| Class                     | Color   |
+| ------------------------- | ------- |
+| `text-heading`            | #0F172A |
+| `text-body`               | #475569 |
+| `text-muted`              | #64748B |
+| `text-primary`            | #4338CA |
+| `text-primary-foreground` | #FFFFFF |
+| `text-accent`             | #6366F1 |
+
+
+| Class           | Color   |
+| --------------- | ------- |
+| `bg-background` | #F9FAFB |
+| `bg-card`       | #FFFFFF |
+| `bg-primary`    | #4338CA |
+| `bg-accent`     | #6366F1 |
+| `border-border` | #CBD5E1 |
+
+| Class         | Use case        |
+| ------------- | --------------- |
+| `text-hero`   | Hero titles     |
+| `text-h1`     | Main heading    |
+| `text-h2`     | Section heading |
+| `text-h3`     | Sub-heading     |
+| `text-paragraph`   | Paragraphs      |
+| `text-small`  | Captions        |
+| `text-button` | Buttons         |

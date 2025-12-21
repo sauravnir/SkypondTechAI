@@ -1,19 +1,15 @@
-import { React, useState} from 'react';
-import './App.css'
-import {Button} from '@/components/ui/button'
+import { React} from 'react';
+import { BrowserRouter , Routes , Route } from 'react-router-dom';
+import './index.css';
 
-function App() {
-  const [test, setTest] = useState(0);
+import Landingpage from './pages/LandingPage.jsx';
 
-  const clicking = () => {
-    setTest(test - 1);
-  }
+export default function App() {
   return (
-    <>
-    <div className='bg-accent'><Button onClick={clicking}>Garo cha hai</Button></div>
-    <h1>{test}</h1>
-    </>
-  )
+<>
+    <BrowserRouter>
+        <Landingpage />
+    </BrowserRouter>
+</>
+  );
 }
-
-export default App
