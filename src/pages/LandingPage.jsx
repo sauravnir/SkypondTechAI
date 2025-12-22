@@ -1,14 +1,14 @@
-import React from 'react'
-import NavigationBar from '@/components/layout/NavigationBar'
-const LandingPage = (child) => {
+import React from "react";
+import NavigationBar from "@/components/layout/NavigationBar";
+import HeroSection from "@/components/layout/HeroSection";
+
+const LandingPage = () => {
   return (
-<div className="min-h-screen bg-background">
-    <NavigationBar />
-    <main className="pt-24 ">
+    <div className="min-h-screen ">
+      <NavigationBar />
+      <HeroSection />
+    </div>
+  );
+};
 
-      </main>
-</div>
-  )
-}
-
-export default LandingPage
+export default LandingPage;

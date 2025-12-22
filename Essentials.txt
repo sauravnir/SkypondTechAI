@@ -51,7 +51,7 @@ Custom Tailwind CSS Classes :
 | Class                     | Color   |
 | ------------------------- | ------- |
 | `text-heading`            | #0F172A |
-| `text-body`               | #475569 |
+| `text-bodycontent`               | #475569 |
 | `text-muted`              | #64748B |
 | `text-primary`            | #4338CA |
 | `text-primary-foreground` | #FFFFFF |

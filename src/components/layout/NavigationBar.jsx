@@ -1,4 +1,4 @@
-import React, {useState , useEffect, use}  from "react";
+import React, { useState, useEffect, use } from "react";
 import { Link } from "react-router-dom";
 import Logo from "@/assets/media/SiteLogo.png";
 import {
@@ -9,31 +9,25 @@ import {
 } from "../ui/navigation-menu";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
-import {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-} from "../ui/sheet";
-
+import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 import { ExternalLink, ChevronRight, Menu, CircleSmall } from "lucide-react";
 
 function NavigationBar() {
-
   //setting up states for scroll effect
-  const [isScrolled , setIsScrolled] = useState(false);
-  
+  const [isScrolled, setIsScrolled] = useState(false);
+
   // Listening to scroll event on asynchronous basis
   useEffect(() => {
-    // Creating a call-back function that changes the value of isScrolled 
+    // Creating a call-back function that changes the value of isScrolled
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
-    }
+    };
     // Listening to the scroll event
-    window.addEventListener('scroll' , handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Unmounting the event listener
-    return() => window.removeEventListener('scroll' , handleScroll);
-  },[])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Creating Menu Items
   const menuItems = [
@@ -45,7 +39,14 @@ function NavigationBar() {
 
   return (
     <header className="fixed w-full z-50 ">
-      <div className={`flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 ${isScrolled ? "rounded-full bg-background/70 backdrop-blur-md border border-border/20 h-16 mt-4 ":"bg-transparent"}`}>
+      {/* Applying isScrolled Ternary Conditional and changing navbar css */}
+      <div
+        className={`flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 ${
+          isScrolled
+            ? "rounded-full bg-background/ backdrop-blur-md border border-border/20 h-16 mt-2 "
+            : "bg-transparent"
+        }`}
+      >
         {/* Navigation Bar Logo */}
         <div className="flex-shrink-0">
           <Link to="/">
@@ -62,7 +63,7 @@ function NavigationBar() {
                   <NavigationMenuLink asChild>
                     <Link
                       to={item.link}
-                      className="font-body hover:text-accent transition-all delay-400 text-heading text-button font-medium px-3 py-2"
+                      className="font-body hover:text-accent transition-all delay-400 text-[#E5E7EB] text-button font-medium px-3 py-2"
                     >
                       {item.title}
                     </Link>
@@ -79,7 +80,7 @@ function NavigationBar() {
             <Link to="https://skypondtech.com" target="_blank">
               <Button
                 variant="ghost"
-                className="text-button hover:text-accent flex items-center hover:underline"
+                className="text-button text-[#E5E7EB] hover:text-accent flex items-center hover:underline"
               >
                 Main Website
                 <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
@@ -92,7 +93,7 @@ function NavigationBar() {
           <div className="group">
             <Button
               variant="default"
-              className="text-button text-primary-foreground flex items-center "
+              className="text-button text-primary-foreground flex items-center hover:bg-accent"
               size="lg"
             >
               Get Started
@@ -106,13 +107,13 @@ function NavigationBar() {
         {/* Mobile Menu Button */}
         <div className="md:hidden ">
           {/* Creating Side-Drawer / Sheet */}
-          <Sheet >
+          <Sheet>
             <SheetTrigger asChild>
               <Button size="icon" variant="outline">
                 <Menu />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-64 bg-background ">
+            <SheetContent side="top" className="w-full h-full bg-background">
               <nav className="flex flex-col justify-start space-y-2 mt-8">
                 {menuItems.map((item) => (
                   <Link
@@ -131,7 +132,7 @@ function NavigationBar() {
                 <div className="group">
                   <Link to="https://skypondtech.com" target="_blank">
                     <Button
-                      variant="outline"
+                      variant="ghost"
                       className="text-button flex items-center hover:underline w-full justify-center"
                     >
                       Main Website
