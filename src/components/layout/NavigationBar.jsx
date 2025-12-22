@@ -80,7 +80,7 @@ function NavigationBar() {
             <Link to="https://skypondtech.com" target="_blank">
               <Button
                 variant="ghost"
-                className="text-button text-[#E5E7EB] hover:text-accent flex items-center hover:underline"
+                className="text-[16px] text-[#E5E7EB] hover:text-accent flex items-center hover:underline"
               >
                 Main Website
                 <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
@@ -93,7 +93,7 @@ function NavigationBar() {
           <div className="group">
             <Button
               variant="default"
-              className="text-button text-primary-foreground flex items-center hover:bg-accent"
+              className="text-[16px] text-primary-foreground flex items-center hover:bg-accent"
               size="lg"
             >
               Get Started
@@ -109,11 +109,11 @@ function NavigationBar() {
           {/* Creating Side-Drawer / Sheet */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline">
-                <Menu />
+              <Button size="icon" variant="outline" >
+                <Menu  />
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="w-full h-full bg-background">
+            <SheetContent side="top" className="w-full h-full">
               <nav className="flex flex-col justify-start space-y-2 mt-8">
                 {menuItems.map((item) => (
                   <Link

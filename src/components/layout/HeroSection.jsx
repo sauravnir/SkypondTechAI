@@ -1,42 +1,150 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
+import { ChevronRight, ExternalLink } from "lucide-react";
+
+import { animate, utils, stagger, splitText } from "animejs";
+
 import "@/index.css";
 
 const HeroSection = () => {
+  //Creating Hero Text Hover Animation
+  const titleRef = useRef(null);
+  const colors = useRef([]);
+// Custom hook for Text Animation
+  useEffect(() => {
+    if (!titleRef.current) return;
+    // Split text AFTER React renders
+    const split = splitText(titleRef.current, {
+      words: true,
+    })
+      // Floating Effect
+      .addEffect(({ words }) =>
+        animate(words, {
+          y: ["0%", "10%", "-10"],
+          direction: "alternate",
+          loop: true,
+          delay: stagger(200),
+          duration: 3500,
+          easing: "easeInOutSine",
+        })
+      )
+
+      /* Hover color effect */
+      .addEffect((splitInstance) => {
+        splitInstance.words.forEach((el, i) => {
+          colors.current[i] = utils.get(el, "color");
+
+          el.addEventListener("pointerenter", () => {
+            animate(el, {
+              color: utils.randomPick([
+                "#22D3EE", // cyan
+                "#A7F3D0", // mint
+                "#FDE68A", // soft yellow
+                "#f01111ff", // soft red
+              ]),
+              duration: 250,
+              easing: "easeOutQuad",
+            });
+          });
+
+          el.addEventListener("pointerleave", () => {
+            animate(el, {
+              color: colors.current[i],
+              duration: 400,
+              easing: "easeOutQuad",
+            });
+          });
+        });
+
+        // Cleanup between re-splits
+        return () => {
+          splitInstance.words.forEach((w, i) => {
+            colors.current[i] = utils.get(w, "color");
+          });
+        };
+      });
+
+    return () => {
+      split.revert(); // 🔥 VERY IMPORTANT cleanup
+    };
+  }, []);
   return (
-    <section className="relative overflow-hidden h-[700px] sm:h-[750px] md:h-[800px] lg:h-[900px] bg-[#181e2cff]">
-      {/* <div
+    <section className="relative overflow-hidden h-[600px] sm:h-[750px] md:h-[800px] lg:h-[900px] bg-altbackground backdrop-blur">
+      <div
         className="absolute -z-10  w-[120vw] h-[100%] top-0 right-0 opacity-70 blur"
         style={{
-          background: "linear-gradient(120deg, #FFFFFF, #F9FAFB, #6366F1, #C7D2FE)",
-          backgroundSize: "400% 400%",
+          background: "linear-gradient(135deg, #423f3fff, #22D3EE, #426b64ff, #5b5c63ff)",
+          backgroundSize: "300% 300%",
           animation: "float 15s ease infinite",
           clipPath: "polygon(0% 0%, 100% 0%, 100% 25%, 0% 80%)",
         }}
       />
 
-      <div
-        className="absolute -z-10  w-[120vw] h-[100%] top-0 right-0 opacity-100 "
-        style={{
-          background: "linear-gradient(135deg, #4e4141ff, #6366F1, #A5F3FC)",
-          backgroundSize: "400% 400%",
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 15%, 0% 80%)",
-        }}
-      /> */}
 
-    
-      <div className="flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-40 justify-center items-center ">
+      <div className="flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-40 justify-center items-center">
         <Badge
           variant="outline"
           className="font-ui text-[14px] text-accent border-border font-bold gap-2 px-5 py-1 rounded-full uppercase transition-transform hover:scale-105 duration-300"
         >
           Enterprise AI For Healthcare Innovation
         </Badge>
-        <div className="h-screen max-w-5xl">
-          <h1 className="mt-6 font-heading text-hero text-[#E5E7EB] text-center font-extrabold font-stretch-condensed">
-            <span>Revolutionizing LTC Pharmacy Operations</span> with Enterprise
-            AI
+
+        <div className="max-w-5xl items-center text-center">
+          {/* Referencing H1 for animation */}
+          <h1
+            ref={titleRef}
+            className="mt-6 font-heading text-hero text-[#E5E7EB] font-extrabold"
+          >
+            Revolutionizing LTC Pharmacy Operations with Enterprise AI
           </h1>
+
+          <div className="flex flex-col justify-center items-center text-center ">
+            <h2 className="font-body text-paragraph text-primary mt-12 font-bold ">
+              Transform how your pharmacy operates, innovates, and scales in the
+              digital age.
+            </h2>
+
+            <p className="font-body text-paragraph text-bodycontent mt-4 max-w-4xl">
+              Skypond creates cutting-edge AI solutions that empower Long-Term
+              Care pharmacies to automate complex workflows, reduce operational
+              burden, and drive measurable results. From intelligent order
+              processing to comprehensive document automation, our
+              enterprise-grade platform streamlines operations while maintaining
+              absolute HIPAA compliance.
+            </p>
+          </div>
+
+          <div className="flex space-x-8 justify-center items-center mt-12">
+            <div className="group">
+              <Button
+                variant="default"
+                className="text-[16px] text-primary-foreground hover:bg-accent font-bold"
+                size="xl"
+              >
+                Get Started
+                <span className="transition-transform duration-300 group-hover:scale-150 ">
+                  <ChevronRight />
+                </span>
+              </Button>
+            </div>
+            <div className="group">
+              <Link to="https://skypondtech.com" target="_blank">
+                <Button
+                  variant="outline"
+                  className="text-[16px] text-[#E5E7EB] bg-null hover:text-accent flex items-center hover:underline font-bold"
+                  size="xl"
+                >
+                  Main Website
+                  <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
+                    <ExternalLink />
+                  </span>
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
