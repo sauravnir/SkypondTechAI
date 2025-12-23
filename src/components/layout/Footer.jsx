@@ -1,5 +1,5 @@
 import React from "react";
-import { ChevronRight, Minus, ExternalLink , Copyright } from "lucide-react";
+import { ChevronRight, Minus, ExternalLink, Copyright } from "lucide-react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
@@ -48,13 +48,13 @@ const Footer = () => {
       title: "HIPAA Compliance",
       link: "#",
     },
-    { title: "Secutiy", link: "#" },
+    { title: "Security", link: "#" },
     { title: "Privacy", link: "#" },
     { title: "Terms and Conditions", link: "#" },
   ];
   return (
     <footer className="relative overflow-hidden bg-altbackground py-20">
-      <div className="grid grid-cols-3 gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+      <div className="grid grid-cols-3 gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-0 ">
         {/* Solutions Section */}
         <div className="flex flex-col items-start gap-4">
           <Button
@@ -75,7 +75,7 @@ const Footer = () => {
                   <NavigationMenuLink asChild>
                     <Link
                       to={items.link}
-                      className="flex font-body text-muted text-[16px] hover:underline gap-2"
+                      className="flex font-body text-muted text-[16px] hover:underline gap-2 "
                     >
                       <Minus /> {items.title}
                     </Link>
@@ -154,7 +154,7 @@ const Footer = () => {
         className="max-w-3xl mx-auto mt-16 bg-muted "
       />
 
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+      <div className="flex justify-between items-end max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
         <div className="flex-col flex-shrink-0">
           <Link to="/">
             <img src={Logo} alt="SkypondTech.AI" className="h-36 w-auto"></img>
@@ -166,20 +166,30 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex-col gap-2 space-y-8 ">
-          <div className="flex space-x-4 justify-end">
+        <div className="flex-col gap-2 space-y-8">
+          <div className="flex space-x-4 justify-end 4">
             <Link to="https://www.instagram.com/skypondtech/" target="_blank">
               <FaInstagram size={30} color="white" />
             </Link>
-            <Link to="https://www.linkedin.com/company/skypond-tech-llc/" target="_blank">
+            <Link
+              to="https://www.linkedin.com/company/skypond-tech-llc/"
+              target="_blank"
+            >
               <FaLinkedin size={30} color="white" />
             </Link>
           </div>
           <Separator />
-          <div className="flex flex-row gap-2 text-muted justify-end font-bold">
+          <div className="space-y-2">
+              <div className="flex flex-row gap-2 text-muted justify-end font-bold font-body">
             <Copyright />
-            <h1>{new Date().getFullYear()} Skypond AI. All rights reserved.</h1>
+            <h1>{new Date().getFullYear()} Skypond AI. All rights reserved.</h1><br></br>
+            
           </div>
+          <div className="flex flex-row gap-2 text-muted justify-end font-bold ">
+            <h1>Built for healthcare. Enterprise Grade. HIPAA Compliant. SOC 2 Type II Certified.</h1>
+          </div>
+          </div>
+          
         </div>
       </div>
     </footer>

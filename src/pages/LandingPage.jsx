@@ -8,7 +8,7 @@ const LandingPage = () => {
     <div className="min-h-screen ">
       <NavigationBar />
       <HeroSection />
-      <div className="h-12"></div>
+     
       <Footer />
     </div>
   );

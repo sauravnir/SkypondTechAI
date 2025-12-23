@@ -7,13 +7,17 @@ import { ChevronRight, ExternalLink } from "lucide-react";
 
 import { animate, utils, stagger, splitText } from "animejs";
 
+import { BackgroundGradientAnimation } from "../ui/background-gradient-animation";
+
 import "@/index.css";
+import { Separator } from "@radix-ui/react-separator";
+// import "@src/App.css"
 
 const HeroSection = () => {
   //Creating Hero Text Hover Animation
   const titleRef = useRef(null);
   const colors = useRef([]);
-// Custom hook for Text Animation
+  // Custom hook for Text Animation
   useEffect(() => {
     if (!titleRef.current) return;
     // Split text AFTER React renders
@@ -21,16 +25,18 @@ const HeroSection = () => {
       words: true,
     })
       // Floating Effect
-      .addEffect(({ words }) =>
-        animate(words, {
-          y: ["0%", "10%", "-10"],
-          direction: "alternate",
-          loop: true,
-          delay: stagger(200),
-          duration: 3500,
-          easing: "easeInOutSine",
-        })
-      )
+      // .addEffect(({ words }) =>
+      //   animate(words, {
+      //     y: ["0%", "10%", "-10"],
+      //     direction: "alternate",
+      //     loop: true,
+      //     delay: stagger(200),
+      //     duration: 3500,
+      //     easing: "easeInOutSine",
+      //   })
+      // )
+
+      
 
       /* Hover color effect */
       .addEffect((splitInstance) => {
@@ -40,10 +46,10 @@ const HeroSection = () => {
           el.addEventListener("pointerenter", () => {
             animate(el, {
               color: utils.randomPick([
-                "#22D3EE", // cyan
-                "#A7F3D0", // mint
-                "#FDE68A", // soft yellow
-                "#f01111ff", // soft red
+                "#1e3a8a", // deep blue
+                "#4338ca", // royal purple
+                "#4ade80", // soft green
+                "#facc15", // soft red
               ]),
               duration: 250,
               easing: "easeOutQuad",
@@ -71,23 +77,18 @@ const HeroSection = () => {
       split.revert(); // 🔥 VERY IMPORTANT cleanup
     };
   }, []);
-  return (
-    <section className="relative overflow-hidden h-[600px] sm:h-[750px] md:h-[800px] lg:h-[900px] bg-altbackground backdrop-blur">
-      <div
-        className="absolute -z-10  w-[120vw] h-[100%] top-0 right-0 opacity-70 blur"
-        style={{
-          background: "linear-gradient(135deg, #423f3fff, #22D3EE, #426b64ff, #5b5c63ff)",
-          backgroundSize: "300% 300%",
-          animation: "float 15s ease infinite",
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 25%, 0% 80%)",
-        }}
-      />
 
+  return (
+    <section className="relative overflow-hidden sm:h-[750px] md:h-[800px] lg:h-[890px]">
+      
+      <div className="absolute inset-0 -z-10 w-full h-full top-0 right-0 ">
+        <BackgroundGradientAnimation />
+      </div>
 
       <div className="flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-40 justify-center items-center">
         <Badge
           variant="outline"
-          className="font-ui text-[14px] text-accent border-border font-bold gap-2 px-5 py-1 rounded-full uppercase transition-transform hover:scale-105 duration-300"
+          className="font-ui text-[18px] text-accent border-border font-bold gap-2 px-5 py-1 rounded-full uppercase transition-transform hover:scale-105 duration-300"
         >
           Enterprise AI For Healthcare Innovation
         </Badge>
@@ -98,11 +99,11 @@ const HeroSection = () => {
             ref={titleRef}
             className="mt-6 font-heading text-hero text-[#E5E7EB] font-extrabold"
           >
-            Revolutionizing LTC Pharmacy Operations with Enterprise AI
+            Revolutionizing <br></br> LTC Pharmacy Operations with Enterprise AI
           </h1>
 
           <div className="flex flex-col justify-center items-center text-center ">
-            <h2 className="font-body text-paragraph text-primary mt-12 font-bold ">
+            <h2 className="font-body text-[20px] uppercase text-paragraph text-primary  mt-12 font-bold ">
               Transform how your pharmacy operates, innovates, and scales in the
               digital age.
             </h2>
@@ -121,7 +122,7 @@ const HeroSection = () => {
             <div className="group">
               <Button
                 variant="default"
-                className="text-[16px] text-primary-foreground hover:bg-accent font-bold"
+                className="text-[16px] font-body text-primary-foreground hover:bg-accent "
                 size="xl"
               >
                 Get Started
@@ -134,7 +135,7 @@ const HeroSection = () => {
               <Link to="https://skypondtech.com" target="_blank">
                 <Button
                   variant="outline"
-                  className="text-[16px] text-[#E5E7EB] bg-null hover:text-accent flex items-center hover:underline font-bold"
+                  className="text-[16px] font-body text-[#E5E7EB] bg-null hover:text-accent flex items-center hover:underline font-bold"
                   size="xl"
                 >
                   Main Website
@@ -144,6 +145,10 @@ const HeroSection = () => {
                 </Button>
               </Link>
             </div>
+          </div>
+
+          <div className="font-base text-muted text-button mt-6 ">
+              <h1 className="underline">No credit card required | Full Access for 14 days </h1>
           </div>
         </div>
       </div>
