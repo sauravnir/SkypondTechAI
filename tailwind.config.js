@@ -5,46 +5,68 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ["Plus Jakarta Sans", "sans-serif"],
-        body: ["Inter", "sans-serif"],
-        ui: ["Urbanist", "sans-serif"],
+         heading: ["Hanken Grotesk", "system-ui", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
+        ui: ["Urbanist", "system-ui", "sans-serif"],
       },
       colors: {
-        background: "#F9FAFB",
-        altbackground: "#020617",
+       background: "#F9FAFB",
+
+        altbackground: "#0b0b0bff",
+
         card: "#FFFFFF",
+
         border: "#CBD5E1",
+
         heading: "#0F172A",
+
         bodycontent: "#CBD5E1",
+
         muted: "#64748B",
+
         primary: "#0D9488",
+
         "primary-foreground": "#FFFFFF",
+
         accent: "#22D3EE",
       },
       fontSize: {
-        hero: [
-          "clamp(2.5rem, 5vw, 4.5rem)",
-          { lineHeight: "1.2", letterSpacing: "-0.02em" },
-        ], // subtle tighter tracking
-        h1: [
-          "clamp(2rem, 4vw, 3rem)",
-          { lineHeight: "1.15", letterSpacing: "-0.015em" },	
-        ],
-        h2: [
-          "clamp(1.5rem, 3vw, 2.25rem)",
-          { lineHeight: "1.2", letterSpacing: "-0.01em" },
-        ],
-        h3: [
-          "clamp(1.25rem, 2.5vw, 1.75rem)",
-          { lineHeight: "1.3", letterSpacing: "0em" },
-        ],
-        paragraph: [
-          "clamp(1rem, 1.8vw, 1.125rem)",
-          { lineHeight: "1.7", letterSpacing: "0.01em" },
-        ],
-        small: ["0.875rem", { lineHeight: "1.4", letterSpacing: "0.02em" }],
-        button: ["1rem", { lineHeight: "1.25", letterSpacing: "0.015em" }],
-      },	
+  hero: [
+    "clamp(72px, 4vw, 3.5rem)",
+    { lineHeight: "1.1", letterSpacing: "-0.015em" },
+  ],
+
+  h1: [
+    "clamp(1.75rem, 3vw, 2.5rem)",
+    { lineHeight: "1.15", letterSpacing: "-0.01em" },
+  ],
+
+  h2: [
+    "clamp(1.375rem, 2.5vw, 2rem)",
+    { lineHeight: "1.2", letterSpacing: "-0.005em" },
+  ],
+
+  h3: [
+    "clamp(1.125rem, 2vw, 1.5rem)",
+    { lineHeight: "1.3", letterSpacing: "0em" },
+  ],
+
+  paragraph: [
+    "clamp(0.95rem, 1.5vw, 1.05rem)",
+    { lineHeight: "1.65", letterSpacing: "0em" },
+  ],
+
+  small: [
+    "0.875rem",
+    { lineHeight: "1.4", letterSpacing: "0.01em" },
+  ],
+
+  button: [
+    "0.95rem",
+    { lineHeight: "1.2", letterSpacing: "0.01em" },
+  ],
+}
+,
       animation: {
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",

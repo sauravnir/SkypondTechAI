@@ -53,7 +53,7 @@ const Footer = () => {
     { title: "Terms and Conditions", link: "#" },
   ];
   return (
-    <footer className="relative overflow-hidden bg-altbackground py-20">
+    <footer className="relative overflow-hidden bg-altbackground pt-20 pb-10 z-10">
       <div className="grid grid-cols-3 gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-0 ">
         {/* Solutions Section */}
         <div className="flex flex-col items-start gap-4">
@@ -149,18 +149,15 @@ const Footer = () => {
         </div>
       </div>
 
-      <Separator
-        orientation="horizontal"
-        className="max-w-3xl mx-auto mt-16 bg-muted "
-      />
+      
 
-      <div className="flex justify-between items-end max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
+      <div className="flex justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
         <div className="flex-col flex-shrink-0">
           <Link to="/">
-            <img src={Logo} alt="SkypondTech.AI" className="h-36 w-auto"></img>
+            <img src={Logo} alt="SkypondTech.AI" className="h-24 w-auto"></img>
           </Link>
 
-          <p className="max-w-sm mx-auto px-4 sm:px-6 lg:px-5 justify-center items-center font-body text-muted text-button">
+          <p className="max-w-sm mx-auto px-4 sm:px-6 lg:px-5 justify-start font-body text-muted text-small">
             Transforming long-term care pharmacy with enterprise-grade AI
             solutions designed for healthcare excellence and HIPAA compliance.
           </p>
@@ -180,12 +177,12 @@ const Footer = () => {
           </div>
           <Separator />
           <div className="space-y-2">
-              <div className="flex flex-row gap-2 text-muted justify-end font-bold font-body">
-            <Copyright />
+              <div className="flex flex-row gap-2 text-muted justify-end font-body text-small">
+            <Copyright size={15}/>
             <h1>{new Date().getFullYear()} Skypond AI. All rights reserved.</h1><br></br>
             
           </div>
-          <div className="flex flex-row gap-2 text-muted justify-end font-bold ">
+          <div className="flex flex-row gap-2 text-muted justify-end font-body text-small ">
             <h1>Built for healthcare. Enterprise Grade. HIPAA Compliant. SOC 2 Type II Certified.</h1>
           </div>
           </div>

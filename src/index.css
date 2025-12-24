@@ -3,4 +3,64 @@
 @tailwind utilities;
 
 
+/* Hero Section's text gradient */
+.text-gradient {
+  background: linear-gradient(
+    120deg,
+    #710554,
+    #02867b,
+    #06b6d4,
+    #7422ee
+  );
+  background-size:200% 200%;
+  animation: textGradientMove 10s ease infinite;
 
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes textGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Button Gradient */
+
+.btn-gradient {
+  background: linear-gradient(
+    110deg,
+    #710554c4,
+    #02867b,
+    #06b6d4,
+    #7422ee
+  );
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease infinite;
+  color: white;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Background Grid CSS */
+
+.interactive-gradient {
+  background: radial-gradient(
+    600px circle at var(--x, 50%) var(--y, 50%),
+    rgba(34, 211, 238, 0.18),
+    transparent 60%
+  );
+  transition: background-position 0.2s ease;
+}

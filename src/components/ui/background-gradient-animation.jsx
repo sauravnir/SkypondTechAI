@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "#020617",
   gradientBackgroundEnd = "#010206ff",
-  firstColor = "0, 10, 20", // #000a14
+  // firstColor = "0, 10, 20", // #00254aff
   secondColor = "0, 120, 180", // #0078b4
   thirdColor = "0, 200, 255", // #00c8ff
   fourthColor = "150, 255, 255", // #96ffff
-  fifthColor = "0, 5, 10", // #00050a
+  // fifthColor = "0, 5, 10", // #1e2d3dff
   pointerColor = "180, 255, 255",
   size = "40%",
   blendingValue = "hard-light",
@@ -73,11 +73,11 @@ export const BackgroundGradientAnimation = ({
 
   return (
     <div
-      className={cn(
-        "h-screen w-screen relative overflow-hidden top-0 left-0 bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
-        containerClassName
-      )}
-    >
+  className={cn(
+    "absolute inset-0 w-full h-full overflow-hidden bg-[linear-gradient(40deg,var(--gradient-background-start),var(--gradient-background-end))]",
+    containerClassName
+  )}
+>
       <svg className="hidden">
         <defs>
           <filter id="blurMe">

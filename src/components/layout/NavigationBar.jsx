@@ -10,7 +10,7 @@ import {
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
-import { ExternalLink, ChevronRight, Menu, CircleSmall } from "lucide-react";
+import { ExternalLink, ChevronRight, Menu, CircleSmall , MoveUpRight } from "lucide-react";
 
 function NavigationBar() {
   //setting up states for scroll effect
@@ -38,24 +38,24 @@ function NavigationBar() {
   ];
 
   return (
-    <header className="fixed w-full z-50 ">
+    <header className="fixed w-full z-50 border-b border-muted">
       {/* Applying isScrolled Ternary Conditional and changing navbar css */}
       <div
-        className={`flex justify-between items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 ${
+        className={`flex justify-between items-center px-10 h-16 ${
           isScrolled
-            ? "rounded-full bg-background/ backdrop-blur-md border border-border/20 h-16 mt-2 "
+            ? "bg-altbackground/40 backdrop-blur-sm "
             : "bg-transparent"
         }`}
       >
         {/* Navigation Bar Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex items-center gap-8">
+          <div className="flex-shrink-0">
           <Link to="/">
-            <img src={Logo} alt="SkypondTech.AI" className="h-24 w-auto" />
+            <img src={Logo} alt="SkypondTech.AI" className="h-16 w-auto" />
           </Link>
         </div>
 
-        {/* Menu Items */}
-        <nav className="hidden md:block">
+         <nav className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList className="space-x-2">
               {menuItems.map((item, index) => (
@@ -63,7 +63,7 @@ function NavigationBar() {
                   <NavigationMenuLink asChild>
                     <Link
                       to={item.link}
-                      className="font-body hover:text-accent transition-all delay-400 text-[#E5E7EB] text-button font-medium px-3 py-2"
+                      className="font-body hover:text-accent transition-all delay-400 text-[#E5E7EB] text-small font-bold px-3 py-2"
                     >
                       {item.title}
                     </Link>
@@ -73,18 +73,26 @@ function NavigationBar() {
             </NavigationMenuList>
           </NavigationMenu>
         </nav>
+        </div>
+        
+
+        {/* Menu Items */}
+       
+
 
         {/* CTA Buttons */}
         <div className=" flex hidden md:flex space-x-4 font-body font-medium items-center">
+          
           <div className="group">
             <Link to="https://skypondtech.com" target="_blank">
               <Button
-                variant="ghost"
-                className="text-[16px] text-[#E5E7EB] hover:text-accent flex items-center hover:underline"
+                variant="outline"
+                className="text-[14px] text-[#E5E7EB] bg-null flex items-center rounded-full"
+                size="sm"
               >
                 Main Website
                 <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
-                  <ExternalLink />
+                  <MoveUpRight strokeWidth={2.75}/>
                 </span>
               </Button>
             </Link>
@@ -93,16 +101,18 @@ function NavigationBar() {
           <div className="group">
             <Button
               variant="default"
-              className="text-[16px] text-primary-foreground flex items-center hover:bg-accent"
-              size="lg"
+              className="text-[14px] btn-gradient text-primary-foreground rounded-full flex items-center hover:bg-accent "
+              size="sm"
             >
               Get Started
               <span className="transition-transform duration-300 group-hover:scale-150 ">
-                <ChevronRight />
+                <ChevronRight strokeWidth={2.75}/>
               </span>
             </Button>
           </div>
         </div>
+     
+        
 
         {/* Mobile Menu Button */}
         <div className="md:hidden ">
@@ -145,7 +155,7 @@ function NavigationBar() {
                 <div className="group">
                   <Button
                     variant="default"
-                    className="text-button text-primary-foreground flex items-center w-full justify-center"
+                    className="text-button btn-gradient text-primary-foreground flex items-center w-full justify-center"
                     size="lg"
                   >
                     Get Started
