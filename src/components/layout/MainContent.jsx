@@ -1,40 +1,33 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion, AnimatePresence } from "motion/react";
-import {   FileText,   Bot,   Workflow,   ShoppingCart,  CheckCircle,  ArrowRight} from "lucide-react";
+import { Button } from "../ui/button";
+import {
+  FileText,
+  Bot,
+  Workflow,
+  ShoppingCart,
+  CheckCircle,
+  ArrowRight,
+  ChevronRight,
+  Sparkles,
+} from "lucide-react";
 
 const MainServices = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const timerRef = useRef(null);
-  const DURATION = 5000; // 5 seconds
-
-  const startTimer = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
-
-    timerRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % services.length);
-    }, DURATION);
-  };
-
-  useEffect(() => {
-    startTimer();
-    return () => clearInterval(timerRef.current);
-  }, []);
-
-  const handleTabClick = (index) => {
-    setActiveIndex(index);
-    startTimer();
-  };
-
-  // Creating an array for loading the services section
+  const DURATION = 12000; // 5 seconds
 
   const services = [
     {
       id: "order-entry-automation",
       title: "Order Entry Automation",
-      body: "Intelligent order processing platform that eleminates manual data entry and supplier communication delays. Reduce order processing time by 85% while maintaining 99.9% accuracy.",
+      body: "Intelligent order processing platform that eliminates manual data entry and supplier communication delays. Reduce order processing time by 85% while maintaining 99.9% accuracy.",
+      icon: ShoppingCart,
+      gradient: "from-amber-400 to-orange-500",
       features: [
         "Intelligent supplier integration",
         "Real-time inventory synchronization",
@@ -46,6 +39,8 @@ const MainServices = () => {
       id: "document-automation",
       title: "Document Automation",
       body: "Enterprise-grade document processing that transforms unstructured pharmacy data into actionable insights. Digitize, verify, and process hundreds of documents daily with zero errors.",
+      icon: FileText,
+      gradient: "from-blue-400 to-blue-600",
       features: [
         "Intelligent document classification",
         "Insurance form automation",
@@ -57,6 +52,8 @@ const MainServices = () => {
       id: "ai-pharmacy-copilot",
       title: "AI Pharmacy Copilot",
       body: "Intelligent conversational AI designed specifically for pharmacy operations. Provide instant support to staff and patients 24/7, handling routine inquiries and escalating complex issues automatically.",
+      icon: Bot,
+      gradient: "from-emerald-400 to-teal-500",
       features: [
         "Multi-language support",
         "HIPAA-compliant conversations",
@@ -67,7 +64,9 @@ const MainServices = () => {
     {
       id: "workflow-intelligence",
       title: "Workflow Intelligence",
-      body: "Comprehensive automation engine that learns your pharmacy's unique processes and optimizes them continuously. Streamline medication verfication, quality checks, and operational workflows.",
+      body: "Comprehensive automation engine that learns your pharmacy's unique processes and optimizes them continuously. Streamline medication verification, quality checks, and operational workflows.",
+      icon: Workflow,
+      gradient: "from-purple-400 to-pink-500",
       features: [
         "Intelligent task prioritization",
         "Quality assurance automation",
@@ -76,21 +75,48 @@ const MainServices = () => {
       ],
     },
   ];
-  const tabDefault =[ "#947660ff", "#5391f4ff", "#18cd91ff", "#f83660ff"]
-  const tabActiveColors = ["#7c6453ff", "#3B82F6", "#10B981", "#E11D48"];
+
+  const startTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % services.length);
+    }, DURATION);
+  };
+
+  useEffect(() => {
+    if (!services || !services.length) return;
+    startTimer();
+    return () => clearInterval(timerRef.current);
+  }, [services]);
+
+  const handleTabClick = (index) => {
+    setActiveIndex(index);
+    startTimer();
+  };
+
+  // Creating an array for loading the services section
+
+  // const tabDefault = ["#947660ff", "#5391f4ff", "#18cd91ff", "#f83660ff"];
+  const tabActiveColors = [
+    "rgba(13,148,136,0.35)", // primary
+    "rgba(13,148,136,0.35)",
+    "rgba(13,148,136,0.35)",
+    "rgba(13,148,136,0.35)",
+  ];
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden ">
       <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
         <div className="flex flex-col justify-center items-center text-center space-y-4">
           <Badge
-            variant="outline"
-            className="font-ui text-[14px] bg-null text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full uppercase mb-2 "
+            variant="default"
+            className="font-ui text-[14px] bg-card text-accent border border-accent shadow-lg hover:bg-background font-bold gap-2 px-5 py-1 rounded-full uppercase mb-2 "
           >
-            Our Solutions
+            <Sparkles size={15} color="gold" /> Our Solutions
           </Badge>
           <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
-            Enterprise-Grade AI Solutions Purpose-Built for LTC Pharmacy
+            Enterprise-Grade <span className="text-gradient">AI Solutions</span>{" "}
+            Purpose-Built for LTC Pharmacy
           </h1>
           <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
             Transform every aspect of your pharmacy operations with our
@@ -99,38 +125,57 @@ const MainServices = () => {
           </p>
         </div>
         {/* Tabs */}
-        <div className="flex flex-row mt-8 bg-accent p-6 rounded-xl border border-border">
+        <div className="flex flex-row mt-8  p-6 rounded-xl ">
           <Tabs value={services[activeIndex].id} className="w-full">
-            <TabsList className="flex gap-4 no-scrollbar bg-transparent">
-              {services.map((service, index) => (
-                <TabsTrigger
-                  key={service.id}
-                  value={service.id}
-                  onClick={() => handleTabClick(index)}
-                  className="relative px-2 py-2 bg-card"
-                >
-                  {activeIndex === index && (
-                    <motion.div
-                      key={activeIndex} // reset animation when tab changes
-                      className="absolute top-0 left-0 h-full rounded"
-                      style={{ backgroundColor: tabActiveColors[index], zIndex: 0 }}
-                      initial={{ width: "0%" }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: DURATION / 1000, ease: "linear" }}
-                    />
-                  )}
-
-                  
-                  <span className="font-body text-button z-10">
-                    {service.title}
-                  </span>
-
-                </TabsTrigger>
-              ))}
+            <TabsList className="flex gap-4 no-scrollbar bg-null">
+              {services.map((service, index) => {
+                const IconContainer = service.icon;
+                return (
+                  <TabsTrigger
+                    key={service.id}
+                    value={service.id}
+                    onClick={() => handleTabClick(index)}
+                    className={`relative px-5 py-5
+    rounded-lg
+    border border-border
+    bg-card/60
+    hover:bg-accent/10
+    transition-colors`}
+                  >
+                    {activeIndex === index && (
+                      <motion.div
+                        key={activeIndex} // reset animation when tab changes
+                        className="absolute inset-x-0 bottom-0 h-[3px] rounded-lg"
+                        style={{
+                          backgroundColor: tabActiveColors[index],
+                          zIndex: 0,
+                        }}
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{
+                          duration: DURATION / 1000,
+                          ease: "linear",
+                        }}
+                      />
+                    )}
+                    <div className="flex items-center justify-center gap-2">
+                      <IconContainer
+                        className={`z-10 ${
+                          activeIndex === index ? "text-primary" : "text-muted"
+                        }`}
+                        size={22}
+                      />
+                      <span className="font-body text-button z-10">
+                        {service.title}
+                      </span>
+                    </div>
+                  </TabsTrigger>
+                );
+              })}
             </TabsList>
 
             {/* Content */}
-            <div className="mt-12">
+            <div className="mt-8">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={services[activeIndex].id}
@@ -140,26 +185,84 @@ const MainServices = () => {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                   <TabsContent value={services[activeIndex].id} forceMount>
-                    <Card className="rounded-3xl bg-white/5 backdrop-blur border border-white/10">
+                    <Card className="max-w-5xl mx-auto rounded-3xl bg-white/5 backdrop-blur shadow-xl p-6">
                       <CardContent className="p-8">
-                        <h3 className="text-xl font-semibold">
-                          {services[activeIndex].title}
-                        </h3>
+                        <div className="grid lg:grid-cols-2 gap-12 items-start">
+                          {/* Left content */}
+                          <div className="space-y-6">
+                            <div className="flex items-start gap-4">
+                              <div
+                                className={`p-3 rounded-2xl bg-gradient-to-br ${services[activeIndex].gradient} shadow-lg`}
+                              >
+                                {React.createElement(
+                                  services[activeIndex].icon,
+                                  {
+                                    className: "w-8 h-8 text-white",
+                                  }
+                                )}
+                              </div>
+                              <div>
+                                <h3 className="font-heading text-h2 font-bold text-heading mb-4">
+                                  {services[activeIndex].title}
+                                </h3>
+                                <div
+                                  className={`w-16 h-1 bg-gradient-to-r ${services[activeIndex].gradient} rounded-full`}
+                                />
+                              </div>
+                            </div>
 
-                        <p className="mt-3 text-muted-foreground">
-                          {services[activeIndex].description}
-                        </p>
+                            <p className="font-body text-paragraph text-muted ">
+                              {services[activeIndex].body}
+                            </p>
 
-                        <ul className="mt-6 space-y-3">
-                          {services[activeIndex].features.map((feature, i) => (
-                            <li key={i} className="flex items-start gap-3">
-                              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                              <span className="text-sm text-muted-foreground">
-                                {feature}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+                            <div className="group pt-4">
+                              <Link
+                                to="https://skypondtech.com"
+                                target="_blank"
+                              >
+                                <Button
+                                  variant="outline"
+                                  className={`inline-flex items-center justify-center
+                                bg-gradient-to-r ${services[activeIndex].gradient} text-white rounded-full
+                                shadow-lg  transition-all duration-300  `}
+                                  size="lg"
+                                >
+                                  Learn More
+                                  <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
+                                    <ChevronRight strokeWidth={2.75} />
+                                  </span>
+                                </Button>
+                              </Link>
+                            </div>
+                          </div>
+
+                          {/* Right content - Features */}
+                          <div className="space-y-4">
+                            <h4 className="font-heading">
+                              Key Features
+                            </h4>
+                            <ul className="space-y-4">
+                              {services[activeIndex].features.map(
+                                (feature, i) => (
+                                  <motion.li
+                                    key={i}
+                                    className="flex items-start gap-3"
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.1 + 0.3 }}
+                                  >
+                                    <CheckCircle
+                                      className={`w-5 h-5 mt-0.5 text-emerald-500 flex-shrink-0`}
+                                    />
+                                    <span className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                      {feature}
+                                    </span>
+                                  </motion.li>
+                                )
+                              )}
+                            </ul>
+                          </div>
+                        </div>
                       </CardContent>
                     </Card>
                   </TabsContent>
@@ -174,4 +277,3 @@ const MainServices = () => {
 };
 
 export default MainServices;
-

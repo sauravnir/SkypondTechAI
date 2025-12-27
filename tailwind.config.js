@@ -10,7 +10,7 @@ module.exports = {
         ui: ["Urbanist", "system-ui", "sans-serif"],
       },
       colors: {
-       background: "#F9FAFB",
+        background: "#F9FAFB",
 
         altbackground: "#0b0b0bff",
 
@@ -31,42 +31,42 @@ module.exports = {
         accent: "#22D3EE",
       },
       fontSize: {
-  hero: [
-    "clamp(72px, 4vw, 3.5rem)",
-    { lineHeight: "1.1", letterSpacing: "-0.015em" },
-  ],
+        hero: [
+          "clamp(3.5rem, 5vw, 4.5rem)", // 56 → 72px
+          { lineHeight: "1.05", letterSpacing: "-0.02em" },
+        ],
 
-  h1: [
-    "clamp(40px, 3vw, 2.5rem)",
-    { lineHeight: "1.15", letterSpacing: "-0.01em" },
-  ],
+        h1: [
+          "clamp(2.5rem, 4vw, 3.25rem)", // 40 → 52px
+          { lineHeight: "1.1", letterSpacing: "-0.015em" },
+        ],
 
-  h2: [
-    "clamp(1.375rem, 2.5vw, 2rem)",
-    { lineHeight: "1.2", letterSpacing: "-0.005em" },
-  ],
+        h2: [
+          "clamp(2rem, 3vw, 2.5rem)", // 32 → 40px
+          { lineHeight: "1.15", letterSpacing: "-0.01em" },
+        ],
 
-  h3: [
-    "clamp(1.125rem, 2vw, 1.5rem)",
-    { lineHeight: "1.3", letterSpacing: "0em" },
-  ],
+        h3: [
+          "clamp(1.5rem, 2.2vw, 1.875rem)", // 24 → 30px
+          { lineHeight: "1.25", letterSpacing: "-0.005em" },
+        ],
 
-  paragraph: [
-    "clamp(0.95rem, 1.5vw, 1.05rem)",
-    { lineHeight: "1.65", letterSpacing: "0em" },
-  ],
+        paragraph: [
+          "clamp(1rem, 1.2vw, 1.125rem)", // 16 → 18px
+          { lineHeight: "1.7", letterSpacing: "0em" },
+        ],
 
-  small: [
-    "0.875rem",
-    { lineHeight: "1.4", letterSpacing: "0.01em" },
-  ],
+        small: [
+          "0.875rem", // 14px
+          { lineHeight: "1.45", letterSpacing: "0.01em" },
+        ],
 
-  button: [
-    "0.95rem",
-    { lineHeight: "1.2", letterSpacing: "0.01em" },
-  ],
-}
-,
+        button: [
+          "0.9375rem", // 15px
+          { lineHeight: "1.25", letterSpacing: "0.01em" },
+        ],
+      },
+
       animation: {
         first: "moveVertical 30s ease infinite",
         second: "moveInCircle 20s reverse infinite",
