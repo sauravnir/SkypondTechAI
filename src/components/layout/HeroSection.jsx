@@ -113,7 +113,7 @@ const HeroSection = () => {
   // }, []);
 
   return (
-    <section className="relative overflow-hidden sm:h-[850px] md:h-[900px] lg:h-[830px]">
+    <section className="relative overflow-hidden sm:h-[850px] md:h-[900px] lg:h-[900px]">
       <div className="absolute inset-0 w-full h-full bg-altbackground pointer-events-auto">
         {/* <BackgroundGradientAnimation /> */}
         <InteractiveGridPattern
@@ -127,10 +127,10 @@ const HeroSection = () => {
         <div className="group">
           <Badge
           variant="default"
-          className="font-ui text-[14px] bg-slate-800 text-primary-foreground border border-slate-500 font-bold gap-2 px-5 py-1 rounded-full hover:bg-slate-900 uppercase mb-8 pointer-events-auto"
+          className="font-ui text-[14px] bg-null text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full hover:bg-slate-900 uppercase mb-8 pointer-events-auto"
         >
           
-          Enterprise AI For Healthcare Innovation<Rocket size={15} className="transition-transform duration-300 group-hover:scale-125 inline-block text-amber-400 " />
+          Enterprise AI For Healthcare Innovation<Rocket size={15} className="transition-transform duration-300 inline-block text-amber-400 " />
         </Badge>
         </div>
         
@@ -197,19 +197,19 @@ const HeroSection = () => {
       </div>
 
       
-<div className="relative flex justify-center items-center z-10 w-full py-14">
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl w-full px-4">
+<div className="relative flex justify-center items-center z-10 w-full py-24">
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl w-full ">
     {itemList.map((item, index) => (
       <div key={item.head} className="group">
         <Card
-          className="group relative h-24 md:h-28 p-6 bg-null border border-slate-400 hover:border-primary/50 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl backdrop-blur-sm"
+          className="group relative h-20 md:h-24 p-6 bg-null border border-slate-400 hover:border-primary/50 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl backdrop-blur-sm"
         >
           <div className="flex items-center space-x-4 h-full items-start">
             <div className="flex-shrink-0 p-3 bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 text-primary-foreground">
               {item.icon}
             </div>
             <div className="flex flex-col min-w-0 flex-1">
-              <CardTitle className="font-body text-[28px] text-primary group-hover:text-primary transition-colors">
+              <CardTitle className="font-body text-[24px] text-primary group-hover:text-primary transition-colors">
                 {item.head}
               </CardTitle>
               <CardDescription className="font-body text-sm md:text-base font-medium text-muted  mt-1">

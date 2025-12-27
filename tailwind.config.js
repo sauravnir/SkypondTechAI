@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-         heading: ["Hanken Grotesk", "system-ui", "sans-serif"],
+        heading: ["Hanken Grotesk", "system-ui", "sans-serif"],
         body: ["Inter", "system-ui", "sans-serif"],
         ui: ["Urbanist", "system-ui", "sans-serif"],
       },
@@ -37,7 +37,7 @@ module.exports = {
   ],
 
   h1: [
-    "clamp(1.75rem, 3vw, 2.5rem)",
+    "clamp(40px, 3vw, 2.5rem)",
     { lineHeight: "1.15", letterSpacing: "-0.01em" },
   ],
 
