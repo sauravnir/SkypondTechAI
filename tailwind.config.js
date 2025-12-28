@@ -28,7 +28,7 @@ module.exports = {
 
         "primary-foreground": "#FFFFFF",
 
-        accent: "#22D3EE",
+        accent: "#0e81c8ff",
       },
       fontSize: {
         hero: [

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, use } from "react";
 import { Link } from "react-router-dom";
-import Logo from "@/assets/media/SiteLogo.png";
+import Logo from "@/assets/media/1.png";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -43,7 +43,7 @@ function NavigationBar() {
       <div
         className={`flex justify-between items-center px-10 h-16 ${
           isScrolled
-            ? "bg-altbackground/40 backdrop-blur-sm "
+            ? "bg-altbackground/80 backdrop-blur-sm "
             : "bg-transparent"
         }`}
       >
@@ -51,7 +51,7 @@ function NavigationBar() {
         <div className="flex items-center gap-8">
           <div className="flex-shrink-0">
           <Link to="/">
-            <img src={Logo} alt="SkypondTech.AI" className="h-16 w-auto" />
+            <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
           </Link>
         </div>
 

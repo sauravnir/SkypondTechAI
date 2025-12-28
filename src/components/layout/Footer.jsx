@@ -11,7 +11,7 @@ import {
   NavigationMenuList,
 } from "../ui/navigation-menu";
 
-import Logo from "@/assets/media/SiteLogo.png";
+import Logo from "@/assets/media/1.png";
 
 const Footer = () => {
   const solutionMenu = [
@@ -154,7 +154,7 @@ const Footer = () => {
       <div className="flex justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
         <div className="flex-col flex-shrink-0">
           <Link to="/">
-            <img src={Logo} alt="SkypondTech.AI" className="h-24 w-auto"></img>
+            <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto"></img>
           </Link>
 
           <p className="max-w-sm mx-auto px-4 sm:px-6 lg:px-5 justify-start font-body text-muted text-small">

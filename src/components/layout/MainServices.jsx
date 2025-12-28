@@ -9,24 +9,27 @@ import {
   FileText,
   Bot,
   Workflow,
-  ShoppingCart,
   CheckCircle,
-  ArrowRight,
   ChevronRight,
   Sparkles,
+  Cog,
 } from "lucide-react";
+
+import { Highlighter } from "../ui/highlighter";
+
 
 const MainServices = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const timerRef = useRef(null);
   const DURATION = 12000; // 5 seconds
 
+  // Creating an array for loading the services section
   const services = [
     {
       id: "order-entry-automation",
       title: "Order Entry Automation",
       body: "Intelligent order processing platform that eliminates manual data entry and supplier communication delays. Reduce order processing time by 85% while maintaining 99.9% accuracy.",
-      icon: ShoppingCart,
+      icon: Cog,
       gradient: "from-amber-400 to-orange-500",
       features: [
         "Intelligent supplier integration",
@@ -76,6 +79,7 @@ const MainServices = () => {
     },
   ];
 
+  // Calculating the tab rotation timer 
   const startTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
@@ -94,64 +98,57 @@ const MainServices = () => {
     startTimer();
   };
 
-  // Creating an array for loading the services section
-
-  // const tabDefault = ["#947660ff", "#5391f4ff", "#18cd91ff", "#f83660ff"];
-  const tabActiveColors = [
-    "rgba(13,148,136,0.35)", // primary
-    "rgba(13,148,136,0.35)",
-    "rgba(13,148,136,0.35)",
-    "rgba(13,148,136,0.35)",
-  ];
-
+  const tabDefault = ["#c4611bff", "#5391f4ff", "#18cd91ff", "#f83660ff"];
   return (
     <div className="relative overflow-hidden ">
+  
       <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
         <div className="flex flex-col justify-center items-center text-center space-y-4">
           <Badge
-            variant="default"
-            className="font-ui text-[14px] bg-card text-accent border border-accent shadow-lg hover:bg-background font-bold gap-2 px-5 py-1 rounded-full uppercase mb-2 "
+            variant="outline"
+            className="font-ui text-[14px] bg-card text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full uppercase mb-2 "
           >
-            <Sparkles size={15} color="gold" /> Our Solutions
+            Our Solutions
           </Badge>
           <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
-            Enterprise-Grade <span className="text-gradient">AI Solutions</span>{" "}
+            Enterprise-Grade <Highlighter action="underline" color="#ffaa11">AI Solutions</Highlighter><br></br>
             Purpose-Built for LTC Pharmacy
           </h1>
           <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
             Transform every aspect of your pharmacy operations with our
             intergrated AI platform designed specifically for long-term care
-            environments.
+            environments
           </p>
         </div>
         {/* Tabs */}
         <div className="flex flex-row mt-8  p-6 rounded-xl ">
           <Tabs value={services[activeIndex].id} className="w-full">
-            <TabsList className="flex gap-4 no-scrollbar bg-null">
+            <TabsList className="flex gap-3 p-2 rounded-2xl bg-null">
               {services.map((service, index) => {
                 const IconContainer = service.icon;
                 return (
                   <TabsTrigger
-                    key={service.id}
                     value={service.id}
                     onClick={() => handleTabClick(index)}
-                    className={`relative px-5 py-5
-    rounded-lg
-    border border-border
-    bg-card/60
-    hover:bg-accent/10
-    transition-colors`}
+                    className="
+    relative px-5 py-4 rounded-xl
+    bg-muted/20
+    hover:bg-muted/10
+    data-[state=active]:bg-card/20
+    data-[state=active]:shadow-xl
+    transition-all duration-300
+    bg-transparent/5
+  "
                   >
                     {activeIndex === index && (
                       <motion.div
-                        key={activeIndex} // reset animation when tab changes
-                        className="absolute inset-x-0 bottom-0 h-[3px] rounded-lg"
+                        className="absolute inset-x-2 bottom-1 h-[3px] rounded-full"
                         style={{
-                          backgroundColor: tabActiveColors[index],
-                          zIndex: 0,
+                          backgroundColor: tabDefault[index],
                         }}
-                        initial={{ width: "0%" }}
-                        animate={{ width: "100%" }}
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transformOrigin="left"
                         transition={{
                           duration: DURATION / 1000,
                           ease: "linear",
@@ -160,12 +157,17 @@ const MainServices = () => {
                     )}
                     <div className="flex items-center justify-center gap-2">
                       <IconContainer
-                        className={`z-10 ${
-                          activeIndex === index ? "text-primary" : "text-muted"
+                        className={`z-10${
+                          activeIndex === index ? "text-primary" : "text-muted/"
                         }`}
                         size={22}
                       />
-                      <span className="font-body text-button z-10">
+                      <span
+                        className={`
+    font-body text-button transition-colors
+    ${activeIndex === index ? "text-heading font-medium" : "text-heading"}
+  `}
+                      >
                         {service.title}
                       </span>
                     </div>
@@ -185,7 +187,7 @@ const MainServices = () => {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                   <TabsContent value={services[activeIndex].id} forceMount>
-                    <Card className="max-w-5xl mx-auto rounded-3xl bg-white/5 backdrop-blur shadow-xl p-6">
+                    <Card className={`max-w-5xl mx-auto rounded-3xl backdrop-blur-xl shadow-2xl p-6 `}>
                       <CardContent className="p-8">
                         <div className="grid lg:grid-cols-2 gap-12 items-start">
                           {/* Left content */}
@@ -202,7 +204,7 @@ const MainServices = () => {
                                 )}
                               </div>
                               <div>
-                                <h3 className="font-heading text-h2 font-bold text-heading mb-4">
+                                <h3 className="font-heading text-h3 font-bold text-heading text-heading mb-4">
                                   {services[activeIndex].title}
                                 </h3>
                                 <div
@@ -238,10 +240,10 @@ const MainServices = () => {
 
                           {/* Right content - Features */}
                           <div className="space-y-4">
-                            <h4 className="font-heading">
+                            <h4 className="font-heading text-paragraph font-bold text-heading">
                               Key Features
                             </h4>
-                            <ul className="space-y-4">
+                            <ul className="flex flex-col justify-center space-y-4">
                               {services[activeIndex].features.map(
                                 (feature, i) => (
                                   <motion.li
@@ -252,9 +254,10 @@ const MainServices = () => {
                                     transition={{ delay: i * 0.1 + 0.3 }}
                                   >
                                     <CheckCircle
-                                      className={`w-5 h-5 mt-0.5 text-emerald-500 flex-shrink-0`}
+                                      className={`mt-1 text-primary flex-shrink-0`}
+                                      size={20}
                                     />
-                                    <span className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                    <span className="font-body text-paragraph text-muted">
                                       {feature}
                                     </span>
                                   </motion.li>

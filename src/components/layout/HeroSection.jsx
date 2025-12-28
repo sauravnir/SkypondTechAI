@@ -113,7 +113,7 @@ const HeroSection = () => {
   // }, []);
 
   return (
-    <section className="relative overflow-hidden sm:h-[850px] md:h-[900px] lg:h-[900px]">
+    <section className="relative overflow-hidden sm:h-[850px] md:h-[900px] lg:h-[900px] ">
       <div className="absolute inset-0 w-full h-full bg-altbackground pointer-events-auto">
         {/* <BackgroundGradientAnimation /> */}
         <InteractiveGridPattern
@@ -202,7 +202,7 @@ const HeroSection = () => {
     {itemList.map((item, index) => (
       <div key={item.head} className="group">
         <Card
-          className="group relative h-20 md:h-24 p-6 bg-null border border-slate-400 hover:border-primary/50 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl backdrop-blur-sm"
+          className="group relative h-20 md:h-24 p-6 bg-null border border-slate-400 hover:border-primary/50 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl backdrop-blur-sm animate-float"
         >
           <div className="flex items-center space-x-4 h-full items-start">
             <div className="flex-shrink-0 p-3 bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 text-primary-foreground">
