@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { ChevronRight, Target, Eye, Handshake } from "lucide-react";
+import {
+  ChevronRight,
+  Target,
+  Eye,
+  Handshake,
+  CheckCircle,
+  Award,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { Highlighter } from "../ui/highlighter";
 import { Globe } from "../ui/globe";
-import { NumberTicker } from "../ui/number-ticker";
+import { AnimatedList } from "../ui/animated-list";
+import { ProgressiveBlur } from "../ui/progressive-blur";
 import "@/index.css";
 
 export default function MissionSection() {
@@ -47,6 +55,81 @@ export default function MissionSection() {
       iconAnimation: "animate-bounce-slow delay-200",
     },
   ];
+
+ const whyWeBuild = [
+  {
+    title: "Complex Workflows",
+    body: "Manual tasks and repetitive processes slow teams down",
+    icon: Target,
+    gradient: "bg-gradient-to-r from-[#5391f4ff] to-[#0e81c8ff]", // blue gradient
+  },
+  {
+    title: "Compliance Burden",
+    body: "Regulations are critical but cumbersome",
+    icon: Eye,
+    gradient: "bg-gradient-to-r from-[#18cd91ff] to-[#0d9488ff]", // teal gradient
+  },
+  {
+    title: "Smart AI Assistance",
+    body: "Automates tasks while supporting decision-making",
+    icon: Handshake,
+    gradient: "bg-gradient-to-r from-[#fcbf1eff] to-[#e1701eff]", // orange gradient
+  },
+  {
+    title: "Error Reduction",
+    body: "Minimizes mistakes, improves accuracy",
+    icon: CheckCircle,
+    gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]", // red gradient
+  },
+  {
+    title: "Empowered Professionals",
+    body: "Lets pharmacists focus on patient care",
+    icon: Award,
+    gradient: "bg-gradient-to-r from-[#facc15] to-[#eab308]", // yellow gradient
+  },
+  {
+    title: "Data-Driven Insights",
+    body: "Provides actionable analytics to improve decision-making",
+    icon: Target,
+    gradient: "bg-gradient-to-r from-[#22c55e] to-[#16a34a]", // green gradient
+  },
+  {
+    title: "Enhanced Productivity",
+    body: "Reduces administrative burden and frees up time",
+    icon: Handshake,
+    gradient: "bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed]", // purple gradient
+  },
+  {
+    title: "Seamless Integration",
+    body: "Connects effortlessly with existing pharmacy software",
+    icon: Eye,
+    gradient: "bg-gradient-to-r from-[#06b6d4] to-[#0e7490]", // cyan gradient
+  },
+  {
+    title: "Patient-Centric Care",
+    body: "Ensures pharmacy teams can focus on improving patient outcomes",
+    icon: Award,
+    gradient: "bg-gradient-to-r from-[#f97316] to-[#ea580c]", // deep orange gradient
+  },
+  {
+    title: "Scalable Solutions",
+    body: "Adaptable technology that grows with your organization",
+    icon: CheckCircle,
+    gradient: "bg-gradient-to-r from-[#3b82f6] to-[#2563eb]", // bright blue gradient
+  },
+];
+
+
+
+  // Reanimating the list after certain interval
+  const [listKey, setListKey] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setListKey((prev) => prev + 1); 
+    }, 17000); // setting 17secs for refreshing the animation
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative overflow-hidden  ">
@@ -91,8 +174,6 @@ export default function MissionSection() {
         <div className="relative max-w-6xl mx-auto space-y-32 mt-8">
           <div className="absolute left-1/2 top-0 h-full w-px bg-border/40 -translate-x-1/2 hidden lg:block" />
           {content.map((item, index) => {
-            const Icon = item.icon;
-            const anchor = anchorStyles[index % anchorStyles.length];
             return (
               <motion.div
                 key={index}
@@ -100,7 +181,7 @@ export default function MissionSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-float ${
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
                   index % 2 === 1 ? "lg:text-right" : ""
                 }`}
               >
@@ -116,9 +197,7 @@ export default function MissionSection() {
                   >
                     {/* <Icon className="w-6 h-6 text-primary" /> */}
                     <h2 className="font-heading text-h3 font-bold">
-                      <Highlighter action="highlight" color={item.color}>
-                        {item.title}
-                      </Highlighter>
+                     {item.title}
                     </h2>
                   </div>
 
@@ -128,20 +207,39 @@ export default function MissionSection() {
                 </div>
 
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                  <div className="relative rounded-2xl border border-border bg-white/20 backdrop-blur-md p-10 shadow-lg overflow-hidden">
-                    {/* Layered Glow */}
-                    <div
-                      className={`absolute -top-8 -left-8 ${anchor.size} rounded-full ${anchor.bg} blur-3xl ${anchor.glow}`}
-                    />
-                    <div
-                      className={`absolute -bottom-6 -right-6 ${anchor.size} rounded-full ${anchor.bg} blur-3xl ${anchor.glow}`}
-                    />
+                  {item.title === "Why We Build" && (
+                    <div className="relative flex flex-col w-full max-w-md h-[350px] overflow-hidden p-2">
+                      <AnimatedList key={listKey} delay={1500}>
+                        {whyWeBuild.map((i) => {
+                          const Icons = i.icon;
+                          return (
+                            <div className="flex flex-row items-center justify-start bg-card shadow-lg p-4 rounded-xl gap-4">
+                              <div className={`flex w-10 h-10 rounded-full justify-center items-center bg-gradient-to-r ${i.gradient} `}>
+                                <Icons className=" transition-transform duration-300 text-white" size={18}/>
+                              </div>
+                              <div className="flex flex-col justify-start items-start text-start">
+                                <h1 className="font-heading text-paragraph text-heading font-bold">
+                                  {i.title}
+                                </h1>
+                                <p className="max-w-sm font-body text-small text-muted ">
+                                  {i.body}
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                       
+                        
+                      </AnimatedList>
+                      {/* Applying blur */}
+                      {/* <ProgressiveBlur position="bottom" height="10%"/> */}
+                    </div>
+                  )}
 
-                    {/* Number */}
-                    <span className="font-heading text-6xl font-bold text-primary/70 relative z-10">
-                      {index + 1}
-                    </span>
-                  </div>
+                {item.title==="Our Mission" && (
+                  <div></div>
+                )}
+                  
                 </div>
               </motion.div>
             );
