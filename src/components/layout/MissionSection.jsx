@@ -246,7 +246,7 @@ export default function MissionSection() {
           })}
         </div>
 
-        <div className="flex flex-col max-w-5xl mx-auto p-8 rounded-2xl border mt-12 ">
+        <div className="flex flex-col max-w-5xl mx-auto p-8 rounded-2xl border mt-12 animate-float bg-card">
           <div className="p-4 text-center space-y-4">
             <p className="font-body text-paragraph text-heading">
               <span className="font-bold text-primary">

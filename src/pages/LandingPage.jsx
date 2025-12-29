@@ -14,7 +14,7 @@ const LandingPage = () => {
       <div
         style={{
           backgroundImage: "radial-gradient(#cbd5e1 0.8px, transparent 0.8px)",
-          backgroundSize: "24px 24px",
+          backgroundSize: "25px 25px",
         }}
       >
         <MainServices />

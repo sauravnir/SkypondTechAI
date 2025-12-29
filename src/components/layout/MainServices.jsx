@@ -17,11 +17,10 @@ import {
 
 import { Highlighter } from "../ui/highlighter";
 
-
 const MainServices = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const timerRef = useRef(null);
-  const DURATION = 12000; // 5 seconds
+  const DURATION = 10000; // 5 seconds
 
   // Creating an array for loading the services section
   const services = [
@@ -79,7 +78,7 @@ const MainServices = () => {
     },
   ];
 
-  // Calculating the tab rotation timer 
+  // Calculating the tab rotation timer
   const startTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
@@ -101,7 +100,6 @@ const MainServices = () => {
   const tabDefault = ["#c4611bff", "#5391f4ff", "#18cd91ff", "#f83660ff"];
   return (
     <div className="relative overflow-hidden ">
-  
       <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
         <div className="flex flex-col justify-center items-center text-center space-y-4">
           <Badge
@@ -111,7 +109,11 @@ const MainServices = () => {
             Our Solutions
           </Badge>
           <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
-            Enterprise-Grade <Highlighter action="underline" color="#ffaa11">AI Solutions</Highlighter><br></br>
+            Enterprise-Grade{" "}
+            <Highlighter action="underline" color="#ffaa11">
+              AI Solutions
+            </Highlighter>
+            <br></br>
             Purpose-Built for LTC Pharmacy
           </h1>
           <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
@@ -123,49 +125,47 @@ const MainServices = () => {
         {/* Tabs */}
         <div className="flex flex-row mt-8  p-6 rounded-xl ">
           <Tabs value={services[activeIndex].id} className="w-full">
-            <TabsList className="flex gap-3 p-2 rounded-2xl bg-null">
+            <TabsList className="flex gap-3 py-8 max-w-5xl mx-auto rounded-2xl bg-muted/10 shdaow-xl ">
               {services.map((service, index) => {
                 const IconContainer = service.icon;
                 return (
                   <TabsTrigger
                     value={service.id}
+                    
                     onClick={() => handleTabClick(index)}
-                    className="
-    relative px-5 py-4 rounded-xl
-    bg-muted/20
-    hover:bg-muted/10
-    data-[state=active]:bg-card/20
-    data-[state=active]:shadow-xl
-    transition-all duration-300
-    bg-transparent/5
-  "
+                    className={`  relative  rounded-xl py-3 px-6
+    transition-all duration-300 
+    hover:scale-105 hover:text-heading ${activeIndex === index ? "border-2 border-accent":"text-muted" }`}
                   >
-                    {activeIndex === index && (
+
+                    {/* Progress Bar */}
+                    {/* {activeIndex === index && (
                       <motion.div
-                        className="absolute inset-x-2 bottom-1 h-[3px] rounded-full"
+                        className="absolute inset-x-4  bottom-1 h-[2px] "
                         style={{
                           backgroundColor: tabDefault[index],
                         }}
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: 1 }}
-                        transformOrigin="left"
+
                         transition={{
                           duration: DURATION / 1000,
                           ease: "linear",
                         }}
                       />
-                    )}
-                    <div className="flex items-center justify-center gap-2">
+                    )} */}
+                    <div className="flex items-center  justify-center gap-2">
                       <IconContainer
-                        className={`z-10${
-                          activeIndex === index ? "text-primary" : "text-muted/"
+                        className={`z-10 ${
+                          activeIndex === index
+                            ? "text-accent font-medium"
+                            : "text-muted"
                         }`}
                         size={22}
                       />
                       <span
                         className={`
-    font-body text-button transition-colors
-    ${activeIndex === index ? "text-heading font-medium" : "text-heading"}
+    font-body text-button
   `}
                       >
                         {service.title}
@@ -187,7 +187,9 @@ const MainServices = () => {
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
                   <TabsContent value={services[activeIndex].id} forceMount>
-                    <Card className={`max-w-5xl mx-auto rounded-3xl backdrop-blur-xl shadow-2xl p-6 `}>
+                    <Card
+                      className={`max-w-5xl mx-auto rounded-3xl backdrop-blur-xl shadow-2xl p-6 `}
+                    >
                       <CardContent className="p-8">
                         <div className="grid lg:grid-cols-2 gap-12 items-start">
                           {/* Left content */}

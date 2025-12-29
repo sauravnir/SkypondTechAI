@@ -10,7 +10,13 @@ import {
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
-import { ExternalLink, ChevronRight, Menu, CircleSmall , MoveUpRight } from "lucide-react";
+import {
+  ExternalLink,
+  ChevronRight,
+  Menu,
+  CircleSmall,
+  MoveUpRight,
+} from "lucide-react";
 
 function NavigationBar() {
   //setting up states for scroll effect
@@ -50,39 +56,35 @@ function NavigationBar() {
         {/* Navigation Bar Logo */}
         <div className="flex items-center gap-8">
           <div className="flex-shrink-0">
-          <Link to="/">
-            <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
-          </Link>
-        </div>
+            <Link to="/">
+              <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
+            </Link>
+          </div>
 
-         <nav className="hidden md:block">
-          <NavigationMenu>
-            <NavigationMenuList className="space-x-2">
-              {menuItems.map((item, index) => (
-                <NavigationMenuItem key={index}>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      to={item.link}
-                      className="font-body hover:text-accent transition-all delay-400 text-[#E5E7EB] text-small font-bold px-3 py-2"
-                    >
-                      {item.title}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </nav>
+          <nav className="hidden md:block">
+            <NavigationMenu>
+              <NavigationMenuList className="space-x-2">
+                {menuItems.map((item, index) => (
+                  <NavigationMenuItem key={index}>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        to={item.link}
+                        className="font-body hover:text-accent transition-all delay-400 text-[#E5E7EB] text-small font-bold px-3 py-2"
+                      >
+                        {item.title}
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </nav>
         </div>
-        
 
         {/* Menu Items */}
-       
-
 
         {/* CTA Buttons */}
         <div className=" flex hidden md:flex space-x-4 font-body font-medium items-center">
-          
           <div className="group">
             <Link to="https://skypondtech.com" target="_blank">
               <Button
@@ -92,7 +94,7 @@ function NavigationBar() {
               >
                 Main Website
                 <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
-                  <MoveUpRight strokeWidth={2.75}/>
+                  <MoveUpRight strokeWidth={2.75} />
                 </span>
               </Button>
             </Link>
@@ -106,21 +108,19 @@ function NavigationBar() {
             >
               Get Started
               <span className="transition-transform duration-300 group-hover:scale-150 ">
-                <ChevronRight strokeWidth={2.75}/>
+                <ChevronRight strokeWidth={2.75} />
               </span>
             </Button>
           </div>
         </div>
-     
-        
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden ">
+        <div className="md:hidden lg:hidden ">
           {/* Creating Side-Drawer / Sheet */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline" >
-                <Menu  />
+              <Button size="icon" variant="outline">
+                <Menu />
               </Button>
             </SheetTrigger>
             <SheetContent side="top" className="w-full h-full">
@@ -142,7 +142,7 @@ function NavigationBar() {
                 <div className="group">
                   <Link to="https://skypondtech.com" target="_blank">
                     <Button
-                      variant="ghost"
+                      variant="outline"
                       className="text-button flex items-center hover:underline w-full justify-center"
                     >
                       Main Website

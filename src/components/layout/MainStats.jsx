@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Hourglass,
   TrendingUp,
@@ -30,7 +30,7 @@ export default function MainStats() {
       icon: TrendingUp,
       value: 99,
       suffix: "%",
-       gradient: "from-blue-400 to-blue-600",
+      gradient: "from-blue-400 to-blue-600",
       body: "Accuracy Improvement",
     },
     {
@@ -64,13 +64,25 @@ export default function MainStats() {
     },
   ];
 
+  // Resetting the stats animation after every 15 sec
+
+  const [limit, setLimit] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLimit((prev) => prev + 1);
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative overflow-hidden ">
       <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 items-center">
         {/* <div className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]" /> */}
-        {/* <div className="absolute  -bottom-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl pointer-events-none"></div> */}
+        <div className="absolute  -bottom-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
         {/* <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full bg-accent/10 blur-2xl pointer-events-none"></div> */}
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none"/>
         <div className="flex flex-col justify-center items-center text-center space-y-4">
           <Badge
             variant="outline"
@@ -97,13 +109,16 @@ export default function MainStats() {
                 className="relative flex flex-col items-center space-y-4 p-4 bg-white/20 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 group animate-float"
               >
                 {/* Floating Icon Circle */}
-                <div className={`absolute left-2 -top-6 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${item.gradient} shadow-md`}>
+                <div
+                  className={`absolute left-2 -top-6 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${item.gradient} shadow-md`}
+                >
                   <Icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
                 </div>
 
                 {/* Big Number */}
                 <div className="font-heading text-h2 font-extrabold text-heading flex items-baseline space-x-1">
                   <NumberTicker
+                  key={limit}
                     value={item.value}
                     duration={4000}
                     steps={100}
@@ -131,9 +146,9 @@ export default function MainStats() {
             <motion.div
               key={index}
               className={`
-       relative flex flex-col p-8 gap-4 
-  hover:shadow-2xl duration-500
-  backdrop-blur-xl border border-accent rounded-3xl shadow-xl transform-transition hover:scale-105 duration-400
+                        relative flex flex-col p-8 gap-4 
+                   hover:shadow-2xl duration-500
+                   backdrop-blur-xl border border-accent rounded-3xl shadow-xl transform-transition hover:scale-105 duration-400
       `}
             >
               {/* Left: Icon + Head */}
@@ -182,7 +197,9 @@ export default function MainStats() {
         </div>
         <div className="group items-center justify-center p-2 mt-4">
           <h1 className="font-body text-button text-heading font-medium">
-            <Highlighter action="underline" color="#5391f4ff">Transform operations. Save time. Achieve more.</Highlighter>
+            <Highlighter action="underline" color="#5391f4ff">
+              Transform operations. Save time. Achieve more.
+            </Highlighter>
             <Link to="/">
               <Button
                 variant="link"
