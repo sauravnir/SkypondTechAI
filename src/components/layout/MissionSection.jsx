@@ -57,90 +57,110 @@ export default function MissionSection() {
   //   },
   // ];
 
- const whyWeBuild = [
-  {
-    title: "Complex Workflows",
-    body: "Manual tasks and repetitive processes slow teams down",
-    icon: Target,
-    gradient: "bg-gradient-to-r from-[#5391f4ff] to-[#0e81c8ff]", 
-  },
-  {
-    title: "Compliance Burden",
-    body: "Regulations are critical but cumbersome",
-    icon: Eye,
-    gradient: "bg-gradient-to-r from-[#18cd91ff] to-[#0d9488ff]", 
-  },
-  {
-    title: "Smart AI Assistance",
-    body: "Automates tasks while supporting decision-making",
-    icon: Handshake,
-    gradient: "bg-gradient-to-r from-[#fcbf1eff] to-[#e1701eff]", 
-  },
-  {
-    title: "Error Reduction",
-    body: "Minimizes mistakes, improves accuracy",
-    icon: CheckCircle,
-    gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]", 
-  },
-  {
-    title: "Empowered Professionals",
-    body: "Lets pharmacists focus on patient care",
-    icon: Award,
-    gradient: "bg-gradient-to-r from-[#facc15] to-[#eab308]", 
-  },
-  {
-    title: "Data-Driven Insights",
-    body: "Provides actionable analytics to improve decision-making",
-    icon: Target,
-    gradient: "bg-gradient-to-r from-[#22c55e] to-[#16a34a]", 
-  },
-  {
-    title: "Enhanced Productivity",
-    body: "Reduces administrative burden and frees up time",
-    icon: Handshake,
-    gradient: "bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed]", 
-  },
-  {
-    title: "Seamless Integration",
-    body: "Connects effortlessly with existing pharmacy software",
-    icon: Eye,
-    gradient: "bg-gradient-to-r from-[#06b6d4] to-[#0e7490]", 
-  },
-  {
-    title: "Patient-Centric Care",
-    body: "Ensures pharmacy teams can focus on improving patient outcomes",
-    icon: Award,
-    gradient: "bg-gradient-to-r from-[#f97316] to-[#ea580c]", 
-  },
-  {
-    title: "Scalable Solutions",
-    body: "Adaptable technology that grows with your organization",
-    icon: CheckCircle,
-    gradient: "bg-gradient-to-r from-[#3b82f6] to-[#2563eb]", 
-  },
-];
-
-
+  const whyWeBuild = [
+    {
+      title: "Complex Workflows",
+      body: "Manual tasks and repetitive processes slow teams down",
+      icon: Target,
+      gradient: "bg-gradient-to-r from-[#5391f4ff] to-[#0e81c8ff]",
+    },
+    {
+      title: "Compliance Burden",
+      body: "Regulations are critical but cumbersome",
+      icon: Eye,
+      gradient: "bg-gradient-to-r from-[#18cd91ff] to-[#0d9488ff]",
+    },
+    {
+      title: "Smart AI Assistance",
+      body: "Automates tasks while supporting decision-making",
+      icon: Handshake,
+      gradient: "bg-gradient-to-r from-[#fcbf1eff] to-[#e1701eff]",
+    },
+    {
+      title: "Error Reduction",
+      body: "Minimizes mistakes, improves accuracy",
+      icon: CheckCircle,
+      gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]",
+    },
+    {
+      title: "Empowered Professionals",
+      body: "Lets pharmacists focus on patient care",
+      icon: Award,
+      gradient: "bg-gradient-to-r from-[#facc15] to-[#eab308]",
+    },
+    {
+      title: "Data-Driven Insights",
+      body: "Provides actionable analytics to improve decision-making",
+      icon: Target,
+      gradient: "bg-gradient-to-r from-[#22c55e] to-[#16a34a]",
+    },
+    {
+      title: "Enhanced Productivity",
+      body: "Reduces administrative burden and frees up time",
+      icon: Handshake,
+      gradient: "bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed]",
+    },
+    {
+      title: "Seamless Integration",
+      body: "Connects effortlessly with existing pharmacy software",
+      icon: Eye,
+      gradient: "bg-gradient-to-r from-[#06b6d4] to-[#0e7490]",
+    },
+    {
+      title: "Patient-Centric Care",
+      body: "Ensures pharmacy teams can focus on improving patient outcomes",
+      icon: Award,
+      gradient: "bg-gradient-to-r from-[#f97316] to-[#ea580c]",
+    },
+    {
+      title: "Scalable Solutions",
+      body: "Adaptable technology that grows with your organization",
+      icon: CheckCircle,
+      gradient: "bg-gradient-to-r from-[#3b82f6] to-[#2563eb]",
+    },
+  ];
 
   // Reanimating the list after certain interval
   const [listKey, setListKey] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
-      setListKey((prev) => prev + 1); 
+      setListKey((prev) => prev + 1);
     }, 21000); // setting 22secs for refreshing the animation
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-background ">
+    <section className="relative overflow-hidden bg-background">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="relative">
-
-        <div className="absolute inset-x-0 bottom-0  w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
-        </div>
+        
+          <div className="absolute bottom-20 right-[200px] w-3/4 h-[150px] bg-primary/15 rounded-full blur-3xl" />
+        
       </div>
+
+      {/* <svg
+            className="absolute inset-0 w-full h-full opacity-40"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="white"
+              fillOpacity="0.5"
+              d="M0,160L80,176C160,192,320,224,480,224C640,224,800,192,960,176C1120,160,1280,160,1360,160L1440,160L1440,0L0,0Z"
+            />
+          </svg>
+          <svg
+            className="absolute inset-0 w-full h-full opacity-25 translate-y-6"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="white"
+              fillOpacity="0.4"
+              d="M0,192L96,208C192,224,384,256,576,245.3C768,235,960,181,1152,160C1344,139,1440,160,1440,160L1440,0L0,0Z"
+            />
+          </svg> */}
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
         <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between gap-8 ">
           <div className="items-start space-y-4">
@@ -165,7 +185,6 @@ export default function MissionSection() {
                   variant="default"
                   className="rounded-full text-[16px] bg-primary font-body hover:bg-primary/80 text-primary-foreground border border-primary shadow"
                   size="md"
-                  
                 >
                   Schedule Demo
                   <span className="transition-transform duration-300 group-hover:scale-150">
@@ -201,18 +220,20 @@ export default function MissionSection() {
                     }`}
                   >
                     {/* <Icon className="w-6 h-6 text-primary" /> */}
-                    <div className={`flex flex-col  justify-end  ${item.title === "Why We Build" ? "flex justify-right items-right text-start " : " "}`}>
-                        <h2 className="font-heading text-h3 font-bold transition-color duration-300 hover:text-primary">
-                     {item.title} <br></br>
-
-                    </h2>
-                    <div>
-
-                    <Separator className="border-4 border-primary w-[100px] justify-start " /> 
+                    <div
+                      className={`flex flex-col  justify-end  ${
+                        item.title === "Why We Build"
+                          ? "flex justify-right items-right text-start "
+                          : " "
+                      }`}
+                    >
+                      <h2 className="font-heading text-h3 font-bold transition-color duration-300 hover:text-primary">
+                        {item.title} <br></br>
+                      </h2>
+                      <div>
+                        <Separator className="border-4 border-primary w-[100px] justify-start mt-2 " />
+                      </div>
                     </div>
-                    </div>
-                    
-                    
                   </div>
 
                   <p className="font-body text-paragraph text-heading text-justify">
@@ -228,8 +249,13 @@ export default function MissionSection() {
                           const Icons = i.icon;
                           return (
                             <div className="flex flex-row items-center justify-start bg-card shadow-lg p-4 rounded-xl gap-4">
-                              <div className={`flex w-10 h-10 rounded-full justify-center items-center bg-gradient-to-r ${i.gradient} `}>
-                                <Icons className=" transition-transform duration-300 text-white" size={18}/>
+                              <div
+                                className={`flex w-10 h-10 rounded-full justify-center items-center bg-gradient-to-r ${i.gradient} `}
+                              >
+                                <Icons
+                                  className=" transition-transform duration-300 text-white"
+                                  size={18}
+                                />
                               </div>
                               <div className="flex flex-col justify-start items-start text-start">
                                 <h1 className="font-heading text-paragraph text-heading font-bold">
@@ -242,41 +268,49 @@ export default function MissionSection() {
                             </div>
                           );
                         })}
-                       
-                        
                       </AnimatedList>
                       {/* Applying blur */}
                       {/* <ProgressiveBlur position="bottom" height="10%"/> */}
                     </div>
                   )}
 
-                {item.title==="Our Mission" && (
-                  <div></div>
-                )}
-                  
+                  {item.title === "Our Mission" && <div></div>}
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        <div className="flex flex-col max-w-5xl mx-auto p-8 rounded-2xl border border-primary  mt-16 animate-float bg-card ">
-          <div className="p-4 text-center space-y-4">
-            <p className="font-body text-paragraph text-heading">
-              <span className="font-bold text-primary">
-                Trusted by leading pharmacy networks
+        <div
+          className="flex flex-row justify-between items-center text-end 
+bg-gradient-to-br 
+from-white 
+via-[#f3f9ff] 
+to-[#e6f3ff]
+ w-full max-w-7xl mx-auto p-8 rounded-2xl border border-primary  mt-32 animate-float bg-card "
+        >
+          <div className="p-4 text-start space-y-4">
+            <p className="font-heading text-heading font-medium">
+              Trusted by leading pharmacy networks,<br></br>
+              who value {""}
+              <span className="font-bold text-paragraph text-primary u">
+                reliability, compliance, and measurable ROI.
               </span>{" "}
-              who value reliability, compliance, and measurable ROI.
             </p>
-            <Link></Link>
-            <h1 className="font-body text-button text-heading font-medium ">
-              <Highlighter action="underline" color="#0e81c8ff">
-                <Link to="/">
-                  Join the movement towards intelligent pharmacy operations.
-                </Link>
-              </Highlighter>
-            </h1>
           </div>
+          <div className="z-30">
+            <Link to="https://skypondtech.com/" target="_blank">
+            <Button type="ghost" className="font-heading bg-null hover:bg-null hover:text-stone-900 shadow-none text-button text-stone-600 font-medium ">
+              <Highlighter action="underline" color="#0e81c8ff">
+               
+                  Join the movement towards intelligent pharmacy operations.
+               
+              </Highlighter>
+            </Button>
+            </Link>
+            
+          </div>
+          
         </div>
       </div>
     </section>
