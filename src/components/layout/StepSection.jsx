@@ -161,26 +161,6 @@ export default function StepSection() {
         })}
       </div>
 
-      {/* Progress Bar */}
-      {/* <div className="relative max-w-5xl mx-auto mt-8 h-2">
-        <div className="absolute top-1/2 -translate-y-1/2 w-full h-1 bg-muted/20 rounded-full" />
-        <motion.div
-          className="absolute top-1/2 -translate-y-1/2 h-1 bg-gradient-to-r from-primary to-accent rounded-full"
-          style={{ width: `${progress}%` }}
-          transition={{ duration: 1 }}
-        />
-        <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-1">
-          {steps.map((_, idx) => (
-            <div
-              key={idx}
-              className={`w-3 h-3 rounded-full border-2 border-white ${
-                idx < activeStep ? "bg-primary" : "bg-muted/30"
-              }`}
-            />
-          ))}
-        </div>
-      </div> */}
-
       {/* Continue Button */}
       <div className="mt-20 flex justify-center">
         {completed === true ? (
@@ -191,7 +171,7 @@ export default function StepSection() {
               className="font-body text-[15px] rounded-full  transition-transform duration-400 group-hover:scale-105 z-50"
             >
               <Sparkles />
-              Integration Complete. Start Automating Today{" "}
+              Integration Complete. Start automating today!{" "}
               <ChevronRight
                 className="transition-transform duration-400 group-hover:scale-125"
                 strokeWidth={2.75}

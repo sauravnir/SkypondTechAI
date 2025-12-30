@@ -16,6 +16,7 @@ import { Globe } from "../ui/globe";
 import { AnimatedList } from "../ui/animated-list";
 import { ProgressiveBlur } from "../ui/progressive-blur";
 import "@/index.css";
+import { Separator } from "../ui/separator";
 
 export default function MissionSection() {
   const content = [
@@ -133,7 +134,13 @@ export default function MissionSection() {
 
   return (
     <section className="relative overflow-hidden bg-background ">
-      
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+        <div className="relative">
+
+        <div className="absolute inset-x-0 bottom-0  w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
+        </div>
+      </div>
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
         <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between gap-8 ">
           <div className="items-start space-y-4">
@@ -180,23 +187,32 @@ export default function MissionSection() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.9, ease: "easeOut" }}
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                  index % 2 === 1 ? "lg:text-right" : ""
+                  index % 2 === 1 ? "lg:text-left" : ""
                 }`}
               >
                 <div
                   className={`${
-                    index % 2 === 1 ? "lg:order-2 lg:text-right " : ""
+                    index % 2 === 1 ? "lg:order-1 lg:text-left " : ""
                   }`}
                 >
                   <div
-                    className={`flex items-center gap-3 mb-4 ${
-                      index % 2 === 1 ? "lg:justify-end " : ""
+                    className={`flex items-start gap-3 mb-4 ${
+                      index % 2 === 1 ? "lg:justify-start " : ""
                     }`}
                   >
                     {/* <Icon className="w-6 h-6 text-primary" /> */}
-                    <h2 className="font-heading text-h3 font-bold transition-color duration-300 hover:text-primary">
-                     {item.title}
+                    <div className={`flex flex-col  justify-end  ${item.title === "Why We Build" ? "flex justify-right items-right text-start " : " "}`}>
+                        <h2 className="font-heading text-h3 font-bold transition-color duration-300 hover:text-primary">
+                     {item.title} <br></br>
+
                     </h2>
+                    <div>
+
+                    <Separator className="border-4 border-primary w-[100px] justify-start " /> 
+                    </div>
+                    </div>
+                    
+                    
                   </div>
 
                   <p className="font-body text-paragraph text-heading text-justify">
@@ -204,7 +220,7 @@ export default function MissionSection() {
                   </p>
                 </div>
 
-                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                <div className={index % 2 === 1 ? "lg:order-0" : ""}>
                   {item.title === "Why We Build" && (
                     <div className="relative flex flex-col w-full max-w-md h-[350px] overflow-hidden p-2">
                       <AnimatedList key={listKey} delay={2000}>
@@ -244,7 +260,7 @@ export default function MissionSection() {
           })}
         </div>
 
-        <div className="flex flex-col max-w-5xl mx-auto p-8 rounded-2xl border mt-16 animate-float bg-card ">
+        <div className="flex flex-col max-w-5xl mx-auto p-8 rounded-2xl border border-primary  mt-16 animate-float bg-card ">
           <div className="p-4 text-center space-y-4">
             <p className="font-body text-paragraph text-heading">
               <span className="font-bold text-primary">

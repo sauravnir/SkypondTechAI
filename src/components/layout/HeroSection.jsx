@@ -62,7 +62,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary/10 to-primary/80 ">
+    <section className="relative overflow-hidden bg-gradient-to-b from-background via-primary/10 to-primary/80 ">
       {/* <div className="absolute inset-0 w-full h-full pointer-events-auto">
         <InteractiveGridPattern
           className={cn(
@@ -117,7 +117,7 @@ const HeroSection = () => {
           </h1>
 
           <div className=" font-heading text-hero ">
-            <span className="text-heading">Operations with Enterprise AI </span>
+            <span className="text-heading font-extrabold">Operations with Enterprise AI </span>
           </div>
 
           <div className="flex flex-col justify-center items-center text-center mt-8">
