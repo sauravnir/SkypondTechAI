@@ -10,7 +10,7 @@ module.exports = {
         ui: ["Urbanist", "system-ui", "sans-serif"],
       },
       colors: {
-        background: "#f5f5f5ff",
+        background: "#f9f9f9ff",
 
         altbackground: "#0b0b0bff",
 

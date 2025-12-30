@@ -62,7 +62,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary/10 to-primary ">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary/10 to-primary/80 ">
       {/* <div className="absolute inset-0 w-full h-full pointer-events-auto">
         <InteractiveGridPattern
           className={cn(
@@ -82,6 +82,18 @@ const HeroSection = () => {
           d="M0,160L80,176C160,192,320,224,480,224C640,224,800,192,960,176C1120,160,1280,160,1360,160L1440,160L1440,0L0,0Z"
         />
       </svg>
+      <svg
+        className="absolute inset-0 w-full h-full opacity-25 translate-y-6"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="white"
+          fillOpacity="0.4"
+          d="M0,192L96,208C192,224,384,256,576,245.3C768,235,960,181,1152,160C1344,139,1440,160,1440,160L1440,0L0,0Z"
+        />
+      </svg>
+
       <div className="relative flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 justify-center items-center pointer-events-none ">
         {/* <div className="group">
           <Badge
@@ -121,7 +133,7 @@ const HeroSection = () => {
             <div className="group">
               <Button
                 variant="default"
-                className="rounded-full text-[16px] font-body text-primary-foreground transition-transform duration-300 group-hover:scale-105"
+                className="rounded-full text-[15px] font-body text-primary-foreground transition-transform duration-300 group-hover:scale-105"
                 size="lg"
               >
                 Get Started for FREE
@@ -135,7 +147,7 @@ const HeroSection = () => {
               <Link to="https://skypondtech.com" target="_blank">
                 <Button
                   variant="outline"
-                  className="text-[16px] font-body rounded-full text-accent border-accent bg-null flex items-center transition-transform duration-300 group-hover:scale-105"
+                  className="text-[15px] font-body rounded-full text-accent border-accent bg-null flex items-center transition-transform duration-300 group-hover:scale-105"
                   size="lg"
                 >
                   SkypondTech
@@ -158,7 +170,7 @@ const HeroSection = () => {
       <ProgressiveBlur height="45%" position="bottom" />
       <div className="relative flex justify-center items-center z-10 w-full py-24">
         {/* Right visual banner/poster */}
-        <div className="flex-1 relative">
+        <div className="flex-1 relative transition-transform duration-400 hover:scale-[1.01]">
           <div className="relative w-full max-w-6xl mx-auto ">
             {/* Main poster/banner */}
             <div className="btn-gradient rounded-3xl shadow-2xl p-12 relative z-10 overflow-hidden">
@@ -181,7 +193,7 @@ const HeroSection = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl w-full ">
                   {itemList.map((item, index) => (
                     <div key={item.head} className="group">
-                      <Card className="group relative h-20 md:h-24 p-4 bg-null border border-white transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl backdrop-blur-sm ">
+                      <Card className="group relative h-20 md:h-24 p-4 bg-null border border-white hover:shadow-2xl backdrop-blur-sm ">
                         <div className="flex items-center space-x-4 h-full items-start">
                           <div
                             className={`flex-shrink-0 p-3 text-primary-foreground`}

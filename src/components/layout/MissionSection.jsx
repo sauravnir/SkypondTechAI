@@ -132,11 +132,8 @@ export default function MissionSection() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden  ">
-      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-      </div> */}
+    <section className="relative overflow-hidden bg-background ">
+      
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
         <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between gap-8 ">
           <div className="items-start space-y-4">
@@ -197,7 +194,7 @@ export default function MissionSection() {
                     }`}
                   >
                     {/* <Icon className="w-6 h-6 text-primary" /> */}
-                    <h2 className="font-heading text-h3 font-bold">
+                    <h2 className="font-heading text-h3 font-bold transition-color duration-300 hover:text-primary">
                      {item.title}
                     </h2>
                   </div>

@@ -99,7 +99,7 @@ const MainServices = () => {
 
   const tabDefault = ["#c4611bff", "#5391f4ff", "#18cd91ff", "#f83660ff"];
   return (
-    <div className="relative overflow-hidden ">
+    <div className="relative overflow-hidden bg-background">
       <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
         <div className="flex flex-col justify-center items-center text-center space-y-4">
           <Badge
@@ -131,13 +131,11 @@ const MainServices = () => {
                 return (
                   <TabsTrigger
                     value={service.id}
-                    
                     onClick={() => handleTabClick(index)}
-                    className={`  relative  rounded-xl py-3 px-6
-    transition-all duration-300 
-    hover:scale-105 hover:text-heading ${activeIndex === index ? "border-2 border-accent":"text-muted" }`}
+                    className={`  relative rounded-xl py-3 px-6 transition-all duration-300 hover:scale-105 hover:text-heading 
+                    ${activeIndex === index ? "border-2 border-accent" : "text-muted"
+                    }`}
                   >
-
                     {/* Progress Bar */}
                     {/* {activeIndex === index && (
                       <motion.div
@@ -177,102 +175,146 @@ const MainServices = () => {
             </TabsList>
 
             {/* Content */}
-            <div className="mt-8">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={services[activeIndex].id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                >
-                  <TabsContent value={services[activeIndex].id} forceMount>
-                    <Card
-                      className={`max-w-5xl mx-auto rounded-3xl backdrop-blur-xl shadow-2xl p-6 `}
-                    >
-                      <CardContent className="p-8">
-                        <div className="grid lg:grid-cols-2 gap-12 items-start">
-                          {/* Left content */}
-                          <div className="space-y-6">
-                            <div className="flex items-start gap-4">
-                              <div
-                                className={`p-3 rounded-2xl bg-gradient-to-br ${services[activeIndex].gradient} shadow-lg`}
-                              >
-                                {React.createElement(
-                                  services[activeIndex].icon,
-                                  {
-                                    className: "w-8 h-8 text-white",
-                                  }
-                                )}
+            <div className="mt-8 relative h-[520px]">
+              <div className="relative max-w-5xl mx-auto h-[400px]">
+                <AnimatePresence initial={false}>
+                  {[activeIndex - 1, activeIndex, activeIndex + 1].map(
+                    (index) => {
+                      if (!services[index]) return null;
+
+                      const isActive = index === activeIndex;
+                      const position =
+                        index < activeIndex
+                          ? "left"
+                          : index > activeIndex
+                          ? "right"
+                          : "center";
+
+                      return (
+                        <motion.div
+                          key={services[index].id}
+                          className="absolute inset-0 flex justify-center"
+                          initial={{
+                            opacity: 0,
+                            scale: 0.9,
+                            x:
+                              position === "left"
+                                ? -120
+                                : position === "right"
+                                ? 120
+                                : 0,
+                          }}
+                          animate={{
+                            opacity: isActive ? 1 : 0.45,
+                            scale: isActive ? 1 : 0.94,
+                            x:
+                              position === "left"
+                                ? -160
+                                : position === "right"
+                                ? 160
+                                : 0,
+                            zIndex: isActive ? 20 : 10,
+                          }}
+                          exit={{
+                            opacity: 0,
+                            scale: 0.9,
+                          }}
+                          transition={{
+                            duration: 0.6,
+                            ease: "easeOut",
+                          }}
+                          style={{
+                            pointerEvents: isActive ? "auto" : "none",
+                          }}
+                        >
+                          {/* CARD */}
+                          <Card
+                            className={` w-full max-w-5xl rounded-3xl backdrop-blur-xl shadow-2xl p-4
+                            `}
+                          >
+                            <CardContent className="p-6">
+                              <div className=" grid lg:grid-cols-2 gap-12 items-start ">
+                                {/* LEFT */}
+                                <div className="space-y-6">
+                                  <div className="flex items-start gap-4">
+                                    <div
+                                      className={`p-3 rounded-2xl bg-gradient-to-br ${services[index].gradient} shadow-lg`}
+                                    >
+                                      {React.createElement(
+                                        services[index].icon,
+                                        {
+                                          className: "w-8 h-8 text-white",
+                                        }
+                                      )}
+                                    </div>
+
+                                    <div>
+                                      <h3 className="font-heading text-h3 font-bold text-heading mb-4">
+                                        {services[index].title}
+                                      </h3>
+                                      <div
+                                        className={`w-16 h-1 bg-gradient-to-r ${services[index].gradient} rounded-full`}
+                                      />
+                                    </div>
+                                  </div>
+
+                                  <p className="font-body text-paragraph text-muted">
+                                    {services[index].body}
+                                  </p>
+
+                                  <div className="group pt-4">
+                                    <Button
+                                      size="lg"
+                                      className={`rounded-full bg-gradient-to-r ${services[index].gradient} text-white shadow-lg transition-transform duration-300 hover:scale-105 `}
+                                    >
+                                      Learn More
+                                      <span className="transition-transform duration-300 group-hover:scale-125"><ChevronRight className="ml-2" strokeWidth={2.75}/> </span>
+                                      
+                                    </Button>
+                                  </div>
+                                </div>
+
+                                {/* RIGHT */}
+                                <div className="space-y-4">
+                                  <h4 className="font-heading text-paragraph font-bold text-heading">
+                                    Key Features
+                                  </h4>
+
+                                  <ul className="space-y-4">
+                                    {services[index].features.map(
+                                      (feature, i) => (
+                                        <motion.li
+                                          key={i}
+                                          className="flex items-start gap-3"
+                                          initial={{ opacity: 0, x: 20 }}
+                                          animate={{ opacity: 1, x: 0 }}
+                                          transition={{
+                                            delay: isActive
+                                              ? i * 0.08 + 0.3
+                                              : 0,
+                                          }}
+                                        >
+                                          <CheckCircle
+                                            className="text-primary mt-1"
+                                            size={18}
+                                          />
+                                          <span className="font-body text-paragraph text-muted">
+                                            {feature}
+                                          </span>
+                                        </motion.li>
+                                      )
+                                    )}
+                                  </ul>
+                                </div>
                               </div>
-                              <div>
-                                <h3 className="font-heading text-h3 font-bold text-heading text-heading mb-4">
-                                  {services[activeIndex].title}
-                                </h3>
-                                <div
-                                  className={`w-16 h-1 bg-gradient-to-r ${services[activeIndex].gradient} rounded-full`}
-                                />
-                              </div>
-                            </div>
-
-                            <p className="font-body text-paragraph text-muted ">
-                              {services[activeIndex].body}
-                            </p>
-
-                            <div className="group pt-4">
-                              <Link
-                                to="https://skypondtech.com"
-                                target="_blank"
-                              >
-                                <Button
-                                  variant="outline"
-                                  className={`inline-flex items-center justify-center
-                                bg-gradient-to-r ${services[activeIndex].gradient} text-white rounded-full
-                                shadow-lg  transition-all duration-300  `}
-                                  size="lg"
-                                >
-                                  Learn More
-                                  <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
-                                    <ChevronRight strokeWidth={2.75} />
-                                  </span>
-                                </Button>
-                              </Link>
-                            </div>
-                          </div>
-
-                          {/* Right content - Features */}
-                          <div className="space-y-4">
-                            <h4 className="font-heading text-paragraph font-bold text-heading">
-                              Key Features
-                            </h4>
-                            <ul className="flex flex-col justify-center space-y-4">
-                              {services[activeIndex].features.map(
-                                (feature, i) => (
-                                  <motion.li
-                                    key={i}
-                                    className="flex items-start gap-3"
-                                    initial={{ opacity: 0, x: 20 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.1 + 0.3 }}
-                                  >
-                                    <CheckCircle
-                                      className={`mt-1 text-primary flex-shrink-0`}
-                                      size={20}
-                                    />
-                                    <span className="font-body text-paragraph text-muted">
-                                      {feature}
-                                    </span>
-                                  </motion.li>
-                                )
-                              )}
-                            </ul>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </TabsContent>
-                </motion.div>
-              </AnimatePresence>
+                            </CardContent>
+                          </Card>
+                        </motion.div>
+                      );
+                    }
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </Tabs>
         </div>
