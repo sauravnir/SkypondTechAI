@@ -44,17 +44,17 @@ function NavigationBar() {
   ];
 
   return (
-    <header className="fixed w-full z-50 border-b border-muted">
+    <header className="fixed w-full z-50">
       {/* Applying isScrolled Ternary Conditional and changing navbar css */}
       <div
-        className={`flex justify-between items-center px-10 h-16 ${
+        className={`flex justify-between items-center px-10 h-20 ${
           isScrolled
-            ? "bg-altbackground/80 backdrop-blur-sm "
+            ? "bg-altbackground/80 backdrop-blur-sm text-white"
             : "bg-transparent"
         }`}
       >
         {/* Navigation Bar Logo */}
-        <div className="flex items-center gap-8">
+        
           <div className="flex-shrink-0">
             <Link to="/">
               <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
@@ -69,7 +69,7 @@ function NavigationBar() {
                     <NavigationMenuLink asChild>
                       <Link
                         to={item.link}
-                        className="font-body hover:text-accent transition-all delay-400 text-[#E5E7EB] text-small font-bold px-3 py-2"
+                        className={`font-body hover:text-accent transition-all delay-400 text-heading text-small px-3 py-2 ${isScrolled ? "text-primary-foreground":""}`}
                       >
                         {item.title}
                       </Link>
@@ -79,32 +79,34 @@ function NavigationBar() {
               </NavigationMenuList>
             </NavigationMenu>
           </nav>
-        </div>
+   
+          
+        
 
         {/* Menu Items */}
 
         {/* CTA Buttons */}
-        <div className=" flex hidden md:flex space-x-4 font-body font-medium items-center">
+        <div className=" flex hidden md:flex gap-2 font-body font-medium items-center">
           <div className="group">
             <Link to="https://skypondtech.com" target="_blank">
               <Button
-                variant="outline"
-                className="text-[14px] text-[#E5E7EB] bg-null flex items-center rounded-full"
+                variant="ghost"
+                className={`text-[14px] text-heading hover:text-accent flex items-center border-heading rounded-full ${isScrolled ?"text-primary-foreground border-white":""}`}
                 size="sm"
               >
-                Main Website
+                SkypondTech
                 <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
                   <MoveUpRight strokeWidth={2.75} />
                 </span>
               </Button>
             </Link>
           </div>
-          <Separator orientation="vertical" className="h-6 bg-border" />
+          {/* <Separator orientation="vertical" className="h-6 bg-border" /> */}
           <div className="group">
             <Button
               variant="default"
-              className="text-[14px] btn-gradient text-primary-foreground rounded-full flex items-center hover:bg-accent "
-              size="sm"
+              className="text-[14px] text-primary-foreground rounded-full flex items-center "
+              size="md"
             >
               Get Started
               <span className="transition-transform duration-300 group-hover:scale-150 ">
@@ -119,8 +121,8 @@ function NavigationBar() {
           {/* Creating Side-Drawer / Sheet */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline">
-                <Menu />
+              <Button size="icon" variant="outline" className={`${isScrolled ? "bg-primary":""}`}>
+                <Menu/>
               </Button>
             </SheetTrigger>
             <SheetContent side="top" className="w-full h-full">

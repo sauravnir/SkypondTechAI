@@ -10,7 +10,7 @@ module.exports = {
         ui: ["Urbanist", "system-ui", "sans-serif"],
       },
       colors: {
-        background: "#F9FAFB",
+        background: "#f5f5f5ff",
 
         altbackground: "#0b0b0bff",
 
@@ -24,7 +24,7 @@ module.exports = {
 
         muted: "#64748B",
 
-        primary: "#0D9488",
+        primary: "#09766dff",
 
         "primary-foreground": "#FFFFFF",
 

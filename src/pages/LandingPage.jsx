@@ -5,26 +5,18 @@ import MainServices from "@/components/layout/MainServices";
 import Footer from "@/components/layout/Footer";
 import MissionSection from "@/components/layout/MissionSection";
 import MainStats from "@/components/layout/MainStats";
+import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen">
       <NavigationBar />
       <HeroSection />
-      <div
-        style={{
-          backgroundImage: "radial-gradient(#cbd5e1 0.8px, transparent 0.8px)",
-          backgroundSize: "25px 25px",
-        }}
-      >
-        <MainServices />
-        <MainStats />
-        <MissionSection />
-      </div>
-
+      <MainServices />
+      <MainStats />
+      <MissionSection />
       <Footer />
     </div>
   );
 };
-
 export default LandingPage;

@@ -110,9 +110,9 @@ export default function MainStats() {
               >
                 {/* Floating Icon Circle */}
                 <div
-                  className={`absolute left-2 -top-6 flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${item.gradient} shadow-md`}
+                  className={`absolute left-2 -top-6 flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r ${item.gradient} shadow-md`}
                 >
-                  <Icon className="w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300" />
+                  <Icon className="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" />
                 </div>
 
                 {/* Big Number */}

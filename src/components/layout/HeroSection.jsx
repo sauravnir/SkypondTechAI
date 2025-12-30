@@ -1,155 +1,115 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import { Card , 
+import {
+  Card,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle, } from "../ui/card";
-import { MagicCard } from "../ui/magic-card";
-import { ChevronRight, MoveUpRight, Rocket , User , Medal , Shield ,BriefcaseBusiness} from "lucide-react";
+  CardTitle,
+} from "../ui/card";
 
-import { animate, utils, stagger, splitText } from "animejs";
-
-import { cn } from "@/lib/utils";
+import {
+  ChevronRight,
+  MoveUpRight,
+  Rocket,
+  User,
+  Medal,
+  BriefcaseBusiness,
+  Sparkles,
+  Shield,
+  Zap,
+} from "lucide-react";
 
 import { BackgroundGradientAnimation } from "../ui/background-gradient-animation";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
-
+import { ProgressiveBlur } from "../ui/progressive-blur";
 import "@/index.css";
-import { Separator } from "@radix-ui/react-separator";
+import { ShineBorder } from "../ui/shine-border";
 // import "@src/App.css"
 
 const HeroSection = () => {
-  //Creating Hero Text Hover Animation
-  const titleRef = useRef(null);
-  const colors = useRef([]);
-
   //Creating fetures array
 
   const itemList = [
     {
-      icon:<User/> ,
-      head:"50+",
-      body:"LTC Facilities",
+      icon: <User />,
+      head: "50+",
+      body: "LTC Facilities",
+      gradient: "bg-gradient-to-r from-[#5391f4ff] to-[#0e81c8ff]",
     },
     {
-      icon:<Medal /> ,
-      head:"HIPAA",
-      body:"Compliant",
+      icon: <Medal />,
+      head: "HIPAA",
+      body: "Compliant",
+      gradient: "bg-gradient-to-r from-[#18cd91ff] to-[#0d9488ff]",
     },
     {
-      icon:<Shield/> ,
-      head:"99%",
-      body:"Uptime",
+      icon: <Shield />,
+      head: "99%",
+      body: "Uptime",
+      gradient: "bg-gradient-to-r from-[#fcbf1eff] to-[#e1701eff]",
     },
     {
-      icon:<BriefcaseBusiness/> ,
-      head:"Enterprise",
-      body:"Grade",
+      icon: <BriefcaseBusiness />,
+      head: "Enterprise",
+      body: "Grade",
+      gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]",
     },
-  ]
-
-  // Custom hook for Text Animation
-  // useEffect(() => {
-  //   if (!titleRef.current) return;
-  //   // Split text AFTER React renders
-  //   const split = splitText(titleRef.current, {
-  //     words: true,
-  //   })
-  //     // Floating Effect
-  //     // .addEffect(({ words }) =>
-  //     //   animate(words, {
-  //     //     y: ["0%", "10%", "-10"],
-  //     //     direction: "alternate",
-  //     //     loop: true,
-  //     //     delay: stagger(200),
-  //     //     duration: 3500,
-  //     //     easing: "easeInOutSine",
-  //     //   })
-  //     // )
-
-  //     /* Hover color effect */
-  //     .addEffect((splitInstance) => {
-  //       splitInstance.words.forEach((el, i) => {
-  //         colors.current[i] = utils.get(el, "color");
-
-  //         el.addEventListener("pointerenter", () => {
-  //           animate(el, {
-  //             color: utils.randomPick([
-  //               "#1e3a8a", // deep blue
-  //               "#4338ca", // royal purple
-  //               "#2ea75aff", // soft green
-  //               "#250525ff", // soft red
-  //             ]),
-  //             duration: 250,
-  //             easing: "easeOutQuad",
-  //           });
-  //         });
-
-  //         el.addEventListener("pointerleave", () => {
-  //           animate(el, {
-  //             color: colors.current[i],
-  //             duration: 400,
-  //             easing: "easeOutQuad",
-  //           });
-  //         });
-  //       });
-
-  //       // Cleanup between re-splits
-  //       return () => {
-  //         splitInstance.words.forEach((w, i) => {
-  //           colors.current[i] = utils.get(w, "color");
-  //         });
-  //       };
-  //     });
-
-  //   return () => {
-  //     split.revert(); // 🔥 VERY IMPORTANT cleanup
-  //   };
-  // }, []);
+  ];
 
   return (
-    <section className="relative overflow-hidden sm:h-[850px] md:h-[900px] lg:h-[900px] ">
-      <div className="absolute inset-0 w-full h-full bg-altbackground pointer-events-auto">
-        {/* <BackgroundGradientAnimation /> */}
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-primary/10 to-primary ">
+      {/* <div className="absolute inset-0 w-full h-full pointer-events-auto">
         <InteractiveGridPattern
-        className={cn(
-          "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
-          " inset-y-[-50%] h-[200%] skew-y-12 opacity-20"
-        )} 
-      />
-      </div>
+          className={cn(
+            "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
+            " inset-y-[-50%] h-[200%] skew-y-12 opacity-30 "
+          )}
+        />
+      </div> */}
+      <svg
+        className="absolute inset-0 w-full h-full opacity-40"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="white"
+          fillOpacity="0.5"
+          d="M0,160L80,176C160,192,320,224,480,224C640,224,800,192,960,176C1120,160,1280,160,1360,160L1440,160L1440,0L0,0Z"
+        />
+      </svg>
       <div className="relative flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 justify-center items-center pointer-events-none ">
-        <div className="group">
+        {/* <div className="group">
           <Badge
-          variant="default"
-          className="font-ui text-[14px] bg-null text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full hover:bg-slate-900 uppercase mb-8 pointer-events-auto"
-        >
-          
-          Enterprise AI For Healthcare Innovation<Rocket size={15} className="transition-transform duration-300 inline-block text-amber-400 " />
-        </Badge>
-        </div>
-        
+            variant="outline"
+            className="font-ui text-[14px] hover:shadow-lg hover:bg-null text-white bg-accent border-2 border-accent font-bold gap-2  rounded-full mb-8 pointer-events-auto"
+            
+          >
+            <Sparkles
+              size={15}
+              className="transition-transform duration-300 inline-block text-white "
+            />
+            Enterprise AI For Healthcare Innovation
+            
+          </Badge>
+        </div> */}
 
         <div className="max-w-5xl items-center text-center">
           {/* Referencing H1 for animation */}
-          <h1
-            ref={titleRef}
-            className=" font-heading text-gradient text-hero text-[#E5E7EB] font-extrabold"
-          >
-            Revolutionizing LTC Pharmacy 
+          <h1 className="text-gradient font-heading text-hero font-extrabold">
+            Revolutionizing LTC Pharmacy
           </h1>
 
-          <div className=" font-heading text-hero text-[#E5E7EB] ">
-            <span className="">Operations with Enterprise AI </span>
+          <div className=" font-heading text-hero ">
+            <span className="text-heading">Operations with Enterprise AI </span>
           </div>
 
           <div className="flex flex-col justify-center items-center text-center mt-8">
-            <p className="font-body text-paragraph text-bodycontent max-w-3xl">
+            <p className="font-body text-paragraph text-heading max-w-3xl">
               Skypond delivers enterprise-ready AI built for long-term care
               pharmacies—automating complex workflows, reducing operational
               friction, and enabling teams to scale securely with full
@@ -161,12 +121,12 @@ const HeroSection = () => {
             <div className="group">
               <Button
                 variant="default"
-                className="btn-gradient rounded-full text-[16px] font-body text-primary-foreground "
+                className="rounded-full text-[16px] font-body text-primary-foreground transition-transform duration-300 group-hover:scale-105"
                 size="lg"
               >
-                Get Started
-                <span className="transition-transform duration-300 group-hover:scale-150">
-                  <ChevronRight strokeWidth={2.75}/>
+                Get Started for FREE
+                <span className="transition-transform duration-300 group-hover:scale-125">
+                  <ChevronRight strokeWidth={2.75} />
                 </span>
               </Button>
             </div>
@@ -175,55 +135,77 @@ const HeroSection = () => {
               <Link to="https://skypondtech.com" target="_blank">
                 <Button
                   variant="outline"
-                  className="text-[16px] font-body rounded-full text-[#E5E7EB] bg-null flex items-center "
+                  className="text-[16px] font-body rounded-full text-accent border-accent bg-null flex items-center transition-transform duration-300 group-hover:scale-105"
                   size="lg"
                 >
-                  Main Website
-                  <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
-                    <MoveUpRight strokeWidth={2.75}/>
+                  SkypondTech
+                  <span className="transition-transform duration-300 group-hover:scale-125">
+                    <MoveUpRight strokeWidth={2.75} />
                   </span>
                 </Button>
               </Link>
             </div>
           </div>
 
-          <div className="font-base text-muted text-small mt-6">
-            <h1 className="underline">
+          <div className="font-ui text-small mt-6">
+            <h1 className="text-muted underline">
               No credit card required | Full Access for 14 days
             </h1>
           </div>
-
         </div>
       </div>
 
-      
-<div className="relative flex justify-center items-center z-10 w-full py-24">
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl w-full ">
-    {itemList.map((item, index) => (
-      <div key={item.head} className="group">
-        <Card
-          className="group relative h-20 md:h-24 p-6 bg-null border border-slate-400 hover:border-primary/50 transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl backdrop-blur-sm animate-float"
-        >
-          <div className="flex items-center space-x-4 h-full items-start">
-            <div className="flex-shrink-0 p-3 bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 text-primary-foreground">
-              {item.icon}
-            </div>
-            <div className="flex flex-col min-w-0 flex-1">
-              <CardTitle className="font-body text-[24px] text-primary group-hover:text-primary transition-colors">
-                {item.head}
-              </CardTitle>
-              <CardDescription className="font-body text-sm md:text-base font-medium text-muted  mt-1">
-                {item.body}
-              </CardDescription>
+      <ProgressiveBlur height="45%" position="bottom" />
+      <div className="relative flex justify-center items-center z-10 w-full py-24">
+        {/* Right visual banner/poster */}
+        <div className="flex-1 relative">
+          <div className="relative w-full max-w-6xl mx-auto ">
+            {/* Main poster/banner */}
+            <div className="btn-gradient rounded-3xl shadow-2xl p-12 relative z-10 overflow-hidden">
+              {/* Decorative circles */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+              {/* Content */}
+              <div className="flex flex-col relative z-10 items-center justify-center">
+                <h3 className="font-heading text-h3 text-white font-bold mb-4">
+                  Transform Your Pharmacy Operations
+                </h3>
+
+                <p className="font-body text-small text-white mb-4">
+                  Join hundreds of LTC pharmacies using AI to automate
+                  workflows, ensure compliance, and deliver better patient care.
+                </p>
+
+                {/* Stats grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl w-full ">
+                  {itemList.map((item, index) => (
+                    <div key={item.head} className="group">
+                      <Card className="group relative h-20 md:h-24 p-4 bg-null border border-white transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl backdrop-blur-sm ">
+                        <div className="flex items-center space-x-4 h-full items-start">
+                          <div
+                            className={`flex-shrink-0 p-3 text-primary-foreground`}
+                          >
+                            {item.icon}
+                          </div>
+                          <div className="flex flex-col min-w-0 flex-1 text-white">
+                            <CardTitle className="font-body text-h3 ">
+                              {item.head}
+                            </CardTitle>
+                            <CardDescription className="font-body text-sm md:text-base font-medium text-primary-foreground  mt-1">
+                              {item.body}
+                            </CardDescription>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
-    ))}
-  </div>
-</div>
-
-
     </section>
   );
 };

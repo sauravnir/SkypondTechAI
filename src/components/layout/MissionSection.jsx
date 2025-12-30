@@ -39,83 +39,83 @@ export default function MissionSection() {
     },
   ];
 
-  const anchorStyles = [
-    {
-      bg: "bg-primary/20",
-      size: "w-28 h-28",
-      glow: "animate-pulse-slow",
-      iconBg: "bg-primary/30",
-      iconAnimation: "animate-bounce-slow",
-    },
-    {
-      bg: "bg-accent/20",
-      size: "w-32 h-32",
-      glow: "animate-pulse-slow delay-200",
-      iconBg: "bg-accent/30",
-      iconAnimation: "animate-bounce-slow delay-200",
-    },
-  ];
+  // const anchorStyles = [
+  //   {
+  //     bg: "bg-primary/20",
+  //     size: "w-28 h-28",
+  //     glow: "animate-pulse-slow",
+  //     iconBg: "bg-primary/30",
+  //     iconAnimation: "animate-bounce-slow",
+  //   },
+  //   {
+  //     bg: "bg-accent/20",
+  //     size: "w-32 h-32",
+  //     glow: "animate-pulse-slow delay-200",
+  //     iconBg: "bg-accent/30",
+  //     iconAnimation: "animate-bounce-slow delay-200",
+  //   },
+  // ];
 
  const whyWeBuild = [
   {
     title: "Complex Workflows",
     body: "Manual tasks and repetitive processes slow teams down",
     icon: Target,
-    gradient: "bg-gradient-to-r from-[#5391f4ff] to-[#0e81c8ff]", // blue gradient
+    gradient: "bg-gradient-to-r from-[#5391f4ff] to-[#0e81c8ff]", 
   },
   {
     title: "Compliance Burden",
     body: "Regulations are critical but cumbersome",
     icon: Eye,
-    gradient: "bg-gradient-to-r from-[#18cd91ff] to-[#0d9488ff]", // teal gradient
+    gradient: "bg-gradient-to-r from-[#18cd91ff] to-[#0d9488ff]", 
   },
   {
     title: "Smart AI Assistance",
     body: "Automates tasks while supporting decision-making",
     icon: Handshake,
-    gradient: "bg-gradient-to-r from-[#fcbf1eff] to-[#e1701eff]", // orange gradient
+    gradient: "bg-gradient-to-r from-[#fcbf1eff] to-[#e1701eff]", 
   },
   {
     title: "Error Reduction",
     body: "Minimizes mistakes, improves accuracy",
     icon: CheckCircle,
-    gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]", // red gradient
+    gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]", 
   },
   {
     title: "Empowered Professionals",
     body: "Lets pharmacists focus on patient care",
     icon: Award,
-    gradient: "bg-gradient-to-r from-[#facc15] to-[#eab308]", // yellow gradient
+    gradient: "bg-gradient-to-r from-[#facc15] to-[#eab308]", 
   },
   {
     title: "Data-Driven Insights",
     body: "Provides actionable analytics to improve decision-making",
     icon: Target,
-    gradient: "bg-gradient-to-r from-[#22c55e] to-[#16a34a]", // green gradient
+    gradient: "bg-gradient-to-r from-[#22c55e] to-[#16a34a]", 
   },
   {
     title: "Enhanced Productivity",
     body: "Reduces administrative burden and frees up time",
     icon: Handshake,
-    gradient: "bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed]", // purple gradient
+    gradient: "bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed]", 
   },
   {
     title: "Seamless Integration",
     body: "Connects effortlessly with existing pharmacy software",
     icon: Eye,
-    gradient: "bg-gradient-to-r from-[#06b6d4] to-[#0e7490]", // cyan gradient
+    gradient: "bg-gradient-to-r from-[#06b6d4] to-[#0e7490]", 
   },
   {
     title: "Patient-Centric Care",
     body: "Ensures pharmacy teams can focus on improving patient outcomes",
     icon: Award,
-    gradient: "bg-gradient-to-r from-[#f97316] to-[#ea580c]", // deep orange gradient
+    gradient: "bg-gradient-to-r from-[#f97316] to-[#ea580c]", 
   },
   {
     title: "Scalable Solutions",
     body: "Adaptable technology that grows with your organization",
     icon: CheckCircle,
-    gradient: "bg-gradient-to-r from-[#3b82f6] to-[#2563eb]", // bright blue gradient
+    gradient: "bg-gradient-to-r from-[#3b82f6] to-[#2563eb]", 
   },
 ];
 
@@ -126,7 +126,7 @@ export default function MissionSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setListKey((prev) => prev + 1); 
-    }, 17000); // setting 17secs for refreshing the animation
+    }, 21000); // setting 22secs for refreshing the animation
 
     return () => clearInterval(interval);
   }, []);
@@ -139,7 +139,7 @@ export default function MissionSection() {
       </div> */}
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
         <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between gap-8 ">
-          <div className="items-start">
+          <div className="items-start space-y-4">
             <Badge
               variant="outline"
               className="font-ui text-[14px] bg-card text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-2 "
@@ -161,6 +161,7 @@ export default function MissionSection() {
                   variant="default"
                   className="rounded-full text-[16px] bg-primary font-body hover:bg-primary/80 text-primary-foreground border border-primary shadow"
                   size="md"
+                  
                 >
                   Schedule Demo
                   <span className="transition-transform duration-300 group-hover:scale-150">
@@ -209,7 +210,7 @@ export default function MissionSection() {
                 <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                   {item.title === "Why We Build" && (
                     <div className="relative flex flex-col w-full max-w-md h-[350px] overflow-hidden p-2">
-                      <AnimatedList key={listKey} delay={1500}>
+                      <AnimatedList key={listKey} delay={2000}>
                         {whyWeBuild.map((i) => {
                           const Icons = i.icon;
                           return (
@@ -246,7 +247,7 @@ export default function MissionSection() {
           })}
         </div>
 
-        <div className="flex flex-col max-w-5xl mx-auto p-8 rounded-2xl border mt-12 animate-float bg-card">
+        <div className="flex flex-col max-w-5xl mx-auto p-8 rounded-2xl border mt-16 animate-float bg-card ">
           <div className="p-4 text-center space-y-4">
             <p className="font-body text-paragraph text-heading">
               <span className="font-bold text-primary">

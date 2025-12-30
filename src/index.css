@@ -7,14 +7,14 @@
 .text-gradient {
   background: linear-gradient(
     120deg,
-    #710554,
+    #393875,
     #02867b,
     #06b6d4,
-    #7422ee
+    #7422ee6a
   );
   background-size:200% 200%;
-  animation: textGradientMove 10s ease infinite;
-
+  animation: textGradientMove 10s ease-in-out infinite;
+  
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -28,7 +28,7 @@
     background-position: 100% 50%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 0% 100%;
   }
 }
 
@@ -37,11 +37,11 @@
 
 .btn-gradient {
   background: linear-gradient(
-    110deg,
-    #710554c4,
+    135deg,
+   #00364fda,
     #02867b,
     #06b6d4,
-    #7422ee
+    #008b45
   );
   background-size: 200% 200%;
   animation: gradientMove 8s ease infinite;
@@ -69,6 +69,7 @@
 
 .animate-float {
       animation: float 4s ease-in-out infinite;
+      
     }
 
 @keyframes float {
@@ -77,28 +78,5 @@
     }
 
 
-/* Button Border Animation */
-@keyframes border-run {
-  0%   { clip-path: inset(0 100% 0 0); }
-  25%  { clip-path: inset(0 0 100% 0); }
-  50%  { clip-path: inset(100% 0 0 0); }
-  75%  { clip-path: inset(0 0 0 100%); }
-  100% { clip-path: inset(0 100% 0 0); }
-}
 
-@keyframes border-run-reverse {
-  0%   { clip-path: inset(100% 0 0 0); }
-  25%  { clip-path: inset(0 0 0 100%); }
-  50%  { clip-path: inset(0 100% 0 0); }
-  75%  { clip-path: inset(0 0 100% 0); }
-  100% { clip-path: inset(100% 0 0 0); }
-}
-
-.animate-border-run {
-  animation: border-run 10s linear infinite;
-}
-
-.animate-border-run-reverse {
-  animation: border-run-reverse 10s linear infinite;
-}
 

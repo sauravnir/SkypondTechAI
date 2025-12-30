@@ -3,3 +3,32 @@
     animation: none;
     mix-blend-mode: normal;
 }
+
+@layer base {
+  .theme {
+        --animate-shine: shine var(--duration) infinite linear;
+    }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+}
+
+@theme inline {
+  @keyframes shine {
+  0% {
+    background-position: 0% 0%;
+        }
+  50% {
+    background-position: 100% 100%;
+        }
+  to {
+    background-position: 0% 0%;
+        }
+    }
+}
