@@ -15,6 +15,8 @@ import { Highlighter } from "../ui/highlighter";
 import { Globe } from "../ui/globe";
 import { AnimatedList } from "../ui/animated-list";
 import { ProgressiveBlur } from "../ui/progressive-blur";
+
+
 import "@/index.css";
 import { Separator } from "../ui/separator";
 
@@ -302,11 +304,10 @@ to-[#e6f3ff]
             <Link to="https://skypondtech.com/" target="_blank">
             <Button type="ghost" className="font-heading bg-null hover:bg-null hover:text-stone-900 shadow-none text-button text-stone-600 font-medium ">
               <Highlighter action="underline" color="#0e81c8ff">
-               
                   Join the movement towards intelligent pharmacy operations.
-               
               </Highlighter>
             </Button>
+            
             </Link>
             
           </div>

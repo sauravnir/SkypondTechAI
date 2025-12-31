@@ -5,10 +5,7 @@ import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
-  CardFooter,
-  CardHeader,
   CardTitle,
 } from "../ui/card";
 
@@ -110,18 +107,18 @@ const HeroSection = () => {
           </Badge>
         </div> */}
 
-        <div className="max-w-5xl items-center text-center">
+        <div className="max-w-5xl items-center text-center ">
           {/* Referencing H1 for animation */}
-          <h1 className="text-gradient font-heading text-hero font-extrabold">
+          <h1 className="text-gradient font-heading text-hero font-extrabold ">
             Revolutionizing LTC Pharmacy
           </h1>
 
           <div className=" font-heading text-hero ">
-            <span className="text-heading font-extrabold">Operations with Enterprise AI </span>
+            <span className="text-heading font-mediumi">Operations with Enterprise AI </span>
           </div>
 
-          <div className="flex flex-col justify-center items-center text-center mt-8">
-            <p className="font-body text-paragraph text-heading max-w-3xl">
+          <div className="flex flex-col justify-center items-center text-center mt-10">
+            <p className="font-body text-paragraph text-heading max-w-2xl leading-relaxed">
               Skypond delivers enterprise-ready AI built for long-term care
               pharmacies—automating complex workflows, reducing operational
               friction, and enabling teams to scale securely with full
@@ -129,11 +126,11 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className="flex space-x-6 justify-center items-center mt-8 pointer-events-auto">
+          <div className="flex flex-wrap gap-6 justify-center mt-10">
             <div className="group">
               <Button
                 variant="default"
-                className="rounded-full text-[15px] font-body text-primary-foreground transition-transform duration-300 group-hover:scale-105"
+                className="rounded-full text-[15px] shadow-xl  font-body text-primary-foreground transition-transform duration-300 group-hover:scale-105"
                 size="lg"
               >
                 Get Started for FREE
@@ -147,7 +144,7 @@ const HeroSection = () => {
               <Link to="https://skypondtech.com" target="_blank">
                 <Button
                   variant="outline"
-                  className="text-[15px] font-body rounded-full text-accent border-accent bg-null flex items-center transition-transform duration-300 group-hover:scale-105"
+                  className="text-[15px] font-body shadow-lg rounded-full text-accent bg-null border-accent flex items-center transition-transform duration-300 group-hover:scale-105"
                   size="lg"
                 >
                   SkypondTech
@@ -157,11 +154,13 @@ const HeroSection = () => {
                 </Button>
               </Link>
             </div>
-          </div>
 
-          <div className="font-ui text-small mt-6">
+            
+          </div>
+            
+          <div className="font-heading text-small mt-6">
             <h1 className="text-muted underline">
-              No credit card required | Full Access for 14 days
+              Built for long-term care pharmacies · HIPAA-ready · Enterprise secure
             </h1>
           </div>
         </div>

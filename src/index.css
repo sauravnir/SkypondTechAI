@@ -12,8 +12,8 @@
     #06b6d4,
     #7422ee6a
   );
-  background-size:200% 200%;
-  animation: textGradientMove 10s ease-in-out infinite;
+ background-size: 200% 200%;
+animation: textGradientMove 12s ease infinite;
   
   -webkit-background-clip: text;
   background-clip: text;
@@ -80,3 +80,10 @@
 
 
 
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spinSlow 6s linear infinite;
+}
