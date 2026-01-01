@@ -15,7 +15,7 @@ import {
   ChevronRight,
   Menu,
   CircleSmall,
-  MoveUpRight,
+  ArrowUpRight,
 } from "lucide-react";
 
 function NavigationBar() {
@@ -81,8 +81,7 @@ function NavigationBar() {
           </nav>
    
           
-        
-
+      
         {/* Menu Items */}
 
         {/* CTA Buttons */}
@@ -96,7 +95,7 @@ function NavigationBar() {
               >
                 SkypondTech
                 <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
-                  <MoveUpRight strokeWidth={2.75} />
+                  <ArrowUpRight strokeWidth={2.75} />
                 </span>
               </Button>
             </Link>
@@ -131,10 +130,10 @@ function NavigationBar() {
                   <Link
                     key={item.title}
                     to={item.link}
-                    className="font-body hover:text-accent transition-all delay-400 text-heading text-button font-medium  py-2"
+                    className="hover:text-accent transition-all delay-400 py-2"
                   >
                     <div className="flex items-center gap-2">
-                      <CircleSmall size={12} /> {item.title}
+                      <CircleSmall size={18} strokeWidth={2.75}/> <span className='font-body text-heading text-h3 font-medium'>{item.title}</span>
                     </div>
                   </Link>
                 ))}
@@ -145,11 +144,12 @@ function NavigationBar() {
                   <Link to="https://skypondtech.com" target="_blank">
                     <Button
                       variant="outline"
-                      className="text-button flex items-center hover:underline w-full justify-center"
+                      className="text-[15px] flex items-center hover:text-accent w-full"
+                      size="lg"
                     >
-                      Main Website
+                      Skypond Tech
                       <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
-                        <ExternalLink />
+                        <ArrowUpRight strokeWidth={2.75}/>
                       </span>
                     </Button>
                   </Link>
@@ -157,12 +157,12 @@ function NavigationBar() {
                 <div className="group">
                   <Button
                     variant="default"
-                    className="text-button btn-gradient text-primary-foreground flex items-center w-full justify-center"
+                    className="text-[15px] bg-primary text-primary-foreground flex items-center w-full justify-center"
                     size="lg"
                   >
                     Get Started
                     <span className="transition-transform duration-300 group-hover:scale-150 ">
-                      <ChevronRight />
+                      <ChevronRight strokeWidth={2.75}/>
                     </span>
                   </Button>
                 </div>

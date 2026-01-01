@@ -16,7 +16,6 @@ import { Globe } from "../ui/globe";
 import { AnimatedList } from "../ui/animated-list";
 import { ProgressiveBlur } from "../ui/progressive-blur";
 
-
 import "@/index.css";
 import { Separator } from "../ui/separator";
 
@@ -136,9 +135,8 @@ export default function MissionSection() {
     <section className="relative overflow-hidden bg-background">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        
-          <div className="absolute bottom-20 right-[200px] w-3/4 h-[150px] bg-primary/15 rounded-full blur-3xl" />
-        
+
+        <div className="absolute bottom-20 right-[200px] w-3/4 h-[150px] bg-primary/15 rounded-full blur-3xl" />
       </div>
 
       {/* <svg
@@ -164,29 +162,28 @@ export default function MissionSection() {
             />
           </svg> */}
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
-        <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between gap-8 ">
-          <div className="items-start space-y-4">
+        <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between ">
+          <div className="items-start">
             <Badge
               variant="outline"
-              className="font-ui text-[14px] bg-card text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-2 "
+              className="font-ui text-[14px] font-bold text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
             >
               Our Goals
             </Badge>
-            <h1 className="font-heading text-h1 text-heading font-bold">
-              Shaping the future of LTC Pharmacy
+            <h1 className="text-start font-heading max-w-xl mx-auto text-h1 text-heading font-bold ">
+              <span className="text-primary">Shaping</span> the future of{" "}
+              <span className="text-primary">LTC Pharmacy</span>
             </h1>
-            <p className="mt-3 max-w-lg font-body text-paragraph text-muted">
+            <p className="mt-8 max-w-lg font-body text-paragraph text-muted">
               Smarter automation, measurable outcomes, and a new standard for
               long-term care pharmacy operations
             </p>
-          </div>
-          <div className="group flex items-end p-2 mt-4">
-            <div className="group">
+            <div className="group mt-4">
               <Link to="/" target="_blank">
                 <Button
                   variant="default"
-                  className="rounded-full text-[16px] bg-primary font-body hover:bg-primary/80 text-primary-foreground border border-primary shadow"
-                  size="md"
+                  className="rounded-full text-[15px] bg-primary font-body hover:bg-altbackground/90 text-primary-foreground "
+                  size="sm"
                 >
                   Schedule Demo
                   <span className="transition-transform duration-300 group-hover:scale-150">
@@ -283,35 +280,62 @@ export default function MissionSection() {
           })}
         </div>
 
-        <div
-          className="flex flex-row justify-between items-center text-end 
-bg-gradient-to-br 
-from-white 
-via-[#f3f9ff] 
-to-[#e6f3ff]
- w-full max-w-7xl mx-auto p-8 rounded-2xl border border-primary  mt-32 animate-float bg-card "
-        >
-          <div className="p-4 text-start space-y-4">
-            <p className="font-heading text-heading font-medium">
-              Trusted by leading pharmacy networks,<br></br>
-              who value {""}
-              <span className="font-bold text-paragraph text-primary u">
-                reliability, compliance, and measurable ROI.
-              </span>{" "}
-            </p>
-          </div>
-          <div className="z-30">
-            <Link to="https://skypondtech.com/" target="_blank">
-            <Button type="ghost" className="font-heading bg-null hover:bg-null hover:text-stone-900 shadow-none text-button text-stone-600 font-medium ">
-              <Highlighter action="underline" color="#0e81c8ff">
-                  Join the movement towards intelligent pharmacy operations.
-              </Highlighter>
-            </Button>
-            
-            </Link>
-            
-          </div>
-          
+        <div className="relative mt-32">
+          <svg
+            className="absolute inset-0 w-full h-full opacity-20 pointer-events-none"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="white"
+              fillOpacity="0.5"
+              d="M0,160L80,176C160,192,320,224,480,224C640,224,800,192,960,176C1120,160,1280,160,1360,160L1440,160L1440,0L0,0Z"
+            />
+          </svg>
+          <svg
+            className="absolute inset-0 w-full h-full opacity-30 translate-y-6 pointer-events-none"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="white"
+              fillOpacity="0.3"
+              d="M0,192L96,208C192,224,384,256,576,245.3C768,235,960,181,1152,160C1344,139,1440,160,1440,160L1440,0L0,0Z"
+            />
+          </svg>
+          <div className="max-w-5xl mx-auto">
+            <div className="bg-white rounded-3xl shadow-xl border-2 p-8 lg:p-12 relative overflow-hidden animate-float">
+              {/* Corner accent */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent/20 to-primary rounded-full -translate-y-1/2 translate-x-1/2 opacity-100"></div>
+              
+              <div className="relative">
+                {/* Quote marks */}
+                <div className="text-6xl text-primary/40 font-ui mb-4">"</div>
+                
+                {/* Trust statement */}
+                <p className="font-heading text-h3 font-bold pl-8">
+                  Trusted by leading pharmacy networks who value reliability, compliance, and measurable ROI.
+                </p>
+
+                {/* Signature line */}
+                <Separator className="bg-primary h-1 w-72 items-start ml-8 mt-4"/>
+
+                {/* CTA */}
+                <div className="group pl-8 mt-8">
+                  <span>
+                    <Link
+                    to="https://skypondtech.com/"
+                    target="_blank"
+                    className="font-heading text-accent hover:text-altbackground/90 font-medium text-paragraph flex items-center"
+                  >
+                    Join the movement toward intelligent pharmacy operations
+                    <ChevronRight size={18} strokeWidth={2.75} className="transition-transform duration-300 group-hover:scale-125"/>
+                  </Link>
+                  </span>
+                  
+                </div>
+              </div>
+            </div></div>
         </div>
       </div>
     </section>

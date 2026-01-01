@@ -11,22 +11,18 @@ import {
 
 import {
   ChevronRight,
-  MoveUpRight,
-  Rocket,
+
   User,
   Medal,
   BriefcaseBusiness,
-  Sparkles,
   Shield,
-  Zap,
+  ArrowUpRight,
 } from "lucide-react";
 
-import { BackgroundGradientAnimation } from "../ui/background-gradient-animation";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { ProgressiveBlur } from "../ui/progressive-blur";
 import "@/index.css";
-import { ShineBorder } from "../ui/shine-border";
-// import "@src/App.css"
+
 
 const HeroSection = () => {
   //Creating fetures array
@@ -59,7 +55,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background via-primary/10 to-primary/80 ">
+    <section className="relative overflow-hidden bg-gradient-to-b from-background via-primary/10 to-primary ">
       {/* <div className="absolute inset-0 w-full h-full pointer-events-auto">
         <InteractiveGridPattern
           className={cn(
@@ -126,11 +122,11 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-6 justify-center mt-10">
+          <div className="flex flex-wrap gap-6 justify-center mt-10 pointer-events-auto">
             <div className="group">
               <Button
                 variant="default"
-                className="rounded-full text-[15px] shadow-xl  font-body text-primary-foreground transition-transform duration-300 group-hover:scale-105"
+                className="rounded-full text-[15px] shadow-xl font-body text-primary-foreground "
                 size="lg"
               >
                 Get Started for FREE
@@ -144,12 +140,12 @@ const HeroSection = () => {
               <Link to="https://skypondtech.com" target="_blank">
                 <Button
                   variant="outline"
-                  className="text-[15px] font-body shadow-lg rounded-full text-accent bg-null border-accent flex items-center transition-transform duration-300 group-hover:scale-105"
+                  className="text-[15px] font-body shadow-lg rounded-full text-heading bg-white border-muted flex items-center hover:text-accent"
                   size="lg"
                 >
-                  SkypondTech
+                  Skypond Tech
                   <span className="transition-transform duration-300 group-hover:scale-125">
-                    <MoveUpRight strokeWidth={2.75} />
+                    <ArrowUpRight strokeWidth={2.75} />
                   </span>
                 </Button>
               </Link>
@@ -158,7 +154,7 @@ const HeroSection = () => {
             
           </div>
             
-          <div className="font-heading text-small mt-6">
+          <div className="font-heading font-medium text-small mt-6">
             <h1 className="text-muted underline">
               Built for long-term care pharmacies · HIPAA-ready · Enterprise secure
             </h1>

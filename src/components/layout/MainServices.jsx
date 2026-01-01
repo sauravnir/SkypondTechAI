@@ -29,7 +29,6 @@ const MainServices = () => {
       title: "Order Entry Automation",
       body: "Intelligent order processing platform that eliminates manual data entry and supplier communication delays. Reduce order processing time by 85% while maintaining 99.9% accuracy.",
       icon: Cog,
-      gradient: "from-amber-400 to-orange-500",
       features: [
         "Intelligent supplier integration",
         "Real-time inventory synchronization",
@@ -42,7 +41,6 @@ const MainServices = () => {
       title: "Document Automation",
       body: "Enterprise-grade document processing that transforms unstructured pharmacy data into actionable insights. Digitize, verify, and process hundreds of documents daily with zero errors.",
       icon: FileText,
-      gradient: "from-blue-400 to-blue-600",
       features: [
         "Intelligent document classification",
         "Insurance form automation",
@@ -55,7 +53,6 @@ const MainServices = () => {
       title: "AI Pharmacy Copilot",
       body: "Intelligent conversational AI designed specifically for pharmacy operations. Provide instant support to staff and patients 24/7, handling routine inquiries and escalating complex issues automatically.",
       icon: Bot,
-      gradient: "from-emerald-400 to-teal-500",
       features: [
         "Multi-language support",
         "HIPAA-compliant conversations",
@@ -68,7 +65,6 @@ const MainServices = () => {
       title: "Workflow Intelligence",
       body: "Comprehensive automation engine that learns your pharmacy's unique processes and optimizes them continuously. Streamline medication verification, quality checks, and operational workflows.",
       icon: Workflow,
-      gradient: "from-purple-400 to-pink-500",
       features: [
         "Intelligent task prioritization",
         "Quality assurance automation",
@@ -101,22 +97,20 @@ const MainServices = () => {
   return (
     <div className="relative overflow-hidden bg-background">
       <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
-        <div className="flex flex-col justify-center items-center text-center space-y-4">
+        <div className="flex flex-col justify-center items-center text-center">
           <Badge
             variant="outline"
-            className="font-ui text-[14px] bg-card text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full uppercase mb-2 "
+            className="font-ui text-[14px] bg-null  text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full uppercase mb-8 "
           >
             Our Solutions
           </Badge>
           <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
             Enterprise-Grade{" "}
-            <Highlighter action="underline" color="#ffaa11">
               AI Solutions
-            </Highlighter>
             <br></br>
-            Purpose-Built for LTC Pharmacy
+            Purpose - {""}<span className="text-primary">Built for LTC Pharmacy</span>
           </h1>
-          <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
+          <p className="mt-4 max-w-3xl font-body text-paragraph text-muted">
             Transform every aspect of your pharmacy operations with our
             intergrated AI platform designed specifically for long-term care
             environments
@@ -236,39 +230,40 @@ const MainServices = () => {
                               <div className=" grid lg:grid-cols-2 gap-12 items-start ">
                                 {/* LEFT */}
                                 <div className="space-y-6">
-                                  <div className="flex items-start gap-4">
+                                  <div className="flex items-center gap-4">
                                     <div
-                                      className={`p-3 rounded-2xl bg-gradient-to-br ${services[index].gradient} shadow-lg`}
+                                      className={`p-3 rounded-2xl bg-accent shadow-lg`}
                                     >
                                       {React.createElement(
                                         services[index].icon,
                                         {
-                                          className: "w-8 h-8 text-white",
+                                          className: "w-7 h-7 text-white",
                                         }
                                       )}
                                     </div>
 
-                                    <div>
-                                      <h3 className="font-heading text-h3 font-bold text-heading mb-4">
+                                    <div className="flex flex-col gap-2">
+                                      <h3 className="font-heading text-h3 font-bold text-heading ">
                                         {services[index].title}
                                       </h3>
                                       <div
-                                        className={`w-16 h-1 bg-gradient-to-r ${services[index].gradient} rounded-full`}
+                                        className={`w-16 h-1 bg-accent rounded-full`}
                                       />
                                     </div>
                                   </div>
 
-                                  <p className="font-body text-paragraph text-muted">
+                                  <p className="font-body text-paragraph text-justify text-muted">
                                     {services[index].body}
                                   </p>
 
-                                  <div className="group pt-4">
+                                  <div className="group">
                                     <Button
-                                      size="lg"
-                                      className={`rounded-full bg-gradient-to-r ${services[index].gradient} text-white shadow-lg transition-transform duration-300 hover:scale-105 `}
+                                      variant="default"
+                                      size="sm"
+                                      className={`text-[15px] rounded-full text-primary-foreground hover:text-altbackground/90 hover:text-primary-foreground`}
                                     >
                                       Learn More
-                                      <span className="transition-transform duration-300 group-hover:scale-125"><ChevronRight className="ml-2" strokeWidth={2.75}/> </span>
+                                      <span ><ChevronRight className="group-hover:scale-125" strokeWidth={2.75}/> </span>
                                       
                                     </Button>
                                   </div>
@@ -276,7 +271,7 @@ const MainServices = () => {
 
                                 {/* RIGHT */}
                                 <div className="space-y-4">
-                                  <h4 className="font-heading text-paragraph font-bold text-heading">
+                                  <h4 className="font-heading text-h3 font-bold text-heading">
                                     Key Features
                                   </h4>
 
@@ -295,10 +290,10 @@ const MainServices = () => {
                                           }}
                                         >
                                           <CheckCircle
-                                            className="text-primary mt-1"
+                                            className="text-accent mt-1"
                                             size={18}
                                           />
-                                          <span className="font-body text-paragraph text-muted">
+                                          <span className="font-body text-paragraph font-medium text-muted">
                                             {feature}
                                           </span>
                                         </motion.li>

@@ -10,25 +10,18 @@ module.exports = {
         ui: ["Urbanist", "system-ui", "sans-serif"],
       },
       colors: {
-        background: "#f9f9f9ff",
-
-        altbackground: "#0b0b0bff",
-
+        background: "#F8F9FE",
+        altbackground: "#0F0B1F",
         card: "#FFFFFF",
-
-        border: "#CBD5E1",
-
-        heading: "#0F172A",
-
-        bodycontent: "#CBD5E1",
-
+        border: "#E5E7EB",
+        heading: "#1E1B4B",
+        bodycontent: "#6366F1",
         muted: "#64748B",
-
-        primary: "#09766dff",
-
+        primary: "#6366F1",
+        darkprimary:"#4e50bdff",
         "primary-foreground": "#FFFFFF",
-
-        accent: "#0e81c8ff",
+        accent: "#06B6D4",
+        darkaccent:"#047d92ff"
       },
       fontSize: {
         hero: [
@@ -65,49 +58,6 @@ module.exports = {
           "0.9375rem", // 15px
           { lineHeight: "1.25", letterSpacing: "0.01em" },
         ],
-      },
-
-      animation: {
-        first: "moveVertical 30s ease infinite",
-        second: "moveInCircle 20s reverse infinite",
-        third: "moveInCircle 40s linear infinite",
-        fourth: "moveHorizontal 40s ease infinite",
-        fifth: "moveInCircle 20s ease infinite",
-      },
-      keyframes: {
-        moveHorizontal: {
-          "0%": {
-            transform: "translateX(-50%) translateY(-10%)",
-          },
-          "50%": {
-            transform: "translateX(50%) translateY(10%)",
-          },
-          "100%": {
-            transform: "translateX(-50%) translateY(-10%)",
-          },
-        },
-        moveInCircle: {
-          "0%": {
-            transform: "rotate(0deg)",
-          },
-          "50%": {
-            transform: "rotate(180deg)",
-          },
-          "100%": {
-            transform: "rotate(360deg)",
-          },
-        },
-        moveVertical: {
-          "0%": {
-            transform: "translateY(-50%)",
-          },
-          "50%": {
-            transform: "translateY(50%)",
-          },
-          "100%": {
-            transform: "translateY(-50%)",
-          },
-        },
       },
     },
   },

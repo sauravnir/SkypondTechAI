@@ -107,17 +107,17 @@ export default function WhyChooseUs() {
   return (
     <section className="relative bg-background">
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
-        <div className="flex flex-col justify-start items-start text-start space-y-4">
+        <div className="flex flex-col justify-start items-start text-start">
           <Badge
             variant="outline"
-            className="font-ui text-[14px] bg-card text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-2 "
+            className="font-ui text-[14px] bg-null font-bold text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
           >
             Why Choose Us
           </Badge>
           <h1 className="font-heading text-h1 max-w-3xl text-heading font-bold">
-            Why leading LTC Pharmacies choose Skypond
+            Why leading LTC Pharmacies <span className="text-primary">choose Skypond</span> 
           </h1>
-          <p className="mt-3 max-w-xl font-body text-paragraph text-muted">
+          <p className="mt-4 max-w-xl font-body text-paragraph text-muted">
             Because long-term care pharmacies need more than software -{" "}
             <span className="text-primary font-bold">they need certainty.</span>
           </p>
@@ -147,7 +147,7 @@ export default function WhyChooseUs() {
                   {/* <div className="w-8 h-8 b rounded-full ">
                   <Icon className="w-6 h-6 text-primary-foreground mb-4 " />
                   </div> */}
-                  <h3 className="font-heading text-h3 font-bold ">
+                  <h3 className="font-heading text-h3 font-bold hover:text-primary">
                     {item.title}
                   </h3>
                   <p className="font-body text-paragraph mt-3 text-muted max-w-md leading-relaxed">

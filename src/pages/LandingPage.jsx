@@ -7,6 +7,7 @@ import MissionSection from "@/components/layout/MissionSection";
 import MainStats from "@/components/layout/MainStats";
 import StepSection from "@/components/layout/StepSection";
 import WhyChoose from "@/components/layout/WhyChoose";
+import RecallSection from "@/components/layout/RecallSection"
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 
 const LandingPage = () => {
@@ -19,6 +20,7 @@ const LandingPage = () => {
       <MissionSection />
       <StepSection />
       <WhyChoose />
+      <RecallSection />
       <Footer />
     </div>
   );

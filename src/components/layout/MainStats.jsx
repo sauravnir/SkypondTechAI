@@ -23,14 +23,14 @@ export default function MainStats() {
       icon: Hourglass,
       value: 75,
       suffix: "%",
-      gradient: "from-amber-400 to-orange-500",
+  
       body: "Time Saved on Manual Tasks",
     },
     {
       icon: TrendingUp,
       value: 99,
       suffix: "%",
-      gradient: "from-blue-400 to-blue-600",
+     
       body: "Accuracy Improvement",
     },
     {
@@ -38,14 +38,14 @@ export default function MainStats() {
       value: 500,
       prefix: "$",
       suffix: "K+",
-      gradient: "from-emerald-400 to-teal-500",
+      
       body: "Annual Savings per Facility",
     },
     {
       icon: Infinity,
       value: 24,
       suffix: "/7",
-      gradient: "from-purple-400 to-pink-500",
+      
       body: "Continuous Operation",
     },
   ];
@@ -83,17 +83,17 @@ export default function MainStats() {
         <div className="absolute  -bottom-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
         {/* <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full bg-accent/10 blur-2xl pointer-events-none"></div> */}
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none"/>
-        <div className="flex flex-col justify-center items-center text-center space-y-4">
+        <div className="flex flex-col justify-center items-center text-center ">
           <Badge
             variant="outline"
-            className="font-ui text-[14px] bg-card text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-2 "
+            className="font-ui text-[14px] bg-card text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
           >
             Our Achievements
           </Badge>
           <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
-            Real Impact, Measurable Results
+            Real Impact, <span className="text-primary">Measurable Results</span> 
           </h1>
-          <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
+          <p className="mt-4 max-w-3xl font-body text-paragraph text-muted">
             Proven outcomes from leading LTC pharmacies using Skypond AI to
             transform operations
           </p>
@@ -110,7 +110,7 @@ export default function MainStats() {
               >
                 {/* Floating Icon Circle */}
                 <div
-                  className={`absolute left-2 -top-6 flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r ${item.gradient} shadow-md`}
+                  className={`absolute left-2 -top-6 flex items-center justify-center w-14 h-14 rounded-2xl bg-accent shadow-lg`}
                 >
                   <Icon className="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" />
                 </div>
@@ -124,17 +124,17 @@ export default function MainStats() {
                     steps={100}
                   />
                   {item.suffix && (
-                    <span className="font-body text-paragraph text-primary">
+                    <span className="font-body text-paragraph text-accent">
                       {item.suffix}
                     </span>
                   )}
                 </div>
 
-                {/* Divider */}
-                <div className="h-1 w-12 rounded-full bg-gradient-to-r from-primary to-accent mt-2" />
+                {/* Divider/ */}
+                <Separator className="w-14 h-1 bg-primary"/>
 
                 {/* Label */}
-                <p className="text-center font-body sm:text-small md:text-small lg:text-small text-muted mt-2 px-2">
+                <p className="text-center font-body font-medium sm:text-small md:text-small lg:text-small text-muted mt-2 px-2">
                   {item.body}
                 </p>
               </div>
@@ -148,19 +148,19 @@ export default function MainStats() {
               className={`
                         relative flex flex-col p-8 gap-4 
                    hover:shadow-2xl duration-500
-                   backdrop-blur-xl border border-accent rounded-3xl shadow-xl transform-transition hover:scale-105 duration-400
+                   backdrop-blur-xl border border-primary rounded-3xl shadow-xl transform-transition hover:scale-105 duration-400
       `}
             >
               {/* Left: Icon + Head */}
               <div className="flex flex-col md:flex-row items-center gap-6 md:gap-6">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-primary shadow-lg text-white">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-darkaccent shadow-lg text-white">
                   {item.icon}
                 </div>
                 <div className="flex flex-col space-y-2 text-center md:text-left">
                   <h2 className="font-heading text-heading text-h3 font-bold">
                     {item.head}
                   </h2>
-                  <span className="font-body text-sm text-muted">
+                  <span className="font-body text-paragraph  text-muted">
                     {item.sub}
                   </span>
                 </div>
@@ -181,12 +181,12 @@ export default function MainStats() {
                       transition={{ delay: idx * 0.1 + 0.3 }}
                     >
                       <CheckCircle
-                        className=" text-accent flex-shrink-0"
+                        className=" text-darkaccent flex-shrink-0"
                         size={18}
                       />
-                      <span className="font-body text-button font-medium text-accent ">
+                      <span className="font-body text-button text-heading font-medium ">
                         {adv}
-                        <Separator orientation="" />
+                       
                       </span>
                     </motion.li>
                   ))}
@@ -196,16 +196,14 @@ export default function MainStats() {
           ))}
         </div>
         <div className="group items-center justify-center p-2 mt-4">
-          <h1 className="font-body text-button text-heading font-medium">
-            <Highlighter action="underline" color="#5391f4ff">
+          <h1 className="font-body text-paragraph text-heading ">
               Transform operations. Save time. Achieve more.
-            </Highlighter>
             <Link to="/">
               <Button
-                variant="link"
-                className="font-body text-[15px] transform-transition"
+                variant="ghost"
+                className="font-body text-primary text-[15px] transform-transition hover:text-altbackground/90"
               >
-                Get started
+                Contact us
                 <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
                   <ChevronRight strokeWidth={2.75} />
                 </span>
