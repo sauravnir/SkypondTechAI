@@ -3,21 +3,16 @@ import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import {
   ChevronRight,
-  MoveUpRight,
   CircleCheck,
   ClockCheck,
   Shield,
-  Calendar,
 } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
-import Logo from "@/assets/media/1.png";
+import Logo from "@/assets/media/logosymbol.png";
 import {
   Dialog,
   DialogTrigger,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogClose,
 } from "../ui/dialog";
 import GetStartedForm from "../reusable/GetStartedForm";
 
@@ -41,12 +36,12 @@ export default function RecallSection() {
   ];
 
   const avatars = [
-    { id: 1, fallback: "SP" },
-    { id: 2, fallback: "AI" },
-    { id: 3, fallback: "RX" },
-    { id: 4, fallback: "PH" },
-    { id: 5, fallback: "LT" },
-    { id: 6, fallback: "24" },
+    { id: 1, icon: Logo, fallback: "SP" },
+    { id: 2,icon: Logo, fallback: "AI" },
+    { id: 3,icon: Logo, fallback: "RX" },
+    { id: 4,icon: Logo, fallback: "PH" },
+    { id: 5,icon: Logo, fallback: "LT" },
+    { id: 6,icon: Logo, fallback: "24" },
   ];
   return (
     <section className="relative overflow-hidden bg-altbackground">
@@ -59,7 +54,7 @@ export default function RecallSection() {
           <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
             See how leading LTC pharmacies are reducing manual work, eliminating
             errors, and driving measurable growth with{" "}
-            <span className="text-white">Skypond AI</span> .
+            <span className="font-bold text-accent">Skypond AI</span> .
           </p>
         </div>
 
@@ -83,11 +78,11 @@ export default function RecallSection() {
                     // Setting icons orientation
                     style={{ zIndex: avatars.length - idx }}
                   >
-                    {item.logo ? (
-                      <AvatarImage
+                    {item.icon? (
+                      <img
                         src={Logo}
                         alt="partners"
-                        className="h-20 w-auto"
+                        className="h-14 w-auto bg-altbackground"
                       />
                     ) : null}
                     <AvatarFallback className="bg-muted text-xs font-semibold">

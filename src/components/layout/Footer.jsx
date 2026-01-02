@@ -57,15 +57,12 @@ const Footer = () => {
       <div className="grid grid-cols-3 gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-0 ">
         {/* Solutions Section */}
         <div className="flex flex-col items-start gap-4">
-          <Button
-            asChild
+          <span
             variant="ghost"
-            className="font-heading text-[28px] text-primary-foreground font-bold "
+            className="font-heading text-[20px] text-primary-foreground font-bold "
           >
-            <Link target="_blank" to="/">
-              Solutions <ChevronRight />
-            </Link>
-          </Button>
+            Solutions
+          </span>
           <Separator orientation="horizontal" />
 
           <NavigationMenu>
@@ -88,15 +85,9 @@ const Footer = () => {
 
         {/* Trust and Security Section*/}
         <div className="flex flex-col items-start gap-4">
-          <Button
-            asChild
-            variant="ghost"
-            className="font-heading text-[28px] text-primary-foreground font-bold "
-          >
-            <Link target="_blank" to="/">
-              Trust and Security <ChevronRight />
-            </Link>
-          </Button>
+          <span className="font-heading text-[20px] text-primary-foreground font-bold ">
+            Trust and Security
+          </span>
           <Separator orientation="horizontal" />
 
           <NavigationMenu>
@@ -119,15 +110,9 @@ const Footer = () => {
 
         {/* Company Section */}
         <div className="flex flex-col items-start gap-4">
-          <Button
-            asChild
-            variant="ghost"
-            className="font-heading text-[28px] text-primary-foreground font-bold "
-          >
-            <Link target="_blank" to="/">
-              Company <ChevronRight />
-            </Link>
-          </Button>
+          <span className="font-heading text-[20px] text-primary-foreground font-bold ">
+            Company
+          </span>
           <Separator orientation="horizontal" />
 
           <NavigationMenu>
@@ -139,7 +124,8 @@ const Footer = () => {
                       to={items.link}
                       className="flex font-body text-muted text-[16px] hover:underline gap-2"
                     >
-                      <Minus /> {items.title}
+                      <Minus />
+                      {items.title}
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
@@ -149,12 +135,10 @@ const Footer = () => {
         </div>
       </div>
 
-      
-
       <div className="flex justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
         <div className="flex-col flex-shrink-0">
           <Link to="/">
-            <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto"></img>
+            <img src={Logo} alt="SkypondTech.AI" className="pl-2 h-20 w-auto"></img>
           </Link>
 
           <p className="max-w-sm mx-auto px-4 sm:px-6 lg:px-5 justify-start font-body text-muted text-small">
@@ -177,16 +161,20 @@ const Footer = () => {
           </div>
           <Separator />
           <div className="space-y-2">
-              <div className="flex flex-row gap-2 text-muted justify-end font-body text-small">
-            <Copyright size={15}/>
-            <h1>{new Date().getFullYear()} Skypond AI. All rights reserved.</h1><br></br>
-            
+            <div className="flex flex-row gap-2 text-muted justify-end font-body text-small">
+              <Copyright size={15} />
+              <h1>
+                {new Date().getFullYear()} Skypond AI. All rights reserved.
+              </h1>
+              <br></br>
+            </div>
+            <div className="flex flex-row gap-2 text-muted justify-end font-body text-small ">
+              <h1>
+                Built for healthcare. Enterprise Grade. HIPAA Compliant. SOC 2
+                Type II Certified.
+              </h1>
+            </div>
           </div>
-          <div className="flex flex-row gap-2 text-muted justify-end font-body text-small ">
-            <h1>Built for healthcare. Enterprise Grade. HIPAA Compliant. SOC 2 Type II Certified.</h1>
-          </div>
-          </div>
-          
         </div>
       </div>
     </footer>
