@@ -7,6 +7,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "../ui/navigation-menu";
+import { Dialog, DialogTrigger, DialogContent, DialogHeader , DialogTitle, DialogClose} from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
@@ -17,6 +18,8 @@ import {
   CircleSmall,
   ArrowUpRight,
 } from "lucide-react";
+import GetStartedForm from "../reusable/GetStartedForm";
+
 
 function NavigationBar() {
   //setting up states for scroll effect
@@ -54,34 +57,34 @@ function NavigationBar() {
         }`}
       >
         {/* Navigation Bar Logo */}
-        
-          <div className="flex-shrink-0">
-            <Link to="/">
-              <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
-            </Link>
-          </div>
 
-          <nav className="hidden md:block">
-            <NavigationMenu>
-              <NavigationMenuList className="space-x-2">
-                {menuItems.map((item, index) => (
-                  <NavigationMenuItem key={index}>
-                    <NavigationMenuLink asChild>
-                      <Link
-                        to={item.link}
-                        className={`font-body hover:text-accent transition-all delay-400 text-heading text-small px-3 py-2 ${isScrolled ? "text-primary-foreground":""}`}
-                      >
-                        {item.title}
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </nav>
-   
-          
-      
+        <div className="flex-shrink-0">
+          <Link to="/">
+            <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
+          </Link>
+        </div>
+
+        <nav className="hidden md:block">
+          <NavigationMenu>
+            <NavigationMenuList className="space-x-2">
+              {menuItems.map((item, index) => (
+                <NavigationMenuItem key={index}>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      to={item.link}
+                      className={`font-body hover:text-accent transition-all delay-400 text-heading text-small px-3 py-2 ${
+                        isScrolled ? "text-primary-foreground" : ""
+                      }`}
+                    >
+                      {item.title}
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </nav>
+
         {/* Menu Items */}
 
         {/* CTA Buttons */}
@@ -90,7 +93,9 @@ function NavigationBar() {
             <Link to="https://skypondtech.com" target="_blank">
               <Button
                 variant="ghost"
-                className={`text-[14px] text-heading hover:text-accent flex items-center border-heading rounded-full ${isScrolled ?"text-primary-foreground border-white":""}`}
+                className={`text-[14px] text-heading hover:text-accent flex items-center border-heading rounded-full ${
+                  isScrolled ? "text-primary-foreground border-white" : ""
+                }`}
                 size="sm"
               >
                 SkypondTech
@@ -102,7 +107,9 @@ function NavigationBar() {
           </div>
           {/* <Separator orientation="vertical" className="h-6 bg-border" /> */}
           <div className="group">
-            <Button
+            <Dialog>
+              <DialogTrigger>
+                <Button
               variant="default"
               className="text-[14px] text-primary-foreground rounded-full flex items-center "
               size="md"
@@ -112,16 +119,37 @@ function NavigationBar() {
                 <ChevronRight strokeWidth={2.75} />
               </span>
             </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
+                <GetStartedForm />
+              </DialogContent>
+            </Dialog>
+            
           </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
 
         {/* Mobile Menu Button */}
         <div className="md:hidden lg:hidden ">
           {/* Creating Side-Drawer / Sheet */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button size="icon" variant="outline" className={`${isScrolled ? "bg-primary":""}`}>
-                <Menu/>
+              <Button
+                size="icon"
+                variant="outline"
+                className={`${isScrolled ? "bg-primary" : ""}`}
+              >
+                <Menu />
               </Button>
             </SheetTrigger>
             <SheetContent side="top" className="w-full h-full">
@@ -133,7 +161,10 @@ function NavigationBar() {
                     className="hover:text-accent transition-all delay-400 py-2"
                   >
                     <div className="flex items-center gap-2">
-                      <CircleSmall size={18} strokeWidth={2.75}/> <span className='font-body text-heading text-h3 font-medium'>{item.title}</span>
+                      <CircleSmall size={18} strokeWidth={2.75} />{" "}
+                      <span className="font-body text-heading text-h3 font-medium">
+                        {item.title}
+                      </span>
                     </div>
                   </Link>
                 ))}
@@ -149,22 +180,41 @@ function NavigationBar() {
                     >
                       Skypond Tech
                       <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
-                        <ArrowUpRight strokeWidth={2.75}/>
+                        <ArrowUpRight strokeWidth={2.75} />
                       </span>
                     </Button>
                   </Link>
                 </div>
                 <div className="group">
-                  <Button
-                    variant="default"
-                    className="text-[15px] bg-primary text-primary-foreground flex items-center w-full justify-center"
-                    size="lg"
-                  >
-                    Get Started
-                    <span className="transition-transform duration-300 group-hover:scale-150 ">
-                      <ChevronRight strokeWidth={2.75}/>
-                    </span>
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button
+                        variant="default"
+                        className="text-[15px] bg-primary text-primary-foreground flex items-center w-full justify-center"
+                        size="lg"
+                      >
+                        Get Started
+                        <span className="transition-transform duration-300 group-hover:scale-150 ">
+                          <ChevronRight strokeWidth={2.75} />
+                        </span>
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-lg w-full">
+        <DialogHeader>
+          <DialogTitle className="text-xl font-bold text-heading">
+            Get in Touch
+          </DialogTitle>
+        </DialogHeader>
+
+        <div className="mt-4">
+          <GetStartedForm />
+        </div>
+
+        <DialogClose asChild>
+          <button className="absolute top-3 right-3 text-muted hover:text-heading">✕</button>
+        </DialogClose>
+      </DialogContent>
+                  </Dialog>
                 </div>
               </div>
             </SheetContent>

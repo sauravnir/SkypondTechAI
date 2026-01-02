@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Badge } from "../ui/badge";
 import { Highlighter } from "../ui/highlighter";
 import { Card, CardContent } from "../ui/card";
@@ -17,41 +18,39 @@ import { AnimatedCircularProgressBar } from "../ui/animated-circular-progress-ba
 
 export default function StepSection() {
   const steps = [
-  {
-    step: "01",
-    title: "Connect",
-    body: "Integrate with your pharmacy system in minutes",
-    icon: Plug,
-    bg: "bg-card", // soft white card
-    iconBg: "bg-accent/10 text-accent", // soft icon highlight
-  },
-  {
-    step: "02",
-    title: "Analyze",
-    body: "AI learns your workflows and patterns",
-    icon: BrainCircuit,
-    bg: "bg-card",
-    iconBg: "bg-accent/10 text-accent",
-  },
-  {
-    step: "03",
-    title: "Automate",
-    body: "Intelligent automation takes over routine tasks",
-    icon: StepForward,
-    bg: "bg-card",
-    iconBg: "bg-accent/10 text-accent",
-  },
-  {
-    step: "04",
-    title: "Optimize",
-    body: "Continuous improvement and learning",
-    icon: Sparkles,
-    bg: "bg-card",
-    iconBg: "bg-accent/10 text-accent",
-  },
-];
-
-
+    {
+      step: "01",
+      title: "Connect",
+      body: "Integrate with your pharmacy system in minutes",
+      icon: Plug,
+      bg: "bg-card", // soft white card
+      iconBg: "bg-accent/10 text-accent", // soft icon highlight
+    },
+    {
+      step: "02",
+      title: "Analyze",
+      body: "AI learns your workflows and patterns",
+      icon: BrainCircuit,
+      bg: "bg-card",
+      iconBg: "bg-accent/10 text-accent",
+    },
+    {
+      step: "03",
+      title: "Automate",
+      body: "Intelligent automation takes over routine tasks",
+      icon: StepForward,
+      bg: "bg-card",
+      iconBg: "bg-accent/10 text-accent",
+    },
+    {
+      step: "04",
+      title: "Optimize",
+      body: "Continuous improvement and learning",
+      icon: Sparkles,
+      bg: "bg-card",
+      iconBg: "bg-accent/10 text-accent",
+    },
+  ];
 
   const totalSteps = steps.length;
   const [activeStep, setActiveStep] = useState(0);
@@ -78,8 +77,8 @@ export default function StepSection() {
 
   return (
     <section className="relative overflow-hidden px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
-        {/* Bg color */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Bg color */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
       </div>
@@ -91,8 +90,8 @@ export default function StepSection() {
           Quick integration
         </Badge>
         <h1 className="font-heading text-h1 max-w-3xl mx-auto font-bold">
-          From Integration to Transformation in  {""}
-        <span className="text-primary"> 4 Simple Steps</span>
+          From Integration to Transformation in {""}
+          <span className="text-primary"> 4 Simple Steps</span>
         </h1>
         <p className="mt-4 max-w-3xl mx-auto font-body text-paragraph text-muted">
           Simple, secure, and seamless deployment with industry-leading
@@ -119,9 +118,7 @@ export default function StepSection() {
             >
               <Card
                 className={`relative rounded-2xl border bg-background backdrop-blur-xl shadow-lg transition-all duration-300 hover:shadow-2xl animate-float mt-12 ${
-                  isActive
-                    ? `bg-card shadow-xl`
-                    : `bg-transparent`
+                  isActive ? `bg-card shadow-xl` : `bg-transparent`
                 }`}
               >
                 <CardContent className="p-8 relative">
@@ -139,9 +136,7 @@ export default function StepSection() {
                   {/* Icon */}
                   <div
                     className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-all ${
-                      isActive
-                        ? `text-white bg-accent`
-                        : "bg-white"
+                      isActive ? `text-white bg-accent` : "bg-white"
                     }`}
                   >
                     <Icon
@@ -155,7 +150,11 @@ export default function StepSection() {
                   <h3 className="font-heading text-h3 font-bold mb-3">
                     {item.title}
                   </h3>
-                  <p className={`font-body text-paragraph  ${isActive ? `text-heading`:`text-muted`}` }>
+                  <p
+                    className={`font-body text-paragraph  ${
+                      isActive ? `text-heading` : `text-muted`
+                    }`}
+                  >
                     {item.body}
                   </p>
                 </CardContent>
@@ -169,17 +168,22 @@ export default function StepSection() {
       <div className="mt-12 flex justify-center">
         {completed === true ? (
           <div className="group">
-            <Button
-              variant="default"
-              size="sm"
-              className="font-body text-[15px] rounded-full"
+            <Link
+              to="https://meetings-na2.hubspot.com/ramesh-kc?hsCtaAttrib=259620249274&uuid=082c0e40-466f-47c6-864d-ef27eed1a791"
+              target="_blank"
             >
-              Integration Complete. Start automating today!
-              <ChevronRight
-                className="transition-transform duration-300 group-hover:scale-125"
-                strokeWidth={2.75}
-              />
-            </Button>
+              <Button
+                variant="default"
+                size="sm"
+                className="font-body text-[15px] rounded-full"
+              >
+                Integration Complete. Start automating today!
+                <ChevronRight
+                  className="transition-transform duration-300 group-hover:scale-125"
+                  strokeWidth={2.75}
+                />
+              </Button>
+            </Link>
           </div>
         ) : (
           <div className="flex items-center justify-center space-x-2">

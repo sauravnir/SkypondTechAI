@@ -18,7 +18,8 @@ import {
   Shield,
   ArrowUpRight,
 } from "lucide-react";
-
+import { Dialog, DialogTrigger, DialogContent, DialogHeader , DialogTitle, DialogClose} from "../ui/dialog";
+import GetStartedForm from "../reusable/GetStartedForm";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { ProgressiveBlur } from "../ui/progressive-blur";
 import "@/index.css";
@@ -124,17 +125,25 @@ const HeroSection = () => {
 
           <div className="flex flex-wrap gap-6 justify-center mt-10 pointer-events-auto">
             <div className="group">
-              <Button
-                variant="default"
-                className="rounded-full text-[15px] shadow-xl font-body text-primary-foreground "
-                size="lg"
-              >
-                Get Started for FREE
-                <span className="transition-transform duration-300 group-hover:scale-125">
-                  <ChevronRight strokeWidth={2.75} />
-                </span>
-              </Button>
-            </div>
+            <Dialog>
+              <DialogTrigger>
+                <Button
+              variant="default"
+              className="text-[14px] text-primary-foreground rounded-full flex items-center "
+              size="lg"
+            >
+              Get Started for FREE
+              <span className="transition-transform duration-300 group-hover:scale-150 ">
+                <ChevronRight strokeWidth={2.75} />
+              </span>
+            </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
+                <GetStartedForm />
+              </DialogContent>
+            </Dialog>
+            
+          </div>
 
             <div className="group">
               <Link to="https://skypondtech.com" target="_blank">

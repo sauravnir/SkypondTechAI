@@ -6,12 +6,20 @@ import {
   MoveUpRight,
   CircleCheck,
   ClockCheck,
-  Shield, Calendar
+  Shield,
+  Calendar,
 } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
 import Logo from "@/assets/media/1.png";
-
-
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "../ui/dialog";
+import GetStartedForm from "../reusable/GetStartedForm";
 
 export default function RecallSection() {
   const advList = [
@@ -33,7 +41,7 @@ export default function RecallSection() {
   ];
 
   const avatars = [
-    { id: 1, fallback: "SP"},
+    { id: 1, fallback: "SP" },
     { id: 2, fallback: "AI" },
     { id: 3, fallback: "RX" },
     { id: 4, fallback: "PH" },
@@ -51,10 +59,7 @@ export default function RecallSection() {
           <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
             See how leading LTC pharmacies are reducing manual work, eliminating
             errors, and driving measurable growth with{" "}
-            <span className="text-white">
-              Skypond AI
-            </span>{" "}
-            .
+            <span className="text-white">Skypond AI</span> .
           </p>
         </div>
 
@@ -75,11 +80,15 @@ export default function RecallSection() {
               hover:scale-105
               hover:z-10
             "
-            // Setting icons orientation
+                    // Setting icons orientation
                     style={{ zIndex: avatars.length - idx }}
                   >
                     {item.logo ? (
-                      <AvatarImage src={Logo} alt="partners" className="h-20 w-auto"/>
+                      <AvatarImage
+                        src={Logo}
+                        alt="partners"
+                        className="h-20 w-auto"
+                      />
                     ) : null}
                     <AvatarFallback className="bg-muted text-xs font-semibold">
                       {item.fallback}
@@ -103,20 +112,29 @@ export default function RecallSection() {
 
         <div className="flex flex-wrap gap-6 justify-center mt-8 pointer-events-auto">
           <div className="group">
-            <Button
-              variant="default"
-              className="text-[15px] font-body rounded-full text-heading bg-primary  border-accent hover:bg-primary-foreground"
-              size="lg"
-            >
-              Get Started for FREE
-              <span className="transition-transform duration-300 group-hover:scale-125">
-                <ChevronRight strokeWidth={2.75} />
-              </span>
-            </Button>
+            <Dialog>
+              <DialogTrigger>
+                <Button
+                  variant="default"
+                  className="text-[15px] font-body rounded-full text-heading bg-primary  border-accent hover:bg-primary-foreground"
+                  size="lg"
+                >
+                  Get Started for FREE
+                  <span className="transition-transform duration-300 group-hover:scale-125">
+                    <ChevronRight strokeWidth={2.75} />
+                  </span>
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
+                <GetStartedForm />
+              </DialogContent>
+            </Dialog>
           </div>
-
           <div className="group">
-            <Link to="https://meetings-na2.hubspot.com/ramesh-kc?hsCtaAttrib=259620249274&uuid=082c0e40-466f-47c6-864d-ef27eed1a791" target="_blank">
+            <Link
+              to="https://meetings-na2.hubspot.com/ramesh-kc?hsCtaAttrib=259620249274&uuid=082c0e40-466f-47c6-864d-ef27eed1a791"
+              target="_blank"
+            >
               <Button
                 variant="outline"
                 className="text-[15px] font-body rounded-full text-heading bg-accent  border-accent hover:bg-primary-foreground"
