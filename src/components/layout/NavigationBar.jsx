@@ -7,19 +7,21 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "../ui/navigation-menu";
-import { Dialog, DialogTrigger, DialogContent, DialogHeader , DialogTitle, DialogClose} from "../ui/dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+} from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
 import {
-  ExternalLink,
   ChevronRight,
   Menu,
   CircleSmall,
   ArrowUpRight,
 } from "lucide-react";
 import GetStartedForm from "../reusable/GetStartedForm";
-
 
 function NavigationBar() {
   //setting up states for scroll effect
@@ -110,34 +112,22 @@ function NavigationBar() {
             <Dialog>
               <DialogTrigger>
                 <Button
-              variant="default"
-              className="text-[14px] text-primary-foreground rounded-full flex items-center "
-              size="md"
-            >
-              Get Started
-              <span className="transition-transform duration-300 group-hover:scale-150 ">
-                <ChevronRight strokeWidth={2.75} />
-              </span>
-            </Button>
+                  variant="default"
+                  className="text-[14px] text-primary-foreground rounded-full flex items-center "
+                  size="md"
+                >
+                  Get Started
+                  <span className="transition-transform duration-300 group-hover:scale-150 ">
+                    <ChevronRight strokeWidth={2.75} />
+                  </span>
+                </Button>
               </DialogTrigger>
               <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
                 <GetStartedForm />
               </DialogContent>
             </Dialog>
-            
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
 
         {/* Mobile Menu Button */}
         <div className="md:hidden lg:hidden ">
@@ -175,7 +165,7 @@ function NavigationBar() {
                   <Link to="https://skypondtech.com" target="_blank">
                     <Button
                       variant="outline"
-                      className="text-[15px] flex items-center hover:text-accent w-full"
+                      className="text-[15px] rounded-full flex items-center hover:text-accent w-full"
                       size="lg"
                     >
                       Skypond Tech
@@ -190,7 +180,7 @@ function NavigationBar() {
                     <DialogTrigger asChild>
                       <Button
                         variant="default"
-                        className="text-[15px] bg-primary text-primary-foreground flex items-center w-full justify-center"
+                        className="text-[15px] bg-primary rounded-full text-primary-foreground flex items-center w-full justify-center"
                         size="lg"
                       >
                         Get Started
@@ -199,21 +189,10 @@ function NavigationBar() {
                         </span>
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-lg w-full">
-        <DialogHeader>
-          <DialogTitle className="text-xl font-bold text-heading">
-            Get in Touch
-          </DialogTitle>
-        </DialogHeader>
-
-        <div className="mt-4">
-          <GetStartedForm />
-        </div>
-
-        <DialogClose asChild>
-          <button className="absolute top-3 right-3 text-muted hover:text-heading">✕</button>
-        </DialogClose>
-      </DialogContent>
+                    <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
+                      
+                      <GetStartedForm />
+                    </DialogContent>
                   </Dialog>
                 </div>
               </div>

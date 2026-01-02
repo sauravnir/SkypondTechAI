@@ -25,7 +25,7 @@ import { ProgressiveBlur } from "../ui/progressive-blur";
 import "@/index.css";
 
 
-const HeroSection = () => {
+const HeroSection = ({id}) => {
   //Creating fetures array
 
   const itemList = [
@@ -56,7 +56,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background via-primary/10 to-primary ">
+    <section id={id} className="relative overflow-hidden bg-gradient-to-b from-background via-primary/10 to-primary ">
       {/* <div className="absolute inset-0 w-full h-full pointer-events-auto">
         <InteractiveGridPattern
           className={cn(
