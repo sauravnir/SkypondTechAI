@@ -129,7 +129,7 @@ export default function StepSection() {
                   <span
                     className={`absolute -top-9 right-2 flex items-center text-h3 justify-center w-12 h-12 rounded-full font-heading font-bold shadow-xl transition-all ${
                       isActive
-                        ? `text-white bg-altbackground`
+                        ? `text-white bg-darkprimary`
                         : `bg-white text-heading`
                     }`}
                   >

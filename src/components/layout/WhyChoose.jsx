@@ -1,17 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ShieldCheck,
-  Sparkles,
-  LineChart,
-  Users,
-  Clock,
-  Activity,
-  Cpu,
-  Headphones,
+  ChevronRight,
 } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Separator } from "@radix-ui/react-separator";
+import { Button } from "../ui/button";
 
 import {
   MedicationErrorSVG,
@@ -31,30 +26,36 @@ const reasons = [
     description:
       "AI-powered verification ensures prescriptions are accurate before dispensing.",
     visual: MedicationErrorSVG,
+    link:"/",
   },
   {
     id: 1,
     title: "Save 75% on manual data entry",
     description: "Automated intake eliminates repetitive administrative work.",
     visual: AutoEntrySVG,
+    link:"/",
   },
   {
     id: 2,
     title: "Lower labor costs, happier staff",
     description: "Free your team from low-value tasks and reduce burnout.",
     visual: LaborCostSVG,
+    link:"/",
+    
   },
   {
     id: 3,
     title: "Automatic HIPAA compliance",
     description: "Built-in safeguards ensure continuous regulatory adherence.",
     visual: ComplianceSVG,
+    link:"/",
   },
   {
     id: 4,
     title: "Scale without staffing increases",
     description: "Handle growth without adding operational overhead.",
     visual: ScaleSVG,
+    link:"/",
   },
   {
     id: 5,
@@ -62,12 +63,14 @@ const reasons = [
     description:
       "Live dashboards provide instant visibility into pharmacy performance.",
     visual: InsightsSVG,
+    link:"/",
   },
   {
     id: 6,
     title: "24/7 automated processing",
     description: "Always-on workflows with zero downtime.",
     visual: AutomationSVG,
+    link:"/",
   },
   {
     id: 7,
@@ -75,6 +78,7 @@ const reasons = [
     description:
       "Continuous monitoring and expert support keep systems optimized.",
     visual: SupportSVG,
+    link:"/",
   },
 ];
 
@@ -153,6 +157,11 @@ export default function WhyChooseUs() {
                   <p className="font-body text-paragraph mt-3 text-muted max-w-md leading-relaxed">
                     {item.description}
                   </p>
+                  <Link to={item.link} target="_blank"> 
+                  
+                  <Button variant="default" size="sm" className="text-[15px] group rounded-full mt-4">Learn More <ChevronRight strokeWidth={2.75} className="group-hover:scale-125"/></Button>
+                  </Link>
+                 
                 </div>
               );
             })}
