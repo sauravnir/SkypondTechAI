@@ -91,7 +91,7 @@ export default function StepSection() {
         </Badge>
         <h1 className="font-heading text-h1 max-w-3xl mx-auto font-bold">
           From Integration to Transformation in {""}
-          <span className="text-primary"> 4 Simple Steps</span>
+           4 Simple Steps
         </h1>
         <p className="mt-4 max-w-3xl mx-auto font-body text-paragraph text-muted">
           Simple, secure, and seamless deployment with industry-leading

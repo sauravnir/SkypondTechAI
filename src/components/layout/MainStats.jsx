@@ -91,7 +91,7 @@ export default function MainStats() {
             Our Achievements
           </Badge>
           <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
-            Real Impact, <span className="text-primary">Measurable Results</span> 
+            Real Impact, Measurable Results
           </h1>
           <p className="mt-4 max-w-3xl font-body text-paragraph text-muted">
             Proven outcomes from leading LTC pharmacies using Skypond AI to
@@ -106,7 +106,7 @@ export default function MainStats() {
             return (
               <div
                 key={index}
-                className="relative flex flex-col items-center space-y-4 p-4 bg-white/20 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 group animate-float"
+                className="relative flex flex-col border border-accent items-center space-y-4 p-4 bg-white/20 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 group animate-float"
               >
                 {/* Floating Icon Circle */}
                 <div
@@ -141,6 +141,7 @@ export default function MainStats() {
             );
           })}
         </div>
+
         <div className="relative max-w-6xl mx-auto mt-16 px-4 sm:px-6 lg:px-8 grid gap-10">
           {testimonial.map((item, index) => (
             <motion.div
@@ -148,7 +149,7 @@ export default function MainStats() {
               className={`
                         relative flex flex-col p-8 gap-4 
                    hover:shadow-2xl duration-500
-                   backdrop-blur-xl border border-primary rounded-3xl shadow-xl transform-transition hover:scale-105 duration-400
+                   backdrop-blur-xl border border-accent rounded-3xl shadow-lg duration-400
       `}
             >
               {/* Left: Icon + Head */}

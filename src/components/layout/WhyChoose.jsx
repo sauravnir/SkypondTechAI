@@ -121,7 +121,7 @@ export default function WhyChooseUs() {
             Why Choose Us
           </Badge>
           <h1 className="font-heading text-h1 max-w-3xl text-heading font-bold">
-            Why leading LTC Pharmacies <span className="text-primary">choose Skypond</span> 
+            Why leading LTC Pharmacies choose Skypond 
           </h1>
           <p className="mt-4 max-w-xl font-body text-paragraph text-muted">
             Because long-term care pharmacies need more than software -{" "}

@@ -105,10 +105,9 @@ const MainServices = () => {
             Our Solutions
           </Badge>
           <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
-            Enterprise-Grade{" "}
-              AI Solutions
+            Enterprise Grade AI Solutions
             <br></br>
-            Purpose - {""}<span className="text-primary">Built for LTC Pharmacy</span>
+            Purpose - Built for LTC Pharmacy
           </h1>
           <p className="mt-4 max-w-3xl font-body text-paragraph text-muted">
             Transform every aspect of your pharmacy operations with our
@@ -127,7 +126,10 @@ const MainServices = () => {
                     value={service.id}
                     onClick={() => handleTabClick(index)}
                     className={`  relative rounded-xl py-3 px-6 transition-all duration-300 hover:scale-105 hover:text-heading 
-                    ${activeIndex === index ? "border-2 border-accent" : "text-muted"
+                    ${
+                      activeIndex === index
+                        ? "border-2 border-accent"
+                        : "text-muted"
                     }`}
                   >
                     {/* Progress Bar */}
@@ -263,8 +265,12 @@ const MainServices = () => {
                                       className={`text-[15px] rounded-full text-primary-foreground hover:text-altbackground/90 hover:text-primary-foreground`}
                                     >
                                       Learn More
-                                      <span ><ChevronRight className="group-hover:scale-125" strokeWidth={2.75}/> </span>
-                                      
+                                      <span>
+                                        <ChevronRight
+                                          className="group-hover:scale-125"
+                                          strokeWidth={2.75}
+                                        />{" "}
+                                      </span>
                                     </Button>
                                   </div>
                                 </div>

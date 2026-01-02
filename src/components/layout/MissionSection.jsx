@@ -261,8 +261,7 @@ export default function MissionSection() {
               Our Goals
             </Badge>
             <h1 className="text-start font-heading max-w-xl mx-auto text-h1 text-heading font-bold ">
-              <span className="text-primary">Shaping</span> the future of{" "}
-              <span className="text-primary">LTC Pharmacy</span>
+              Shaping the future of LTC Pharmacy
             </h1>
             <p className="mt-8 max-w-lg font-body text-paragraph text-muted">
               Smarter automation, measurable outcomes, and a new standard for
