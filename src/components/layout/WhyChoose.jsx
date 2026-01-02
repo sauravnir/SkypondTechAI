@@ -19,6 +19,8 @@ import {
   SupportSVG,
 } from "@/components/reusable/svgAnimations";
 
+import DemoPic from "@/assets/media/Faux.jpg"
+
 const reasons = [
   {
     id: 0,
@@ -107,7 +109,7 @@ function useScrollActive(count) {
 
 export default function WhyChooseUs() {
   const { refs, active } = useScrollActive(reasons.length);
-  const ActiveVisual = reasons[active].visual;
+  // const ActiveVisual = reasons[active].visual;
   return (
     <section className="relative bg-background">
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
@@ -180,7 +182,7 @@ export default function WhyChooseUs() {
                   className="w-full"
                 >
                   <div className="relative w-full h-[480px] rounded-3xl bg-gradient-to-br from-white to-slate-50 border shadow-sm flex items-center justify-center">
-                    <ActiveVisual active />
+                    <img src={DemoPic} className="w-auto h-[480px] " alt="Demo Image"></img>
                   </div>
                 </motion.div>
               </AnimatePresence>
