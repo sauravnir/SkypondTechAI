@@ -129,7 +129,7 @@ const HeroSection = ({id}) => {
               <DialogTrigger>
                 <Button
               variant="default"
-              className="text-[14px] text-primary-foreground rounded-full flex items-center "
+              className="text-[15px] text-primary-foreground rounded-full flex items-center "
               size="lg"
             >
               Get Started for FREE

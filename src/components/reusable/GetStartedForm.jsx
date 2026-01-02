@@ -7,7 +7,8 @@ const GetStartedForm = ({ formId = "84b62d3b-b4ed-4ce1-94e6-0169b86a335e" }) => 
       data-region="na2"
       data-form-id={formId}
       data-portal-id="244306063"
-    ></div>
+    >
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@ const LandingPage = () => {
 
   useEffect(() => {
     const scrollHandle = () => {
-      isPageScrolled(window.scrollY > 500);
+      isPageScrolled(window.scrollY > 1000);
     };
     window.addEventListener("scroll", scrollHandle);
     return () => window.removeEventListener("scroll", scrollHandle);
@@ -35,7 +35,7 @@ const LandingPage = () => {
           <Button
             onClick={onClick}
             size="lg"
-            className="rounded-full p-4 bg-accent text-primary-foreground shadow-xl hover:bg-darkaccent transition-transform transform hover:scale-110"
+            className="rounded-full p-4 bg-accent text-primary-foreground shadow-xl hover:bg-altbackground/90 transition-transform transform hover:scale-110"
           >
             <span className="flex items-center justify-center gap-2">
               <MoveUp/>

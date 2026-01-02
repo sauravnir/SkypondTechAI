@@ -63,7 +63,7 @@ const Footer = () => {
           >
             Solutions
           </span>
-          <Separator orientation="horizontal" />
+          <Separator orientation="horizontal" className="w-20"/>
 
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col gap-4 items-start mt-8">
@@ -88,7 +88,7 @@ const Footer = () => {
           <span className="font-heading text-[20px] text-primary-foreground font-bold ">
             Trust and Security
           </span>
-          <Separator orientation="horizontal" />
+          <Separator orientation="horizontal" className="w-20"/>
 
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col gap-4 items-start mt-8">
@@ -113,7 +113,7 @@ const Footer = () => {
           <span className="font-heading text-[20px] text-primary-foreground font-bold ">
             Company
           </span>
-          <Separator orientation="horizontal" />
+          <Separator orientation="horizontal" className="w-20"/>
 
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col gap-4 items-start mt-8">
@@ -166,7 +166,6 @@ const Footer = () => {
               <h1>
                 {new Date().getFullYear()} Skypond AI. All rights reserved.
               </h1>
-              <br></br>
             </div>
             <div className="flex flex-row gap-2 text-muted justify-end font-body text-small ">
               <h1>

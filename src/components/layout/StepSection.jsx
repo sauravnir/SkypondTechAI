@@ -78,10 +78,20 @@ export default function StepSection() {
   return (
     <section className="relative overflow-hidden px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
       {/* Bg color */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
-      </div>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+  {/* Blue blob */}
+  {/* <div
+    className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
+    style={{ transform: "translate(50%, 20%)" }}
+  /> */}
+
+  {/* Purple blob */}
+  <div
+    className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
+    style={{ transform: "translate(-25%, -5%)" }}
+  />
+</div>
+
       <div className="text-center mb-12 ">
         <Badge
           variant="outline"
@@ -117,7 +127,7 @@ export default function StepSection() {
               className="relative"
             >
               <Card
-                className={`relative rounded-2xl border bg-background backdrop-blur-xl shadow-lg transition-all duration-300 hover:shadow-2xl animate-float mt-12 ${
+                className={`relative rounded-2xl border bg-background backdrop-blur-xl shadow-sm transition-all duration-300 hover:shadow-2xl animate-float mt-12 ${
                   isActive ? `bg-card shadow-xl` : `bg-transparent`
                 }`}
               >
