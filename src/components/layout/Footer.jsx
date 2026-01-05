@@ -54,7 +54,7 @@ const Footer = () => {
   ];
   return (
     <footer className="relative overflow-hidden bg-altbackground pt-20 pb-10 z-10">
-      <div className="grid grid-cols-3 gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-0 ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-0 ">
         {/* Solutions Section */}
         <div className="flex flex-col items-start gap-4">
           <span
@@ -63,7 +63,7 @@ const Footer = () => {
           >
             Solutions
           </span>
-          <Separator orientation="horizontal" className="w-20"/>
+          <Separator orientation="horizontal" className="w-20" />
 
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col gap-4 items-start mt-8">
@@ -88,7 +88,7 @@ const Footer = () => {
           <span className="font-heading text-[20px] text-primary-foreground font-bold ">
             Trust and Security
           </span>
-          <Separator orientation="horizontal" className="w-20"/>
+          <Separator orientation="horizontal" className="w-20" />
 
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col gap-4 items-start mt-8">
@@ -113,7 +113,7 @@ const Footer = () => {
           <span className="font-heading text-[20px] text-primary-foreground font-bold ">
             Company
           </span>
-          <Separator orientation="horizontal" className="w-20"/>
+          <Separator orientation="horizontal" className="w-20" />
 
           <NavigationMenu>
             <NavigationMenuList className="flex flex-col gap-4 items-start mt-8">
@@ -135,20 +135,23 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32">
-        <div className="flex-col flex-shrink-0">
+{/* Company Section */}
+      <div className="flex flex-col lg:flex-row justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32 gap-12 lg:gap-0">
+        <div className="flex flex-col flex-shrink-0 items-center lg:items-start text-center lg:text-left gap-4">
           <Link to="/">
-            <img src={Logo} alt="SkypondTech.AI" className="pl-2 h-20 w-auto"></img>
+            <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
           </Link>
 
-          <p className="max-w-sm mx-auto px-4 sm:px-6 lg:px-5 justify-start font-body text-muted text-small">
+          <p className="max-w-sm font-body text-muted text-sm">
             Transforming long-term care pharmacy with enterprise-grade AI
             solutions designed for healthcare excellence and HIPAA compliance.
           </p>
         </div>
 
-        <div className="flex-col gap-2 space-y-8">
-          <div className="flex space-x-4 justify-end 4">
+        {/* Right Side */}
+        <div className="flex flex-col items-center lg:items-end gap-6 w-full lg:w-auto">
+          {/* Social Icons */}
+          <div className="flex space-x-4">
             <Link to="https://www.instagram.com/skypondtech/" target="_blank">
               <FaInstagram size={30} color="white" />
             </Link>
@@ -159,19 +162,20 @@ const Footer = () => {
               <FaLinkedin size={30} color="white" />
             </Link>
           </div>
-          <Separator />
-          <div className="space-y-2">
-            <div className="flex flex-row gap-2 text-muted justify-end font-body text-small">
+
+          <Separator className="w-full lg:w-auto" />
+
+          {/* Copyright + Info */}
+          <div className="flex flex-col items-center lg:items-end gap-2 text-muted text-sm font-body">
+            <div className="flex flex-row gap-2 items-center">
               <Copyright size={15} />
-              <h1>
+              <span>
                 {new Date().getFullYear()} Skypond AI. All rights reserved.
-              </h1>
+              </span>
             </div>
-            <div className="flex flex-row gap-2 text-muted justify-end font-body text-small ">
-              <h1>
-                Built for healthcare. Enterprise Grade. HIPAA Compliant. SOC 2
-                Type II Certified.
-              </h1>
+            <div className="text-center lg:text-right">
+              Built for healthcare. Enterprise Grade. HIPAA Compliant. SOC 2
+              Type II Certified.
             </div>
           </div>
         </div>

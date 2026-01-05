@@ -58,15 +58,15 @@ export default function RecallSection() {
           </p>
         </div>
 
-        <div className="max-w-xl mx-auto my-12">
-          <div className="grid grid-cols-2 items-center gap-6">
-            {/* Avatar Stack */}
-            <div className="flex justify-center">
-              <div className="flex items-center -space-x-5">
-                {avatars.map((item, idx) => (
-                  <Avatar
-                    key={item.id}
-                    className="
+        <div className="max-w-xl mx-auto my-12 px-4 sm:px-6">
+  <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+    {/* Avatar Stack */}
+    <div className="flex justify-center mb-6 md:mb-0">
+      <div className="flex items-center -space-x-5">
+        {avatars.map((item, idx) => (
+          <Avatar
+            key={item.id}
+            className="
               h-14 w-14
               border-2 border-background
               shadow-sm
@@ -75,35 +75,35 @@ export default function RecallSection() {
               hover:scale-105
               hover:z-10
             "
-                    // Setting icons orientation
-                    style={{ zIndex: avatars.length - idx }}
-                  >
-                    {item.icon? (
-                      <img
-                        src={Logo}
-                        alt="partners"
-                        className="h-14 w-auto bg-altbackground"
-                      />
-                    ) : null}
-                    <AvatarFallback className="bg-muted text-xs font-semibold">
-                      {item.fallback}
-                    </AvatarFallback>
-                  </Avatar>
-                ))}
-              </div>
-            </div>
+            style={{ zIndex: avatars.length - idx }}
+          >
+            {item.icon ? (
+              <img
+                src={Logo}
+                alt="partners"
+                className="h-14 w-auto bg-altbackground"
+              />
+            ) : null}
+            <AvatarFallback className="bg-muted text-xs font-semibold">
+              {item.fallback}
+            </AvatarFallback>
+          </Avatar>
+        ))}
+      </div>
+    </div>
 
-            {/* Text */}
-            <div className="flex flex-col justify-center">
-              <h1 className="font-body text-accent">
-                Join hundreds of pharmacy leaders
-              </h1>
-              <h2 className="font-body text-muted">
-                already shaping the future of healthcare operations.
-              </h2>
-            </div>
-          </div>
-        </div>
+    {/* Text */}
+    <div className="flex flex-col justify-center text-center md:text-left">
+      <h1 className="font-body text-accent text-lg md:text-xl">
+        Join hundreds of pharmacy leaders
+      </h1>
+      <h2 className="font-body text-muted text-sm md:text-base mt-2">
+        already shaping the future of healthcare operations.
+      </h2>
+    </div>
+  </div>
+</div>
+
 
         <div className="flex flex-wrap gap-6 justify-center mt-8 pointer-events-auto">
           <div className="group">
@@ -143,15 +143,15 @@ export default function RecallSection() {
             </Link>
           </div>
         </div>
-        <div className="flex flex-row justify-center items-center mt-8 gap-4">
+        <div className="flex flex-col md:flex-row justify-center items-start mt-12 md:mt-12 gap-4">
           {advList.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div key={idx} className="flex items-center gap-2">
+              <div key={idx} className="flex items-center  gap-2">
                 <span>
                   <Icon className={`w-4  ${item.color}`} />
                 </span>{" "}
-                <h1 className="font-ui text-white text-small">{item.title}</h1>
+                <h1 className="font-ui text-white text-paragraph">{item.title}</h1>
               </div>
             );
           })}

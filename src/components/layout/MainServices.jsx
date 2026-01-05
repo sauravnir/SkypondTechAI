@@ -96,7 +96,7 @@ const MainServices = () => {
   const tabDefault = ["#c4611bff", "#5391f4ff", "#18cd91ff", "#f83660ff"];
   return (
     <div className="relative overflow-hidden bg-background">
-      <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
+      <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20">
         <div className="flex flex-col justify-center items-center text-center">
           <Badge
             variant="outline"
@@ -118,7 +118,8 @@ const MainServices = () => {
         {/* Tabs */}
         <div className="flex flex-row mt-8  p-6 rounded-xl ">
           <Tabs value={services[activeIndex].id} className="w-full">
-            <TabsList className="flex gap-3 py-8 max-w-5xl mx-auto rounded-2xl bg-muted/10 shdaow-xl ">
+            <TabsList className="flex gap-0 py-8 w-full overflow-x-auto md:overflow-visible
+    md:justify-center max-w-full  md:max-w-5xl mx-auto rounded-2xl bg-muted/10 shdaow-xl scrollabar-hidden">
               {services.map((service, index) => {
                 const IconContainer = service.icon;
                 return (
@@ -132,23 +133,7 @@ const MainServices = () => {
                         : "text-muted"
                     }`}
                   >
-                    {/* Progress Bar */}
-                    {/* {activeIndex === index && (
-                      <motion.div
-                        className="absolute inset-x-4  bottom-1 h-[2px] "
-                        style={{
-                          backgroundColor: tabDefault[index],
-                        }}
-                        initial={{ scaleX: 0 }}
-                        animate={{ scaleX: 1 }}
-
-                        transition={{
-                          duration: DURATION / 1000,
-                          ease: "linear",
-                        }}
-                      />
-                    )} */}
-                    <div className="flex items-center  justify-center gap-2">
+                    <div className="flex items-center justify-center gap-2">
                       <IconContainer
                         className={`z-10 ${
                           activeIndex === index
@@ -159,8 +144,8 @@ const MainServices = () => {
                       />
                       <span
                         className={`
-    font-body text-button
-  `}
+                          font-body text-button hidden sm:block
+                        `}
                       >
                         {service.title}
                       </span>
@@ -171,8 +156,8 @@ const MainServices = () => {
             </TabsList>
 
             {/* Content */}
-            <div className="mt-8 relative h-[520px]">
-              <div className="relative max-w-5xl mx-auto h-[400px]">
+            <div className="mt-8 relative h-[700px] md:h-[400px]">
+              <div className="relative  md:max-w-5xl mx-auto h-[770px] md:h-[400px]">
                 <AnimatePresence initial={false}>
                   {[activeIndex - 1, activeIndex, activeIndex + 1].map(
                     (index) => {
@@ -201,7 +186,7 @@ const MainServices = () => {
                                 : 0,
                           }}
                           animate={{
-                            opacity: isActive ? 1 : 0.45,
+                            opacity: isActive ? 1 : 0.02,
                             scale: isActive ? 1 : 0.94,
                             x:
                               position === "left"
@@ -225,11 +210,11 @@ const MainServices = () => {
                         >
                           {/* CARD */}
                           <Card
-                            className={` w-full max-w-5xl rounded-3xl backdrop-blur-xl shadow-2xl p-4
+                            className={`w-full md:max-w-5xl rounded-3xl backdrop-blur-xl shadow-2xl p-2 md:p-4
                             `}
                           >
                             <CardContent className="p-6">
-                              <div className=" grid lg:grid-cols-2 gap-12 items-start ">
+                              <div className=" grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 ">
                                 {/* LEFT */}
                                 <div className="space-y-6">
                                   <div className="flex items-center gap-4">
@@ -254,17 +239,17 @@ const MainServices = () => {
                                     </div>
                                   </div>
 
-                                  <p className="font-body text-paragraph text-justify text-muted">
+                                  <p className="font-body text-paragraph md:text-justify text-muted">
                                     {services[index].body}
                                   </p>
 
-                                  <div className="group">
+                                  <div className="group hidden sm:block">
                                     <Button
                                       variant="default"
-                                      size="sm"
+                                      size="md"
                                       className={`text-[15px] rounded-full text-primary-foreground hover:text-altbackground/90 hover:text-primary-foreground`}
                                     >
-                                      Learn More
+                                      Explore Service
                                       <span>
                                         <ChevronRight
                                           className="group-hover:scale-125"
@@ -276,12 +261,12 @@ const MainServices = () => {
                                 </div>
 
                                 {/* RIGHT */}
-                                <div className="space-y-4">
+                                <div className="flex flex-col justify-start items-start md:space-y-8">
                                   <h4 className="font-heading text-h3 font-bold text-heading">
                                     Key Features
                                   </h4>
 
-                                  <ul className="space-y-4">
+                                  <ul className="mt-4 space-y-2 md:space-y-4">
                                     {services[index].features.map(
                                       (feature, i) => (
                                         <motion.li
@@ -295,17 +280,36 @@ const MainServices = () => {
                                               : 0,
                                           }}
                                         >
-                                          <CheckCircle
-                                            className="text-accent mt-1"
+                                          <div className="flex items-center gap-2">
+                                            <CheckCircle
+                                            className="text-accent"
                                             size={18}
                                           />
                                           <span className="font-body text-paragraph font-medium text-muted">
                                             {feature}
                                           </span>
+                                          </div>
+                                          
                                         </motion.li>
                                       )
                                     )}
                                   </ul>
+                                    {/* Displaying button for mobile only */}
+                                  <div className="group block sm:hidden mt-6">
+                                    <Button
+                                      variant="default"
+                                      size="sm"
+                                      className={`text-[15px] rounded-full text-primary-foreground hover:text-altbackground/90 hover:text-primary-foreground`}
+                                    >
+                                      Learn More
+                                      <span>
+                                        <ChevronRight
+                                          className="group-hover:scale-125"
+                                          strokeWidth={2.75}
+                                        />
+                                      </span>
+                                    </Button>
+                                  </div>
                                 </div>
                               </div>
                             </CardContent>

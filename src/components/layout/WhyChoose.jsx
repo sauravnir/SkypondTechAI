@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ChevronRight,
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Separator } from "@radix-ui/react-separator";
 import { Button } from "../ui/button";
@@ -19,7 +17,7 @@ import {
   SupportSVG,
 } from "@/components/reusable/svgAnimations";
 
-import DemoPic from "@/assets/media/Faux.jpg"
+import DemoPic from "@/assets/media/Faux.jpg";
 
 const reasons = [
   {
@@ -28,36 +26,30 @@ const reasons = [
     description:
       "AI-powered verification ensures prescriptions are accurate before dispensing.",
     visual: MedicationErrorSVG,
-    link:"/",
   },
   {
     id: 1,
     title: "Save 75% on manual data entry",
     description: "Automated intake eliminates repetitive administrative work.",
     visual: AutoEntrySVG,
-    link:"/",
   },
   {
     id: 2,
     title: "Lower labor costs, happier staff",
     description: "Free your team from low-value tasks and reduce burnout.",
     visual: LaborCostSVG,
-    link:"/",
-    
   },
   {
     id: 3,
     title: "Automatic HIPAA compliance",
     description: "Built-in safeguards ensure continuous regulatory adherence.",
     visual: ComplianceSVG,
-    link:"/",
   },
   {
     id: 4,
     title: "Scale without staffing increases",
     description: "Handle growth without adding operational overhead.",
     visual: ScaleSVG,
-    link:"/",
   },
   {
     id: 5,
@@ -65,14 +57,12 @@ const reasons = [
     description:
       "Live dashboards provide instant visibility into pharmacy performance.",
     visual: InsightsSVG,
-    link:"/",
   },
   {
     id: 6,
     title: "24/7 automated processing",
     description: "Always-on workflows with zero downtime.",
     visual: AutomationSVG,
-    link:"/",
   },
   {
     id: 7,
@@ -80,7 +70,6 @@ const reasons = [
     description:
       "Continuous monitoring and expert support keep systems optimized.",
     visual: SupportSVG,
-    link:"/",
   },
 ];
 
@@ -121,7 +110,7 @@ export default function WhyChooseUs() {
             Why Choose Us
           </Badge>
           <h1 className="font-heading text-h1 max-w-3xl text-heading font-bold">
-            Why leading LTC Pharmacies choose Skypond 
+            Why leading LTC Pharmacies choose Skypond
           </h1>
           <p className="mt-4 max-w-xl font-body text-paragraph text-muted">
             Because long-term care pharmacies need more than software -{" "}
@@ -159,18 +148,13 @@ export default function WhyChooseUs() {
                   <p className="font-body text-paragraph mt-3 text-muted max-w-md leading-relaxed">
                     {item.description}
                   </p>
-                  <Link to={item.link} target="_blank"> 
-                  
-                  <Button variant="default" size="sm" className="text-[15px] group rounded-full mt-4">Learn More <ChevronRight strokeWidth={2.75} className="group-hover:scale-125"/></Button>
-                  </Link>
-                 
                 </div>
               );
             })}
           </div>
 
           {/* Right side  */}
-          <div className="relative">
+          <div className="relative hidden sm:block">
             <div className="lg:sticky top-32 h-[520px] flex items-center">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -182,7 +166,11 @@ export default function WhyChooseUs() {
                   className="w-full"
                 >
                   <div className="relative w-full h-[480px] rounded-3xl bg-gradient-to-br from-white to-slate-50 border shadow-sm flex items-center justify-center">
-                    <img src={DemoPic} className="w-auto h-[480px] " alt="Demo Image"></img>
+                    <img
+                      src={DemoPic}
+                      className="w-auto h-[480px] "
+                      alt="Demo Image"
+                    ></img>
                   </div>
                 </motion.div>
               </AnimatePresence>

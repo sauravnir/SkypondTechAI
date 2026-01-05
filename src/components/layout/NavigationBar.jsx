@@ -7,21 +7,13 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "../ui/navigation-menu";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-} from "../ui/dialog";
+import { Dialog, DialogTrigger, DialogContent } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
-import {
-  ChevronRight,
-  Menu,
-  CircleSmall,
-  ArrowUpRight,
-} from "lucide-react";
+import { ChevronRight, Menu, CircleSmall, ArrowUpRight } from "lucide-react";
 import GetStartedForm from "../reusable/GetStartedForm";
+import WhatsappLogo from "@/assets/media/whatsapp.png";
 
 function NavigationBar() {
   //setting up states for scroll effect
@@ -48,11 +40,18 @@ function NavigationBar() {
     { title: "Contact", link: "#" },
   ];
 
+  // Creating Whatsapp Container
+  const phone = "17207246828";
+  const message = encodeURIComponent(
+    "Hello! I am interested in your services. Please let me know the details. "
+  );
+  const whatsappURL = `https://wa.me/${phone}?text=${message}`;
+
   return (
     <header className="fixed w-full z-50">
       {/* Applying isScrolled Ternary Conditional and changing navbar css */}
       <div
-        className={`flex justify-between items-center px-10 h-20 ${
+        className={`flex justify-between items-center px-4 md:px-10 h-20 ${
           isScrolled
             ? "bg-altbackground/80 backdrop-blur-sm text-white"
             : "bg-transparent"
@@ -61,7 +60,7 @@ function NavigationBar() {
         {/* Navigation Bar Logo */}
 
         <div className="flex-shrink-0">
-          <Link to="/">
+          <Link to="#">
             <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
           </Link>
         </div>
@@ -90,12 +89,12 @@ function NavigationBar() {
         {/* Menu Items */}
 
         {/* CTA Buttons */}
-        <div className=" flex hidden md:flex gap-2 font-body font-medium items-center">
+        <div className=" flex hidden md:flex gap-3 font-body font-medium items-center">
           <div className="group">
             <Link to="https://skypondtech.com" target="_blank">
               <Button
                 variant="ghost"
-                className={`text-[14px] text-heading hover:text-accent flex items-center border-heading rounded-full ${
+                className={`text-[14px] hover:text-accent flex items-center border-heading rounded-full ${
                   isScrolled ? "text-primary-foreground border-white" : ""
                 }`}
                 size="sm"
@@ -127,11 +126,40 @@ function NavigationBar() {
               </DialogContent>
             </Dialog>
           </div>
+          {/* Whatsapp Redirection */}
+          <div className="group">
+            <a href={whatsappURL} target="_blank" rel="noopener noreferrer">
+              <Button className="relative flex items-center justify-center rounded-full bg-[#D8FBE6] shadow hover:bg-[#DCF8C6] hover:shadow-lg overflow-hidden">
+                <img
+                  src={WhatsappLogo}
+                  alt="whatsapp"
+                  className="w-7 h-7"
+                />
+                <span className="flex items-center gap-1 max-w-0 overflow-hidden whitespace-nowrap text-[#075E54] text-[15px] font-bold transition-all duration-500 group-hover:max-w-xs">
+                  Whatsapp Us
+                </span>
+              </Button>
+            </a>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden lg:hidden ">
+        <div className="md:hidden lg:hidden flex gap-4">
           {/* Creating Side-Drawer / Sheet */}
+          <div className="group">
+            <a href={whatsappURL} target="_blank" rel="noopener noreferrer">
+              <Button
+                className={`flex text-heading flex-row items-center px-2 py-1 shadow rounded-full bg-[#DCF8C6] hover:bg-null hover:shadow-lg gap-1`}
+              >
+                <img
+                  src={WhatsappLogo}
+                  alt="whatsapp"
+                  className="w-7 h-7 group-hover:scale-105"
+                  aria-placeholder="Whatsapp Us!"
+                />
+              </Button>
+            </a>
+          </div>
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -190,7 +218,6 @@ function NavigationBar() {
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                      
                       <GetStartedForm />
                     </DialogContent>
                   </Dialog>

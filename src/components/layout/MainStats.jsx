@@ -99,7 +99,7 @@ export default function MainStats() {
           </p>
         </div>
 
-        <div className="grid grid-cols-4 md:grid-cols-4 gap-x-8 max-w-6xl mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 gap-x-8 max-w-6xl mt-12 md:mt-16">
           {stats.map((item, index) => {
             const Icon = item.icon;
 
@@ -110,13 +110,13 @@ export default function MainStats() {
               >
                 {/* Floating Icon Circle */}
                 <div
-                  className={`absolute left-2 -top-6 flex items-center justify-center w-14 h-14 rounded-2xl bg-accent shadow-lg`}
+                  className={`absolute left-4 -top-6 flex items-center justify-center w-12 h-12 rounded-2xl bg-accent shadow-lg`}
                 >
-                  <Icon className="w-7 h-7 text-white group-hover:scale-110 transition-transform duration-300" />
+                  <Icon className="w-6 h-6 md:w-7 md:h-7 text-white group-hover:scale-110 transition-transform duration-300" />
                 </div>
 
                 {/* Big Number */}
-                <div className="font-heading text-h2 font-extrabold text-heading flex items-baseline space-x-1">
+                <div className="mt-6 font-heading text-h2 font-extrabold text-heading flex items-baseline gap-1">
                   <NumberTicker
                   key={limit}
                     value={item.value}
@@ -142,14 +142,19 @@ export default function MainStats() {
           })}
         </div>
 
-        <div className="relative max-w-6xl mx-auto mt-16 px-4 sm:px-6 lg:px-8 grid gap-10">
+        <div className="relative max-w-6xl mx-auto mt-16 px-4 sm:px-6 lg:px-8 grid gap-6 md:gap-10">
           {testimonial.map((item, index) => (
             <motion.div
               key={index}
               className={`
-                        relative flex flex-col p-8 gap-4 
-                   hover:shadow-2xl duration-500
-                   backdrop-blur-xl border border-accent rounded-3xl shadow-lg duration-400
+                        relative flex flex-col
+    p-5 md:p-8
+    gap-4
+    backdrop-blur-xl
+    border border-accent
+    rounded-3xl
+    shadow-lg hover:shadow-2xl
+    transition-all duration-500
       `}
             >
               {/* Left: Icon + Head */}
@@ -169,10 +174,10 @@ export default function MainStats() {
 
               {/* Right: Body + Advantages */}
               <div className="flex-1 flex flex-col gap-4 text-justify mt-6 md:mt-0">
-                <p className="font-body text-paragraph text-heading">
+                <p className="font-body md:text-paragraph text-heading text-left md:text-justify">
                   {item.body}
                 </p>
-                <ul className="flex mt-4 gap-4 list-none justify-center items-center">
+                <ul className="flex flex-col sm:flex-row mt-4 gap-3 sm:gap-4 list-none items-start sm:items-center justify-center">
                   {item.advantages.map((adv, idx) => (
                     <motion.li
                       key={idx}
@@ -196,8 +201,8 @@ export default function MainStats() {
             </motion.div>
           ))}
         </div>
-        <div className="group items-center justify-center p-2 mt-4">
-          <h1 className="font-body text-paragraph text-heading ">
+        <div className="group items-center justify-center p-2 mt-8 md:mt-4">
+          <h1 className="font-body text-sm md:text-paragraph text-heading text-center font-bold md:font-normal lg:font-normal">
               Transform operations. Save time. Achieve more.
             <Link to="/">
               <Button

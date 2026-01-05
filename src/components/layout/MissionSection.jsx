@@ -25,10 +25,14 @@ import SymbolLogo from "@/assets/media/logosymbol.png";
 
 // Animation for OurMission Section
 
-export const MissionAnimation = () => {
-  const containerSize = 400; // px
+// Detecting mobile viewport
+const isMobile = typeof window !== "undefined" && window.innerWidth < 640 ;
+
+const MissionAnimation = () => {
+  
+  const containerSize = isMobile ? 280 : 400; // px
   const center = { x: containerSize / 2, y: containerSize / 2 }; // center in px
-  const orbitRadius = 140; // fixed radius for all orbiting icons
+  const orbitRadius = isMobile ? 90 : 140; // fixed radius for all orbiting icons
   const speed = 0.01; // rotation speed
 
   const nodes = [
@@ -101,7 +105,7 @@ export const MissionAnimation = () => {
             transition={{ duration: 0.5 }}
           >
             <div
-              className="w-full h-full rounded-full flex items-center justify-center p-2 shadow-xl animate-float"
+              className="w-full h-full rounded-full flex items-center justify-center p-2 shadow-xl "
               style={{
                 background: gradient,
                 boxShadow: `0 4px 10px ${"#64748B33"}`, // muted color with transparency
@@ -203,7 +207,7 @@ const WhyBuildAnimation = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="relative flex flex-col w-full max-w-md h-[350px] overflow-hidden p-2">
+    <div className="relative flex flex-col w-full max-w-sm md:max-w-md h-[200px] md:h-[350px] overflow-hidden p-2">
       <AnimatedList key={listKey} delay={2000}>
         {whyWeBuild.map((i) => {
           const Icons = i.icon;
@@ -242,11 +246,7 @@ export default function MissionSection() {
     {
       title: "Why We Build",
       body: `Long-term care pharmacy is complex, critical, and underserved by technology. Today's pharmacy teams are overwhelmed with manual tasks, error-prone processes, and compliance challenges. Skypond exists to change that. We embed deep healthcare expertise into every feature, ensuring our AI solutions don't just automate—they enhance decision-making, reduce errors, and give pharmacy professionals the tools they deserve.`,
-    },
-    // {
-    //   title: "Our Values",
-    //   body: `At Skypond, our values drive everything we do: we embrace innovation to build smarter, more efficient AI solutions for long-term care pharmacies; operate with integrity, ensuring transparency and accountability in every process; pursue excellence, delivering measurable results and setting new industry standards; foster collaboration with clients and partners to create solutions tailored to real-world needs; and maintain a patient-centric focus, freeing pharmacy teams from administrative burdens so they can prioritize improving patient care and safety.`,
-    // },
+    }
   ];
 
   return (
@@ -390,16 +390,13 @@ export default function MissionSection() {
                 {/* CTA */}
                 <div className="group pl-8 mt-8">
                   <Link to="https://www.skypondtech.com" target="_blank">
-                    <Button
-                      variant="ghost"
-                      className="text-[15px] rounded-full text-accent hover:underline  hover:text-altbackground/90"
+                    <span
+                     
+                      className="text-paragraph text-accent underline hover:text-altbackground/90"
                     >
                       Join the movement toward intelligent pharmacy operations
-                      <ChevronRight
-                        className="group-hover:scale-125"
-                        strokeWidth={2.75}
-                      />
-                    </Button>
+                      
+                    </span>
                   </Link>
                 </div>
               </div>

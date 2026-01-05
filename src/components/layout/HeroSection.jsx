@@ -172,7 +172,7 @@ const HeroSection = ({id}) => {
       </div>
 
       <ProgressiveBlur height="45%" position="bottom" />
-      <div className="relative flex justify-center items-center z-10 w-full py-24">
+      <div className="relative flex justify-center items-center z-10 w-full py-14 px-4 md:py-24 lg:py-24">
         {/* Right visual banner/poster */}
         <div className="flex-1 relative transition-transform duration-400 hover:scale-[1.01]">
           <div className="relative w-full max-w-6xl mx-auto ">
@@ -183,40 +183,59 @@ const HeroSection = ({id}) => {
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
 
               {/* Content */}
-              <div className="flex flex-col relative z-10 items-center justify-center">
-                <h3 className="font-heading text-h3 text-white font-bold mb-4">
+              <div className="flex flex-col relative z-10 items-center justify-center ">
+                <h3 className="font-heading text-h3 text-white font-bold mb-4 text-center">
                   Transform Your Pharmacy Operations
                 </h3>
 
-                <p className="font-body text-small text-white mb-4">
+                <p className="font-body text-small text-white mb-4 text-center">
                   Join hundreds of LTC pharmacies using AI to automate
                   workflows, ensure compliance, and deliver better patient care.
                 </p>
 
                 {/* Stats grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl w-full ">
-                  {itemList.map((item, index) => (
-                    <div key={item.head} className="group">
-                      <Card className="group relative h-20 md:h-24 p-4 bg-null border border-white hover:shadow-2xl backdrop-blur-sm ">
-                        <div className="flex items-center space-x-4 h-full items-start">
-                          <div
-                            className={`flex-shrink-0 p-3 text-primary-foreground`}
-                          >
-                            {item.icon}
-                          </div>
-                          <div className="flex flex-col min-w-0 flex-1 text-white">
-                            <CardTitle className="font-body text-h3 ">
-                              {item.head}
-                            </CardTitle>
-                            <CardDescription className="font-body text-sm md:text-base font-medium text-primary-foreground  mt-1">
-                              {item.body}
-                            </CardDescription>
-                          </div>
-                        </div>
-                      </Card>
-                    </div>
-                  ))}
-                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl w-full">
+  {itemList.map((item) => (
+    <div key={item.head} className="group">
+      <Card
+        className="
+          relative
+          p-4 md:p-6
+          bg-null
+          border border-white/10
+          backdrop-blur-sm
+          transition-all
+          hover:shadow-2xl
+        "
+      >
+        <div
+          className="
+            flex flex-col md:flex-row
+            items-center md:items-center
+            gap-3 md:gap-4
+          "
+        >
+          {/* Icon */}
+          <div className="flex-shrink-0 p-3">
+            {item.icon}
+          </div>
+
+          {/* Text */}
+          <div className="flex flex-col min-w-0 text-white items-center md:items-start">
+            <CardTitle className="font-body text-h3 leading-tight">
+              {item.head}
+            </CardTitle>
+
+            <CardDescription className="font-body text-sm md:text-base font-medium text-primary-foreground mt-1">
+              {item.body}
+            </CardDescription>
+          </div>
+        </div>
+      </Card>
+    </div>
+  ))}
+</div>
+
               </div>
             </div>
           </div>

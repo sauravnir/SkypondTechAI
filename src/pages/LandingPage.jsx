@@ -45,7 +45,6 @@ const LandingPage = () => {
       ) : (
         ""
       )}
-
       <NavigationBar />
       <HeroSection id="top" />
       <MainServices />
