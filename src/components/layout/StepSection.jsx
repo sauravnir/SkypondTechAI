@@ -16,7 +16,7 @@ import { useInView } from "react-intersection-observer";
 import { Button } from "../ui/button";
 import { AnimatedCircularProgressBar } from "../ui/animated-circular-progress-bar";
 
-export default function StepSection() {
+export default function StepSection({id}) {
   const steps = [
     {
       step: "01",
@@ -76,7 +76,7 @@ export default function StepSection() {
   }, [activeStep, inView]);
 
   return (
-    <section className="relative overflow-hidden px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
+    <section id={id} className="relative overflow-hidden px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
       {/* Bg color */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
   {/* Blue blob */}
@@ -87,7 +87,7 @@ export default function StepSection() {
 
   {/* Purple blob */}
   <div
-    className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary/30 rounded-full blur-3xl"
+    className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary/30 rounded-full blur-3xl opacity-50"
     style={{ transform: "translate(-25%, -5%)" }}
   />
 </div>

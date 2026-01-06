@@ -47,12 +47,12 @@ const LandingPage = () => {
       )}
       <NavigationBar />
       <HeroSection id="top" />
-      <MainServices />
-      <MainStats />
+      <MainServices id="services"/>
+      <MainStats id="impact"/>
       <MissionSection />
-      <StepSection />
+      <StepSection id="howitworks"/>
       <WhyChoose />
-      <RecallSection />
+      <RecallSection id="contact"/>
       <Footer />
     </div>
   );

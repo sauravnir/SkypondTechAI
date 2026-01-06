@@ -17,7 +17,7 @@ import {
 
 import { Highlighter } from "../ui/highlighter";
 
-const MainServices = () => {
+const MainServices = ({id}) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const timerRef = useRef(null);
   const DURATION = 10000; // 5 seconds
@@ -95,7 +95,7 @@ const MainServices = () => {
 
   const tabDefault = ["#c4611bff", "#5391f4ff", "#18cd91ff", "#f83660ff"];
   return (
-    <div className="relative overflow-hidden bg-background">
+    <div id={id} className="relative overflow-hidden bg-background">
       <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20">
         <div className="flex flex-col justify-center items-center text-center">
           <Badge

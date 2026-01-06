@@ -6,17 +6,6 @@ import { Badge } from "../ui/badge";
 import { Separator } from "@radix-ui/react-separator";
 import { Button } from "../ui/button";
 
-import {
-  MedicationErrorSVG,
-  AutoEntrySVG,
-  LaborCostSVG,
-  ComplianceSVG,
-  ScaleSVG,
-  InsightsSVG,
-  AutomationSVG,
-  SupportSVG,
-} from "@/components/reusable/svgAnimations";
-
 import DemoPic from "@/assets/media/Faux.jpg";
 
 const reasons = [
@@ -25,54 +14,55 @@ const reasons = [
     title: "Reduce medication errors by 99%",
     description:
       "AI-powered verification ensures prescriptions are accurate before dispensing.",
-    visual: MedicationErrorSVG,
+   
   },
   {
     id: 1,
     title: "Save 75% on manual data entry",
     description: "Automated intake eliminates repetitive administrative work.",
-    visual: AutoEntrySVG,
+   
   },
   {
     id: 2,
     title: "Lower labor costs, happier staff",
     description: "Free your team from low-value tasks and reduce burnout.",
-    visual: LaborCostSVG,
+    
   },
   {
     id: 3,
     title: "Automatic HIPAA compliance",
     description: "Built-in safeguards ensure continuous regulatory adherence.",
-    visual: ComplianceSVG,
+    
   },
   {
     id: 4,
     title: "Scale without staffing increases",
     description: "Handle growth without adding operational overhead.",
-    visual: ScaleSVG,
+    
   },
   {
     id: 5,
     title: "Real-time operational insights",
     description:
       "Live dashboards provide instant visibility into pharmacy performance.",
-    visual: InsightsSVG,
+    
   },
   {
     id: 6,
     title: "24/7 automated processing",
     description: "Always-on workflows with zero downtime.",
-    visual: AutomationSVG,
+    
   },
   {
     id: 7,
     title: "Enterprise support & optimization",
     description:
       "Continuous monitoring and expert support keep systems optimized.",
-    visual: SupportSVG,
+    
   },
 ];
 
+// Scrolling Effect 
 function useScrollActive(count) {
   const refs = useRef([]);
   const [active, setActive] = useState(0);
@@ -120,7 +110,7 @@ export default function WhyChooseUs() {
         <div className="flex flex-row justify-between mt-24 gap-x-20">
           <div className="lg:sticky lg:top-32 space-y-24">
             {reasons.map((item, i) => {
-              const Icon = item.icon;
+              
               return (
                 <div
                   key={item.id}
@@ -139,9 +129,6 @@ export default function WhyChooseUs() {
                       active === i ? "opacity-100" : "opacity-0"
                     }`}
                   />
-                  {/* <div className="w-8 h-8 b rounded-full ">
-                  <Icon className="w-6 h-6 text-primary-foreground mb-4 " />
-                  </div> */}
                   <h3 className="font-heading text-h3 font-bold hover:text-primary">
                     {item.title}
                   </h3>

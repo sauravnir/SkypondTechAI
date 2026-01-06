@@ -16,7 +16,7 @@ import {
 } from "../ui/dialog";
 import GetStartedForm from "../reusable/GetStartedForm";
 
-export default function RecallSection() {
+export default function RecallSection({id}) {
   const advList = [
     {
       icon: CircleCheck,
@@ -44,7 +44,7 @@ export default function RecallSection() {
     { id: 6,icon: Logo, fallback: "24" },
   ];
   return (
-    <section className="relative overflow-hidden bg-altbackground">
+    <section id={id} className="relative overflow-hidden bg-altbackground">
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
         <div className="flex flex-col justify-center items-center text-center space-y-4">
           <h1 className="font-heading text-h1 max-w-5xl text-white font-bold">

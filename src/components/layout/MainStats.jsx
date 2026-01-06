@@ -17,7 +17,7 @@ import { Separator } from "../ui/separator";
 import { Highlighter } from "../ui/highlighter";
 import "@/index.css";
 
-export default function MainStats() {
+export default function MainStats ({id}){
   const stats = [
     {
       icon: Hourglass,
@@ -77,7 +77,7 @@ export default function MainStats() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden ">
+    <section id={id} className="relative overflow-hidden ">
       <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 items-center">
         {/* <div className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]" /> */}
         <div className="absolute  -bottom-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>

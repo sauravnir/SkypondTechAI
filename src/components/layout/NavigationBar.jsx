@@ -6,14 +6,66 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
 } from "../ui/navigation-menu";
 import { Dialog, DialogTrigger, DialogContent } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Sheet, SheetTrigger, SheetContent } from "../ui/sheet";
-import { ChevronRight, Menu, CircleSmall, ArrowUpRight } from "lucide-react";
+import {
+  ChevronRight,
+  ChevronDown,
+  ChevronUp,
+  Menu,
+  CircleSmall,
+  ArrowUpRight,
+  FileText,
+  Bot,
+  Workflow,
+  Cog,
+} from "lucide-react";
 import GetStartedForm from "../reusable/GetStartedForm";
 import WhatsappLogo from "@/assets/media/whatsapp.png";
+
+
+// Creating Menu Items
+  const menuItems = [
+    {
+      item: "Solutions",
+      link:"services",
+      subItems: [
+        {
+          icon: Cog,
+          title: "Order Automation",
+          desc: "Intelligent order processing",
+          subLink: "/",
+        },
+        {
+          icon: FileText,
+          title: "Document Automation",
+          desc: "Convert unstructured pharmacy data",
+          subLink: "/",
+        },
+        {
+          icon: Bot,
+          title: "Pharmacy Copilot",
+          desc: "Conversational AI assistant",
+          subLink: "/",
+        },
+        {
+          icon: Workflow,
+          title: "Workflow AI",
+          desc: "Operational workflow intelligence",
+          subLink: "/",
+        },
+      ],
+    },
+    { item: "Impact", link: "impact" },
+    { item: "How It Works", link: "howitworks" },
+    { item: "Contact", link: "contact" },
+  ];
+
 
 function NavigationBar() {
   //setting up states for scroll effect
@@ -32,54 +84,100 @@ function NavigationBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Creating Menu Items
-  const menuItems = [
-    { title: "Solutions", link: "#" },
-    { title: "Impact", link: "#" },
-    { title: "How It Works", link: "#" },
-    { title: "Contact", link: "#" },
-  ];
-
   // Creating Whatsapp Container
+  const [isHovered , setIsHovered] =useState(false);
   const phone = "17207246828";
   const message = encodeURIComponent(
     "Hello! I am interested in your services. Please let me know the details. "
   );
   const whatsappURL = `https://wa.me/${phone}?text=${message}`;
 
+
+
+  // Mobile Menu Items Toggle
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleOpen = (idx) => {
+    setOpenIndex(openIndex === idx ? null : idx);
+  }; 
+
+  
   return (
     <header className="fixed w-full z-50">
       {/* Applying isScrolled Ternary Conditional and changing navbar css */}
       <div
         className={`flex justify-between items-center px-4 md:px-10 h-20 ${
           isScrolled
-            ? "bg-altbackground/80 backdrop-blur-sm text-white"
+            ? "bg-altbackground/80 backdrop-blur-sm "
             : "bg-transparent"
         }`}
       >
         {/* Navigation Bar Logo */}
 
         <div className="flex-shrink-0">
-          <Link to="#">
+          <button onClick={()=>{document.getElementById("top")?.scrollIntoView({behavior:"smooth"})}}>
             <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
-          </Link>
+          </button>
         </div>
 
         <nav className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList className="space-x-2">
-              {menuItems.map((item, index) => (
-                <NavigationMenuItem key={index}>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      to={item.link}
-                      className={`font-body hover:text-accent transition-all delay-400 text-heading text-small px-3 py-2 ${
-                        isScrolled ? "text-primary-foreground" : ""
-                      }`}
-                    >
-                      {item.title}
-                    </Link>
-                  </NavigationMenuLink>
+              {menuItems.map((menu, idx) => (
+                <NavigationMenuItem
+                  key={idx}
+                  className={`flex font-body text-small ${
+                    isScrolled ? "text-white" : ""
+                  }`}
+                >
+                  {menu.subItems ? (
+                    <>
+                      <NavigationMenuTrigger
+                        className={`${isScrolled ? "bg-null" : ""}`}
+                      >
+                        <button onClick={() => {document.getElementById(menu.link)?.scrollIntoView({behavior:"smooth"})}}>{menu.item}</button>
+                        
+                      </NavigationMenuTrigger>
+
+                      <NavigationMenuContent className="bg-card">
+                        <ul className="grid w-max grid-cols-1 md:grid-cols-2 gap-3 p-4">
+                          {menu.subItems.map((subItem, subIdx) => {
+                            const Icon = subItem.icon;
+                            return (
+                              <li key={subIdx}>
+                                <a
+                                  href={subItem.subLink}
+                                  className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted/10 transition-all"
+                                >
+                                  <div className="p-2 rounded-lg bg-accent">
+                                    <Icon className="w-5 h-5 text-primary-foreground" />
+                                  </div>
+
+                                  <div className="space-y-1">
+                                    <p className="font-heading font-bold text-button ">
+                                      {subItem.title}
+                                    </p>
+                                    <p className="text-sm text-muted">
+                                      {subItem.desc}
+                                    </p>
+                                  </div>
+                                </a>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </NavigationMenuContent>
+                    </>
+                  ) : (
+                    <NavigationMenuLink asChild>
+                      <button
+                        onClick={()=>{document.getElementById(menu.link)?.scrollIntoView({behavior:"smooth"})}}
+                        className="px-3 py-2 text-sm font-medium hover:text-accent transition"
+                      >
+                        {menu.item}
+                      </button>
+                    </NavigationMenuLink>
+                  )}
                 </NavigationMenuItem>
               ))}
             </NavigationMenuList>
@@ -130,12 +228,8 @@ function NavigationBar() {
           <div className="group">
             <a href={whatsappURL} target="_blank" rel="noopener noreferrer">
               <Button className="relative flex items-center justify-center rounded-full bg-[#D8FBE6] shadow hover:bg-[#DCF8C6] hover:shadow-lg overflow-hidden">
-                <img
-                  src={WhatsappLogo}
-                  alt="whatsapp"
-                  className="w-7 h-7"
-                />
-                <span className="flex items-center gap-1 max-w-0 overflow-hidden whitespace-nowrap text-[#075E54] text-[15px] font-bold transition-all duration-500 group-hover:max-w-xs">
+                <img src={WhatsappLogo} alt="whatsapp" className="w-7 h-7" />
+                <span onMouseEnter={()=>setIsHovered(true)} className={` flex items-center gap-1 max-w-0 overflow-hidden whitespace-nowrap text-[#075E54] text-[15px] font-bold transition-all duration-500 group-hover:max-w-xs`}>
                   Whatsapp Us
                 </span>
               </Button>
@@ -162,29 +256,53 @@ function NavigationBar() {
           </div>
           <Sheet>
             <SheetTrigger asChild>
-              <Button
-                size="icon"
-                variant="outline"
-                className={`${isScrolled ? "bg-primary" : ""}`}
-              >
+              <Button size="icon" variant="outline">
                 <Menu />
               </Button>
             </SheetTrigger>
             <SheetContent side="top" className="w-full h-full">
-              <nav className="flex flex-col justify-start space-y-2 mt-8">
-                {menuItems.map((item) => (
-                  <Link
-                    key={item.title}
-                    to={item.link}
-                    className="hover:text-accent transition-all delay-400 py-2"
-                  >
-                    <div className="flex items-center gap-2">
-                      <CircleSmall size={18} strokeWidth={2.75} />{" "}
-                      <span className="font-body text-heading text-h3 font-medium">
-                        {item.title}
+              <nav className="flex flex-col space-y-2 mt-8 md:hidden">
+                {menuItems.map((menu, idx) => (
+                  <div key={menu.item} className="flex flex-col w-full">
+                    {/* Parent item / trigger */}
+                    <button
+                      onClick={() => menu.subItems && toggleOpen(idx)}
+                      className="flex items-center w-full justify-start gap-2 py-2 px-1 text-left hover:text-accent transition-colors font-medium"
+                    >
+                      <CircleSmall size={18} strokeWidth={2.75} />
+                      <span className="font-body text-heading text-h3">
+                        {menu.item}
                       </span>
-                    </div>
-                  </Link>
+                      {menu.subItems && (
+                        <span className="ml-auto">
+                          {openIndex === idx ? <ChevronUp strokeWidth={2.75}/> : <ChevronDown strokeWidth={2.75}/>}
+                        </span>
+                      )}
+                    </button>
+
+                    {/* Sub-items */}
+                    {menu.subItems && openIndex === idx && (
+                      <div className="flex flex-col ml-6 mt-1 space-y-1 bg-card/70 p-2 gap-2">
+                        {menu.subItems.map((sub) => {
+                          const Icon = sub.icon;
+                          return (
+                            <a
+                              key={sub.title}
+                              href={sub.subLink}
+                              className="flex items-center gap-2 px-3 py-2 rounded-md hover:text-accent hover:bg-muted/10 transition-colors"
+                            >
+                              <div className="p-1 rounded bg-accent">
+                                <Icon className="w-5 h-5 text-primary-foreground" />
+                              </div>
+                              <span className="font-body text-button">
+                                {sub.title}
+                              </span>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </nav>
               <Separator orientation="horizontal" className="my-4" />
