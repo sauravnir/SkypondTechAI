@@ -6,8 +6,10 @@ module.exports = {
     extend: {
       fontFamily: {
         heading: ["Hanken Grotesk", "system-ui", "sans-serif"],
-        body: ["Inter", "system-ui", "sans-serif"],
-        ui: ["Urbanist", "system-ui", "sans-serif"],
+        // body: ["Inter", "system-ui", "sans-serif"], 
+        // ui: ["Urbanist", "system-ui", "sans-serif"],
+        body: ["Hanken Grotesk", "system-ui", "sans-serif"], 
+        ui: ["Hanken Grotesk", "system-ui", "sans-serif"],
       },
       colors: {
         background: "#F8F9FE",
@@ -46,7 +48,7 @@ module.exports = {
 
         paragraph: [
           "clamp(1rem, 1.2vw, 1.125rem)", // 16 → 18px
-          { lineHeight: "1.7", letterSpacing: "0em" },
+          { lineHeight: "1.7", letterSpacing: "0rem" },
         ],
 
         small: [
