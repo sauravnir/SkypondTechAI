@@ -1,5 +1,11 @@
 import React from "react";
-import { ChevronRight, Minus, ExternalLink, Copyright } from "lucide-react";
+import {
+  ChevronRight,
+  Minus,
+  ExternalLink,
+  Copyright,
+  CircleSmall,
+} from "lucide-react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
@@ -12,130 +18,99 @@ import {
 } from "../ui/navigation-menu";
 
 import Logo from "@/assets/media/1.png";
+import { Item } from "@radix-ui/react-navigation-menu";
 
 const Footer = () => {
-  const solutionMenu = [
+  const footerItems = [
     {
-      title: "Document Automation",
+      title: "Solutions",
       link: "#",
+      subItem: [
+        {
+          title: "Document Automation",
+          link: "#",
+        },
+        {
+          title: "Order Entry",
+          link: "#",
+        },
+        {
+          title: "AI Copilot",
+          link: "#",
+        },
+        {
+          title: "Workflow Intelligence",
+          link: "#",
+        },
+      ],
     },
     {
-      title: "Order Entry",
+      title: "Trust and Security",
       link: "#",
+      subItem: [
+        {
+          title: "HIPAA Compliance",
+          link: "#",
+        },
+        { title: "Security", link: "#" },
+        { title: "Privacy", link: "#" },
+        { title: "Terms and Conditions", link: "#" },
+      ],
     },
     {
-      title: "AI Copilot",
+      title: "Company",
       link: "#",
+      subItem: [
+        {
+          title: "Main Site",
+          link: "https://www.skypondtech.com",
+        },
+        { title: "About", link: "#" },
+        { title: "Contact", link: "#" },
+        { title: "Blog", link: "#" },
+      ],
     },
-    {
-      title: "Workflow Intelligence",
-      link: "#",
-    },
-  ];
-
-  const companyMenu = [
-    {
-      title: "Main Site",
-      link: "#",
-    },
-    { title: "About", link: "#" },
-    { title: "Contact", link: "#" },
-    { title: "Blog", link: "#" },
-  ];
-
-  const trustSecurity = [
-    {
-      title: "HIPAA Compliance",
-      link: "#",
-    },
-    { title: "Security", link: "#" },
-    { title: "Privacy", link: "#" },
-    { title: "Terms and Conditions", link: "#" },
   ];
   return (
     <footer className="relative overflow-hidden bg-altbackground pt-20 pb-10 z-10">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-0 ">
-        {/* Solutions Section */}
-        <div className="flex flex-col items-start gap-4">
-          <span
-            variant="ghost"
-            className="font-heading text-[20px] text-primary-foreground font-bold "
-          >
-            Solutions
-          </span>
-          <Separator orientation="horizontal" className="w-20" />
-
-          <NavigationMenu>
-            <NavigationMenuList className="flex flex-col gap-4 items-start mt-8">
-              {solutionMenu.map((items, key) => (
-                <NavigationMenuItem key={key}>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      to={items.link}
-                      className="flex font-body text-muted text-[16px] hover:underline gap-2 "
-                    >
-                      <Minus /> {items.title}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-
-        {/* Trust and Security Section*/}
-        <div className="flex flex-col items-start gap-4">
-          <span className="font-heading text-[20px] text-primary-foreground font-bold ">
-            Trust and Security
-          </span>
-          <Separator orientation="horizontal" className="w-20" />
-
-          <NavigationMenu>
-            <NavigationMenuList className="flex flex-col gap-4 items-start mt-8">
-              {trustSecurity.map((items, key) => (
-                <NavigationMenuItem key={key}>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      to={items.link}
-                      className="flex font-body text-muted text-[16px] hover:underline gap-2"
-                    >
-                      <Minus /> {items.title}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-
-        {/* Company Section */}
-        <div className="flex flex-col items-start gap-4">
-          <span className="font-heading text-[20px] text-primary-foreground font-bold ">
-            Company
-          </span>
-          <Separator orientation="horizontal" className="w-20" />
-
-          <NavigationMenu>
-            <NavigationMenuList className="flex flex-col gap-4 items-start mt-8">
-              {companyMenu.map((items, key) => (
-                <NavigationMenuItem key={key}>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      to={items.link}
-                      className="flex font-body text-muted text-[16px] hover:underline gap-2"
-                    >
-                      <Minus />
-                      {items.title}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
+        {/* Footer Contents */}
+        {footerItems.map((column) => (
+          <div key={column.title} className="space-y-4">
+            <h2 className="font-base text-paragraph text-primary-foreground">
+              {column.title}
+            </h2>
+            <ul className=" space-y-2">
+              {column.subItem.map((item) => (
+          <li key={item.title}>
+            <div className="flex flex-row justify-start items-center  gap-2">
+                 <CircleSmall strokeWidth={2.75} size={15} className="text-muted"/>
+            {item.link.startsWith("http") ? (
+              <a
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" font-body text-muted text-[16px] hover:underline "
+              >
+                {item.title}
+              </a>
+            ) : (
+              <Link
+                to={item.link}
+                className="font-body text-muted text-[16px] hover:underline"
+              >
+                {item.title}
+              </Link>
+            )}
+            </div>
+           
+          </li>
+        ))}
+            </ul>
+          </div>
+        ))}
       </div>
-
-{/* Company Section */}
+      {/* Company Section */}
       <div className="flex flex-col lg:flex-row justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-32 gap-12 lg:gap-0">
         <div className="flex flex-col flex-shrink-0 items-center lg:items-start text-center lg:text-left gap-4">
           <Link to="/">

@@ -12,7 +12,6 @@ import RecallSection from "@/components/layout/RecallSection";
 
 import { MoveUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Whatsapp from "@/assets/media/whatsapp.png";
 
 const LandingPage = () => {
   const [pageScrolled, isPageScrolled] = useState(false);
@@ -30,6 +29,10 @@ const LandingPage = () => {
   };
   return (
     <div className="min-h-screen">
+
+      
+     
+    {/* Page Scroll Button */}
       {pageScrolled ? (
         <div className="flex flex-col fixed bottom-8 right-8 z-50 space-y-4">
           <Button

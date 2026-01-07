@@ -327,9 +327,12 @@ export default function MissionSection() {
                     </div>
                   </div>
 
-                  <p className="font-body text-paragraph text-heading text-justify">
+                    <div className="text-">
+                      <p className="font-body text-paragraph text-heading text-justify hyphens-auto">
                     {item.body}
                   </p>
+                    </div>
+                  
                 </div>
 
                 <div className={index % 2 === 1 ? "lg:order-0" : ""}>

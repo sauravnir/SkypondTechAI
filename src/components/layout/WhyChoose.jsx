@@ -5,8 +5,14 @@ import { ChevronRight } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Separator } from "@radix-ui/react-separator";
 import { Button } from "../ui/button";
-
-import DemoPic from "@/assets/media/Faux.jpg";
+import ReduceError from "@/assets/media/Fact1.svg";
+import SaveTime from "@/assets/media/Fact2.svg";
+import LowerLabour from "@/assets/media/Fact3.svg";
+import HipaaCompliance from "@/assets/media/Fact4.jfif";
+import ScaleStaffing from "@/assets/media/Fact8.jfif";
+import RealTime from "@/assets/media/Fact5.svg";
+import AutomatedProcessing from "@/assets/media/Fact6.svg";
+import SupportOptimization from "@/assets/media/Fact7.jfif";
 
 const reasons = [
   {
@@ -14,55 +20,55 @@ const reasons = [
     title: "Reduce medication errors by 99%",
     description:
       "AI-powered verification ensures prescriptions are accurate before dispensing.",
-   
+    graphic: ReduceError,
   },
   {
     id: 1,
     title: "Save 75% on manual data entry",
     description: "Automated intake eliminates repetitive administrative work.",
-   
+    graphic: SaveTime,
   },
   {
     id: 2,
     title: "Lower labor costs, happier staff",
     description: "Free your team from low-value tasks and reduce burnout.",
-    
+    graphic: LowerLabour,
   },
   {
     id: 3,
     title: "Automatic HIPAA compliance",
     description: "Built-in safeguards ensure continuous regulatory adherence.",
-    
+    graphic: HipaaCompliance,
   },
   {
     id: 4,
     title: "Scale without staffing increases",
     description: "Handle growth without adding operational overhead.",
-    
+    graphic: ScaleStaffing,
   },
   {
     id: 5,
     title: "Real-time operational insights",
     description:
       "Live dashboards provide instant visibility into pharmacy performance.",
-    
+    graphic: RealTime,
   },
   {
     id: 6,
     title: "24/7 automated processing",
     description: "Always-on workflows with zero downtime.",
-    
+    graphic: AutomatedProcessing,
   },
   {
     id: 7,
     title: "Enterprise support & optimization",
     description:
       "Continuous monitoring and expert support keep systems optimized.",
-    
+    graphic: SupportOptimization,
   },
 ];
 
-// Scrolling Effect 
+// Scrolling Effect
 function useScrollActive(count) {
   const refs = useRef([]);
   const [active, setActive] = useState(0);
@@ -108,9 +114,9 @@ export default function WhyChooseUs() {
           </p>
         </div>
         <div className="flex flex-row justify-between mt-24 gap-x-20">
-          <div className="lg:sticky lg:top-32 space-y-24">
+          {/* Left side - Fixed width */}
+          <div className="w-full lg:w-[45%] space-y-24">
             {reasons.map((item, i) => {
-              
               return (
                 <div
                   key={item.id}
@@ -140,9 +146,9 @@ export default function WhyChooseUs() {
             })}
           </div>
 
-          {/* Right side  */}
-          <div className="relative hidden sm:block">
-            <div className="lg:sticky top-32 h-[520px] flex items-center">
+          {/* Right side - Fixed width and height */}
+          <div className="relative hidden lg:block w-[45%] flex-shrink-0">
+            <div className="sticky top-32 w-full h-[520px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -150,14 +156,14 @@ export default function WhyChooseUs() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="w-full"
+                  className="w-full h-full"
                 >
-                  <div className="relative w-full h-[480px] rounded-3xl bg-gradient-to-br from-white to-slate-50 border shadow-sm flex items-center justify-center">
+                  <div className="w-full h-full rounded-3xl bg-card border shadow-lg transition-transform duration-300 hover:scale-105 flex items-center justify-center overflow-hidden">
                     <img
-                      src={DemoPic}
-                      className="w-auto h-[480px] "
-                      alt="Demo Image"
-                    ></img>
+                      src={reasons[active].graphic}
+                      alt={reasons[active].title}
+                      className="max-w-full max-h-full object-contain p-8"
+                    />
                   </div>
                 </motion.div>
               </AnimatePresence>

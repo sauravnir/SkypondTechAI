@@ -11,7 +11,6 @@ import {
 
 import {
   ChevronRight,
-
   User,
   Medal,
   BriefcaseBusiness,
@@ -19,7 +18,8 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { Dialog, DialogTrigger, DialogContent, DialogHeader , DialogTitle, DialogClose} from "../ui/dialog";
-import GetStartedForm from "../reusable/GetStartedForm";
+
+import ContactForm from "../reusable/ContactForm";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { ProgressiveBlur } from "../ui/progressive-blur";
 import "@/index.css";
@@ -138,8 +138,8 @@ const HeroSection = ({id}) => {
               </span>
             </Button>
               </DialogTrigger>
-              <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                <GetStartedForm />
+              <DialogContent className="  max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
+                 <ContactForm />
               </DialogContent>
             </Dialog>
             

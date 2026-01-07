@@ -15,6 +15,7 @@ import { Button } from "../ui/button";
 import { motion } from "motion/react";
 import { Separator } from "../ui/separator";
 import { Highlighter } from "../ui/highlighter";
+import ContactForm from "../reusable/ContactForm";
 import "@/index.css";
 
 export default function MainStats ({id}){
@@ -202,7 +203,7 @@ export default function MainStats ({id}){
           ))}
         </div>
         <div className="group items-center justify-center p-2 mt-8 md:mt-4">
-          <h1 className="font-body text-sm md:text-paragraph text-heading text-center font-bold md:font-normal lg:font-normal">
+          <h1 className="font-body text-sm md:text-button text-heading text-center font-bold md:font-bold lg:font-bold">
               Transform operations. Save time. Achieve more.
             <Link to="/">
               <Button

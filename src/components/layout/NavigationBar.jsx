@@ -24,11 +24,11 @@ import {
   Bot,
   Workflow,
   Cog,
+  Contact,
 } from "lucide-react";
-import GetStartedForm from "../reusable/GetStartedForm";
+// import PrerenderForm from "../reusable/PrerenderForm";
+import ContactForm from "../reusable/ContactForm";
 import WhatsappLogo from "@/assets/media/whatsapp.png";
-
-
 // Creating Menu Items
   const menuItems = [
     {
@@ -220,7 +220,7 @@ function NavigationBar() {
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                <GetStartedForm />
+                <ContactForm/>
               </DialogContent>
             </Dialog>
           </div>
@@ -336,7 +336,7 @@ function NavigationBar() {
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                      <GetStartedForm />
+                      <ContactForm />
                     </DialogContent>
                   </Dialog>
                 </div>

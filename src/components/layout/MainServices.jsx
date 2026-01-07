@@ -238,8 +238,9 @@ const MainServices = ({id}) => {
                                       />
                                     </div>
                                   </div>
-
-                                  <p className="font-body text-paragraph md:text-justify text-muted">
+                                    
+                                  
+                                  <p className="font-body text-paragraph text-muted hyphens-auto" >
                                     {services[index].body}
                                   </p>
 

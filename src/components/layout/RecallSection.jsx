@@ -7,14 +7,20 @@ import {
   ClockCheck,
   Shield,
 } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "../ui/avatar";
-import Logo from "@/assets/media/logosymbol.png";
+import { Avatar, AvatarFallback } from "../ui/avatar";
+import Avatar1 from "@/assets/media/avatar1.jpg"
+import Avatar2 from "@/assets/media/avatar2.jpg"
+import Avatar3 from "@/assets/media/avatar3.jpg"
+import Avatar4 from "@/assets/media/avatar4.jpg"
+import Avatar5 from "@/assets/media/avatar5.jpg"
+
+
 import {
   Dialog,
   DialogTrigger,
   DialogContent,
 } from "../ui/dialog";
-import GetStartedForm from "../reusable/GetStartedForm";
+import ContactForm from "../reusable/ContactForm";
 
 export default function RecallSection({id}) {
   const advList = [
@@ -36,12 +42,11 @@ export default function RecallSection({id}) {
   ];
 
   const avatars = [
-    { id: 1, icon: Logo, fallback: "SP" },
-    { id: 2,icon: Logo, fallback: "AI" },
-    { id: 3,icon: Logo, fallback: "RX" },
-    { id: 4,icon: Logo, fallback: "PH" },
-    { id: 5,icon: Logo, fallback: "LT" },
-    { id: 6,icon: Logo, fallback: "24" },
+    { id: 1, icon: Avatar1, fallback: "CL1" },
+    { id: 2,icon: Avatar2, fallback: "CL2" },
+    { id: 3,icon: Avatar3, fallback: "CL3" },
+    { id: 4,icon: Avatar4, fallback: "CL4" },
+    { id: 5,icon: Avatar5, fallback: "CL5" },
   ];
   return (
     <section id={id} className="relative overflow-hidden bg-altbackground">
@@ -67,21 +72,22 @@ export default function RecallSection({id}) {
           <Avatar
             key={item.id}
             className="
-              h-14 w-14
+              h-12 w-12
               border-2 border-background
               shadow-sm
               transition-transform
               duration-200
               hover:scale-105
               hover:z-10
+              
             "
             style={{ zIndex: avatars.length - idx }}
           >
             {item.icon ? (
               <img
-                src={Logo}
+                src={item.icon}
                 alt="partners"
-                className="h-14 w-auto bg-altbackground"
+                className="relative h-16 bg-altbackground"
               />
             ) : null}
             <AvatarFallback className="bg-muted text-xs font-semibold">
@@ -103,8 +109,6 @@ export default function RecallSection({id}) {
     </div>
   </div>
 </div>
-
-
         <div className="flex flex-wrap gap-6 justify-center mt-8 pointer-events-auto">
           <div className="group">
             <Dialog>
@@ -121,7 +125,7 @@ export default function RecallSection({id}) {
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                <GetStartedForm />
+                  <ContactForm />
               </DialogContent>
             </Dialog>
           </div>
@@ -150,8 +154,8 @@ export default function RecallSection({id}) {
               <div key={idx} className="flex items-center  gap-2">
                 <span>
                   <Icon className={`w-4  ${item.color}`} />
-                </span>{" "}
-                <h1 className="font-ui text-white text-paragraph">{item.title}</h1>
+                </span>
+                <h1 className="font-ui text-muted text-small ">{item.title}</h1>
               </div>
             );
           })}
