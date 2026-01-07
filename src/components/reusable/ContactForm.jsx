@@ -8,6 +8,7 @@ const ContactForm = ({ formId = "84b62d3b-b4ed-4ce1-94e6-0169b86a335e" }) => {
   useEffect(() => {
     
     const timer = setTimeout(() => {
+
       setLoading(false);
     }, 1000); // 1 second delay
 
@@ -17,15 +18,17 @@ const ContactForm = ({ formId = "84b62d3b-b4ed-4ce1-94e6-0169b86a335e" }) => {
   return (
     <div className="relative">
       {loading && (
-        <div className="space-y-4 ">
-          <Skeleton className="h-6 w-3/4 bg-muted" />
-          <Skeleton className="h-6 w-full bg-muted" />
-          <Skeleton className="h-6 w-5/6 bg-muted" />
-          <Skeleton className="h-12 w-full bg-muted" />
-          <Skeleton className="h-12 w-full bg-muted" />
+        <div className="space-y-4 animate-pulse">
+          <Skeleton className="h-6 w-3/4 bg-gray-200" />
+          <Skeleton className="h-6 w-full bg-gray-200" />
+          <Skeleton className="h-6 w-5/6 bg-gray-200" />
+          <Skeleton className="h-12 w-full bg-gray-200" />
+          <Skeleton className="h-12 w-full bg-gray-200" />
+          <Skeleton className="h-12 w-full bg-gray-200" />
+          <Skeleton className="h-10 w-32 bg-gray-300" />
         </div>
       )}
-      <div className="hs-form-frame" data-region="na2" data-form-id={formId} data-portal-id="244306063" > </div>
+      <div className={`hs-form-frame`} data-region="na2" data-form-id={formId} data-portal-id="244306063"> </div>
     </div>
   );
 };

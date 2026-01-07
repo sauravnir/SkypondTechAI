@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
-import {
-  Card,
-  CardDescription,
-  CardTitle,
-} from "../ui/card";
+import { Card, CardDescription, CardTitle } from "../ui/card";
 
 import {
   ChevronRight,
@@ -17,15 +13,22 @@ import {
   Shield,
   ArrowUpRight,
 } from "lucide-react";
-import { Dialog, DialogTrigger, DialogContent, DialogHeader , DialogTitle, DialogClose} from "../ui/dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "../ui/dialog";
 
 import ContactForm from "../reusable/ContactForm";
+import { motion } from "motion/react";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { ProgressiveBlur } from "../ui/progressive-blur";
 import "@/index.css";
 
-
-const HeroSection = ({id}) => {
+const HeroSection = ({ id }) => {
   //Creating fetures array
 
   const itemList = [
@@ -56,7 +59,10 @@ const HeroSection = ({id}) => {
   ];
 
   return (
-    <section id={id} className="relative overflow-hidden bg-gradient-to-b from-background via-primary/10 to-primary ">
+    <section
+      id={id}
+      className="relative overflow-hidden bg-gradient-to-b from-background via-primary/10 to-primary "
+    >
       {/* <div className="absolute inset-0 w-full h-full pointer-events-auto">
         <InteractiveGridPattern
           className={cn(
@@ -106,44 +112,62 @@ const HeroSection = ({id}) => {
 
         <div className="max-w-5xl items-center text-center ">
           {/* Referencing H1 for animation */}
-          <h1 className="text-gradient font-heading text-hero font-extrabold ">
-            Revolutionizing LTC Pharmacy
-          </h1>
-
-          <div className=" font-heading text-hero ">
-            <span className="text-heading font-mediumi">Operations with Enterprise AI </span>
-          </div>
-
-          <div className="flex flex-col justify-center items-center text-center mt-10">
-            <p className="font-body text-paragraph text-heading max-w-2xl leading-relaxed">
-              Skypond delivers enterprise-ready AI built for long-term care
-              pharmacies—automating complex workflows, reducing operational
-              friction, and enabling teams to scale securely with full
-              compliance and measurable impact.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-6 justify-center mt-10 pointer-events-auto">
-            <div className="group">
-            <Dialog>
-              <DialogTrigger>
-                <Button
-              variant="default"
-              className="text-[15px] text-primary-foreground rounded-full flex items-center "
-              size="lg"
-            >
-              Get Started for FREE
-              <span className="transition-transform duration-300 group-hover:scale-150 ">
-                <ChevronRight strokeWidth={2.75} />
+          <motion.h1
+            initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay:0.4,  ease: "easeOut" }}
+          >
+            <h1 className="text-gradient font-heading text-hero font-extrabold ">
+              Revolutionizing LTC Pharmacy
+            </h1>
+            <div className=" font-heading text-hero ">
+              <span className="text-heading font-mediumi">
+                Operations with Enterprise AI{" "}
               </span>
-            </Button>
-              </DialogTrigger>
-              <DialogContent className="  max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                 <ContactForm />
-              </DialogContent>
-            </Dialog>
-            
-          </div>
+            </div>
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+          >
+            <div className="flex flex-col justify-center items-center text-center mt-10">
+              <p className="font-body text-paragraph text-heading max-w-2xl leading-relaxed">
+                Skypond delivers enterprise-ready AI built for long-term care
+                pharmacies—automating complex workflows, reducing operational
+                friction, and enabling teams to scale securely with full
+                compliance and measurable impact.
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.8, delay: 1.2, ease: "easeIn" }}
+        
+          >
+            <div className="flex flex-wrap gap-6 justify-center mt-10 pointer-events-auto">
+            <div className="group">
+              <Dialog>
+                <DialogTrigger>
+                  <Button
+                    variant="default"
+                    className="text-[15px] text-primary-foreground rounded-full flex items-center "
+                    size="lg"
+                  >
+                    Get Started for FREE
+                    <span className="transition-transform duration-300 group-hover:scale-150 ">
+                      <ChevronRight strokeWidth={2.75} />
+                    </span>
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="  max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
+                  <ContactForm />
+                </DialogContent>
+              </Dialog>
+            </div>
 
             <div className="group">
               <Link to="https://skypondtech.com" target="_blank">
@@ -159,20 +183,37 @@ const HeroSection = ({id}) => {
                 </Button>
               </Link>
             </div>
+          </div>
+          </motion.div>
 
+          
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
             
-          </div>
-            
-          <div className="font-heading font-medium text-small mt-6">
-            <h1 className="text-muted underline">
-              Built for long-term care pharmacies · HIPAA-ready · Enterprise secure
-            </h1>
-          </div>
+          >
+            <div className="font-heading font-medium text-small mt-6">
+              <h1 className="text-muted underline">
+                Built for long-term care pharmacies · HIPAA-ready · Enterprise
+                secure
+              </h1>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      <ProgressiveBlur height="45%" position="bottom" />
-      <div className="relative flex justify-center items-center z-10 w-full py-14 px-4 md:py-24 lg:py-24">
+      
+
+      <motion.div
+      initial={{ opacity: 0 , y: 20 , filter: "blur(20px)" }}
+      animate={{ opacity: 1 , y: 0 , filter:"blur(0px)"}}
+      transition={{ duration: 1, delay: 1.6, ease:  "easeIn" }}
+            
+      >
+        <ProgressiveBlur height="45%" position="bottom" />
+          <div className="relative flex justify-center items-center z-10 w-full py-14 px-4 md:py-24 lg:py-24">
         {/* Right visual banner/poster */}
         <div className="flex-1 relative transition-transform duration-400 hover:scale-[1.01]">
           <div className="relative w-full max-w-6xl mx-auto ">
@@ -195,10 +236,10 @@ const HeroSection = ({id}) => {
 
                 {/* Stats grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl w-full">
-  {itemList.map((item) => (
-    <div key={item.head} className="group">
-      <Card
-        className="
+                  {itemList.map((item) => (
+                    <div key={item.head} className="group">
+                      <Card
+                        className="
           relative
           p-4 md:p-6
           bg-null
@@ -207,40 +248,39 @@ const HeroSection = ({id}) => {
           transition-all
           hover:shadow-2xl
         "
-      >
-        <div
-          className="
+                      >
+                        <div
+                          className="
             flex flex-col md:flex-row
             items-center md:items-center
             gap-3 md:gap-4
           "
-        >
-          {/* Icon */}
-          <div className="flex-shrink-0 p-3">
-            {item.icon}
-          </div>
+                        >
+                          {/* Icon */}
+                          <div className="flex-shrink-0 p-3">{item.icon}</div>
 
-          {/* Text */}
-          <div className="flex flex-col min-w-0 text-white items-center md:items-start">
-            <CardTitle className="font-body text-h3 leading-tight">
-              {item.head}
-            </CardTitle>
+                          {/* Text */}
+                          <div className="flex flex-col min-w-0 text-white items-center md:items-start">
+                            <CardTitle className="font-body text-h3 leading-tight">
+                              {item.head}
+                            </CardTitle>
 
-            <CardDescription className="font-body text-sm md:text-base font-medium text-primary-foreground mt-1">
-              {item.body}
-            </CardDescription>
-          </div>
-        </div>
-      </Card>
-    </div>
-  ))}
-</div>
-
+                            <CardDescription className="font-body text-sm md:text-base font-medium text-primary-foreground mt-1">
+                              {item.body}
+                            </CardDescription>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      </motion.div>
+      
     </section>
   );
 };
