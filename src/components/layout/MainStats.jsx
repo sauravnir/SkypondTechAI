@@ -4,67 +4,113 @@ import {
   TrendingUp,
   ChartColumnBig,
   Infinity,
-  CircleUser,
-  CheckCircle,
-  ChevronRight,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 import { NumberTicker } from "../ui/number-ticker";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "../ui/button";
 import { motion } from "motion/react";
-import { Separator } from "../ui/separator";
-import { Highlighter } from "../ui/highlighter";
-import ContactForm from "../reusable/ContactForm";
+import { Marquee } from "../ui/marquee";
+import Testimonials from "../reusable/Testimonials";
+
 import "@/index.css";
 
-export default function MainStats ({id}){
-  const stats = [
-    {
-      icon: Hourglass,
-      value: 75,
-      suffix: "%",
-  
-      body: "Time Saved on Manual Tasks",
-    },
-    {
-      icon: TrendingUp,
-      value: 99,
-      suffix: "%",
-     
-      body: "Accuracy Improvement",
-    },
-    {
-      icon: ChartColumnBig,
-      value: 500,
-      prefix: "$",
-      suffix: "K+",
-      
-      body: "Annual Savings per Facility",
-    },
-    {
-      icon: Infinity,
-      value: 24,
-      suffix: "/7",
-      
-      body: "Continuous Operation",
-    },
-  ];
+const testimonialsData = [
+  {
+    id: 1,
+    icon: "SM",
+    head: "Sarah Mitchell",
+    sub: "Director of Pharmacy Operations",
+    body: '"Skypond AI transformed how we work. We cut order entry time by 80% and saved almost $750,000 in the first year. Our pharmacy teams now focus on patient care instead of administrative tasks."',
+    gradient: "from-blue-500 to-cyan-500",
+  },
 
-  const testimonial = [
-    {
-      icon: <CircleUser />,
-      head: "Director of Pharmacy Operations",
-      sub: "100-Facility Regional LTC Network",
-      body: "Skypond AI didn't just reduce our operational burden—it fundamentally transformed how we work. We cut order entry time by 80%, eliminated nearly all manual data entry errors, and saved almost $750,000 in the first year alone. More importantly, our pharmacy teams now focus on patient care instead of administrative tasks. This is exactly what modern long-term care pharmacy needed.",
-      advantages: [
-        "80% faster order processing",
-        "$750+ first-year savings",
-        "99%+ accuracy maintained",
-      ],
-    },
-  ];
+  {
+    id: 2,
+    icon: "JC",
+    head: "Dr. James Chen",
+    sub: "Chief Clinical Pharmacist",
+    body: '"Implementing Skypond AI was the smartest technology decision we\'ve made. Prescription intake is now seamless and reliable. We expanded to 30 new facilities without hiring additional order entry staff."',
+    gradient: "from-purple-500 to-pink-500",
+  },
 
+  {
+    id: 3,
+    icon: "MR",
+    head: "Maria Rodriguez",
+    sub: "Pharmacy Compliance Officer",
+    body: '"We were hesitant about AI due to regulatory concerns. Skypond removed that fear with healthcare-grade security, audit trails, and automated checks that keep us continuously compliant."',
+    gradient: "from-green-500 to-emerald-500",
+  },
+
+  {
+    id: 4,
+    icon: "DT",
+    head: "David Thompson",
+    sub: "Operations Manager",
+    body: '"Before Skypond, our team spent hours retyping prescriptions. Now the AI handles the heavy lifting. Staff burnout dropped dramatically, and overtime costs are almost gone."',
+    gradient: "from-orange-500 to-red-500",
+  },
+
+  {
+    id: 5,
+    icon: "JP",
+    head: "Jennifer Park",
+    sub: "Owner & Managing Partner",
+    body: '"As an independent pharmacy, we needed enterprise power without complexity. Skypond AI delivered exactly that. The automation paid for itself within months."',
+    gradient: "from-indigo-500 to-blue-500",
+  },
+
+  {
+    id: 6,
+    icon: "MS",
+    head: "Michael Stevens",
+    sub: "Head of Data & Analytics",
+    body: '"The real magic is visibility. Skypond dashboards give us real-time insight into intake speed, error trends, and workforce efficiency. It feels like our pharmacy grew a digital brain."',
+    gradient: "from-teal-500 to-cyan-500",
+  },
+
+  {
+    id: 7,
+    icon: "RJ",
+    head: "Rebecca Johnson",
+    sub: "Regional Implementation Lead",
+    body: '"We operate in areas where hiring trained technicians is tough. Skypond solved that challenge. The AI processes orders 24/7 with no downtime while we support rapid regional growth."',
+    gradient: "from-rose-500 to-pink-500",
+  },
+];
+
+const stats = [
+  {
+    icon: Hourglass,
+    value: 75,
+    suffix: "%",
+
+    body: "Time Saved on Manual Tasks",
+  },
+  {
+    icon: TrendingUp,
+    value: 99,
+    suffix: "%",
+
+    body: "Accuracy Improvement",
+  },
+  {
+    icon: ChartColumnBig,
+    value: 500,
+    prefix: "$",
+    suffix: "K+",
+
+    body: "Annual Savings per Facility",
+  },
+  {
+    icon: Infinity,
+    value: 24,
+    suffix: "/7",
+
+    body: "Continuous Operation",
+  },
+];
+
+export default function MainStats({ id }) {
   // Resetting the stats animation after every 15 sec
 
   const [limit, setLimit] = useState(0);
@@ -72,139 +118,122 @@ export default function MainStats ({id}){
   useEffect(() => {
     const interval = setInterval(() => {
       setLimit((prev) => prev + 1);
-    }, 15000);
+    }, 20000);
 
     return () => clearInterval(interval);
   }, []);
 
+  // Slicing the TestimonialData into two to display separate rows
+  const firstRow = testimonialsData.slice(0, testimonialsData.length / 2);
+  const secondRow = testimonialsData.slice(testimonialsData.length / 2);
   return (
-    <section id={id} className="relative overflow-hidden ">
-      <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 items-center">
+    <section id={id} className="relative overflow-hidden bg-background">
+      <div className="flex flex-col py-20 items-center">
         {/* <div className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]" /> */}
         <div className="absolute  -bottom-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>
         {/* <div className="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full bg-accent/10 blur-2xl pointer-events-none"></div> */}
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none"/>
-        <div className="flex flex-col justify-center items-center text-center ">
-          <Badge
-            variant="outline"
-            className="font-ui text-[14px] bg-card text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
-          >
-            Our Achievements
-          </Badge>
-          <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
-            Real Impact, Measurable Results
-          </h1>
-          <p className="mt-4 max-w-3xl font-body text-paragraph text-muted">
-            Proven outcomes from leading LTC pharmacies using Skypond AI to
-            transform operations
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 gap-x-8 max-w-6xl mt-12 md:mt-16">
-          {stats.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={index}
-                className="relative flex flex-col border border-accent items-center space-y-4 p-4 bg-white/20 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 group animate-float"
-              >
-                {/* Floating Icon Circle */}
-                <div
-                  className={`absolute left-4 -top-6 flex items-center justify-center w-12 h-12 rounded-2xl bg-accent shadow-lg`}
-                >
-                  <Icon className="w-6 h-6 md:w-7 md:h-7 text-white group-hover:scale-110 transition-transform duration-300" />
-                </div>
-
-                {/* Big Number */}
-                <div className="mt-6 font-heading text-h2 font-extrabold text-heading flex items-baseline gap-1">
-                  <NumberTicker
-                  key={limit}
-                    value={item.value}
-                    duration={4000}
-                    steps={100}
-                  />
-                  {item.suffix && (
-                    <span className="font-body text-paragraph text-accent">
-                      {item.suffix}
-                    </span>
-                  )}
-                </div>
-
-                {/* Divider/ */}
-                <Separator className="w-14 h-1 bg-primary"/>
-
-                {/* Label */}
-                <p className="text-center font-body font-medium sm:text-small md:text-small lg:text-small text-muted mt-2 px-2">
-                  {item.body}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="relative max-w-6xl mx-auto mt-16 px-4 sm:px-6 lg:px-8 grid gap-6 md:gap-10">
-          {testimonial.map((item, index) => (
-            <motion.div
-              key={index}
-              className={`
-                        relative flex flex-col
-    p-5 md:p-8
-    gap-4
-    backdrop-blur-xl
-    border border-accent
-    rounded-3xl
-    shadow-lg hover:shadow-2xl
-    transition-all duration-500
-      `}
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeIn" }}
+        >
+          <div className="flex flex-col justify-center items-center text-center ">
+            <Badge
+              variant="outline"
+              className="font-ui text-[14px] bg-card text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
             >
-              {/* Left: Icon + Head */}
-              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-6">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-darkaccent shadow-lg text-white">
-                  {item.icon}
-                </div>
-                <div className="flex flex-col space-y-2 text-center md:text-left">
-                  <h2 className="font-heading text-heading text-h3 font-bold">
-                    {item.head}
-                  </h2>
-                  <span className="font-body text-paragraph  text-muted">
-                    {item.sub}
-                  </span>
-                </div>
-              </div>
+              Our Achievements
+            </Badge>
+            <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
+              Real Impact, Measurable Results
+            </h1>
+            <p className="mt-4 max-w-3xl font-body text-paragraph text-muted">
+              Proven outcomes from leading LTC pharmacies using Skypond AI to
+              transform operations
+            </p>
+          </div>
+        </motion.div>
 
-              {/* Right: Body + Advantages */}
-              <div className="flex-1 flex flex-col gap-4 text-justify mt-6 md:mt-0">
-                <p className="font-body md:text-paragraph text-heading text-left md:text-justify">
-                  {item.body}
-                </p>
-                <ul className="flex flex-col sm:flex-row mt-4 gap-3 sm:gap-4 list-none items-start sm:items-center justify-center">
-                  {item.advantages.map((adv, idx) => (
-                    <motion.li
-                      key={idx}
-                      className="flex items-center gap-3 "
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.1 + 0.3 }}
-                    >
-                      <CheckCircle
-                        className=" text-darkaccent flex-shrink-0"
-                        size={18}
-                      />
-                      <span className="font-body text-button text-heading font-medium ">
-                        {adv}
-                       
+        <motion.div
+          initial={{ opacity: 0,}}
+          whileInView={{ opacity: 1}}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeIn" }}
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 gap-x-8 max-w-6xl mt-12 md:mt-16">
+            {stats.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={index}
+                  className="relative flex flex-col items-center p-6 bg-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-muted/20"
+                >
+                  {/* Background gradient effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                  {/* Icon with gradient background */}
+                  <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-primary shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
+
+                  {/* Big Number */}
+                  <div className="relative z-10 font-heading text-5xl font-extrabold text-heading flex items-baseline gap-1 mb-3">
+                    <NumberTicker
+                      key={limit}
+                      value={item.value}
+                      duration={4000}
+                      steps={100}
+                    />
+
+                    {item.suffix && (
+                      <span className="text-2xl font-body text-accent">
+                        {item.suffix}
                       </span>
-                    </motion.li>
-                  ))}
-                </ul>
+                    )}
+                  </div>
+
+                  {/* Decorative line */}
+                  <div className="w-12 h-1 bg-gradient-to-r from-accent to-primary rounded-full mb-4"></div>
+
+                  {/* Label */}
+                  <p className="relative z-10 text-center font-body font-medium text-sm text-muted leading-relaxed">
+                    {item.body}
+                  </p>
+
+                  {/* Bottom accent line */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
+        
+{/* Testimonials */}
+        <div className="relative flex w-full flex-col cursor-pointer items-center justify-center overflow-hidden mt-20 p-4 gap-8 ">
+          <Marquee className="[--duration:50s] ">
+            {firstRow.map((item) => (
+              <div key={item.id} className="px-1">
+                <Testimonials {...item} />
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </Marquee>
+          <Marquee reverse className="[--duration:50s]">
+            {secondRow.map((item) => (
+              <div key={item.id} className="px-1">
+                <Testimonials {...item} />
+              </div>
+            ))}
+          </Marquee>
+
+          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
+          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
         </div>
-        <div className="group items-center justify-center p-2 mt-8 md:mt-4">
+
+        {/* <div className="group items-center justify-center p-2 mt-8 md:mt-4">
           <h1 className="font-body text-sm md:text-button text-heading text-center font-bold md:font-bold lg:font-bold">
-              Transform operations. Save time. Achieve more.
+            Transform operations. Save time. Achieve more.
             <Link to="/">
               <Button
                 variant="ghost"
@@ -217,8 +246,10 @@ export default function MainStats ({id}){
               </Button>
             </Link>
           </h1>
-        </div>
+        </div> */}
       </div>
     </section>
   );
 }
+
+

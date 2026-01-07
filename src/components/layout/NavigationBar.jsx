@@ -61,8 +61,8 @@ import WhatsappLogo from "@/assets/media/whatsapp.png";
         },
       ],
     },
-    { item: "Impact", link: "impact" },
     { item: "How It Works", link: "howitworks" },
+    { item: "Impact", link: "impact" },
     { item: "Contact", link: "contact" },
   ];
 

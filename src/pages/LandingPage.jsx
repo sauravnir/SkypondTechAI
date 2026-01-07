@@ -51,10 +51,10 @@ const LandingPage = () => {
       <NavigationBar />
       <HeroSection id="top" />
       <MainServices id="services"/>
-      <MainStats id="impact"/>
-      <MissionSection />
       <StepSection id="howitworks"/>
-      <WhyChoose />
+      <MissionSection />
+      <WhyChoose />      
+      <MainStats id="impact"/>
       <RecallSection id="contact"/>
       <Footer />
     </div>

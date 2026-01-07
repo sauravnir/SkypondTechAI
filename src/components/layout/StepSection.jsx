@@ -86,13 +86,18 @@ export default function StepSection({id}) {
   /> */}
 
   {/* Purple blob */}
-  <div
+  {/* <div
     className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary/30 rounded-full blur-3xl opacity-50"
     style={{ transform: "translate(-25%, -5%)" }}
-  />
+  /> */}
 </div>
-
-      <div className="text-center mb-12 ">
+    
+      <motion.div
+      initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
+      className="text-center mb-12 ">
         <Badge
           variant="outline"
           className="font-ui text-[14px] bg-card text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full uppercase mb-8"
@@ -107,7 +112,7 @@ export default function StepSection({id}) {
           Simple, secure, and seamless deployment with industry-leading
           enterprise support
         </p>
-      </div>
+      </motion.div>
 
       {/* 4 integration steps */}
       <div
@@ -127,16 +132,18 @@ export default function StepSection({id}) {
               className="relative"
             >
               <Card
-                className={`relative rounded-2xl border bg-background backdrop-blur-xl shadow-sm transition-all duration-300 hover:shadow-2xl animate-float mt-12 ${
-                  isActive ? `bg-card shadow-xl` : `bg-transparent`
+                className={`relative rounded-2xl border border-lg bg-background border-darkaccent backdrop-blur-xl shadow-sm transition-all duration-300 cursor-pointer animate-float mt-12 ${
+                  isActive ? `bg-muted/5 hover:shadow-lg` : `bg-transparent`
                 }`}
               >
                 <CardContent className="p-8 relative">
+                   
+                  
                   {/* Step number */}
                   <span
-                    className={`absolute -top-9 right-2 flex items-center text-h3 justify-center w-12 h-12 rounded-full font-heading font-bold shadow-xl transition-all ${
+                    className={`absolute -top-9 right-2 flex items-center border border-lg border-darkprimary text-h3 justify-center w-12 h-12 rounded-full font-heading font-bold shadow-xl transition-all ${
                       isActive
-                        ? `text-white bg-darkprimary`
+                        ? `text-white bg-primary`
                         : `bg-white text-heading`
                     }`}
                   >
@@ -145,7 +152,7 @@ export default function StepSection({id}) {
 
                   {/* Icon */}
                   <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-all ${
+                    className={`relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-primary shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300 ${
                       isActive ? `text-white bg-accent` : "bg-white"
                     }`}
                   >
@@ -167,6 +174,7 @@ export default function StepSection({id}) {
                   >
                     {item.body}
                   </p>
+                 
                 </CardContent>
               </Card>
             </motion.div>

@@ -96,9 +96,15 @@ export default function WhyChooseUs() {
   const { refs, active } = useScrollActive(reasons.length);
   // const ActiveVisual = reasons[active].visual;
   return (
-    <section className="relative bg-background">
+    <section className="relative">
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
-        <div className="flex flex-col justify-start items-start text-start">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeIn" }}
+          className="flex flex-col justify-start items-start text-start"
+        >
           <Badge
             variant="outline"
             className="font-ui text-[14px] bg-null font-bold text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
@@ -112,7 +118,7 @@ export default function WhyChooseUs() {
             Because long-term care pharmacies need more than software -{" "}
             <span className="text-primary font-bold">they need certainty.</span>
           </p>
-        </div>
+        </motion.div>
         <div className="flex flex-row justify-between mt-24 gap-x-20">
           {/* Left side - Fixed width */}
           <div className="w-full lg:w-[45%] space-y-24">

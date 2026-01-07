@@ -24,10 +24,8 @@ import { Separator } from "../ui/separator";
 import SymbolLogo from "@/assets/media/logosymbol.png";
 
 // Animation for OurMission Section
-
 // Detecting mobile viewport
 const isMobile = typeof window !== "undefined" && window.innerWidth < 640 ;
-
 const MissionAnimation = () => {
   
   const containerSize = isMobile ? 280 : 400; // px
@@ -207,7 +205,7 @@ const WhyBuildAnimation = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="relative flex flex-col w-full max-w-sm md:max-w-md h-[200px] md:h-[350px] overflow-hidden p-2">
+    <div className="relative flex flex-col w-full max-w-sm md:max-w-md h-[300px] md:h-[350px] overflow-hidden p-2">
       <AnimatedList key={listKey} delay={2000}>
         {whyWeBuild.map((i) => {
           const Icons = i.icon;
@@ -253,7 +251,12 @@ export default function MissionSection() {
     <section className="relative overflow-hidden bg-background">
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
         <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between ">
-          <div className="items-start">
+          <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
+          className="items-start">
             <Badge
               variant="outline"
               className="font-ui text-[14px] font-bold text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
@@ -284,7 +287,7 @@ export default function MissionSection() {
                 </Button>
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
         <div className="relative max-w-6xl mx-auto space-y-32 mt-8">
           <div className="absolute left-1/2 top-0 h-full w-px bg-border/40 -translate-x-1/2 hidden lg:block" />
@@ -336,13 +339,15 @@ export default function MissionSection() {
                 </div>
 
                 <div className={index % 2 === 1 ? "lg:order-0" : ""}>
+                  {item.title === "Our Mission" && <MissionAnimation />}
+                  
                   {item.title === "Why We Build" && (
                     <div>
                       <WhyBuildAnimation />
                     </div>
                   )}
 
-                  {item.title === "Our Mission" && <MissionAnimation />}
+                  
                 </div>
               </motion.div>
             );
