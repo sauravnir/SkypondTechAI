@@ -26,6 +26,7 @@ import SymbolLogo from "@/assets/media/logosymbol.png";
 // Animation for OurMission Section
 // Detecting mobile viewport
 const isMobile = typeof window !== "undefined" && window.innerWidth < 640 ;
+
 const MissionAnimation = () => {
   
   const containerSize = isMobile ? 280 : 400; // px

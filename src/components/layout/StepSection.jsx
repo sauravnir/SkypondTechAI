@@ -141,9 +141,9 @@ export default function StepSection({id}) {
                   
                   {/* Step number */}
                   <span
-                    className={`absolute -top-9 right-2 flex items-center border border-lg border-darkprimary text-h3 justify-center w-12 h-12 rounded-full font-heading font-bold shadow-xl transition-all ${
+                    className={`absolute -top-5 right-2 flex items-center border border-lg border-darkprimary text-h3 justify-center w-14 h-14 rounded-full font-heading font-bold shadow-xl transition-all ${
                       isActive
-                        ? `text-white bg-primary`
+                        ? `text-white bg-altbackground`
                         : `bg-white text-heading`
                     }`}
                   >

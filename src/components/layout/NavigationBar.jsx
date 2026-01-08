@@ -94,7 +94,7 @@ function NavigationBar() {
 
 
 
-  // Mobile Menu Items Toggle
+  // Mobile Menu Items Toggles
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleOpen = (idx) => {
@@ -214,7 +214,7 @@ function NavigationBar() {
                   size="md"
                 >
                   Get Started
-                  <span className="transition-transform duration-300 group-hover:scale-150 ">
+                  <span className="transition-transform duration-300 group-hover:scale-125 ">
                     <ChevronRight strokeWidth={2.75} />
                   </span>
                 </Button>
@@ -229,7 +229,7 @@ function NavigationBar() {
             <a href={whatsappURL} target="_blank" rel="noopener noreferrer">
               <Button className="relative flex items-center justify-center rounded-full bg-[#D8FBE6] shadow hover:bg-[#DCF8C6] hover:shadow-lg overflow-hidden">
                 <img src={WhatsappLogo} alt="whatsapp" className="w-7 h-7" />
-                <span onMouseEnter={()=>setIsHovered(true)} className={` flex items-center gap-1 max-w-0 overflow-hidden whitespace-nowrap text-[#075E54] text-[15px] font-bold transition-all duration-500 group-hover:max-w-xs`}>
+                <span className={` flex items-center gap-1 max-w-0 overflow-hidden whitespace-nowrap text-[#075E54] text-[15px] font-bold transition-all duration-500 group-hover:max-w-xs`}>
                   Whatsapp Us
                 </span>
               </Button>
