@@ -13,101 +13,113 @@ import {
   CheckCircle,
   ChevronRight,
   CircleChevronRight,
+  Undo2,
   FlipHorizontal,
   Sparkles,
   Cog,
+  Undo,
 } from "lucide-react";
 
 import "@/index.css";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { Separator } from "@radix-ui/react-separator";
+import { animate } from "animejs";
 
 // Checking if the viewport is mobile or not
-// const isMobile = typeof window !== "undefined" && window.innerWidth < 640 ;
+const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+
+const services = [
+  {
+    id: "order-entry-automation",
+    title: "Order Entry Automation",
+    body: "Intelligent order processing platform that eliminates manual data entry and supplier communication delays. Reduce order processing time by 85% while maintaining 99.9% accuracy.",
+    icon: Cog,
+    gradient: "from-[#4F46E3] to-[#5B5CF4]", // Indigo → Purple
+    features: [
+      "Intelligent supplier integration",
+      "Real-time inventory synchronization",
+      "Smart reorder automation",
+      "Compliance-ready documentation",
+    ],
+    link: "/",
+  },
+  {
+    id: "document-automation",
+    title: "Document Automation",
+    body: "Enterprise-grade document processing that transforms unstructured pharmacy data into actionable insights. Digitize, verify, and process hundreds of documents daily with zero errors.",
+    icon: FileText,
+    gradient: "from-[#F43F5E] to-[#F97316]", // Rose → Orange
+    features: [
+      "Intelligent document classification",
+      "Insurance form automation",
+      "Compliance report generation",
+      "HIPAA-secure processing",
+    ],
+    link: "/",
+  },
+  {
+    id: "ai-pharmacy-copilot",
+    title: "AI Pharmacy Copilot",
+    body: "Intelligent conversational AI designed specifically for pharmacy operations. Provide instant support to staff and patients 24/7, handling routine inquiries and escalating complex issues automatically.",
+    icon: Bot,
+    gradient: "from-[#10B981] to-[#06B6D4]", // Emerald → Cyan
+    features: [
+      "Multi-language support",
+      "HIPAA-compliant conversations",
+      "Staff training assistance",
+      "24/7 intelligent support",
+    ],
+    link: "/",
+  },
+  {
+    id: "workflow-intelligence",
+    title: "Workflow Intelligence",
+    body: "Comprehensive automation engine that learns your pharmacy's unique processes and optimizes them continuously. Streamline medication verification, quality checks, and operational workflows.",
+    icon: Workflow,
+    gradient: "from-[#FACC15] to-[#FBBF24]", // Yellow → Amber
+    features: [
+      "Intelligent task prioritization",
+      "Quality assurance automation",
+      "Alert management and routing",
+      "Continuous optimization learning",
+    ],
+    link: "/",
+  },
+];
 
 const MainServices = ({ id }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const timerRef = useRef(null);
-  const DURATION = 10000; // 5 seconds
+  const [flipped, isFlipped] = useState(false);
+
+  const handlingFlip = (index) => {
+    isFlipped((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+  // const [activeIndex, setActiveIndex] = useState(0);
+  // const timerRef = useRef(null);
+  // const DURATION = 10000; // 5 seconds
 
   // Creating an array for loading the services section
-  const services = [
-    {
-      id: "order-entry-automation",
-      title: "Order Entry Automation",
-      body: "Intelligent order processing platform that eliminates manual data entry and supplier communication delays. Reduce order processing time by 85% while maintaining 99.9% accuracy.",
-      icon: Cog,
-      gradient: "from-[#4F46E3] to-[#5B5CF4]", // Indigo → Purple
-      features: [
-        "Intelligent supplier integration",
-        "Real-time inventory synchronization",
-        "Smart reorder automation",
-        "Compliance-ready documentation",
-      ],
-      link:"/"
-    },
-    {
-      id: "document-automation",
-      title: "Document Automation",
-      body: "Enterprise-grade document processing that transforms unstructured pharmacy data into actionable insights. Digitize, verify, and process hundreds of documents daily with zero errors.",
-      icon: FileText,
-      gradient: "from-[#F43F5E] to-[#F97316]", // Rose → Orange
-      features: [
-        "Intelligent document classification",
-        "Insurance form automation",
-        "Compliance report generation",
-        "HIPAA-secure processing",
-      ],
-      link:"/"
-    },
-    {
-      id: "ai-pharmacy-copilot",
-      title: "AI Pharmacy Copilot",
-      body: "Intelligent conversational AI designed specifically for pharmacy operations. Provide instant support to staff and patients 24/7, handling routine inquiries and escalating complex issues automatically.",
-      icon: Bot,
-      gradient: "from-[#10B981] to-[#06B6D4]", // Emerald → Cyan
-      features: [
-        "Multi-language support",
-        "HIPAA-compliant conversations",
-        "Staff training assistance",
-        "24/7 intelligent support",
-      ],
-      link:"/"
-    },
-    {
-      id: "workflow-intelligence",
-      title: "Workflow Intelligence",
-      body: "Comprehensive automation engine that learns your pharmacy's unique processes and optimizes them continuously. Streamline medication verification, quality checks, and operational workflows.",
-      icon: Workflow,
-      gradient: "from-[#FACC15] to-[#FBBF24]", // Yellow → Amber
-      features: [
-        "Intelligent task prioritization",
-        "Quality assurance automation",
-        "Alert management and routing",
-        "Continuous optimization learning",
-      ],
-      link:"/"
-    },
-  ];
 
   // Calculating the tab rotation timer
-  const startTimer = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % services.length);
-    }, DURATION);
-  };
+  // const startTimer = () => {
+  //   if (timerRef.current) clearInterval(timerRef.current);
+  //   timerRef.current = setInterval(() => {
+  //     setActiveIndex((prev) => (prev + 1) % services.length);
+  //   }, DURATION);
+  // };
 
-  useEffect(() => {
-    if (!services || !services.length) return;
-    startTimer();
-    return () => clearInterval(timerRef.current);
-  }, [services]);
+  // useEffect(() => {
+  //   if (!services || !services.length) return;
+  //   startTimer();
+  //   return () => clearInterval(timerRef.current);
+  // }, [services]);
 
-  const handleTabClick = (index) => {
-    setActiveIndex(index);
-    startTimer();
-  };
+  // const handleTabClick = (index) => {
+  //   setActiveIndex(index);
+  //   startTimer();
+  // };
 
   return (
     <div id={id} className="relative overflow-hidden bg-background">
@@ -146,7 +158,7 @@ const MainServices = ({ id }) => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mt-24"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto ">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -160,7 +172,7 @@ const MainServices = ({ id }) => {
                   variants={{
                     flipped: { rotateY: 180 },
                   }}
-                  transition={{ duration: 0.5, delay: 0.4, ease: "easeInOut" }}
+                  transition={{ duration: 0.5, delay: 0.8, ease: "easeInOut" }}
                 >
                   {/* Front Side */}
                   <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] z-10">
@@ -178,24 +190,41 @@ const MainServices = ({ id }) => {
                             className: "w-8 h-8 text-white",
                           })}
                         </div>
-                        <h3 className="font-heading text-h3 font-bold text-heading tracking-tight mt-12">
+                        <h3 className="font-heading text-h3 font-bold text-heading tracking-tight mt-12 transition-color duration-300 group-hover:text-primary">
                           {service.title}
                         </h3>
                         <p className="text-muted text-paragraph leading-relaxed line-clamp-4">
                           {service.body}
                         </p>
 
-                        <div className="flex justify-end">
-                          <Button
-                            variant="ghost"
-                            className="w-16 h-16 rounded-full flex items-center justify-center group-hover:text-altbackground"
-                          >
-                            <FlipHorizontal
-                              className="w-12 h-12 text-primary transition-transform duration-300 scale-150"
-                              strokeWidth={2.75}
-                            />
-                          </Button>
-                        </div>
+                          {/* Rendering Button in Mobile mode */}
+                        {isMobile ? (
+                          <Link to={service.link}>
+                            <Button
+                              variant="default"
+                              size="sm"
+                              className="group font-body text-[15px] text-primary-foreground font-bold rounded-full mt-12"
+                            >
+                              Explore Service
+                              <ChevronRight
+                                className="transition-transform duration-300 group-hover:scale-125"
+                                strokeWidth={2.75}
+                              />
+                            </Button>
+                          </Link>
+                        ) : (
+                          <div className="flex justify-end">
+                            <Button
+                              variant="ghost"
+                              className="w-16 h-16 rounded-full flex items-center justify-center group-hover:text-altbackground"
+                            >
+                              <Undo2
+                                className="w-12 h-12 text-primary transition-transform duration-300 scale-150"
+                                strokeWidth={2.75}
+                              />
+                            </Button>
+                          </div>
+                        )}
                       </CardContent>
                     </Card>
                   </div>
@@ -212,12 +241,15 @@ const MainServices = ({ id }) => {
                         <h1 className="font-heading text-h3 text-heading font-bold">
                           Key Features
                         </h1>
-                          
-                          <Separator orientation="horizontal" className="h-2 bg-darkprimary w-20 mt-4"/>
-                        <ul className="flex flex-col gap-4 mt-8">
+
+                        <Separator
+                          orientation="horizontal"
+                          className="h-2 bg-darkprimary w-20 mt-4"
+                        />
+                        <ul className="flex flex-col gap-2 md:gap-4 mt-4 md:mt-8">
                           {service.features?.map((item, id) => (
                             <li key={id}>
-                              <span className="flex flex-row items-center gap-2 font-body text-paragraph text-muted">
+                              <span className="flex flex-row items-center gap-2 font-body text-paragraph text-muted transition-color duration-300 hover:text-primary/90 ">
                                 <CheckCircle
                                   strokeWidth={2.75}
                                   size={15}
@@ -228,22 +260,20 @@ const MainServices = ({ id }) => {
                             </li>
                           ))}
                         </ul>
-                        <div className="flex justify-end">
+                        <div className="flex justify-start">
                           <Link to={service.link}>
-                          <Button
-                            variant="default"
-                            size="sm"
-                            className="group font-body text-[15px] text-primary-foreground font-bold rounded-full mt-12"
-                          >
-                            
-                            Explore Service
-                            <ChevronRight
-                              className="transition-transform duration-300 group-hover:scale-125"
-                              strokeWidth={2.75}
-                            />
-                          </Button>
+                            <Button
+                              variant="default"
+                              size="sm"
+                              className="group font-body text-[15px] text-primary-foreground  font-bold rounded-full mt-12"
+                            >
+                              Explore Service
+                              <ChevronRight
+                                className="transition-transform duration-300 group-hover:scale-125"
+                                strokeWidth={2.75}
+                              />
+                            </Button>
                           </Link>
-                          
                         </div>
                       </CardContent>
                     </Card>

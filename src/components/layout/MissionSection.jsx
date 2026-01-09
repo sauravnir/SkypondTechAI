@@ -25,10 +25,9 @@ import SymbolLogo from "@/assets/media/logosymbol.png";
 
 // Animation for OurMission Section
 // Detecting mobile viewport
-const isMobile = typeof window !== "undefined" && window.innerWidth < 640 ;
+const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
 
 const MissionAnimation = () => {
-  
   const containerSize = isMobile ? 280 : 400; // px
   const center = { x: containerSize / 2, y: containerSize / 2 }; // center in px
   const orbitRadius = isMobile ? 90 : 140; // fixed radius for all orbiting icons
@@ -43,7 +42,7 @@ const MissionAnimation = () => {
   ];
 
   // For orbiting nodes, evenly space initial angles
-  const orbitNodes = nodes.filter(n => !n.isCenter);
+  const orbitNodes = nodes.filter((n) => !n.isCenter);
   const initialAngles = nodes.map((_, idx) => {
     if (nodes[idx].isCenter) return 0;
     const orbitCount = orbitNodes.length;
@@ -55,8 +54,8 @@ const MissionAnimation = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setAngles(prev =>
-        prev.map((a, idx) => nodes[idx].isCenter ? a : a + speed)
+      setAngles((prev) =>
+        prev.map((a, idx) => (nodes[idx].isCenter ? a : a + speed))
       );
     }, 16);
     return () => clearInterval(interval);
@@ -89,7 +88,7 @@ const MissionAnimation = () => {
 
         return (
           <motion.div
-            key={idx}  
+            key={idx}
             className="absolute flex items-center justify-center"
             style={{
               left: x,
@@ -119,7 +118,6 @@ const MissionAnimation = () => {
                     height: imgSize,
                     objectFit: "contain",
                   }}
-                  
                 />
               ) : (
                 <node.icon size={imgSize} className="text-white" />
@@ -134,30 +132,30 @@ const MissionAnimation = () => {
 // Animation for WhyWeBuild Section
 const WhyBuildAnimation = () => {
   const whyWeBuild = [
-    {
-      title: "Complex Workflows",
-      body: "Manual tasks and repetitive processes slow teams down",
-      icon: Target,
-      gradient: "bg-gradient-to-r from-[#5391f4ff] to-[#0e81c8ff]",
-    },
-    {
-      title: "Compliance Burden",
-      body: "Regulations are critical but cumbersome",
-      icon: Eye,
-      gradient: "bg-gradient-to-r from-[#18cd91ff] to-[#0d9488ff]",
-    },
+    // {
+    //   title: "Complex Workflows",
+    //   body: "Manual tasks and repetitive processes slow teams down",
+    //   icon: Target,
+    //   gradient: "bg-gradient-to-r from-[#5391f4ff] to-[#0e81c8ff]",
+    // },
+    // {
+    //   title: "Compliance Burden",
+    //   body: "Regulations are critical but cumbersome",
+    //   icon: Eye,
+    //   gradient: "bg-gradient-to-r from-[#18cd91ff] to-[#0d9488ff]",
+    // },
     {
       title: "Smart AI Assistance",
       body: "Automates tasks while supporting decision-making",
       icon: Handshake,
       gradient: "bg-gradient-to-r from-[#fcbf1eff] to-[#e1701eff]",
     },
-    {
-      title: "Error Reduction",
-      body: "Minimizes mistakes, improves accuracy",
-      icon: CheckCircle,
-      gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]",
-    },
+    // {
+    //   title: "Error Reduction",
+    //   body: "Minimizes mistakes, improves accuracy",
+    //   icon: CheckCircle,
+    //   gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]",
+    // },
     {
       title: "Empowered Professionals",
       body: "Lets pharmacists focus on patient care",
@@ -176,18 +174,18 @@ const WhyBuildAnimation = () => {
       icon: Handshake,
       gradient: "bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed]",
     },
-    {
-      title: "Seamless Integration",
-      body: "Connects effortlessly with existing pharmacy software",
-      icon: Eye,
-      gradient: "bg-gradient-to-r from-[#06b6d4] to-[#0e7490]",
-    },
-    {
-      title: "Patient-Centric Care",
-      body: "Ensures pharmacy teams can focus on improving patient outcomes",
-      icon: Award,
-      gradient: "bg-gradient-to-r from-[#f97316] to-[#ea580c]",
-    },
+    // {
+    //   title: "Seamless Integration",
+    //   body: "Connects effortlessly with existing pharmacy software",
+    //   icon: Eye,
+    //   gradient: "bg-gradient-to-r from-[#06b6d4] to-[#0e7490]",
+    // },
+    // {
+    //   title: "Patient-Centric Care",
+    //   body: "Ensures pharmacy teams can focus on improving patient outcomes",
+    //   icon: Award,
+    //   gradient: "bg-gradient-to-r from-[#f97316] to-[#ea580c]",
+    // },
     {
       title: "Scalable Solutions",
       body: "Adaptable technology that grows with your organization",
@@ -201,30 +199,30 @@ const WhyBuildAnimation = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setListKey((prev) => prev + 1);
-    }, 21000); // setting 22secs for refreshing the animation
+    }, 15000); // setting 20secs for refreshing the animation
 
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="relative flex flex-col w-full max-w-sm md:max-w-md h-[300px] md:h-[350px] overflow-hidden p-2">
-      <AnimatedList key={listKey} delay={2000}>
+    <div className="relative flex flex-col w-[full] max-w-sm md:max-w-md h-[470px] md:h-[450px] overflow-hidden p-2">
+      <AnimatedList key={listKey} delay={500}>
         {whyWeBuild.map((i) => {
           const Icons = i.icon;
           return (
-            <div className="flex flex-row items-center justify-start bg-card shadow-lg p-4 rounded-xl gap-4">
+            <div className="flex flex-row items-center justify-start bg-card shadow-md border pl-4 py-2 rounded-xl gap-2 cursor-pointer transition-all duration-300 hover:shadow-xl">
               <div
-                className={`flex w-10 h-10 rounded-full justify-center items-center bg-gradient-to-r ${i.gradient} `}
+                className={`flex w-8 h-8 rounded-full justify-center items-center bg-gradient-to-r ${i.gradient} `}
               >
                 <Icons
                   className=" transition-transform duration-300 text-white"
-                  size={18}
+                  size={14}
                 />
               </div>
               <div className="flex flex-col justify-start items-start text-start">
                 <h1 className="font-heading text-paragraph text-heading font-bold">
                   {i.title}
                 </h1>
-                <p className="max-w-sm font-body text-small text-muted ">
+                <p className="max-w-sm font-body text-small text-muted line-clamp-1">
                   {i.body}
                 </p>
               </div>
@@ -245,7 +243,7 @@ export default function MissionSection() {
     {
       title: "Why We Build",
       body: `Long-term care pharmacy is complex, critical, and underserved by technology. Today's pharmacy teams are overwhelmed with manual tasks, error-prone processes, and compliance challenges. Skypond exists to change that. We embed deep healthcare expertise into every feature, ensuring our AI solutions don't just automate—they enhance decision-making, reduce errors, and give pharmacy professionals the tools they deserve.`,
-    }
+    },
   ];
 
   return (
@@ -253,11 +251,12 @@ export default function MissionSection() {
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
         <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between ">
           <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
-          className="items-start">
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
+            className="items-start"
+          >
             <Badge
               variant="outline"
               className="font-ui text-[14px] font-bold text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
@@ -310,7 +309,7 @@ export default function MissionSection() {
                   }`}
                 >
                   <div
-                    className={`flex items-start gap-3 mb-4 ${
+                    className={`flex items-start gap-3 mb-8 ${
                       index % 2 === 1 ? "lg:justify-start " : ""
                     }`}
                   >
@@ -331,24 +330,34 @@ export default function MissionSection() {
                     </div>
                   </div>
 
-                    <div className="text-">
-                      <p className="font-body text-paragraph text-heading text-justify hyphens-auto">
-                    {item.body}
-                  </p>
-                    </div>
-                  
+                  <div className="text-">
+                    <p className="font-body text-paragraph text-muted text-justify hyphens-auto">
+                      {item.body}
+                    </p>
+                  </div>
                 </div>
 
                 <div className={index % 2 === 1 ? "lg:order-0" : ""}>
                   {item.title === "Our Mission" && <MissionAnimation />}
-                  
+
                   {item.title === "Why We Build" && (
                     <div>
+                      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                        {/* Blue blob */}
+                        <div
+                          className="absolute bottom-1/2 right-52 w-80 h-80 bg-accent rounded-full blur-3xl opacity-5"
+                          style={{ transform: "translate(50%, 20%)" }}
+                        />
+
+                        {/* Purple blob */}
+                        <div
+                          className="absolute bottom-5 left-32 w-80 h-80 bg-primary rounded-full blur-3xl opacity-10"
+                          style={{ transform: "translate(-25%, -5%)" }}
+                        />
+                      </div>
                       <WhyBuildAnimation />
                     </div>
                   )}
-
-                  
                 </div>
               </motion.div>
             );
@@ -399,12 +408,8 @@ export default function MissionSection() {
                 {/* CTA */}
                 <div className="group pl-8 mt-8">
                   <Link to="https://www.skypondtech.com" target="_blank">
-                    <span
-                     
-                      className="text-paragraph text-accent underline hover:text-altbackground/90"
-                    >
+                    <span className="text-paragraph text-accent underline hover:text-altbackground/90">
                       Join the movement toward intelligent pharmacy operations
-                      
                     </span>
                   </Link>
                 </div>

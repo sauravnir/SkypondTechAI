@@ -61,7 +61,7 @@ import WhatsappLogo from "@/assets/media/whatsapp.png";
         },
       ],
     },
-    { item: "How It Works", link: "howitworks" },
+    { item: "How It Works", link: "howitworks", },
     { item: "Impact", link: "impact" },
     { item: "Contact", link: "contact" },
   ];
@@ -106,34 +106,31 @@ function NavigationBar() {
     <header className="fixed w-full z-50">
       {/* Applying isScrolled Ternary Conditional and changing navbar css */}
       <div
-        className={`flex justify-between items-center px-4 md:px-10 h-20 ${
+        className={`flex justify-between items-center px-8 md:px-16 h-24  ${
           isScrolled
-            ? "bg-altbackground/80 backdrop-blur-sm "
+            ? "bg-background backdrop-blur-sm border"
             : "bg-transparent"
         }`}
       >
         {/* Navigation Bar Logo */}
-
-        <div className="flex-shrink-0">
+        <div className="flex items-center gap-8">
+          <div className="flex-shrink-0">
           <button onClick={()=>{document.getElementById("top")?.scrollIntoView({behavior:"smooth"})}}>
             <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
           </button>
         </div>
-
         <nav className="hidden md:block">
           <NavigationMenu>
-            <NavigationMenuList className="space-x-2">
+            <NavigationMenuList>
               {menuItems.map((menu, idx) => (
                 <NavigationMenuItem
                   key={idx}
-                  className={`flex font-body text-small ${
-                    isScrolled ? "text-white" : ""
-                  }`}
+                  className={`flex font-body `}
                 >
                   {menu.subItems ? (
                     <>
                       <NavigationMenuTrigger
-                        className={`${isScrolled ? "bg-null" : ""}`}
+                        className={`${isScrolled ? "bg-transparent" : ""}`}
                       >
                         <button onClick={() => {document.getElementById(menu.link)?.scrollIntoView({behavior:"smooth"})}}>{menu.item}</button>
                         
@@ -183,6 +180,10 @@ function NavigationBar() {
             </NavigationMenuList>
           </NavigationMenu>
         </nav>
+        </div>
+        
+
+        
 
         {/* Menu Items */}
 
@@ -192,9 +193,7 @@ function NavigationBar() {
             <Link to="https://skypondtech.com" target="_blank">
               <Button
                 variant="ghost"
-                className={`text-[14px] hover:text-accent flex items-center border-heading rounded-full ${
-                  isScrolled ? "text-primary-foreground border-white" : ""
-                }`}
+                className={`text-[14px] hover:text-accent flex items-center border-heading rounded-full`}
                 size="sm"
               >
                 SkypondTech
@@ -270,7 +269,7 @@ function NavigationBar() {
                       className="flex items-center w-full justify-start gap-2 py-2 px-1 text-left hover:text-accent transition-colors font-medium"
                     >
                       <CircleSmall size={18} strokeWidth={2.75} />
-                      <span className="font-body text-heading text-h3">
+                      <span className="font-body text-heading text-paragraph ">
                         {menu.item}
                       </span>
                       {menu.subItems && (

@@ -95,34 +95,20 @@ const HeroSection = ({ id }) => {
       </svg>
 
       <div className="relative flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 justify-center items-center pointer-events-none ">
-        {/* <div className="group">
-          <Badge
-            variant="outline"
-            className="font-ui text-[14px] hover:shadow-lg hover:bg-null text-white bg-accent border-2 border-accent font-bold gap-2  rounded-full mb-8 pointer-events-auto"
-            
-          >
-            <Sparkles
-              size={15}
-              className="transition-transform duration-300 inline-block text-white "
-            />
-            Enterprise AI For Healthcare Innovation
-            
-          </Badge>
-        </div> */}
-
-        <div className="max-w-5xl items-center text-center ">
+      
+        <div className="max-w-5xl items-center  text-center ">
           {/* Referencing H1 for animation */}
           <motion.h1
             initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay:0.4,  ease: "easeOut" }}
           >
-            <h1 className="text-gradient font-heading text-hero font-extrabold ">
+            <h1 className="font-heading text-gradient text-hero font-bold ">
               Revolutionizing LTC Pharmacy
             </h1>
             <div className=" font-heading text-hero ">
-              <span className="text-heading font-mediumi">
-                Operations with Enterprise AI{" "}
+              <span className=" font-bold">
+                Operations with Enterprise AI.{" "}
               </span>
             </div>
           </motion.h1>
@@ -132,8 +118,8 @@ const HeroSection = ({ id }) => {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           >
-            <div className="flex flex-col justify-center items-center text-center mt-10">
-              <p className="font-body text-paragraph text-heading max-w-2xl leading-relaxed">
+            <div className="flex flex-col justify-center items-center text-center mt-10 ">
+              <p className="font-body text-paragraph text-muted max-w-3xl leading-relaxed px-4">
                 Skypond delivers enterprise-ready AI built for long-term care
                 pharmacies—automating complex workflows, reducing operational
                 friction, and enabling teams to scale securely with full

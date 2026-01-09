@@ -132,8 +132,8 @@ export default function StepSection({id}) {
               className="relative"
             >
               <Card
-                className={`relative rounded-2xl border border-lg bg-background border-darkaccent backdrop-blur-xl shadow-sm transition-all duration-300 cursor-pointer animate-float mt-12 ${
-                  isActive ? `bg-muted/5 hover:shadow-lg` : `bg-transparent`
+                className={`group relative rounded-2xl border border-lg bg-background border-darkaccent backdrop-blur-xl shadow-lg cursor-pointer transition-all duration-300 animate-float mt-12 ${
+                  isActive ? `bg-muted/5 hover:shadow-2xl` : `bg-transparent`
                 }`}
               >
                 <CardContent className="p-8 relative">
@@ -143,7 +143,7 @@ export default function StepSection({id}) {
                   <span
                     className={`absolute -top-5 right-2 flex items-center border border-lg border-darkprimary text-h3 justify-center w-14 h-14 rounded-full font-heading font-bold shadow-xl transition-all ${
                       isActive
-                        ? `text-white bg-altbackground`
+                        ? `text-white bg-darkprimary`
                         : `bg-white text-heading`
                     }`}
                   >
@@ -164,12 +164,12 @@ export default function StepSection({id}) {
                   </div>
 
                   {/* Content */}
-                  <h3 className="font-heading text-h3 font-bold mb-3">
+                  <h3 className={`font-heading text-h3 font-bold mb-3 group-hover:text-primary ${!isActive && "text-muted"}`}>
                     {item.title}
                   </h3>
                   <p
                     className={`font-body text-paragraph  ${
-                      isActive ? `text-heading` : `text-muted`
+                      isActive ? `text-muted` : `text-muted/50`
                     }`}
                   >
                     {item.body}

@@ -27,8 +27,8 @@ module.exports = {
       },
       fontSize: {
         hero: [
-          "clamp(3.5rem, 5vw, 4.5rem)", // 56 → 72px
-          { lineHeight: "1.05", letterSpacing: "-0.02em" },
+          "clamp(3.5rem, 4.3vw, 4.5rem)", // 56 → 72px
+          { lineHeight: "1.1", letterSpacing: "-0.02em" },
         ],
 
         h1: [
