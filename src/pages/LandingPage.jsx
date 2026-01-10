@@ -9,7 +9,7 @@ import MainStats from "@/components/layout/MainStats";
 import StepSection from "@/components/layout/StepSection";
 import WhyChoose from "@/components/layout/WhyChoose";
 import RecallSection from "@/components/layout/RecallSection";
-
+import ProductsSection from "@/components/layout/Products"; 
 import { MoveUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -52,6 +52,7 @@ const LandingPage = () => {
       <HeroSection id="top" />
       <MainServices id="services"/>
       <StepSection id="howitworks"/>
+      <ProductsSection />
       <MissionSection />
       <WhyChoose />      
       <MainStats id="impact"/>

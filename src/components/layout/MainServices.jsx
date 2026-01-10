@@ -34,7 +34,7 @@ const services = [
     title: "Order Entry Automation",
     body: "Intelligent order processing platform that eliminates manual data entry and supplier communication delays. Reduce order processing time by 85% while maintaining 99.9% accuracy.",
     icon: Cog,
-    gradient: "from-[#4F46E3] to-[#5B5CF4]", // Indigo → Purple
+    gradient: "from-[#6366F1] to-[#4e50bd]", // Primary to Dark Primary
     features: [
       "Intelligent supplier integration",
       "Real-time inventory synchronization",
@@ -48,7 +48,7 @@ const services = [
     title: "Document Automation",
     body: "Enterprise-grade document processing that transforms unstructured pharmacy data into actionable insights. Digitize, verify, and process hundreds of documents daily with zero errors.",
     icon: FileText,
-    gradient: "from-[#F43F5E] to-[#F97316]", // Rose → Orange
+    gradient: "from-[#06B6D4] to-[#047d92]", // Accent to Dark Accent
     features: [
       "Intelligent document classification",
       "Insurance form automation",
@@ -62,7 +62,7 @@ const services = [
     title: "AI Pharmacy Copilot",
     body: "Intelligent conversational AI designed specifically for pharmacy operations. Provide instant support to staff and patients 24/7, handling routine inquiries and escalating complex issues automatically.",
     icon: Bot,
-    gradient: "from-[#10B981] to-[#06B6D4]", // Emerald → Cyan
+    gradient: "from-[#4e50bd] to-[#06B6D4]", // Dark Primary to Accent
     features: [
       "Multi-language support",
       "HIPAA-compliant conversations",
@@ -76,7 +76,7 @@ const services = [
     title: "Workflow Intelligence",
     body: "Comprehensive automation engine that learns your pharmacy's unique processes and optimizes them continuously. Streamline medication verification, quality checks, and operational workflows.",
     icon: Workflow,
-    gradient: "from-[#FACC15] to-[#FBBF24]", // Yellow → Amber
+    gradient: "from-purple-600 to-[#6366F1]", // Purple to Primary
     features: [
       "Intelligent task prioritization",
       "Quality assurance automation",
@@ -150,7 +150,7 @@ const MainServices = ({ id }) => {
           </div>
         </motion.div>
 
-        {/* Tabs */}
+        
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

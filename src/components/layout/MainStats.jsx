@@ -127,7 +127,7 @@ export default function MainStats({ id }) {
   // const firstRow = testimonialsData.slice(0, testimonialsData.length / 2);
   // const secondRow = testimonialsData.slice(testimonialsData.length / 2);
   return (
-    <section id={id} className="relative overflow-hidden bg-background">
+    <section id={id} className="relative overflow-hidden ">
       <div className="flex flex-col py-20 items-center">
         {/* <div className="pointer-events-none absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]" /> */}
         <div className="absolute  -bottom-1/2 left-1/2 w-[400px] h-[400px] -translate-x-1/2 rounded-full bg-primary/15 blur-3xl pointer-events-none"></div>

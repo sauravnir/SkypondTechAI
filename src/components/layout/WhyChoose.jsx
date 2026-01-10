@@ -96,7 +96,7 @@ export default function WhyChooseUs() {
   const { refs, active } = useScrollActive(reasons.length);
   // const ActiveVisual = reasons[active].visual;
   return (
-    <section className="relative">
+    <section className="relative bg-background">
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
         <motion.div
           initial={{ opacity: 0 }}

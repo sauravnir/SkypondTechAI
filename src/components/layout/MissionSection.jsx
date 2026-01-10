@@ -67,7 +67,7 @@ const MissionAnimation = () => {
       style={{
         width: containerSize,
         height: containerSize,
-        background: "#F8F9FE",
+        
       }}
     >
       {nodes.map((node, idx) => {
@@ -247,7 +247,7 @@ export default function MissionSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-background">
+    <section className="relative overflow-hidden ">
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
         <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between ">
           <motion.div
