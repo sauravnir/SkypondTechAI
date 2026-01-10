@@ -103,11 +103,11 @@ const HeroSection = ({ id }) => {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay:0.6,  ease: "easeOut" }}
           >
-            <h1 className="font-heading text-gradient text-hero font-bold ">
+            <h1 className="font-heading text-gradient text-hero font-extrabold ">
               Revolutionizing LTC Pharmacy
             </h1>
             <div className=" font-heading text-hero ">
-              <span className=" font-bold">
+              <span className=" font-extrabold">
                 Operations with Enterprise AI.{" "}
               </span>
             </div>

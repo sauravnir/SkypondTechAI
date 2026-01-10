@@ -68,7 +68,7 @@ export default function ProductsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6, ease: "easeIn" }}
               >
-                <Card className="relative group h-full rounded-2xl transition-scale duration-300 bg-card/50 backdrop-blur-3xl overflow-hidden cursor-pointer hover:shadow-3xl hover:bg-card flex flex-col">
+                <Card className="relative group h-full rounded-2xl transition-scale duration-300 bg-card/50 backdrop-blur-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-3xl hover:bg-card flex flex-col">
                   <div className="absolute bottom-0 left-0 w-full h-2 bg-darkprimary" />
 
                   <CardContent className="relative z-10 p-8 flex flex-col flex-grow ">
