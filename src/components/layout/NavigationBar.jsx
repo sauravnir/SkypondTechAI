@@ -25,6 +25,9 @@ import {
   Workflow,
   Cog,
   Contact,
+  SearchCheck,
+  LayoutGrid,
+  ChartArea
 } from "lucide-react";
 // import PrerenderForm from "../reusable/PrerenderForm";
 import ContactForm from "../reusable/ContactForm";
@@ -68,19 +71,19 @@ const menuItems = [
     link: "/",
     subItems: [
       {
-        icon: Cog,
+        icon: SearchCheck,
         title: "DEA Lookup",
         desc: "Essential tool for DEA Number Verification",
         subLink: "/404Error",
       },
       {
-        icon: FileText,
+        icon: LayoutGrid,
         title: "Controlled Substance Inventory App",
         desc: "Lorem ipsum dolor sit amet consecte",
         subLink: "/404Error",
       },
       {
-        icon: Bot,
+        icon: ChartArea,
         title: "LTC Analysis",
         desc:"Lorem ipsum dolor sit amet consectetur adipisicing ",
         subLink: "/404Error",
