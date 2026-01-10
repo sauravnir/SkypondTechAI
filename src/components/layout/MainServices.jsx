@@ -41,7 +41,7 @@ const services = [
       "Smart reorder automation",
       "Compliance-ready documentation",
     ],
-    link: "/",
+    link: "/404Error",
   },
   {
     id: "document-automation",
@@ -55,7 +55,7 @@ const services = [
       "Compliance report generation",
       "HIPAA-secure processing",
     ],
-    link: "/",
+    link: "/404Error",
   },
   {
     id: "ai-pharmacy-copilot",
@@ -69,7 +69,7 @@ const services = [
       "Staff training assistance",
       "24/7 intelligent support",
     ],
-    link: "/",
+    link: "/404Error",
   },
   {
     id: "workflow-intelligence",
@@ -83,7 +83,7 @@ const services = [
       "Alert management and routing",
       "Continuous optimization learning",
     ],
-    link: "/",
+    link: "/404Error",
   },
 ];
 

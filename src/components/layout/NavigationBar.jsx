@@ -29,6 +29,8 @@ import {
 // import PrerenderForm from "../reusable/PrerenderForm";
 import ContactForm from "../reusable/ContactForm";
 import WhatsappLogo from "@/assets/media/whatsapp.png";
+
+import Error404 from "../reusable/404Error";
 // Creating Menu Items
 const menuItems = [
   {
@@ -39,49 +41,49 @@ const menuItems = [
         icon: Cog,
         title: "Order Automation",
         desc: "Intelligent order processing",
-        subLink: "/",
+        subLink: "/404Error",
       },
       {
         icon: FileText,
         title: "Document Automation",
         desc: "Convert unstructured pharmacy data",
-        subLink: "/",
+        subLink: "/404Error",
       },
       {
         icon: Bot,
         title: "Pharmacy Copilot",
         desc: "Conversational AI assistant",
-        subLink: "/",
+        subLink: "/404Error",
       },
       {
         icon: Workflow,
         title: "Workflow AI",
         desc: "Operational workflow intelligence",
-        subLink: "/",
+        subLink: "/404Error",
       },
     ],
   },
   {
     item: "Our Products",
-    link: "",
+    link: "/",
     subItems: [
       {
         icon: Cog,
         title: "DEA Lookup",
         desc: "Essential tool for DEA Number Verification",
-        subLink: "/",
+        subLink: "/404Error",
       },
       {
         icon: FileText,
         title: "Controlled Substance Inventory App",
-        desc: "",
-        subLink: "/",
+        desc: "Lorem ipsum dolor sit amet consecte",
+        subLink: "/404Error",
       },
       {
         icon: Bot,
         title: "LTC Analysis",
-        desc: "",
-        subLink: "/",
+        desc:"Lorem ipsum dolor sit amet consectetur adipisicing ",
+        subLink: "/404Error",
       },
     ],
   },
@@ -135,15 +137,12 @@ function NavigationBar() {
         {/* Navigation Bar Logo */}
         <div className="flex items-center gap-8">
           <div className="flex-shrink-0">
+            <Link to="/">
             <button
-              onClick={() => {
-                document
-                  .getElementById("top")
-                  ?.scrollIntoView({ behavior: "instant" });
-              }}
             >
               <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
             </button>
+            </Link>
           </div>
           <nav className="hidden md:block">
             <NavigationMenu>
@@ -166,8 +165,9 @@ function NavigationBar() {
                               const Icon = subItem.icon;
                               return (
                                 <li key={subIdx}>
+                                  <Link to={subItem.subLink} > 
                                   <a
-                                    href={subItem.subLink}
+                                   
                                     className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted/10 transition-all"
                                   >
                                     <div className="p-2 rounded-lg bg-accent">
@@ -183,6 +183,8 @@ function NavigationBar() {
                                       </p>
                                     </div>
                                   </a>
+                                  </Link>
+                                  
                                 </li>
                               );
                             })}

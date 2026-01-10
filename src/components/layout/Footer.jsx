@@ -28,19 +28,37 @@ const Footer = () => {
       subItem: [
         {
           title: "Document Automation",
-          link: "#",
+          link: "/404Error",
         },
         {
           title: "Order Entry",
-          link: "#",
+          link: "/404Error",
         },
         {
           title: "AI Copilot",
-          link: "#",
+          link: "/404Error",
         },
         {
           title: "Workflow Intelligence",
-          link: "#",
+          link: "/404Error",
+        },
+      ],
+    },
+    {
+      title: "Products",
+      link: "#",
+      subItem: [
+        {
+          title: "DEA Lookup",
+          link: "/404Error",
+        },
+        {
+          title: "Control Substance Inventory App",
+          link: "/404Error",
+        },
+        {
+          title: "LTC Analysis",
+          link: "/404Error",
         },
       ],
     },
@@ -50,11 +68,11 @@ const Footer = () => {
       subItem: [
         {
           title: "HIPAA Compliance",
-          link: "#",
+          link: "/404Error",
         },
-        { title: "Security", link: "#" },
-        { title: "Privacy", link: "#" },
-        { title: "Terms and Conditions", link: "#" },
+        { title: "Security", link: "/404Error" },
+        { title: "Privacy", link: "/404Error" },
+        { title: "Terms and Conditions", link: "/404Error" },
       ],
     },
     {
@@ -65,15 +83,15 @@ const Footer = () => {
           title: "Main Site",
           link: "https://www.skypondtech.com",
         },
-        { title: "About", link: "#" },
-        { title: "Contact", link: "#" },
-        { title: "Blog", link: "#" },
+        { title: "About", link: "/404Error" },
+        { title: "Contact", link: "/404Error" },
+        { title: "Blog", link: "/404Error" },
       ],
     },
   ];
   return (
     <footer className="relative overflow-hidden bg-altbackground pt-20 pb-10 z-10">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {/* Footer Contents */}
         {footerItems.map((column) => (
           <div key={column.title} className="space-y-4">
@@ -83,7 +101,7 @@ const Footer = () => {
             <ul className=" space-y-2">
               {column.subItem.map((item) => (
           <li key={item.title}>
-            <div className="flex flex-row justify-start items-center  gap-2">
+            <div className="flex flex-row max-w-5xl justify-start items-center  gap-2">
                  <CircleSmall strokeWidth={2.75} size={15} className="text-muted"/>
             {item.link.startsWith("http") ? (
               <a
