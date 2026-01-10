@@ -30,42 +30,65 @@ import {
 import ContactForm from "../reusable/ContactForm";
 import WhatsappLogo from "@/assets/media/whatsapp.png";
 // Creating Menu Items
-  const menuItems = [
-    {
-      item: "Solutions",
-      link:"services",
-      subItems: [
-        {
-          icon: Cog,
-          title: "Order Automation",
-          desc: "Intelligent order processing",
-          subLink: "/",
-        },
-        {
-          icon: FileText,
-          title: "Document Automation",
-          desc: "Convert unstructured pharmacy data",
-          subLink: "/",
-        },
-        {
-          icon: Bot,
-          title: "Pharmacy Copilot",
-          desc: "Conversational AI assistant",
-          subLink: "/",
-        },
-        {
-          icon: Workflow,
-          title: "Workflow AI",
-          desc: "Operational workflow intelligence",
-          subLink: "/",
-        },
-      ],
-    },
-    { item: "How It Works", link: "howitworks", },
-    { item: "Impact", link: "impact" },
-    { item: "Contact", link: "contact" },
-  ];
-
+const menuItems = [
+  {
+    item: "Solutions",
+    link: "services",
+    subItems: [
+      {
+        icon: Cog,
+        title: "Order Automation",
+        desc: "Intelligent order processing",
+        subLink: "/",
+      },
+      {
+        icon: FileText,
+        title: "Document Automation",
+        desc: "Convert unstructured pharmacy data",
+        subLink: "/",
+      },
+      {
+        icon: Bot,
+        title: "Pharmacy Copilot",
+        desc: "Conversational AI assistant",
+        subLink: "/",
+      },
+      {
+        icon: Workflow,
+        title: "Workflow AI",
+        desc: "Operational workflow intelligence",
+        subLink: "/",
+      },
+    ],
+  },
+  {
+    item: "Our Products",
+    link: "",
+    subItems: [
+      {
+        icon: Cog,
+        title: "DEA Lookup",
+        desc: "Essential tool for DEA Number Verification",
+        subLink: "/",
+      },
+      {
+        icon: FileText,
+        title: "Controlled Substance Inventory App",
+        desc: "",
+        subLink: "/",
+      },
+      {
+        icon: Bot,
+        title: "LTC Analysis",
+        desc: "",
+        subLink: "/",
+      },
+    ],
+  },
+  { item: "How It Works", link: "howitworks" },
+  { item: "Impact", link: "impact" },
+  { item: "Contact", link: "contact" },
+];
 
 function NavigationBar() {
   //setting up states for scroll effect
@@ -85,105 +108,108 @@ function NavigationBar() {
   }, []);
 
   // Creating Whatsapp Container
-  const [isHovered , setIsHovered] =useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const phone = "17207246828";
   const message = encodeURIComponent(
     "Hello! I am interested in your services. Please let me know the details. "
   );
   const whatsappURL = `https://wa.me/${phone}?text=${message}`;
 
-
-
   // Mobile Menu Items Toggles
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleOpen = (idx) => {
     setOpenIndex(openIndex === idx ? null : idx);
-  }; 
+  };
 
-  
   return (
     <header className="fixed w-full z-50">
       {/* Applying isScrolled Ternary Conditional and changing navbar css */}
       <div
         className={`flex justify-between items-center px-8 md:px-16 h-24  ${
           isScrolled
-            ? "bg-background backdrop-blur-sm border"
+            ? "bg-background backdrop-blur-sm border-b"
             : "bg-transparent"
         }`}
       >
         {/* Navigation Bar Logo */}
         <div className="flex items-center gap-8">
           <div className="flex-shrink-0">
-          <button onClick={()=>{document.getElementById("top")?.scrollIntoView({behavior:"smooth"})}}>
-            <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
-          </button>
+            <button
+              onClick={() => {
+                document
+                  .getElementById("top")
+                  ?.scrollIntoView({ behavior: "instant" });
+              }}
+            >
+              <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
+            </button>
+          </div>
+          <nav className="hidden md:block">
+            <NavigationMenu>
+              <NavigationMenuList>
+                {menuItems.map((menu, idx) => (
+                  <NavigationMenuItem key={idx} className={`flex font-body `}>
+                    {menu.subItems ? (
+                      <>
+                        <NavigationMenuTrigger
+                          className={`${isScrolled ? "bg-transparent" : ""}`}
+                        >
+                          <button>
+                            {menu.item}
+                          </button>
+                        </NavigationMenuTrigger>
+                     
+                        <NavigationMenuContent className="bg-card">
+                          <ul className="grid w-max grid-cols-1 md:grid-cols-2 gap-3 p-4">
+                            {menu.subItems.map((subItem, subIdx) => {
+                              const Icon = subItem.icon;
+                              return (
+                                <li key={subIdx}>
+                                  <a
+                                    href={subItem.subLink}
+                                    className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted/10 transition-all"
+                                  >
+                                    <div className="p-2 rounded-lg bg-accent">
+                                      <Icon className="w-5 h-5 text-primary-foreground" />
+                                    </div>
+
+                                    <div className="space-y-1">
+                                      <p className="font-heading font-bold text-button ">
+                                        {subItem.title}
+                                      </p>
+                                      <p className="text-sm text-muted">
+                                        {subItem.desc}
+                                      </p>
+                                    </div>
+                                  </a>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </NavigationMenuContent>
+
+                      </>
+                    ) : (
+                      <NavigationMenuLink asChild>
+                        <button
+                          onClick={() => {
+                            document
+                              .getElementById(menu.link)
+                              ?.scrollIntoView({ behavior: "smooth" });
+                          }}
+                          className="px-3 py-2 text-sm font-medium hover:text-accent transition"
+                        >
+                          {menu.item}
+                        </button>
+                      </NavigationMenuLink>
+                    )}
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </nav>
         </div>
-        <nav className="hidden md:block">
-          <NavigationMenu>
-            <NavigationMenuList>
-              {menuItems.map((menu, idx) => (
-                <NavigationMenuItem
-                  key={idx}
-                  className={`flex font-body `}
-                >
-                  {menu.subItems ? (
-                    <>
-                      <NavigationMenuTrigger
-                        className={`${isScrolled ? "bg-transparent" : ""}`}
-                      >
-                        <button onClick={() => {document.getElementById(menu.link)?.scrollIntoView({behavior:"smooth"})}}>{menu.item}</button>
-                        
-                      </NavigationMenuTrigger>
-
-                      <NavigationMenuContent className="bg-card">
-                        <ul className="grid w-max grid-cols-1 md:grid-cols-2 gap-3 p-4">
-                          {menu.subItems.map((subItem, subIdx) => {
-                            const Icon = subItem.icon;
-                            return (
-                              <li key={subIdx}>
-                                <a
-                                  href={subItem.subLink}
-                                  className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted/10 transition-all"
-                                >
-                                  <div className="p-2 rounded-lg bg-accent">
-                                    <Icon className="w-5 h-5 text-primary-foreground" />
-                                  </div>
-
-                                  <div className="space-y-1">
-                                    <p className="font-heading font-bold text-button ">
-                                      {subItem.title}
-                                    </p>
-                                    <p className="text-sm text-muted">
-                                      {subItem.desc}
-                                    </p>
-                                  </div>
-                                </a>
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </NavigationMenuContent>
-                    </>
-                  ) : (
-                    <NavigationMenuLink asChild>
-                      <button
-                        onClick={()=>{document.getElementById(menu.link)?.scrollIntoView({behavior:"smooth"})}}
-                        className="px-3 py-2 text-sm font-medium hover:text-accent transition"
-                      >
-                        {menu.item}
-                      </button>
-                    </NavigationMenuLink>
-                  )}
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </nav>
-        </div>
-        
-
-        
 
         {/* Menu Items */}
 
@@ -219,7 +245,7 @@ function NavigationBar() {
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                <ContactForm/>
+                <ContactForm />
               </DialogContent>
             </Dialog>
           </div>
@@ -228,7 +254,9 @@ function NavigationBar() {
             <a href={whatsappURL} target="_blank" rel="noopener noreferrer">
               <Button className="relative flex items-center justify-center rounded-full bg-[#D8FBE6] shadow hover:bg-[#DCF8C6] hover:shadow-lg overflow-hidden">
                 <img src={WhatsappLogo} alt="whatsapp" className="w-7 h-7" />
-                <span className={` flex items-center gap-1 max-w-0 overflow-hidden whitespace-nowrap text-[#075E54] text-[15px] font-bold transition-all duration-500 group-hover:max-w-xs`}>
+                <span
+                  className={` flex items-center gap-1 max-w-0 overflow-hidden whitespace-nowrap text-[#075E54] text-[15px] font-bold transition-all duration-500 group-hover:max-w-xs`}
+                >
                   Whatsapp Us
                 </span>
               </Button>
@@ -274,7 +302,11 @@ function NavigationBar() {
                       </span>
                       {menu.subItems && (
                         <span className="ml-auto">
-                          {openIndex === idx ? <ChevronUp strokeWidth={2.75}/> : <ChevronDown strokeWidth={2.75}/>}
+                          {openIndex === idx ? (
+                            <ChevronUp strokeWidth={2.75} />
+                          ) : (
+                            <ChevronDown strokeWidth={2.75} />
+                          )}
                         </span>
                       )}
                     </button>

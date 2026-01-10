@@ -101,7 +101,7 @@ const HeroSection = ({ id }) => {
           <motion.h1
             initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, delay:0.4,  ease: "easeOut" }}
+            transition={{ duration: 0.8, delay:0.6,  ease: "easeOut" }}
           >
             <h1 className="font-heading text-gradient text-hero font-bold ">
               Revolutionizing LTC Pharmacy

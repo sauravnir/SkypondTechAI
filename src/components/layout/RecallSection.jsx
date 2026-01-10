@@ -56,60 +56,15 @@ export default function RecallSection({id}) {
             <span className="text-primary">Transform</span> Your Pharmacy
             Operations <span className="text-primary">Today</span>
           </h1>
-          <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
+          {/* <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
             See how leading LTC pharmacies are reducing manual work, eliminating
             errors, and driving measurable growth with{" "}
             <span className="font-bold text-accent">Skypond AI</span> .
-          </p>
+          </p> */}
         </div>
 
-        <div className="max-w-xl mx-auto my-12 px-4 sm:px-6">
-  <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
-    {/* Avatar Stack */}
-    <div className="flex justify-center mb-6 md:mb-0">
-      <div className="flex items-center -space-x-5">
-        {avatars.map((item, idx) => (
-          <Avatar
-            key={item.id}
-            className="
-              h-12 w-12
-              border-2 border-background
-              shadow-sm
-              transition-transform
-              duration-200
-              hover:scale-105
-              hover:z-10
-              
-            "
-            style={{ zIndex: avatars.length - idx }}
-          >
-            {item.icon ? (
-              <img
-                src={item.icon}
-                alt="partners"
-                className="relative h-16 bg-altbackground"
-              />
-            ) : null}
-            <AvatarFallback className="bg-muted text-xs font-semibold">
-              {item.fallback}
-            </AvatarFallback>
-          </Avatar>
-        ))}
-      </div>
-    </div>
-
-    {/* Text */}
-    <div className="flex flex-col justify-center text-center md:text-left">
-      <h1 className="font-body text-accent text-lg md:text-xl">
-        Join hundreds of pharmacy leaders
-      </h1>
-      <h2 className="font-body text-muted text-sm md:text-base mt-2">
-        already shaping the future of healthcare operations.
-      </h2>
-    </div>
-  </div>
-</div>
-        <div className="flex flex-wrap gap-6 justify-center mt-8 pointer-events-auto">
+        
+        <div className="flex flex-wrap gap-6 justify-center mt-16 pointer-events-auto">
           <div className="group">
             <Dialog>
               <DialogTrigger>
@@ -147,6 +102,49 @@ export default function RecallSection({id}) {
             </Link>
           </div>
         </div>
+        <div className="max-w-xl mx-auto mt-12 px-4 sm:px-6">
+  <div className="flex flex-row items-center gap-6">
+    {/* Avatar Stack */}
+    {/* <div className="flex justify-center mb-6 md:mb-0">
+      <div className="flex items-center -space-x-5">
+        {avatars.map((item, idx) => (
+          <Avatar
+            key={item.id}
+            className="
+              h-12 w-12
+              border-2 border-background
+              shadow-sm
+              transition-transform
+              duration-200
+              hover:scale-105
+              hover:z-10
+              
+            "
+            style={{ zIndex: avatars.length - idx }}
+          >
+            {item.icon ? (
+              <img
+                src={item.icon}
+                alt="partners"
+                className="relative h-16 bg-altbackground"
+              />
+            ) : null}
+            <AvatarFallback className="bg-muted text-xs font-semibold">
+              {item.fallback}
+            </AvatarFallback>
+          </Avatar>
+        ))}
+      </div>
+    </div> */}
+
+    {/* Text */}
+    <div className="flex flex-row justify-center text-center md:text-center">
+      <h1 className="font-body text-accent text-lg md:text-xl">
+        Join hundreds of pharmacy leaders already shaping the future of healthcare operations.
+      </h1>
+    </div>
+  </div>
+</div>
         <div className="flex flex-col md:flex-row justify-center items-start mt-12 md:mt-12 gap-4">
           {advList.map((item, idx) => {
             const Icon = item.icon;

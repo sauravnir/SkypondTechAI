@@ -124,8 +124,8 @@ export default function MainStats({ id }) {
   }, []);
 
   // Slicing the TestimonialData into two to display separate rows
-  const firstRow = testimonialsData.slice(0, testimonialsData.length / 2);
-  const secondRow = testimonialsData.slice(testimonialsData.length / 2);
+  // const firstRow = testimonialsData.slice(0, testimonialsData.length / 2);
+  // const secondRow = testimonialsData.slice(testimonialsData.length / 2);
   return (
     <section id={id} className="relative overflow-hidden bg-background">
       <div className="flex flex-col py-20 items-center">
@@ -212,23 +212,23 @@ export default function MainStats({ id }) {
         
 {/* Testimonials */}
         <div className="relative flex w-full flex-col cursor-pointer items-center justify-center overflow-hidden mt-20 p-4 gap-8 ">
-          <Marquee className="[--duration:50s] ">
-            {firstRow.map((item) => (
+          <Marquee pauseOnHover className="[--duration:50s] ">
+            {testimonialsData.map((item) => (
               <div key={item.id} className="px-1">
                 <Testimonials {...item} />
               </div>
             ))}
           </Marquee>
-          <Marquee reverse className="[--duration:50s]">
+          {/* <Marquee reverse className="[--duration:50s]">
             {secondRow.map((item) => (
               <div key={item.id} className="px-1">
                 <Testimonials {...item} />
               </div>
             ))}
-          </Marquee>
+          </Marquee> */}
 
-          <div className="from-background pointer-events-none absolute inset-y-0 -left-32 w-1/4 bg-gradient-to-r"></div>
-          <div className="from-background pointer-events-none absolute inset-y-0 -right-32 w-1/4 bg-gradient-to-l"></div>
+          <div className="from-background pointer-events-none absolute inset-y-0 -left-24 w-1/4 bg-gradient-to-r"></div>
+          <div className="from-background pointer-events-none absolute inset-y-0 -right-24 w-1/4 bg-gradient-to-l"></div>
         </div>
 
         {/* <div className="group items-center justify-center p-2 mt-8 md:mt-4">

@@ -165,11 +165,11 @@ export default function WhyChooseUs() {
                   className="w-full h-full"
                 >
                   <div className="w-full h-full rounded-3xl bg-card border shadow-lg transition-transform duration-300 hover:scale-105 flex items-center justify-center overflow-hidden">
-                    <img
+                    {/* <img
                       src={reasons[active].graphic}
                       alt={reasons[active].title}
                       className="max-w-full max-h-full object-contain p-8"
-                    />
+                    /> */}
                   </div>
                 </motion.div>
               </AnimatePresence>

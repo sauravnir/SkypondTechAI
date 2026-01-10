@@ -73,7 +73,7 @@ const Footer = () => {
   ];
   return (
     <footer className="relative overflow-hidden bg-altbackground pt-20 pb-10 z-10">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 px-0 ">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {/* Footer Contents */}
         {footerItems.map((column) => (
           <div key={column.title} className="space-y-4">
