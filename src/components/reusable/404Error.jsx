@@ -1,11 +1,10 @@
 import React from "react";
 
-import NavigationBar from "../layout/NavigationBar";
-import RecallSection from "../layout/RecallSection";
-import Footer from "../layout/Footer";
+import NavigationBar from "./NavigationBar";
+import RecallSection from "../layout/LandingPage/RecallSection";
+import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
-import { ChevronRight, Navigation } from "lucide-react";
 import { TypingAnimation } from "../ui/typing-animation";
 
 export default function Error404(){
@@ -14,7 +13,7 @@ export default function Error404(){
       <div className="relative w-full flex flex-col items-center justify-center bg-background ">
           
       <h1 className="font-heading text-hero text-heading font-bold mt-32 ">
-        Coming Soon{" "} <TypingAnimation >...</TypingAnimation>
+        Coming Soon{" "} <TypingAnimation words={["...","...","..."]} loop/>
       </h1>
       <Link
         to="/"
@@ -25,6 +24,7 @@ export default function Error404(){
         
       </Link>
     </div>
+    <RecallSection /> 
     <Footer/>
       </>
         

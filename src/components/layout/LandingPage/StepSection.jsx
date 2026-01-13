@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Badge } from "../ui/badge";
-import { Highlighter } from "../ui/highlighter";
-import { Card, CardContent } from "../ui/card";
+import MainBadge from "@/components/reusable/Badge";
+import { Highlighter } from "../../ui/highlighter";
+import { Card, CardContent } from "../../ui/card";
 import {
   Plug,
   BrainCircuit,
@@ -13,8 +13,8 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Button } from "../ui/button";
-import { AnimatedCircularProgressBar } from "../ui/animated-circular-progress-bar";
+import { Button } from "../../ui/button";
+import { AnimatedCircularProgressBar } from "../../ui/animated-circular-progress-bar";
 
 export default function StepSection({id}) {
   const steps = [
@@ -98,12 +98,7 @@ export default function StepSection({id}) {
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
       className="text-center mb-12 ">
-        <Badge
-          variant="outline"
-          className="font-ui text-[14px] bg-card text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full uppercase mb-8"
-        >
-          Quick integration
-        </Badge>
+        <MainBadge heading="Quick Integration" />
         <h1 className="font-heading text-h1 max-w-3xl mx-auto font-bold">
           From Integration to Transformation in {""}
            4 Simple Steps

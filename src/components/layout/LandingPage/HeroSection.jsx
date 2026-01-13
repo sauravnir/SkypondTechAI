@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
-import { Card, CardDescription, CardTitle } from "../ui/card";
+import { Badge } from "../../ui/badge";
+import { Button } from "../../ui/button";
+import { Card, CardDescription, CardTitle } from "../../ui/card";
+
+import { PrimaryButton, SecondaryButton } from "@/components/reusable/Button";
 
 import {
   ChevronRight,
@@ -20,12 +22,12 @@ import {
   DialogHeader,
   DialogTitle,
   DialogClose,
-} from "../ui/dialog";
+} from "../../ui/dialog";
 
-import ContactForm from "../reusable/ContactForm";
+import ContactForm from "../../reusable/ContactForm";
 import { motion } from "motion/react";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
-import { ProgressiveBlur } from "../ui/progressive-blur";
+import { ProgressiveBlur } from "../../ui/progressive-blur";
 import "@/index.css";
 
 const HeroSection = ({ id }) => {
@@ -96,7 +98,7 @@ const HeroSection = ({ id }) => {
 
       <div className="relative flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 justify-center items-center pointer-events-none ">
       
-        <div className="max-w-5xl items-center  text-center ">
+        <div className="max-w-5xl items-center text-center ">
           {/* Referencing H1 for animation */}
           <motion.h1
             initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
@@ -118,7 +120,7 @@ const HeroSection = ({ id }) => {
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           >
-            <div className="flex flex-col justify-center items-center text-center mt-10 ">
+            <div className="flex flex-col justify-center items-center text-center mt-8 ">
               <p className="font-body text-paragraph text-muted max-w-3xl leading-relaxed px-4">
                 Skypond delivers enterprise-ready AI built for long-term care
                 pharmacies—automating complex workflows, reducing operational
@@ -134,45 +136,11 @@ const HeroSection = ({ id }) => {
             transition={{ duration: 0.8, delay: 1.2, ease: "easeIn" }}
         
           >
-            <div className="flex flex-wrap gap-6 justify-center mt-10 pointer-events-auto">
-            <div className="group">
-              <Dialog>
-                <DialogTrigger>
-                  <Button
-                    variant="default"
-                    className="text-[15px] text-primary-foreground rounded-full flex items-center "
-                    size="lg"
-                  >
-                    Get Started for FREE
-                    <span className="transition-transform duration-300 group-hover:scale-150 ">
-                      <ChevronRight strokeWidth={2.75} />
-                    </span>
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="  max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                  <ContactForm />
-                </DialogContent>
-              </Dialog>
-            </div>
-
-            <div className="group">
-              <Link to="https://skypondtech.com" target="_blank">
-                <Button
-                  variant="outline"
-                  className="text-[15px] font-body shadow-lg rounded-full text-heading bg-white border-muted flex items-center hover:text-accent"
-                  size="lg"
-                >
-                  Skypond Tech
-                  <span className="transition-transform duration-300 group-hover:scale-125">
-                    <ArrowUpRight strokeWidth={2.75} />
-                  </span>
-                </Button>
-              </Link>
-            </div>
+          <div className="flex flex-wrap gap-6 justify-center mt-10 pointer-events-auto">
+            <PrimaryButton title="Get Started For FREE" size="lg"/>
+            <SecondaryButton title="SkypondTech" size="lg"/>
           </div>
           </motion.div>
-
-          
 
           <motion.div
             initial={{ opacity: 0 }}

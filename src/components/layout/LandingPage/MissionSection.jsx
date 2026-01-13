@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Badge } from "../ui/badge";
-import { Button } from "../ui/button";
+import MainBadge from "@/components/reusable/Badge";
+import { Button } from "../../ui/button";
 import {
   ChevronRight,
   Target,
@@ -15,12 +15,12 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Highlighter } from "../ui/highlighter";
-import { AnimatedList } from "../ui/animated-list";
-import { ProgressiveBlur } from "../ui/progressive-blur";
+import { Highlighter } from "../../ui/highlighter";
+import { AnimatedList } from "../../ui/animated-list";
+import { ProgressiveBlur } from "../../ui/progressive-blur";
 import "@/index.css";
-import { Separator } from "../ui/separator";
-
+import { Separator } from "../../ui/separator";
+import { ScheduleDemoButton } from "@/components/reusable/Button";
 import SymbolLogo from "@/assets/media/logosymbol.png";
 
 // Animation for OurMission Section
@@ -257,36 +257,15 @@ export default function MissionSection() {
             transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
             className="items-start"
           >
-            <Badge
-              variant="outline"
-              className="font-ui text-[14px] font-bold text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
-            >
-              Our Goals
-            </Badge>
+            <MainBadge heading="Our Goals" />
             <h1 className="text-start font-heading max-w-xl mx-auto text-h1 text-heading font-bold ">
               Shaping the future of LTC Pharmacy
             </h1>
-            <p className="mt-8 max-w-lg font-body text-paragraph text-muted">
+            <p className="mt-8 mb-4 max-w-lg font-body text-paragraph text-muted ">
               Smarter automation, measurable outcomes, and a new standard for
               long-term care pharmacy operations
             </p>
-            <div className="group mt-4">
-              <Link
-                to="https://meetings-na2.hubspot.com/ramesh-kc?hsCtaAttrib=259620249274&uuid=082c0e40-466f-47c6-864d-ef27eed1a791"
-                target="_blank"
-              >
-                <Button
-                  variant="default"
-                  className="rounded-full text-[15px] bg-primary font-body hover:bg-altbackground/90 text-primary-foreground "
-                  size="sm"
-                >
-                  Schedule Demo
-                  <span className="transition-transform duration-300 group-hover:scale-150">
-                    <ChevronRight strokeWidth={2.75} />
-                  </span>
-                </Button>
-              </Link>
-            </div>
+            <ScheduleDemoButton title="Schedule a demo"/>
           </motion.div>
         </div>
         <div className="relative max-w-6xl mx-auto space-y-32 mt-8">

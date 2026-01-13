@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { Badge } from "../ui/badge";
+// import { Badge } from "../../ui/badge";
+import Badge from "@/components/reusable/Badge";
 import { ChevronRight, SearchCheck, LayoutGrid, ChartArea } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
+import { ExploreProduct } from "@/components/reusable/Button";
 
 const products = [
   {
@@ -41,12 +43,7 @@ export default function ProductsSection() {
           transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
         >
           <div className="flex flex-col justify-center items-center text-center">
-            <Badge
-              variant="outline"
-              className="font-ui text-[14px] bg-null  text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full uppercase mb-8 "
-            >
-              Our Products
-            </Badge>
+            <Badge heading={"Our Products"}/>
             <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
               Empowering Pharmacies with Intelligent Technology
             </h1>
@@ -68,7 +65,7 @@ export default function ProductsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6, ease: "easeIn" }}
               >
-                <Card className="relative group h-full rounded-2xl transition-scale duration-300 bg-card/50 backdrop-blur-3xl overflow-hidden cursor-pointer shadow-xl hover:shadow-3xl hover:bg-card flex flex-col">
+                <Card className="relative h-full rounded-2xl transition-scale duration-300 bg-card/50 backdrop-blur-3xl overflow-hidden shadow-xl hover:shadow-3xl hover:bg-card flex flex-col">
                   <div className="absolute bottom-0 left-0 w-full h-2 bg-darkprimary" />
 
                   <CardContent className="relative z-10 p-8 flex flex-col flex-grow ">
@@ -80,7 +77,7 @@ export default function ProductsSection() {
                       })}
                     </div>
 
-                    <h3 className="font-heading text-h3 font-bold text-heading tracking-tight mt-8 transition-color duration-300 group-hover:text-primary">
+                    <h3 className="font-heading text-h3 font-bold text-heading tracking-tight mt-8">
                       {item.title}
                     </h3>
 
@@ -88,17 +85,7 @@ export default function ProductsSection() {
                       {item.desc}
                     </p>
                     <Link to={item.subLink}>
-                      <Button
-                      variant="default"
-                      size="sm"
-                      className="flex text-[15px] rounded-full group-hover:bg-altbackground items-center mt-8 w-fit"
-                    >
-                      Explore Product
-                      <ChevronRight
-                        strokeWidth={2.75}
-                        className="group-hover:scale-125"
-                      />
-                    </Button>
+                     <ExploreProduct title="Explore Product" />
                     </Link>
                     
                   </CardContent>

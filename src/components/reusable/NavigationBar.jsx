@@ -30,10 +30,10 @@ import {
   ChartArea
 } from "lucide-react";
 // import PrerenderForm from "../reusable/PrerenderForm";
-import ContactForm from "../reusable/ContactForm";
+import ContactForm from "./ContactForm";
 import WhatsappLogo from "@/assets/media/whatsapp.png";
+import { PrimaryButton , SecondaryButton } from "./Button";
 
-import Error404 from "../reusable/404Error";
 // Creating Menu Items
 const menuItems = [
   {
@@ -44,7 +44,7 @@ const menuItems = [
         icon: Cog,
         title: "Order Automation",
         desc: "Intelligent order processing",
-        subLink: "/404Error",
+        subLink: "/OrderAutomation",
       },
       {
         icon: FileText,
@@ -79,13 +79,13 @@ const menuItems = [
       {
         icon: LayoutGrid,
         title: "Controlled Substance Inventory App",
-        desc: "Lorem ipsum dolor sit amet consecte",
+        desc: "Comprehensive inventory management solution",
         subLink: "/404Error",
       },
       {
         icon: ChartArea,
         title: "LTC Analysis",
-        desc:"Lorem ipsum dolor sit amet consectetur adipisicing ",
+        desc:"Advanced analytics platform for long-term care facilities",
         subLink: "/404Error",
       },
     ],
@@ -151,11 +151,11 @@ function NavigationBar() {
             <NavigationMenu>
               <NavigationMenuList>
                 {menuItems.map((menu, idx) => (
-                  <NavigationMenuItem key={idx} className={`flex font-body `}>
+                  <NavigationMenuItem key={idx} className={`flex font-body  `}>
                     {menu.subItems ? (
                       <>
                         <NavigationMenuTrigger
-                          className={`${isScrolled ? "bg-transparent" : ""}`}
+                          className={`font-body font-medium  ${isScrolled ? "bg-transparent" : ""}`}
                         >
                           <button>
                             {menu.item}
@@ -220,40 +220,8 @@ function NavigationBar() {
 
         {/* CTA Buttons */}
         <div className=" flex hidden md:flex gap-3 font-body font-medium items-center">
-          <div className="group">
-            <Link to="https://skypondtech.com" target="_blank">
-              <Button
-                variant="ghost"
-                className={`text-[14px] hover:text-accent flex items-center border-heading rounded-full`}
-                size="sm"
-              >
-                SkypondTech
-                <span className="transition-transform duration-300 group-hover:scale-125 inline-block">
-                  <ArrowUpRight strokeWidth={2.75} />
-                </span>
-              </Button>
-            </Link>
-          </div>
-          {/* <Separator orientation="vertical" className="h-6 bg-border" /> */}
-          <div className="group">
-            <Dialog>
-              <DialogTrigger>
-                <Button
-                  variant="default"
-                  className="text-[14px] text-primary-foreground rounded-full flex items-center "
-                  size="md"
-                >
-                  Get Started
-                  <span className="transition-transform duration-300 group-hover:scale-125 ">
-                    <ChevronRight strokeWidth={2.75} />
-                  </span>
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                <ContactForm />
-              </DialogContent>
-            </Dialog>
-          </div>
+          <SecondaryButton title="SkypondTech" size="sm"/>
+          <PrimaryButton title="Get Started" size="sm" />
           {/* Whatsapp Redirection */}
           <div className="group">
             <a href={whatsappURL} target="_blank" rel="noopener noreferrer">

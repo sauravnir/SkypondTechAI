@@ -1,29 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import Badge from "@/components/reusable/Badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { MagicCard } from "../ui/magic-card";
-import { motion, AnimatePresence } from "motion/react";
-import { Button } from "../ui/button";
+import { motion } from "motion/react";
+import { Button } from "../../ui/button";
 import {
   FileText,
   Bot,
   Workflow,
   CheckCircle,
   ChevronRight,
-  CircleChevronRight,
   Undo2,
-  FlipHorizontal,
-  Sparkles,
   Cog,
-  Undo,
 } from "lucide-react";
 
 import "@/index.css";
-import { FaChevronCircleRight } from "react-icons/fa";
+
 import { Separator } from "@radix-ui/react-separator";
-import { animate } from "animejs";
+import MainBadge from "@/components/reusable/Badge";
+import { ExploreProduct } from "@/components/reusable/Button";
 
 // Checking if the viewport is mobile or not
 const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
@@ -41,7 +36,7 @@ const services = [
       "Smart reorder automation",
       "Compliance-ready documentation",
     ],
-    link: "/404Error",
+    link: "/OrderAutomation",
   },
   {
     id: "document-automation",
@@ -131,12 +126,7 @@ const MainServices = ({ id }) => {
           transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
         >
           <div className="flex flex-col justify-center items-center text-center">
-            <Badge
-              variant="outline"
-              className="font-ui text-[14px] bg-null  text-accent border border-accent font-bold gap-2 px-5 py-1 rounded-full uppercase mb-8 "
-            >
-              Our Solutions
-            </Badge>
+           <MainBadge heading={"Our Solutions"} />
             <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
               Enterprise Grade AI Solutions
               <br></br>
@@ -150,7 +140,6 @@ const MainServices = ({ id }) => {
           </div>
         </motion.div>
 
-        
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -197,20 +186,10 @@ const MainServices = ({ id }) => {
                           {service.body}
                         </p>
 
-                          {/* Rendering Button in Mobile mode */}
+                        {/* Rendering Button in Mobile mode */}
                         {isMobile ? (
                           <Link to={service.link}>
-                            <Button
-                              variant="default"
-                              size="sm"
-                              className="group font-body text-[15px] text-primary-foreground font-bold rounded-full mt-12"
-                            >
-                              Explore Service
-                              <ChevronRight
-                                className="transition-transform duration-300 group-hover:scale-125"
-                                strokeWidth={2.75}
-                              />
-                            </Button>
+                            <ExploreProduct title="Explore Product" />
                           </Link>
                         ) : (
                           <div className="flex justify-end">
@@ -260,20 +239,10 @@ const MainServices = ({ id }) => {
                             </li>
                           ))}
                         </ul>
-                        
+
                         <div className="flex justify-start">
                           <Link to={service.link}>
-                            <Button
-                              variant="default"
-                              size="sm"
-                              className="group font-body text-[15px] text-primary-foreground  font-bold rounded-full mt-12"
-                            >
-                              Explore Service
-                              <ChevronRight
-                                className="transition-transform duration-300 group-hover:scale-125"
-                                strokeWidth={2.75}
-                              />
-                            </Button>
+                            <ExploreProduct title="Explore Service" />
                           </Link>
                         </div>
                       </CardContent>

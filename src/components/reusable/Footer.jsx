@@ -142,7 +142,7 @@ const Footer = () => {
         </div>
 
         {/* Right Side */}
-        <div className="flex flex-col items-center lg:items-end gap-6 w-full lg:w-auto">
+        <div className="flex flex-col items-center lg:items-end gap-6 w-full lg:w-auto lg:mt-4">
           {/* Social Icons */}
           <div className="flex space-x-4">
             <Link to="https://www.instagram.com/skypondtech/" target="_blank">

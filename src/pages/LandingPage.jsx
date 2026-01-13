@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NavigationBar from "@/components/layout/NavigationBar";
-import HeroSection from "@/components/layout/HeroSection";
-import MainServices from "@/components/layout/MainServices";
-import Footer from "@/components/layout/Footer";
-import MissionSection from "@/components/layout/MissionSection";
-import MainStats from "@/components/layout/MainStats";
-import StepSection from "@/components/layout/StepSection";
-import WhyChoose from "@/components/layout/WhyChoose";
-import RecallSection from "@/components/layout/RecallSection";
-import ProductsSection from "@/components/layout/Products"; 
+import NavigationBar from "@/components/reusable/NavigationBar";
+import HeroSection from "@/components/layout/LandingPage/HeroSection";
+import MainServices from "@/components/layout/LandingPage/MainServices";
+import Footer from "@/components/reusable/Footer";
+import MissionSection from "@/components/layout/LandingPage/MissionSection";
+import MainStats from "@/components/layout/LandingPage/MainStats";
+import StepSection from "@/components/layout/LandingPage/StepSection";
+import WhyChoose from "@/components/layout/LandingPage/WhyChoose";
+import RecallSection from "@/components/layout/LandingPage/RecallSection";
+import ProductsSection from "@/components/layout/LandingPage/Products"; 
 import { MoveUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -29,9 +29,6 @@ const LandingPage = () => {
   };
   return (
     <div className="min-h-screen">
-
-      
-     
     {/* Page Scroll Button */}
       {pageScrolled ? (
         <div className="flex flex-col fixed bottom-8 right-8 z-50 space-y-4">

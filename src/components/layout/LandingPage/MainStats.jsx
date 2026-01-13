@@ -5,11 +5,11 @@ import {
   ChartColumnBig,
   Infinity,
 } from "lucide-react";
-import { NumberTicker } from "../ui/number-ticker";
-import { Badge } from "@/components/ui/badge";
+import { NumberTicker } from "../../ui/number-ticker";
+import MainBadge from "@/components/reusable/Badge";
 import { motion } from "motion/react";
-import { Marquee } from "../ui/marquee";
-import Testimonials from "../reusable/Testimonials";
+import { Marquee } from "../../ui/marquee";
+import Testimonials from "../../reusable/Testimonials";
 
 import "@/index.css";
 
@@ -140,12 +140,7 @@ export default function MainStats({ id }) {
           transition={{ duration: 0.6, ease: "easeIn" }}
         >
           <div className="flex flex-col justify-center items-center text-center ">
-            <Badge
-              variant="outline"
-              className="font-ui text-[14px] bg-card text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
-            >
-              Our Achievements
-            </Badge>
+            <MainBadge heading="Our Achievements"/> 
             <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
               Real Impact, Measurable Results
             </h1>

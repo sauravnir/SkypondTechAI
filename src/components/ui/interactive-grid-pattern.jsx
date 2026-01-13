@@ -9,9 +9,9 @@ import { cn } from "@/lib/utils"
  * @returns A React component.
  */
 export function InteractiveGridPattern({
-  width = 60,
-  height = 60,
-  squares = [32,32],
+  width = 50,
+  height = 40,
+  squares = [40,40],
   className,
   squaresClassName,
   ...props

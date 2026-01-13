@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import {
   ChevronRight,
   CircleCheck,
   ClockCheck,
   Shield,
 } from "lucide-react";
-import { Avatar, AvatarFallback } from "../ui/avatar";
+import { Avatar, AvatarFallback } from "../../ui/avatar";
 import Avatar1 from "@/assets/media/avatar1.jpg"
 import Avatar2 from "@/assets/media/avatar2.jpg"
 import Avatar3 from "@/assets/media/avatar3.jpg"
@@ -19,8 +19,8 @@ import {
   Dialog,
   DialogTrigger,
   DialogContent,
-} from "../ui/dialog";
-import ContactForm from "../reusable/ContactForm";
+} from "../../ui/dialog";
+import ContactForm from "../../reusable/ContactForm";
 
 export default function RecallSection({id}) {
   const advList = [

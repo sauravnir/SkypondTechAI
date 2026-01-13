@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import { Badge } from "../ui/badge";
+import MainBadge from "@/components/reusable/Badge";
 import { Separator } from "@radix-ui/react-separator";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import ReduceError from "@/assets/media/Fact1.svg";
 import SaveTime from "@/assets/media/Fact2.svg";
 import LowerLabour from "@/assets/media/Fact3.svg";
@@ -105,12 +105,7 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.4, ease: "easeIn" }}
           className="flex flex-col justify-start items-start text-start"
         >
-          <Badge
-            variant="outline"
-            className="font-ui text-[14px] bg-null font-bold text-accent border border-accent gap-2 px-5 py-1 rounded-full uppercase mb-8 "
-          >
-            Why Choose Us
-          </Badge>
+          <MainBadge heading="Why Us" />
           <h1 className="font-heading text-h1 max-w-3xl text-heading font-bold">
             Why leading LTC Pharmacies choose Skypond
           </h1>
