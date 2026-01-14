@@ -11,7 +11,7 @@ export function PrimaryButton({ title, size }) {
         <Button
           variant="default"
           size={size}
-          className="group text-[15px] shadow-lg rounded-full flex items-center gap-1"
+          className="group text-[15px] shadow-lg rounded-lg flex items-center gap-1"
         >
           {title}
           <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125">
@@ -33,7 +33,7 @@ export function SecondaryButton({ title, size }) {
       <Link to="https://skypondtech.com" target="_blank">
         <Button
           variant="outline"
-          className="text-[15px] font-body shadow-sm rounded-full text-heading bg-white hover:text-accent"
+          className="text-[15px] font-body shadow-sm rounded-lg text-heading bg-white"
           size={size}
         >
           {title}
@@ -55,7 +55,7 @@ export function ScheduleDemoButton({ title, size }) {
       >
         <Button
           variant="default"
-          className="rounded-full text-[15px] bg-primary font-body hover:bg-altbackground/90 text-primary-foreground"
+          className="rounded-lg text-[15px] bg-primary font-body hover:bg-altbackground/90 text-primary-foreground"
           size={size}
         >
           {title}
@@ -77,7 +77,7 @@ export function RequestDemo({ title, size }) {
       >
         <Button
           variant="outline"
-          className="rounded-full text-[15px] bg-white shadow-lg font-body text-heading hover:text-accent"
+          className="rounded-lg text-[15px] bg-white shadow-lg font-body text-heading "
           size={size}
         >
           {title}
@@ -95,7 +95,7 @@ export function ExploreProduct({ title }) {
     <Button
       variant="default"
       size="sm"
-      className="group font-body text-[15px] text-primary-foreground font-bold rounded-full mt-12"
+      className="group font-body text-[15px] text-primary-foreground font-bold rounded-lg mt-12"
     >
       {title}
       <ChevronRight

@@ -9,9 +9,9 @@ import { cn } from "@/lib/utils"
  * @returns A React component.
  */
 export function InteractiveGridPattern({
-  width = 50,
+  width = 40,
   height = 40,
-  squares = [40,40],
+  squares = [60,60],
   className,
   squaresClassName,
   ...props
@@ -36,8 +36,8 @@ export function InteractiveGridPattern({
             width={width}
             height={height}
             className={cn(
-              "stroke-accent/60 transition-all duration-100 ease-in-out [&:not(:hover)]:duration-1000",
-              hoveredSquare === index ? "fill-accent/20" : "fill-accent/50",
+              "stroke-heading/30 transition-all duration-100 ease-in-out [&:not(:hover)]:duration-1000",
+              hoveredSquare === index ? "fill-accent/5 " : "fill-heading/5",
               squaresClassName
             )}
             onMouseEnter={() => setHoveredSquare(index)}

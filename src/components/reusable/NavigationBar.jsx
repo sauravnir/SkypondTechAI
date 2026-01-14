@@ -27,12 +27,12 @@ import {
   Contact,
   SearchCheck,
   LayoutGrid,
-  ChartArea
+  ChartArea,
 } from "lucide-react";
 // import PrerenderForm from "../reusable/PrerenderForm";
 import ContactForm from "./ContactForm";
 import WhatsappLogo from "@/assets/media/whatsapp.png";
-import { PrimaryButton , SecondaryButton } from "./Button";
+import { PrimaryButton, SecondaryButton } from "./Button";
 
 // Creating Menu Items
 const menuItems = [
@@ -67,7 +67,7 @@ const menuItems = [
     ],
   },
   {
-    item: "Our Products",
+    item: "Products",
     link: "/",
     subItems: [
       {
@@ -85,7 +85,7 @@ const menuItems = [
       {
         icon: ChartArea,
         title: "LTC Analysis",
-        desc:"Advanced analytics platform for long-term care facilities",
+        desc: "Advanced analytics platform for long-term care facilities",
         subLink: "/404Error",
       },
     ],
@@ -133,7 +133,7 @@ function NavigationBar() {
       <div
         className={`flex justify-between items-center px-8 md:px-16 h-24  ${
           isScrolled
-            ? "bg-background backdrop-blur-sm border-b"
+            ? "bg-card backdrop-blur-sm border-b"
             : "bg-transparent"
         }`}
       >
@@ -141,10 +141,9 @@ function NavigationBar() {
         <div className="flex items-center gap-8">
           <div className="flex-shrink-0">
             <Link to="/">
-            <button
-            >
-              <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
-            </button>
+              <button>
+                <img src={Logo} alt="SkypondTech.AI" className="h-20 w-auto" />
+              </button>
             </Link>
           </div>
           <nav className="hidden md:block">
@@ -155,45 +154,40 @@ function NavigationBar() {
                     {menu.subItems ? (
                       <>
                         <NavigationMenuTrigger
-                          className={`font-body font-medium  ${isScrolled ? "bg-transparent" : ""}`}
+                          className={`font-body font-medium  ${
+                            isScrolled ? "bg-transparent" : ""
+                          }`}
                         >
-                          <button>
-                            {menu.item}
-                          </button>
+                          <button>{menu.item}</button>
                         </NavigationMenuTrigger>
-                     
+
                         <NavigationMenuContent className="bg-card">
                           <ul className="grid w-max grid-cols-1 md:grid-cols-2 gap-3 p-4">
                             {menu.subItems.map((subItem, subIdx) => {
                               const Icon = subItem.icon;
                               return (
                                 <li key={subIdx}>
-                                  <Link to={subItem.subLink} > 
-                                  <a
-                                   
-                                    className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted/10 transition-all"
-                                  >
-                                    <div className="p-2 rounded-lg bg-accent">
-                                      <Icon className="w-5 h-5 text-primary-foreground" />
-                                    </div>
+                                  <Link to={subItem.subLink}>
+                                    <a className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted/10 transition-all">
+                                      <div className="p-2 rounded-lg bg-accent">
+                                        <Icon className="w-5 h-5 text-primary-foreground" />
+                                      </div>
 
-                                    <div className="space-y-1">
-                                      <p className="font-heading font-bold text-button ">
-                                        {subItem.title}
-                                      </p>
-                                      <p className="text-sm text-muted">
-                                        {subItem.desc}
-                                      </p>
-                                    </div>
-                                  </a>
+                                      <div className="space-y-1">
+                                        <p className="font-heading font-bold text-button ">
+                                          {subItem.title}
+                                        </p>
+                                        <p className="text-sm text-muted">
+                                          {subItem.desc}
+                                        </p>
+                                      </div>
+                                    </a>
                                   </Link>
-                                  
                                 </li>
                               );
                             })}
                           </ul>
                         </NavigationMenuContent>
-
                       </>
                     ) : (
                       <NavigationMenuLink asChild>
@@ -290,18 +284,16 @@ function NavigationBar() {
                         {menu.subItems.map((sub) => {
                           const Icon = sub.icon;
                           return (
-                            <a
-                              key={sub.title}
-                              href={sub.subLink}
-                              className="flex items-center gap-2 px-3 py-2 rounded-md hover:text-accent hover:bg-muted/10 transition-colors"
-                            >
-                              <div className="p-1 rounded bg-accent">
-                                <Icon className="w-5 h-5 text-primary-foreground" />
-                              </div>
-                              <span className="font-body text-button">
-                                {sub.title}
-                              </span>
-                            </a>
+                            <Link key={sub.title} to={sub.subLink}>
+                              <a className="flex items-center gap-2 px-3 py-2 rounded-md hover:text-accent hover:bg-muted/10 transition-colors">
+                                <div className="p-1 rounded bg-accent">
+                                  <Icon className="w-5 h-5 text-primary-foreground" />
+                                </div>
+                                <span className="font-body text-button">
+                                  {sub.title}
+                                </span>
+                              </a>
+                            </Link>
                           );
                         })}
                       </div>

@@ -56,11 +56,11 @@ export default function RecallSection({id}) {
             <span className="text-primary">Transform</span> Your Pharmacy
             Operations <span className="text-primary">Today</span>
           </h1>
-          {/* <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
+          <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
             See how leading LTC pharmacies are reducing manual work, eliminating
             errors, and driving measurable growth with{" "}
-            <span className="font-bold text-accent">Skypond AI</span> .
-          </p> */}
+            <span className="">Skypond AI</span> .
+          </p>
         </div>
 
         
@@ -70,7 +70,7 @@ export default function RecallSection({id}) {
               <DialogTrigger>
                 <Button
                   variant="default"
-                  className="text-[15px] font-body rounded-full text-heading bg-primary  border-accent hover:bg-primary-foreground"
+                  className="text-[15px] font-body rounded-lg text-heading bg-primary  border-accent hover:bg-primary-foreground"
                   size="lg"
                 >
                   Get Started for FREE
@@ -91,7 +91,7 @@ export default function RecallSection({id}) {
             >
               <Button
                 variant="outline"
-                className="text-[15px] font-body rounded-full text-heading bg-accent  border-accent hover:bg-primary-foreground"
+                className="text-[15px] font-body rounded-lg text-heading bg-accent  border-accent hover:bg-primary-foreground"
                 size="lg"
               >
                 Schedule a Demo

@@ -18,7 +18,7 @@ module.exports = {
         border: "#E5E7EB",
         heading: "#1E1B4B",
         bodycontent: "#6366F1",
-        muted: "#64748B",
+        muted: "#4f5f74",
         primary: "#6366F1",
         darkprimary:"#4e50bdff",
         "primary-foreground": "#FFFFFF",

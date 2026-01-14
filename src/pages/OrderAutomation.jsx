@@ -10,6 +10,7 @@ const OrderAutomation=()=>{
         <div className="min-h-screen">
             <NavigationBar />
             <OrderAutomationHero />
+            <RecallSection />
             <Footer />
         </div>
     )
