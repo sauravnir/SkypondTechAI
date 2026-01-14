@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Button } from "../../ui/button";
 import { AnimatedCircularProgressBar } from "../../ui/animated-circular-progress-bar";
-
+import { ScheduleDemoButton } from "@/components/reusable/Button";
 export default function StepSection({id}) {
   const steps = [
     {
@@ -181,22 +181,7 @@ export default function StepSection({id}) {
       <div className="mt-12 flex justify-center">
         {completed === true ? (
           <div className="group">
-            <Link
-              to="https://meetings-na2.hubspot.com/ramesh-kc?hsCtaAttrib=259620249274&uuid=082c0e40-466f-47c6-864d-ef27eed1a791"
-              target="_blank"
-            >
-              <Button
-                variant="default"
-                size="sm"
-                className="font-body text-[15px] rounded-full"
-              >
-                Integration Complete. Start automating today!
-                <ChevronRight
-                  className="transition-transform duration-300 group-hover:scale-125"
-                  strokeWidth={2.75}
-                />
-              </Button>
-            </Link>
+            <ScheduleDemoButton title="Integration Complete. Start automating today!"/>
           </div>
         ) : (
           <div className="flex items-center justify-center space-x-2">

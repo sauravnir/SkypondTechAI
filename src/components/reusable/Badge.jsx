@@ -6,7 +6,7 @@ export default function MainBadge({ heading }) {
     <>
       <Badge
         variant="outline"
-        className="font-ui text-[15px] bg-null  text-accent border border-accent font-medium gap-2 px-5 py-1 rounded-full uppercase mb-8 "
+        className="font-ui text-[15px] bg-null  text-accent border border-accent font-medium gap-2 px-5 py-1 rounded-full uppercase mb-4 "
       >
         {heading}
       </Badge>

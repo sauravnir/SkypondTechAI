@@ -219,13 +219,14 @@ function NavigationBar() {
           {/* Whatsapp Redirection */}
           <div className="group">
             <a href={whatsappURL} target="_blank" rel="noopener noreferrer">
-              <Button className="relative flex items-center justify-center rounded-full bg-[#D8FBE6] shadow hover:bg-[#DCF8C6] hover:shadow-lg overflow-hidden">
+              <Button className="relative flex items-center justify-center rounded-lg bg-[#D8FBE6] shadow hover:bg-[#DCF8C6] hover:shadow-lg overflow-hidden">
                 <img src={WhatsappLogo} alt="whatsapp" className="w-7 h-7" />
-                <span
+              
+                {/* <span
                   className={` flex items-center gap-1 max-w-0 overflow-hidden whitespace-nowrap text-[#075E54] text-[15px] font-bold transition-all duration-500 group-hover:max-w-xs`}
                 >
                   Whatsapp Us
-                </span>
+                </span> */}
               </Button>
             </a>
           </div>

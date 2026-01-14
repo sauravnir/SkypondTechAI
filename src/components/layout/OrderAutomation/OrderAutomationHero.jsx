@@ -129,7 +129,7 @@ export default function OrderAutomationHero() {
                 <h1 className="font-heading text-paragraph text-heading font-bold">
                   #ORD-41241
                 </h1>
-                <span className="flex flex-row gap-1">
+                <span className="flex flex-row gap-1 ">
                   <Circle className="w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_4px_rgba(239,68,68,0.6)]" />
                   <Circle className="w-3 h-3 rounded-full bg-yellow-400/80 shadow-[0_0_4px_rgba(239,68,68,0.6)]" />
                   <Circle className="w-3 h-3 rounded-full bg-green-500/80 shadow-[0_0_4px_rgba(239,68,68,0.6)]" />

@@ -157,21 +157,21 @@ export default function MainStats({ id }) {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeIn" }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-6 gap-x-8 max-w-6xl mt-12 md:mt-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mt-12 md:mt-16">
             {stats.map((item, index) => {
               const Icon = item.icon;
               return (
                 <div
                   key={index}
-                  className="relative flex flex-col items-center p-6 bg-card rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-muted/20"
+                  className="relative flex flex-col items-center p-6 bg-card  shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden border border-muted/20"
                 >
                   {/* Background gradient effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                   {/* Icon with gradient background */}
-                  <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-primary shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {/* <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-primary shadow-lg mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-8 h-8 text-white" />
-                  </div>
+                  </div> */}
 
                   {/* Big Number */}
                   <div className="relative z-10 font-heading text-5xl font-extrabold text-heading flex items-baseline gap-1 mb-3">
