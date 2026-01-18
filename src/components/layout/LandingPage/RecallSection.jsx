@@ -21,6 +21,7 @@ import {
   DialogContent,
 } from "../../ui/dialog";
 import ContactForm from "../../reusable/ContactForm";
+import { PrimaryButton, RequestDemo, SecondaryButton } from "@/components/reusable/Button";
 
 export default function RecallSection({id}) {
   const advList = [
@@ -65,42 +66,9 @@ export default function RecallSection({id}) {
 
         
         <div className="flex flex-wrap gap-6 justify-center mt-16 pointer-events-auto">
-          <div className="group">
-            <Dialog>
-              <DialogTrigger>
-                <Button
-                  variant="default"
-                  className="text-[15px] font-body rounded-lg text-heading bg-primary  border-accent hover:bg-primary-foreground"
-                  size="lg"
-                >
-                  Get Started for FREE
-                  <span className="transition-transform duration-300 group-hover:scale-125">
-                    <ChevronRight strokeWidth={2.75} />
-                  </span>
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-lg w-full max-h-[90vh] overflow-y-auto p-6">
-                  <ContactForm />
-              </DialogContent>
-            </Dialog>
-          </div>
-          <div className="group">
-            <Link
-              to="https://meetings-na2.hubspot.com/ramesh-kc?hsCtaAttrib=259620249274&uuid=082c0e40-466f-47c6-864d-ef27eed1a791"
-              target="_blank"
-            >
-              <Button
-                variant="outline"
-                className="text-[15px] font-body rounded-lg text-heading bg-accent  border-accent hover:bg-primary-foreground"
-                size="lg"
-              >
-                Schedule a Demo
-                <span className="transition-transform duration-300 group-hover:scale-125">
-                  <ChevronRight strokeWidth={2.75} />
-                </span>
-              </Button>
-            </Link>
-          </div>
+         
+          <PrimaryButton title="Get Started For FREE" size="lg"/>
+          <RequestDemo title="Schedule A Demo" size="lg" />
         </div>
         <div className="max-w-xl mx-auto mt-12 px-4 sm:px-6">
   <div className="flex flex-row items-center gap-6">

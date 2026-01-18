@@ -90,9 +90,9 @@ const menuItems = [
       },
     ],
   },
-  { item: "How It Works", link: "howitworks" },
-  { item: "Impact", link: "impact" },
-  { item: "Contact", link: "contact" },
+  { item: "How It Works", link: "/404Error" },
+  { item: "Impact", link: "/404Error" },
+  { item: "Contact", link: "/ContactUs" },
 ];
 
 function NavigationBar() {
@@ -132,9 +132,7 @@ function NavigationBar() {
       {/* Applying isScrolled Ternary Conditional and changing navbar css */}
       <div
         className={`flex justify-between items-center px-8 md:px-16 h-24  ${
-          isScrolled
-            ? "bg-card backdrop-blur-sm border-b"
-            : "bg-transparent"
+          isScrolled ? "bg-card backdrop-blur-sm border-b" : "bg-transparent"
         }`}
       >
         {/* Navigation Bar Logo */}
@@ -191,16 +189,11 @@ function NavigationBar() {
                       </>
                     ) : (
                       <NavigationMenuLink asChild>
-                        <button
-                          onClick={() => {
-                            document
-                              .getElementById(menu.link)
-                              ?.scrollIntoView({ behavior: "smooth" });
-                          }}
-                          className="px-3 py-2 text-sm font-medium hover:text-accent transition"
-                        >
-                          {menu.item}
-                        </button>
+                        <Link to={menu.link}>
+                          <button className="px-3 py-2 text-sm font-medium hover:text-accent transition">
+                            {menu.item}
+                          </button>
+                        </Link>
                       </NavigationMenuLink>
                     )}
                   </NavigationMenuItem>
@@ -214,14 +207,14 @@ function NavigationBar() {
 
         {/* CTA Buttons */}
         <div className=" flex hidden md:flex gap-3 font-body font-medium items-center">
-          <SecondaryButton title="SkypondTech" size="sm"/>
+          <SecondaryButton title="SkypondTech" size="sm" />
           <PrimaryButton title="Get Started" size="sm" />
           {/* Whatsapp Redirection */}
           <div className="group">
             <a href={whatsappURL} target="_blank" rel="noopener noreferrer">
               <Button className="relative flex items-center justify-center rounded-lg bg-[#D8FBE6] shadow hover:bg-[#DCF8C6] hover:shadow-lg overflow-hidden">
                 <img src={WhatsappLogo} alt="whatsapp" className="w-7 h-7" />
-              
+
                 {/* <span
                   className={` flex items-center gap-1 max-w-0 overflow-hidden whitespace-nowrap text-[#075E54] text-[15px] font-bold transition-all duration-500 group-hover:max-w-xs`}
                 >

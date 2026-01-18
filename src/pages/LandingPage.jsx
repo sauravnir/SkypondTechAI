@@ -53,7 +53,7 @@ const LandingPage = () => {
       <MissionSection />
       <WhyChoose />      
       <MainStats id="impact"/>
-      <RecallSection id="contact"/>
+      <RecallSection/>
       <Footer />
     </div>
   );

@@ -84,7 +84,7 @@ const Footer = () => {
           link: "https://www.skypondtech.com",
         },
         { title: "About", link: "/404Error" },
-        { title: "Contact", link: "/404Error" },
+        { title: "Contact", link: "/ContactUs" },
         { title: "Blog", link: "/404Error" },
       ],
     },

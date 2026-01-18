@@ -11,7 +11,7 @@ export function PrimaryButton({ title, size }) {
         <Button
           variant="default"
           size={size}
-          className="group text-[15px] shadow-lg rounded-lg flex items-center gap-1"
+          className="group font-body text-[15px] shadow-lg rounded-lg flex items-center gap-1"
         >
           {title}
           <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-125">
