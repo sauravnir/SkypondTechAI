@@ -22,6 +22,9 @@ import {
   Users,
   Package,
   BarChart3,
+  HeartPlus ,
+ 
+  
 } from "lucide-react";
 import {
   Dialog,
@@ -150,11 +153,10 @@ const HeroSection = ({ id }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.6, ease: "easeOut" }}
           >
-            <div className="font-heading font-medium text-small mt-6">
-              <h1 className="text-muted underline">
-                Built for long-term care pharmacies · HIPAA-ready · Enterprise
-                secure
-              </h1>
+            <div className="flex justify-center gap-2 font-heading font-medium text-small mt-6">
+              <h1 className="flex items-center gap-1 text-muted underline"><HeartPlus size={16} className="text-emerald-600"/>Built for Pharmacies</h1>
+              <h1 className="flex items-center gap-1 text-muted underline"><Medal size={16} className="text-yellow-500"/> HIPAA Compliant</h1>
+              <h1 className="flex items-center gap-1 text-muted underline"><Shield size={16} className="text-red-600"/> Enterprise grade security</h1>
             </div>
           </motion.div>
         </div>

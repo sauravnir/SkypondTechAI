@@ -7,7 +7,7 @@ import Footer from "@/components/reusable/Footer";
 import RecallSection from "@/components/layout/LandingPage/RecallSection";
 import { Send, Phone } from "lucide-react";
 import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
-// import {Separta}
+import { Separator } from "@/components/ui/separator";
 
 import {
   Accordion,
@@ -73,7 +73,7 @@ export default function ContactUs({ id }) {
                     {" "}
                     Speak to our friendly team via live chat.
                   </span>
-
+              <Separator className="my-2"/>
                   <div className="flex flex-col items-start gap-4 mt-4 pointer-events-auto">
                     {/* WhatsApp */}
                     <a
@@ -123,7 +123,7 @@ export default function ContactUs({ id }) {
                   <span className="font-body text-muted text-paragraph ">
                     Call our team Mon-Fri from 8am to 5pm.
                   </span>
-
+                      <Separator className="my-2"/>
                   <div className="flex flex-col items-start gap-4 mt-4 pointer-events-auto">
                     <a
                       href="tel:+17207246828"

@@ -1,26 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Button } from "../../ui/button";
+
 import {
-  ChevronRight,
   CircleCheck,
   ClockCheck,
   Shield,
 } from "lucide-react";
-import { Avatar, AvatarFallback } from "../../ui/avatar";
-import Avatar1 from "@/assets/media/avatar1.jpg"
-import Avatar2 from "@/assets/media/avatar2.jpg"
-import Avatar3 from "@/assets/media/avatar3.jpg"
-import Avatar4 from "@/assets/media/avatar4.jpg"
-import Avatar5 from "@/assets/media/avatar5.jpg"
 
-
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-} from "../../ui/dialog";
-import ContactForm from "../../reusable/ContactForm";
 import { PrimaryButton, RequestDemo, SecondaryButton } from "@/components/reusable/Button";
 
 export default function RecallSection({id}) {
@@ -42,13 +27,6 @@ export default function RecallSection({id}) {
     },
   ];
 
-  const avatars = [
-    { id: 1, icon: Avatar1, fallback: "CL1" },
-    { id: 2,icon: Avatar2, fallback: "CL2" },
-    { id: 3,icon: Avatar3, fallback: "CL3" },
-    { id: 4,icon: Avatar4, fallback: "CL4" },
-    { id: 5,icon: Avatar5, fallback: "CL5" },
-  ];
   return (
     <section id={id} className="relative overflow-hidden bg-altbackground">
       <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
