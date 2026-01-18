@@ -45,24 +45,28 @@ const menuItems = [
         title: "Order Automation",
         desc: "Intelligent order processing",
         subLink: "/OrderAutomation",
+        gradient: "from-[#6366F1] to-[#4e50bd]",
       },
       {
         icon: FileText,
         title: "Document Automation",
         desc: "Convert unstructured pharmacy data",
         subLink: "/404Error",
+        gradient: "from-[#06B6D4] to-[#047d92]",
       },
       {
         icon: Bot,
         title: "Pharmacy Copilot",
         desc: "Conversational AI assistant",
         subLink: "/404Error",
+        gradient: "from-[#4e50bd] to-[#06B6D4]",
       },
       {
         icon: Workflow,
         title: "Workflow AI",
         desc: "Operational workflow intelligence",
         subLink: "/404Error",
+        gradient: "from-purple-600 to-[#6366F1]",
       },
     ],
   },
@@ -75,18 +79,21 @@ const menuItems = [
         title: "DEA Lookup",
         desc: "Essential tool for DEA Number Verification",
         subLink: "/404Error",
+        gradient: "from-[#6366F1] to-[#06B6D4]",
       },
       {
         icon: LayoutGrid,
         title: "Controlled Substance Inventory App",
         desc: "Comprehensive inventory management solution",
         subLink: "/404Error",
+        gradient: "from-[#4e50bd] to-[#6366F1]",
       },
       {
         icon: ChartArea,
         title: "LTC Analysis",
         desc: "Advanced analytics platform for long-term care facilities",
         subLink: "/404Error",
+        gradient: "from-[#06B6D4] to-[#047d92]",
       },
     ],
   },
@@ -167,7 +174,7 @@ function NavigationBar() {
                                 <li key={subIdx}>
                                   <Link to={subItem.subLink}>
                                     <a className="flex items-start gap-3 rounded-xl p-3 hover:bg-muted/10 transition-all">
-                                      <div className="p-2 rounded-lg bg-accent">
+                                      <div className={`p-2 rounded-lg bg-gradient-to-r ${subItem.gradient}`}>
                                         <Icon className="w-5 h-5 text-primary-foreground" />
                                       </div>
 
@@ -253,7 +260,7 @@ function NavigationBar() {
                 {menuItems.map((menu, idx) => (
                   <div key={menu.item} className="flex flex-col w-full">
                     {/* Parent item / trigger */}
-                    <button
+                    {menu.subItems? <button
                       onClick={() => menu.subItems && toggleOpen(idx)}
                       className="flex items-center w-full justify-start gap-2 py-2 px-1 text-left hover:text-accent transition-colors font-medium"
                     >
@@ -270,7 +277,27 @@ function NavigationBar() {
                           )}
                         </span>
                       )}
+                    </button> : <Link to={menu.link}>
+                      <button
+                      className="flex items-center w-full justify-start gap-2 py-2 px-1 text-left hover:text-accent transition-colors font-medium"
+                    >
+                      <CircleSmall size={18} strokeWidth={2.75} />
+                      <span className="font-body text-heading text-paragraph ">
+                        {menu.item}
+                      </span>
+                      {menu.subItems && (
+                        <span className="ml-auto">
+                          {openIndex === idx ? (
+                            <ChevronUp strokeWidth={2.75} />
+                          ) : (
+                            <ChevronDown strokeWidth={2.75} />
+                          )}
+                        </span>
+                      )}
                     </button>
+                      
+                    </Link>}
+                    
 
                     {/* Sub-items */}
                     {menu.subItems && openIndex === idx && (
@@ -280,7 +307,7 @@ function NavigationBar() {
                           return (
                             <Link key={sub.title} to={sub.subLink}>
                               <a className="flex items-center gap-2 px-3 py-2 rounded-md hover:text-accent hover:bg-muted/10 transition-colors">
-                                <div className="p-1 rounded bg-accent">
+                                <div className={`p-1 rounded bg-gradient-to-b ${sub.gradient}`}>
                                   <Icon className="w-5 h-5 text-primary-foreground" />
                                 </div>
                                 <span className="font-body text-button">

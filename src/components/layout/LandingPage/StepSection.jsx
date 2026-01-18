@@ -70,7 +70,7 @@ export default function StepSection({id}) {
 
     const timer = setTimeout(() => {
       setActiveStep((prev) => prev + 1);
-    }, 3000); // delay between step fills
+    }, 1000); // delay between step fills
 
     return () => clearTimeout(timer);
   }, [activeStep, inView]);
@@ -110,8 +110,12 @@ export default function StepSection({id}) {
       </motion.div>
 
       {/* 4 integration steps */}
-      <div
+      <motion.div
         ref={ref}
+        initial={{opacity:0}}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
         className="grid grid-cols-1 lg:grid-cols-4 gap-10 max-w-5xl mx-auto "
       >
         {steps.map((item, index) => {
@@ -175,10 +179,16 @@ export default function StepSection({id}) {
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* Continue Button */}
-      <div className="mt-12 flex justify-center">
+      <motion.div 
+        initial={{opacity:0}}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: 0.6, ease: "easeIn" }}
+      >
+        <div className="mt-12 flex justify-center">
         {completed === true ? (
           <div className="group">
             <ScheduleDemoButton title="Integration Complete. Start automating today!"/>
@@ -197,6 +207,8 @@ export default function StepSection({id}) {
           </div>
         )}
       </div>
+      </motion.div>
+      
     </section>
   );
 }

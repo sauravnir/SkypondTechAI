@@ -63,7 +63,7 @@ export default function OrderAutomationHero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentStep((prev) => (prev < steps.length ? prev + 1 : prev));
-    }, 2000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
