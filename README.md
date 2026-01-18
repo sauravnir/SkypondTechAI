@@ -1,18 +1,29 @@
-# React + Vite
+#Skypond Tech AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Skypond Tech AI is a forward-thinking artificial intelligence and software solutions company focused on building intelligent, data-driven systems that enhance business efficiency and decision-making. By combining modern AI technologies with scalable software engineering, Skypond Tech AI delivers smart automation, predictive insights, and intelligent digital products tailored for real-world use cases.
 
-Currently, two official plugins are available:
+Our mission is to help organizations leverage AI not as a buzzword, but as a practical tool—integrated seamlessly into workflows to reduce manual effort, improve accuracy, and unlock new operational capabilities.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##What Skypond Tech AI Does
 
-## React Compiler
+-Builds AI-powered web and enterprise applications
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+-Automates complex workflows using intelligent systems
 
-Note: This will impact Vite dev & build performances.
+-Transforms data into actionable insights
 
-## Expanding the ESLint configuration
+-Designs scalable backend systems with AI integrations
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+-Develops modern, user-friendly interfaces powered by smart logic
+
+##Key Features & Capabilities 
+
+-AI-Powered Automation
+
+-Data Intelligence & Analytics
+
+-Machine Learning Solutions
+
+-Intelligent API & Backend Systems
+
+
