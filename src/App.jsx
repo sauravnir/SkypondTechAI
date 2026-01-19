@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./index.css";
 
 import Landingpage from "./pages/LandingPage.jsx";
@@ -8,6 +8,20 @@ import OrderAutomation from "./pages/OrderAutomation";
 import ContactUs from "./pages/ContactUs";
 import { MoveUp } from "lucide-react";
 import { Button } from "./components/ui/button";
+
+// Scrolling to top on page render
+const ScrollToTop = () => {
+
+const location = useLocation();
+
+  useEffect(() => {
+    const element = document.documentElement || document.body;
+    element.scrollTop = 0;
+  }, [location]);
+
+  return null;
+
+}
 
 export default function App() {
   const [pageScrolled, setPageScrolled] = useState(false);
@@ -21,7 +35,7 @@ export default function App() {
   }, []);
 
   const onClick = () => {
-    document.getElementById("top")?.scrollIntoView({ behavior: "smooth" });
+   window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -40,10 +54,11 @@ export default function App() {
       )}
 
       <HashRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Landingpage />} />
           <Route path="/OrderAutomation" element={<OrderAutomation />} />
-          <Route path="/ContactUs" element={<ContactUs />} />
+          <Route path="/ContactUs" element={<ContactUs/>} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </HashRouter>

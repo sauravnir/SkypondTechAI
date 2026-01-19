@@ -6,9 +6,9 @@ import Footer from "@/components/reusable/Footer"
 import OrderAutomationHero from "@/components/layout/OrderAutomation/OrderAutomationHero"
 import HowItWorks from "@/components/layout/OrderAutomation/HowItWorks"
 
-const OrderAutomation=({id})=>{
+const OrderAutomation=()=>{
     return(
-        <div className="min-h-screen" id={id}>
+        <div className="min-h-screen">
             <NavigationBar />
             <OrderAutomationHero />
             <HowItWorks />

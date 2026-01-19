@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/accordion";
 import faqs from "@/components/reusable/FAQs";
 
-export default function ContactUs({ id }) {
+export default function ContactUs() {
   // Setting Up Whatsapp
   const phone = "17207246828";
   const message = encodeURIComponent(
@@ -28,7 +28,7 @@ export default function ContactUs({ id }) {
     <div className="min-h-screen">
       <NavigationBar />
 
-      <div id={id} className="relative overflow-hidden ">
+      <div className="relative overflow-hidden ">
         <div className="absolute inset-0 pointer-events-none z-0">
           <InteractiveGridPattern
             className={cn(

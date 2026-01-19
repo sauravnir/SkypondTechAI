@@ -15,7 +15,7 @@ import ProductsSection from "@/components/layout/LandingPage/Products";
 const LandingPage = ({id}) => {
   
   return (
-    <div id={id} className="min-h-screen">
+    <div  className="min-h-screen">
       <NavigationBar />
       <HeroSection />
       <MainServices id="services"/>
