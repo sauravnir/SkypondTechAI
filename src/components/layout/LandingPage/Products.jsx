@@ -25,7 +25,7 @@ const products = [
   },
   {
     icon: ChartArea,
-    title: "LTC Analysis",
+    title: "LTC Analytics",
     desc: "Advanced analytics platform for long-term care facilities. Gain actionable insights, optimize medication management, track performance metrics, and make data-driven decisions to improve patient outcomes and operational efficiency.",
     subLink: "/404Error",
     gradient: "from-[#06B6D4] to-[#047d92]",

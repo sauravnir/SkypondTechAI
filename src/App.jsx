@@ -17,7 +17,7 @@ const location = useLocation();
   useEffect(() => {
     const element = document.documentElement || document.body;
     element.scrollTop = 0;
-  }, [location]);
+  }, [ location ]);
 
   return null;
 

@@ -76,190 +76,130 @@ export default function WhyChooseUs() {
   // const ActiveVisual = reasons[active].visual;
   return (
     <section className="relative bg-altbackground">
-      <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeIn" }}
-          className="flex flex-col justify-start items-start text-start"
-        >
-          <MainBadge heading="Why Us" />
-          <h1 className="font-heading text-h1 max-w-3xl text-primary-foreground/95 font-bold">
-            Why leading LTC Pharmacies choose Skypond
-          </h1>
-          <p className="mt-4 max-w-xl font-body text-paragraph text-white/80">
-            Because long-term care pharmacies need more than software -{" "}
-            <span className="text-primary font-bold">they need certainty.</span>
-          </p>
-        </motion.div>
-        
-         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[320px]">
-          
-          {/* Card 0 - Hero (Large) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="group relative md:col-span-2 md:row-span-2 rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl border border-white/10 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 overflow-hidden"
-          >
-            {/* Image Section - Top */}
-            <div className="relative h-2/3 overflow-hidden">
-              <img 
-                src={reasons[0].graphic} 
-                alt={reasons[0].title} 
-                className="w-full h-full object-cover opacity-40 group-hover:opacity-50" 
-              />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent " /> */}
-              {/* Stat Badge */}
-              <div className="absolute top-6 right-6 px-6 py-3 bg-primary/20 backdrop-blur-md rounded-2xl shadow-lg border border-primary/30 ring-1 ring-white/10">
-                <div className="text-4xl font-bold text-white">99%</div>
-                <div className="text-xs text-gray-300 font-medium">Reduction</div>
-              </div>
-            </div>
-            
-            {/* Text Section - Bottom */}
-            <div className="relative p-8 h-1/3 flex flex-col justify-center bg-gradient-to-b from-gray-900/50 to-gray-900">
-              <h3 className="font-heading text-h3 md:text-3xl font-bold text-white leading-tight group-hover:text-primary transition-colors">
-                {reasons[0].title}
-              </h3>
-              <p className="font-body text-paragraph  text-gray-300 mt-2 leading-relaxed">
-                {reasons[0].description}
-              </p>
-            </div>
-          </motion.div>
+  <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
 
-          {/* Card 1 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="group relative rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl border border-white/10 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden"
-          >
-            {/* Image Section */}
-            <div className="relative h-[55%] overflow-hidden bg-gradient-to-br from-blue-500/10 to-blue-600/5">
-              <img 
-                src={reasons[1].graphic} 
-                alt={reasons[1].title} 
-                className="w-full h-full object-cover opacity-30 group-hover:opacity-40 " 
-              />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent" /> */}
-            </div>
-            
-            {/* Text Section */}
-            <div className="p-6 h-[45%] flex flex-col justify-center bg-gray-900/50">
-              <h3 className="font-heading text-paragraph font-bold text-white group-hover:text-primary transition-colors">
-                {reasons[1].title}
-              </h3>
-              <p className="font-body text-paragraph text-gray-300 mt-2 leading-relaxed">
-                {reasons[1].description}
-              </p>
-            </div>
-          </motion.div>
+    {/* Header */}
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+      className="flex flex-col items-start"
+    >
+      <MainBadge heading="Why Us" />
+      <h1 className="font-heading text-h1 max-w-3xl text-primary-foreground/95 font-bold">
+        Why leading LTC Pharmacies choose Skypond
+      </h1>
+      <p className="mt-4 max-w-xl font-body text-paragraph text-white/80">
+        Because long-term care pharmacies need more than software —{" "}
+        <span className="text-primary font-bold">they need certainty.</span>
+      </p>
+    </motion.div>
 
-          {/* Card 2 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="group relative rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl border border-white/10 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden"
-          >
-            {/* Image Section */}
-            <div className="relative h-[55%] overflow-hidden bg-gradient-to-br from-purple-500/10 to-purple-600/5">
-              <img 
-                src={reasons[2].graphic} 
-                alt={reasons[2].title} 
-                className="w-full h-full object-cover opacity-30 group-hover:opacity-40 " 
-              />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent" /> */}
-            </div>
-            
-            {/* Text Section */}
-            <div className="p-6 h-[45%] flex flex-col justify-center bg-gray-900/50">
-              <h3 className="font-heading text-paragraph font-bold text-white group-hover:text-primary transition-colors">
-                {reasons[2].title}
-              </h3>
-              <p className="font-body text-paragraph text-gray-300 mt-2 leading-relaxed">
-                {reasons[2].description}
-              </p>
-            </div>
-          </motion.div>
+    {/* Bento Grid */}
+    <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[320px]">
 
-          {/* Card 3 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="group relative rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl border border-white/10 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden"
-          >
-            {/* Image Section */}
-            <div className="relative h-[55%] overflow-hidden bg-gradient-to-br from-green-500/10 to-green-600/5">
-              <img 
-                src={reasons[3].graphic} 
-                alt={reasons[3].title} 
-                className="w-full h-full object-cover opacity-30 group-hover:opacity-40 " 
-              />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent" /> */}
-            </div>
-            
-            {/* Text Section */}
-            <div className="p-6 h-[45%] flex flex-col justify-center bg-gray-900/50">
-              <h3 className="font-heading text-paragraph font-bold text-white group-hover:text-primary transition-colors">
-                {reasons[3].title}
-              </h3>
-              <p className="font-body text-paragraph text-gray-300 mt-2 leading-relaxed">
-                {reasons[3].description}
-              </p>
-            </div>
-          </motion.div>
+      {/* Hero Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="group relative md:col-span-2 md:row-span-2 rounded-3xl
+        bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl
+        border border-white/10 hover:border-primary/50
+        hover:shadow-2xl hover:shadow-primary/20
+        transition-all duration-500 overflow-hidden"
+      >
+        {/* Accent */}
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-purple-400 to-cyan-400" />
 
-          {/* Card 4 - Wide */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="group relative md:col-span-2 rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl border border-white/10 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 overflow-hidden"
-          >
-            {/* Image Section */}
-            <div className="relative h-[55%] overflow-hidden bg-gradient-to-br from-orange-500/10 to-orange-600/5">
-              <img 
-                src={reasons[4].graphic} 
-                alt={reasons[4].title} 
-                className="w-full h-full object-cover opacity-30 group-hover:opacity-40 " 
-              />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent" /> */}
-            </div>
-            
-            {/* Text Section */}
-            <div className="p-6 h-[45%] flex flex-col justify-center bg-gray-900/50">
-              <h3 className="font-heading text-paragraph font-bold text-white group-hover:text-primary transition-colors">
-                {reasons[4].title}
-              </h3>
-              <p className="font-body text-paragraph text-gray-300 mt-2 leading-relaxed max-w-3xl">
-                {reasons[4].description}
-              </p>
-            </div>
-          </motion.div>
+        <div className="p-10 h-full flex flex-col justify-between">
+          <div>
+            <h3 className="font-heading text-h3 md:text-3xl font-bold text-white group-hover:text-primary transition-colors">
+              {reasons[0].title}
+            </h3>
+            <p className="font-body text-paragraph text-gray-300 mt-4 max-w-xl leading-relaxed">
+              {reasons[0].description}
+            </p>
+          </div>
 
+          {/* Stat */}
+          <div className="self-end text-right">
+            <div className="text-5xl font-bold text-white">99%</div>
+            <div className="text-sm text-gray-400 tracking-wide">
+              Operational Error Reduction
+            </div>
+          </div>
         </div>
-<motion.div
+      </motion.div>
+
+      {/* Small Cards */}
+      {reasons.slice(1, 4).map((item, i) => (
+        <motion.div
+          key={i}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 text-center "
+          transition={{ duration: 0.5, delay: 0.1 * i }}
+          className="group relative rounded-2xl
+          bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl
+          border border-white/10 hover:border-primary/50
+          hover:shadow-xl hover:shadow-primary/10
+          transition-all duration-500 overflow-hidden"
         >
-          <div className="flex justify-center">
-          <PrimaryButton title="See SkypondTech AI in Action" size="lg"/>
-        </div>
+          {/* Accent */}
+          <div className="absolute inset-x-0 top-0 h-0.5 bg-primary/60" />
+
+          <div className="p-6 h-full flex flex-col justify-center">
+            <h3 className="font-heading text-lg font-bold text-white group-hover:text-primary transition-colors">
+              {item.title}
+            </h3>
+            <p className="font-body text-paragraph text-gray-300 mt-3 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
         </motion.div>
-      </div>
-    </section>
+      ))}
+
+      {/* Wide Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.35 }}
+        className="group relative md:col-span-2 rounded-2xl
+        bg-gradient-to-br from-gray-900/90 to-gray-800/90 backdrop-blur-xl
+        border border-white/10 hover:border-primary/50
+        hover:shadow-xl hover:shadow-primary/10
+        transition-all duration-500 overflow-hidden"
+      >
+        <div className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-primary to-cyan-400" />
+
+        <div className="p-8 h-full flex flex-col justify-center">
+          <h3 className="font-heading text-lg font-bold text-white group-hover:text-primary transition-colors">
+            {reasons[4].title}
+          </h3>
+          <p className="font-body text-paragraph text-gray-300 mt-3 leading-relaxed max-w-3xl">
+            {reasons[4].description}
+          </p>
+        </div>
+      </motion.div>
+    </div>
+
+    {/* CTA */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+      className= "flex flex-row mt-16 justify-center"
+    >
+      <PrimaryButton title="See SkypondTech AI in Action" size="lg" />
+    </motion.div>
+
+  </div>
+</section>
   );
 }
 

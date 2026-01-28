@@ -139,7 +139,7 @@ export default function ContactUs() {
 
                 <div className="flex flex-col h-[20rem] md:h-[35rem] items-start mt-10 ">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92777.22424202548!2d-92.07753024098855!3d30.212707809019214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86249c4364c5d89b%3A0xc94a752492f7ff13!2sLafayette%2C%20LA%2C%20USA!5e0!3m2!1sen!2snp!4v1768741748056!5m2!1sen!2snp"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d34585.90678109875!2d-105.1092208877483!3d39.986303057991655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876bf36c78a8c2c3%3A0x775e73acfeadd604!2sLafayette%2C%20CO%2C%20USA!5e0!3m2!1sen!2snp!4v1769578392369!5m2!1sen!2snp"
                     className="w-full h-full border-0 "
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
