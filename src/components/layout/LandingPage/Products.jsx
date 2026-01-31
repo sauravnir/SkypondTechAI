@@ -11,21 +11,21 @@ import { ExploreProduct } from "@/components/reusable/Button";
 const products = [
   {
     icon: SearchCheck,
-    title: "DEA Lookup",
-    desc: "Instantly verify DEA numbers with our comprehensive validation tool. Ensure compliance, reduce errors, and streamline your verification process with real-time database access and secure authentication.",
+    title: "DEA Lookup and Compliance Verification",
+    desc: "Instantly verify DEA numbers with our comprehensive validation tool. Ensure compliance, reduce errors, and streamline your verification process with real-time database access and automated audit reporting.",
     subLink: "/404Error",
     gradient: "from-[#6366F1] to-[#06B6D4]",
   },
   {
     icon: LayoutGrid,
-    title: "Controlled Substance Inventory ",
-    desc: "Comprehensive inventory management solution for controlled substances. Track stock levels in real-time, maintain regulatory compliance, automate reporting, and reduce discrepancies with our intuitive tracking system.",
+    title: "Controlled Substance Inventory Management",
+    desc: "Comprehensive inventory management solution for controlled substances. Track stock levels in real-time, maintain regulatory compliance, automate reporting, and reduce discrepancies with our intuitive tracking system designed specifically for LTC pharmacies.",
     subLink: "/404Error",
     gradient: "from-[#4e50bd] to-[#6366F1]",
   },
   {
     icon: ChartArea,
-    title: "LTC Analytics",
+    title: "LTC Analytics Portal",
     desc: "Advanced analytics platform for long-term care facilities. Gain actionable insights, optimize medication management, track performance metrics, and make data-driven decisions to improve patient outcomes and operational efficiency.",
     subLink: "/404Error",
     gradient: "from-[#06B6D4] to-[#047d92]",
@@ -55,7 +55,7 @@ export default function ProductsSection() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 mt-12 gap-4 max-w-5xl mx-auto mt-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto mt-24">
           {products.map((item, idx) => {
             return (
               <motion.div
@@ -77,7 +77,7 @@ export default function ProductsSection() {
                       })}
                     </div>
 
-                    <h3 className="font-heading text-h3 font-bold text-heading tracking-tight mt-8">
+                    <h3 className="font-heading text-h3 font-bold text-heading tracking-normal w-full mt-8">
                       {item.title}
                     </h3>
 

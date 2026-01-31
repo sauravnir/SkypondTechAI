@@ -8,7 +8,7 @@ import OrderAutomation from "./pages/OrderAutomation";
 import ContactUs from "./pages/ContactUs";
 import { MoveUp } from "lucide-react";
 import { Button } from "./components/ui/button";
-
+import DEALookup from "@/pages/DEALookup"
 // Scrolling to top on page render
 const ScrollToTop = () => {
 
@@ -60,6 +60,7 @@ export default function App() {
           <Route path="/OrderAutomation" element={<OrderAutomation />} />
           <Route path="/ContactUs" element={<ContactUs/>} />
           <Route path="*" element={<Error404 />} />
+          <Route path="/Dealookup" element={<DEALookup />} />
         </Routes>
       </HashRouter>
     </>
