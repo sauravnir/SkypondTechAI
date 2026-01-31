@@ -20,7 +20,7 @@ const products = [
     icon: LayoutGrid,
     title: "Controlled Substance Inventory Management",
     desc: "Comprehensive inventory management solution for controlled substances. Track stock levels in real-time, maintain regulatory compliance, automate reporting, and reduce discrepancies with our intuitive tracking system designed specifically for LTC pharmacies.",
-    subLink: "/404Error",
+    subLink: "/ControlSubstanceInventoryApp",
     gradient: "from-[#4e50bd] to-[#6366F1]",
   },
   {

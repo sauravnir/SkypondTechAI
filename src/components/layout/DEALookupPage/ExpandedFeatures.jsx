@@ -43,7 +43,7 @@ const ExpandedFeatures = () => {
           </h1>
           <p className="mt-4 max-w-xl font-body text-paragraph text-muted">
             Everything you need to streamline DEA verification and maintain
-            regulatory compliance
+            regulatory compliance.
           </p>
         </motion.div>
         {/* Bento Grid */}
@@ -66,7 +66,7 @@ const ExpandedFeatures = () => {
               </p>
               {/* Card Design */}
               <div className="p-6 shadow-2xl rounded-2xl border bg-background/80 backdrop-blur pointer-events-none">
-                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label className="block text-paragraph font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Enter DEA Number
                 </label>
 

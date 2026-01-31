@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { cn } from "@/lib/utils";
 import { Badge } from "../../ui/badge";
 import { Button } from "../../ui/button";
 import { Card, CardDescription, CardTitle } from "../../ui/card";
@@ -72,15 +72,15 @@ const HeroSection = ({ id }) => {
  
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-background via-primary/50 to-darkprimary ">
-      {/* <div className="absolute inset-0 w-full h-full pointer-events-auto">
-        <InteractiveGridPattern
-          className={cn(
-            "[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
-            " inset-y-[-50%] h-[200%] skew-y-12 opacity-30 "
-          )}
-        />
-      </div> */}
+    <section className="relative overflow-hidden ">
+      <div className="absolute inset-0 w-full h-full pointer-events-auto">
+         <InteractiveGridPattern
+                  className={cn(
+                    " [mask-image:radial-gradient(1100px_circle_at_center,white,transparent)]",
+                    "inset-y-[-10%] h-[100%] skew-y-0 opacity-20",
+                  )}
+                />
+      </div>
       <svg
         className="absolute inset-0 w-full h-full opacity-40"
         viewBox="0 0 1440 320"
@@ -175,10 +175,10 @@ const HeroSection = ({ id }) => {
       >
         <div className="relative flex justify-center items-center z-10 w-full py-14 px-4 md:py-24 lg:py-24">
           <div className="flex-1 relative">
-            <div className="max-w-7xl mx-auto p-4 bg-gradient-to-b from-transparent via-gray-200 to-white rounded-2xl shadow-2xl">
+            <div className="max-w-7xl mx-auto p-4 bg-darkprimary rounded-2xl shadow-2xl">
               <div className="relative w-full max-w-7xl mx-auto pointer-events-none">
                 {/* Dashboard Container */}
-                <motion.div className="relative rounded-3xl overflow-hidden ">
+                <motion.div className="relative rounded-2xl overflow-hidden ">
                   {/* Dashboard Mock - Light Theme */}
                   <div className="bg-background p-6 md:p-8 border border-gray-200 font-body">
                     {/* Dashboard Header */}

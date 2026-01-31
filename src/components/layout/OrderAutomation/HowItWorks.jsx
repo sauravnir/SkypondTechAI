@@ -2,7 +2,7 @@ import React from "react";
 
 import { motion } from "framer-motion";
 import MainBadge from "@/components/reusable/Badge";
-import { Card, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Inbox, ShieldCheck, Settings, RefreshCcw } from "lucide-react";
 
 const orderAutomationSteps = [

@@ -78,14 +78,14 @@ const menuItems = [
         icon: SearchCheck,
         title: "DEA Lookup",
         desc: "Essential tool for DEA Number Verification",
-        subLink: "/dealookup",
+        subLink: "/Dealookup",
         gradient: "from-[#6366F1] to-[#06B6D4]",
       },
       {
         icon: LayoutGrid,
         title: "Controlled Substance Inventory App",
         desc: "Comprehensive inventory management solution",
-        subLink: "/404Error",
+        subLink: "/ControlSubstanceInventoryApp",
         gradient: "from-[#4e50bd] to-[#6366F1]",
       },
       {

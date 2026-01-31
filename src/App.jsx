@@ -9,6 +9,7 @@ import ContactUs from "./pages/ContactUs";
 import { MoveUp } from "lucide-react";
 import { Button } from "./components/ui/button";
 import DEALookup from "@/pages/DEALookup"
+import ControlSubstance from "./pages/ControlSubstance";
 // Scrolling to top on page render
 const ScrollToTop = () => {
 
@@ -61,6 +62,7 @@ export default function App() {
           <Route path="/ContactUs" element={<ContactUs/>} />
           <Route path="*" element={<Error404 />} />
           <Route path="/Dealookup" element={<DEALookup />} />
+          <Route path="/ControlSubstanceInventoryApp" element={<ControlSubstance />} />
         </Routes>
       </HashRouter>
     </>

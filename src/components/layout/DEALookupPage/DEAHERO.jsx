@@ -4,7 +4,6 @@ import MainBadge from "@/components/reusable/Badge";
 import { PrimaryButton, RequestDemo } from "@/components/reusable/Button";
 import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern";
 import { motion } from "motion/react";
-import { Hourglass, TrendingUp, ChartColumnBig, Infinity } from "lucide-react";
 import { NumberTicker } from "../../ui/number-ticker";
 import { advList } from "../OrderAutomation/OrderAutomationHero";
 import Chart from "chart.js/auto";
@@ -108,7 +107,7 @@ const DEAHERO = () => {
       <div className="absolute inset-0 w-full h-full pointer-events-auto">
         <InteractiveGridPattern
           className={cn(
-            " [mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+            " [mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]",
             "inset-y-[-40%] h-[200%] skew-y-0 opacity-15",
           )}
         />
@@ -164,6 +163,7 @@ const DEAHERO = () => {
           <motion.div
             initial={{ opacity: 0, y: -5, filter: "blur[10px]" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur[0px]" }}
+            viewport={{once:true}}
             transition={{ duration: 0.8, delay: 0.3, ease: "aniticipate" }}
             className="bg-white p-8 rounded-2xl shadow-2xl border"
           >

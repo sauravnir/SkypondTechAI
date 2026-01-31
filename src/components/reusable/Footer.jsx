@@ -1,24 +1,11 @@
 import React from "react";
-import {
-  ChevronRight,
-  Minus,
-  ExternalLink,
-  Copyright,
-  CircleSmall,
-} from "lucide-react";
+import { Minus, Copyright } from "lucide-react";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
-import { Button } from "../ui/button";
+
 import { Separator } from "../ui/separator";
 import { Link } from "react-router-dom";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "../ui/navigation-menu";
 
 import Logo from "@/assets/media/1.png";
-import { Item } from "@radix-ui/react-navigation-menu";
 
 const Footer = () => {
   const footerItems = [
@@ -49,15 +36,15 @@ const Footer = () => {
       link: "#",
       subItem: [
         {
-          title: "DEA Lookup",
+          title: "DEA Lookup ",
           link: "/Dealookup",
         },
         {
-          title: "Control Substance Inventory App",
-          link: "/404Error",
+          title: "Controlled Substance App",
+          link: "/ControlSubstanceInventoryApp",
         },
         {
-          title: "LTC Analysis",
+          title: "LTC Analytics Portal",
           link: "/404Error",
         },
       ],
@@ -100,30 +87,29 @@ const Footer = () => {
             </h2>
             <ul className=" space-y-2">
               {column.subItem.map((item) => (
-          <li key={item.title}>
-            <div className="flex flex-row max-w-5xl justify-start items-center  gap-2">
-                 <CircleSmall strokeWidth={2.75} size={15} className="text-muted"/>
-            {item.link.startsWith("http") ? (
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className=" font-body text-muted text-[16px] hover:underline "
-              >
-                {item.title}
-              </a>
-            ) : (
-              <Link
-                to={item.link}
-                className="font-body text-muted text-[16px] hover:underline"
-              >
-                {item.title}
-              </Link>
-            )}
-            </div>
-           
-          </li>
-        ))}
+                <li key={item.title}>
+                  <div className="flex flex-row max-w-5xl justify-start items-center  gap-2">
+                    <Minus strokeWidth={2.75} className="text-muted" />
+                    {item.link.startsWith("http") ? (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className=" font-body text-muted text-[16px] hover:underline "
+                      >
+                        {item.title}
+                      </a>
+                    ) : (
+                      <Link
+                        to={item.link}
+                        className="font-body text-muted text-[16px] hover:underline"
+                      >
+                        {item.title}
+                      </Link>
+                    )}
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
         ))}
