@@ -39,10 +39,7 @@ import { InteractiveGridPattern } from "@/components/ui/interactive-grid-pattern
 import { ProgressiveBlur } from "../../ui/progressive-blur";
 import "@/index.css";
 
-const HeroSection = ({ id }) => {
-  //Creating fetures array
-
-  const itemList = [
+export const itemList = [
     {
       icon: <User />,
       head: "50+",
@@ -68,6 +65,11 @@ const HeroSection = ({ id }) => {
       gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]",
     },
   ];
+
+const HeroSection = ({ id }) => {
+  //Creating fetures array
+
+ 
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-background via-primary/50 to-darkprimary ">

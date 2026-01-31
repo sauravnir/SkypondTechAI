@@ -13,7 +13,7 @@ const products = [
     icon: SearchCheck,
     title: "DEA Lookup and Compliance Verification",
     desc: "Instantly verify DEA numbers with our comprehensive validation tool. Ensure compliance, reduce errors, and streamline your verification process with real-time database access and automated audit reporting.",
-    subLink: "/404Error",
+    subLink: "/Dealookup",
     gradient: "from-[#6366F1] to-[#06B6D4]",
   },
   {

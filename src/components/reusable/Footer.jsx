@@ -50,7 +50,7 @@ const Footer = () => {
       subItem: [
         {
           title: "DEA Lookup",
-          link: "/404Error",
+          link: "/Dealookup",
         },
         {
           title: "Control Substance Inventory App",

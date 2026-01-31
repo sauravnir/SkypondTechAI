@@ -40,7 +40,7 @@ const steps = [
   },
 ];
 
-const advList = [
+export const advList = [
   {
     icon: CircleCheck,
     color: "text-emerald-300",

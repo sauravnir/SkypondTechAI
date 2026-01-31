@@ -111,8 +111,8 @@ const stats = [
 ];
 
 export default function MainStats({ id }) {
+  
   // Resetting the stats animation after every 15 sec
-
   const [limit, setLimit] = useState(0);
 
   useEffect(() => {
