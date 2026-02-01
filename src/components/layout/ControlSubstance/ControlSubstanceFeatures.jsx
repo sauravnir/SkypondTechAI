@@ -115,64 +115,11 @@ const ComparisonSection = () => {
   ];
 
   return (
-    <section className="py-12 bg-card shadow-2xl rounded-2xl mt-14">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 mt-14 bg-background/20 border rounded-2xl">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Comparison Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Disadvantages Side (Left) */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative"
-          >
-            {/* Header Badge */}
-            <div className="flex items-center gap-3 mb-8">
-              <div className="px-4 py-2 rounded-full border ">
-                <span className="text-red-700 dark:text-red-300 font-bold text-h3">
-                  Manual Spreadsheets
-                </span>
-              </div>
-            </div>
-
-            {/* Disadvantages List */}
-            <div className="space-y-6">
-              {disadvantages.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group relative bg-background rounded-xl border p-6"
-                >
-                  <div className="flex gap-4 ml-4">
-                    {/* Content */}
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-                        <svg
-                          className="w-5 h-5 text-red-500"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-start text-paragraph">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-8">
+          
 
           {/* Advantages Side (Right) */}
           <motion.div
@@ -180,11 +127,13 @@ const ComparisonSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative p-8 rounded-2xl shadow-2xl shadow-primary"
           >
+
+            
             {/* Header Badge */}
             <div className="flex items-center gap-3 mb-8">
-              <div className="px-4 py-2  rounded-full border">
+              <div className="px-4 py-2">
                 <span className="text-green-700 dark:text-green-300 font-bold text-h3">
                   Automated Tracking
                 </span>
@@ -221,7 +170,63 @@ const ComparisonSection = () => {
                         </svg>
                         {item.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-start text-paragraph">
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-start text-paragraph px-6">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Disadvantages Side (Left) */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative  p-8 "
+          >
+            
+            {/* Header Badge */}
+            <div className="flex items-center gap-3 mb-8 opacity-70">
+              <div className="px-4 py-2 ">
+                <span className="text-red-700 dark:text-red-300 font-bold text-h3">
+                  Manual Spreadsheets
+                </span>
+              </div>
+            </div>
+
+            {/* Disadvantages List */}
+            <div className="space-y-6">
+              {disadvantages.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative rounded-xl p-6 "
+                >
+                  <div className="flex gap-4 ml-4">
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold opacity-70 text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+                        <svg
+                          className="w-5 h-5 text-red-500"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600  opacity-70 dark:text-gray-400 leading-relaxed text-start text-paragraph px-6">
                         {item.description}
                       </p>
                     </div>

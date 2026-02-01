@@ -73,15 +73,16 @@ export function StockTrendChart() {
 
 const stats = [
   {
-    value: 75,
-    suffix: "% ",
-    body: "Reduction in inventory reconciliation time",
-  },
-  {
     value: 98.8,
     suffix: "%",
     body: "DEA audit preparation accuracy",
   },
+  {
+    value: 75,
+    suffix: "% ",
+    body: "Reduction in inventory reconciliation time",
+  },
+  
   {
     value: 50,
     prefix: "$",

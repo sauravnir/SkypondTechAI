@@ -45,7 +45,7 @@ const Footer = () => {
         },
         {
           title: "LTC Analytics Portal",
-          link: "/404Error",
+          link: "/Ltcanalysis",
         },
       ],
     },

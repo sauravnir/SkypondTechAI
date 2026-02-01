@@ -264,10 +264,11 @@ export const SaveTimeUI = () => {
     { task: "Patient intake form", status: "automated", time: "15 sec" },
     { task: "Insurance verification", status: "automated", time: "8 sec" },
     { task: "Prescription entry", status: "automated", time: "12 sec" },
+{ task: "Prior authorization request", status: "automated", time: "20 sec" },
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center p-0 mt-6">
+    <div className="w-full h-full flex items-center justify-center p-0 mt-10">
       <div className="w-full max-w-md">
         <div className="bg-gradient-to-b from-gray-850 to-gray-900 rounded-2xl shadow-2xl border border-white/10 p-6">
 

@@ -51,11 +51,6 @@ export const advList = [
     color: "text-blue-300",
     title: "Free access for 14 days",
   },
-  // {
-  //   icon: Shield,
-  //   color: "text-violet-300",
-  //   title: "Enterprise-grade security & compliance included",
-  // },
 ];
 
 export default function OrderAutomationHero() {

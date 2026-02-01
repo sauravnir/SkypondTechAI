@@ -92,7 +92,7 @@ const menuItems = [
         icon: ChartArea,
         title: "LTC Analysis Portal",
         desc: "Advanced analytics platform for long-term care facilities",
-        subLink: "/404Error",
+        subLink: "/Ltcanalysis",
         gradient: "from-[#06B6D4] to-[#047d92]",
       },
     ],

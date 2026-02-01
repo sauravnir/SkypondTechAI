@@ -145,7 +145,7 @@ const MainServices = ({ id }) => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mt-24"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto ">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -186,7 +186,7 @@ const MainServices = ({ id }) => {
 
                         {/* Rendering Button in Mobile mode */}
                         {isMobile ? (
-                          <Link to={service.link}>
+                          <Link to={service.link} className="text-end">
                             <ExploreProduct title="Explore Product" />
                           </Link>
                         ) : (
@@ -238,7 +238,7 @@ const MainServices = ({ id }) => {
                           ))}
                         </ul>
 
-                        <div className="flex justify-start">
+                        <div className="flex justify-end">
                           <Link to={service.link}>
                             <ExploreProduct title="Explore Service" />
                           </Link>

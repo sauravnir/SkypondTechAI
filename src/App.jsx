@@ -10,6 +10,7 @@ import { MoveUp } from "lucide-react";
 import { Button } from "./components/ui/button";
 import DEALookup from "@/pages/DEALookup"
 import ControlSubstance from "./pages/ControlSubstance";
+import LTCAnalysis from "./pages/LTCAnalysis";
 // Scrolling to top on page render
 const ScrollToTop = () => {
 
@@ -63,6 +64,7 @@ export default function App() {
           <Route path="*" element={<Error404 />} />
           <Route path="/Dealookup" element={<DEALookup />} />
           <Route path="/ControlSubstanceInventoryApp" element={<ControlSubstance />} />
+          <Route path="/Ltcanalysis" element={<LTCAnalysis/>}/>
         </Routes>
       </HashRouter>
     </>

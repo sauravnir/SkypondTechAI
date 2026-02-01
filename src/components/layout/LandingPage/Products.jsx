@@ -27,7 +27,7 @@ const products = [
     icon: ChartArea,
     title: "LTC Analytics Portal",
     desc: "Advanced analytics platform for long-term care facilities. Gain actionable insights, optimize medication management, track performance metrics, and make data-driven decisions to improve patient outcomes and operational efficiency.",
-    subLink: "/404Error",
+    subLink: "/Ltcanalysis",
     gradient: "from-[#06B6D4] to-[#047d92]",
   },
 ];
@@ -84,7 +84,8 @@ export default function ProductsSection() {
                     <p className="text-muted text-paragraph leading-relaxed mt-4 flex-grow">
                       {item.desc}
                     </p>
-                    <Link to={item.subLink}>
+                    
+                    <Link to={item.subLink} className="text-right">
                      <ExploreProduct title="Explore Product" />
                     </Link>
                     
