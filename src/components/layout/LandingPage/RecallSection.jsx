@@ -1,14 +1,8 @@
 import React from "react";
-
-import {
-  CircleCheck,
-  ClockCheck,
-  Shield,
-} from "lucide-react";
-
+import { CircleCheck, ClockCheck, Shield } from "lucide-react";
 import { PrimaryButton, RequestDemo } from "@/components/reusable/Button";
 
-export default function RecallSection({id}) {
+export default function RecallSection({ id }) {
   const advList = [
     {
       icon: CircleCheck,
@@ -38,59 +32,27 @@ export default function RecallSection({id}) {
           <p className="mt-3 max-w-5xl font-body text-paragraph text-muted">
             See how leading LTC pharmacies are reducing manual work, eliminating
             errors, and driving measurable growth with{" "}
-            <span className="">Skypond AI</span> .
+            <span className="">Skypond AI</span>
           </p>
         </div>
 
-        
         <div className="flex flex-wrap gap-6 justify-center mt-8 pointer-events-auto">
-         
-          <PrimaryButton title="Get Started For FREE" size="lg"/>
+          <PrimaryButton title="Get Started For FREE" size="lg" />
           <RequestDemo title="Schedule A Demo" size="lg" />
         </div>
         <div className="max-w-xl mx-auto mt-12 px-4 sm:px-6">
-  <div className="flex flex-row items-center gap-6">
-    {/* Avatar Stack */}
-    {/* <div className="flex justify-center mb-6 md:mb-0">
-      <div className="flex items-center -space-x-5">
-        {avatars.map((item, idx) => (
-          <Avatar
-            key={item.id}
-            className="
-              h-12 w-12
-              border-2 border-background
-              shadow-sm
-              transition-transform
-              duration-200
-              hover:scale-105
-              hover:z-10
-              
-            "
-            style={{ zIndex: avatars.length - idx }}
-          >
-            {item.icon ? (
-              <img
-                src={item.icon}
-                alt="partners"
-                className="relative h-16 bg-altbackground"
-              />
-            ) : null}
-            <AvatarFallback className="bg-muted text-xs font-semibold">
-              {item.fallback}
-            </AvatarFallback>
-          </Avatar>
-        ))}
-      </div>
-    </div> */}
+          <div className="flex flex-row items-center gap-6">
+            
 
-    {/* Text */}
-    <div className="flex flex-row justify-center text-center md:text-center">
-      <h1 className="font-body text-accent text-lg md:text-xl">
-        Join hundreds of pharmacy leaders already shaping the future of healthcare operations.
-      </h1>
-    </div>
-  </div>
-</div>
+            {/* Text */}
+            <div className="flex flex-row justify-center text-center md:text-center">
+              <h1 className="font-body text-accent text-lg md:text-xl">
+                Join hundreds of pharmacy leaders already shaping the future of
+                healthcare operations.
+              </h1>
+            </div>
+          </div>
+        </div>
         <div className="flex flex-col md:flex-row justify-center items-start mt-12 md:mt-12 gap-4">
           {advList.map((item, idx) => {
             const Icon = item.icon;

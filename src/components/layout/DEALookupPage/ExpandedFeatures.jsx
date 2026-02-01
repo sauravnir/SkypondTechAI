@@ -52,7 +52,7 @@ const ExpandedFeatures = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeIn" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 p-2 md:p-10 border mt-16 rounded-2xl bg-primary/10 shadow-lg "
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 p-2 md:p-10 border mt-16 rounded-2xl bg-darkprimary shadow-lg "
         >
           {/* First Card */}
           <div className="relative md:col-span-1 md:row-span-1 rounded-2xl border bg-card p-8 shadow-xl hover:shadow-2xl transition overflow-hidden">

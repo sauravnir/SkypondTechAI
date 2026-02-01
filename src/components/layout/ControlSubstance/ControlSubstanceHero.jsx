@@ -17,6 +17,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { NumberTicker } from "@/components/ui/number-ticker";
 
 ChartJS.register(
   CategoryScale,
@@ -70,6 +71,24 @@ export function StockTrendChart() {
   );
 }
 
+const stats = [
+  {
+    value: 75,
+    suffix: "% ",
+    body: "Reduction in inventory reconciliation time",
+  },
+  {
+    value: 98.8,
+    suffix: "%",
+    body: "DEA audit preparation accuracy",
+  },
+  {
+    value: 50,
+    prefix: "$",
+    suffix: "K+",
+    body: "Annual savings from elimated labor",
+  },
+];
 
 const ControlSubstanceHero = () => {
   const chartRef = useRef(null);
@@ -133,6 +152,16 @@ const ControlSubstanceHero = () => {
     };
   }, []);
 
+  // Controlling the animation timer of the stats
+  const [limit, setLimit] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLimit((prev) => prev + 1);
+    }, 50000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative overflow-hidden">
@@ -150,8 +179,8 @@ const ControlSubstanceHero = () => {
         animate={{ opacity: 1, y: 0, filter: ["blur(0px)"] }}
         transition={{ duration: 0.6, ease: "anticipate" }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 pt-40 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-8">
-          <div className="md:col-span-2 p-2 flex flex-col items-center text-center justify-center gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 pt-20 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-6 gap-14">
+          <div className="md:col-span-1 p-2 flex flex-col items-center md:items-start md:text-start text-center justify-start mt-10 gap-6">
             {/* Badge */}
             <div>
               <MainBadge heading="Control Substance" />
@@ -178,105 +207,107 @@ const ControlSubstanceHero = () => {
               <RequestDemo title="Request a Demo" size="lg" />
             </div>
 
-            <div className="flex flex-row items-center justify-start gap-2 -mt-2">
-                          {advList.map((item, idx) => {
-                            const Icon = item.icon;
-                            return (
-                              <div key={idx} className="flex text-start items-center gap-2">
-                                <span>
-                                  <Icon className={`w-4  ${item.color}`} />
-                                </span>
-                                <h1 className="font-ui text-muted text-small ">
-                                  {item.title}
-                                </h1>
-                              </div>
-                            );
-                          })}
-                        </div>
+            {/* card design */}
+            <div className="flex flex-row items-center justify-start gap-2 -mt-2 ">
+              {advList.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="flex text-start items-center gap-2">
+                    <span>
+                      <Icon className={`w-4  ${item.color}`} />
+                    </span>
+                    <h1 className="font-ui text-muted text-small ">
+                      {item.title}
+                    </h1>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                {stats.map((item, index) => (
+                  <div
+                    key={index}
+                    className="relative flex flex-col items-center text-center p-6 rounded-2xl bg-card border border-muted/20 shadow-2xl  transition-all duration-300 group overflow-hidden"
+                  >
+                    {/* Hover glow */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Number */}
+                    <div className="relative z-10 font-heading text-5xl font-extrabold text-heading flex items-baseline gap-1 mb-3">
+                      <NumberTicker
+                        key={limit}
+                        value={item.value}
+                        duration={4000}
+                        steps={100}
+                      />
+                      {item.suffix && (
+                        <span className="text-2xl font-body text-accent">
+                          {item.suffix}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="w-10 h-1 bg-gradient-to-r from-accent to-primary rounded-full mb-4" />
+
+                    <p className="relative z-10 font-body font-medium text-small text-heading/80 leading-relaxed">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
 
-          <div className="bg-darkprimary rounded-2xl p-4 md:col-span-2 mt-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4 bg-card rounded-2xl">
+          <div className="bg-card rounded-2xl p-4 mt-10 shadow-2xl pointer-events-none">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Stock Trend Chart */}
-              <div className="md:col-span-2 md:row-span-2 ">
-                <h3 className="text-lg font-body font-semibold mb-2 ">
+              <div className="md:col-span-3 md:row-span-2">
+                <h3 className="text-lg font-semibold mb-2">
                   Stock Trend (Last 30 Days)
-                  <StockTrendChart />
                 </h3>
+                <div className="border rounded-2xl">
+                  <StockTrendChart />
+                </div>
               </div>
 
               {/* Inventory Snapshot */}
-              <div className="md:col-span-1 md:row-span-2 bg-card rounded-2xl border shadow-xl p-4">
-                <h3 className="text-lg font-semibold mb-2">
+              <div className="md:col-span-2 md:row-span-1 bg-card rounded-2xl border shadow-lg p-4">
+                <h3 className="text-lg font-semibold mb-4">
                   Inventory Snapshot
                 </h3>
-                <div className="md:h-[350px] bg-background/80 p-2 rounded-2xl  overflow-x-auto mt-4">
+                <div className="overflow-y-auto">
                   <table className="w-full text-left text-sm border-collapse">
                     <thead>
                       <tr className="text-muted-foreground border-b">
-                        <th className="px-3 py-1">Item Name</th>
-                        <th className="px-3 py-1">Quantity</th>
-                        <th className="px-3 py-1">Status</th>
+                        <th className="px-2 py-1">Item</th>
+                        <th className="px-2 py-1">Qty</th>
+                        <th className="px-2 py-1">Status</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y">
                       {[
-                        {
-                          name: "Morphine 10mg",
-                          qty: 120,
-                          status: "Safe",
-                          updated: "2026-01-30",
-                        },
-                        {
-                          name: "Oxycodone 5mg",
-                          qty: 35,
-                          status: "Low",
-                          updated: "2026-01-28",
-                        },
-                        {
-                          name: "Fentanyl 2mcg",
-                          qty: 5,
-                          status: "Critical",
-                          updated: "2026-01-31",
-                        },
-                        {
-                          name: "Hydrocodone 10mg",
-                          qty: 60,
-                          status: "Safe",
-                          updated: "2026-01-29",
-                        },
-                        {
-                          name: "Codeine 30mg",
-                          qty: 25,
-                          status: "Low",
-                          updated: "2026-01-27",
-                        },
-                        {
-                          name: "Methadone 5mg",
-                          qty: 8,
-                          status: "Critical",
-                          updated: "2026-01-30",
-                        },
-                        {
-                          name: "Buprenorphine 2mg",
-                          qty: 45,
-                          status: "Safe",
-                          updated: "2026-01-26",
-                        },
-                        {
-                          name: "Hydromorphone 4mg",
-                          qty: 12,
-                          status: "Low",
-                          updated: "2026-01-28",
-                        },
+                        { name: "Morphine 10mg", qty: 120, status: "Safe" },
+                        { name: "Oxycodone 5mg", qty: 5, status: "Critical" },
+                        { name: "Fentanyl 2mcg", qty: 45, status: "Low" },
+                        { name: "Paracetamol 50mg", qty: 60, status: "Low" },
+                         { name: "Acetone 2mg", qty: 200, status: "Safe" },
+                        
                       ].map((item, i) => (
                         <tr
                           key={i}
                           className="hover:bg-accent/5 transition-colors"
                         >
-                          <td className="px-3 py-2 font-mono">{item.name}</td>
-                          <td className="px-3 py-2">{item.qty}</td>
-                          <td className="px-3 py-2">
+                          <td className="px-2 py-1 font-mono">{item.name}</td>
+                          <td className="px-2 py-1">{item.qty}</td>
+                          <td className="px-2 py-1">
                             <span
                               className={`text-xs font-medium px-2 py-1 rounded-full ${
                                 item.status === "Safe"
@@ -297,69 +328,27 @@ const ControlSubstanceHero = () => {
               </div>
 
               {/* Alerts */}
-              <div className="bg-card border rounded-2xl shadow-xl p-4">
+              <div className="md:col-span-1 bg-card border rounded-2xl shadow-lg p-4">
                 <h3 className="text-lg font-semibold mb-2">Alerts</h3>
-                <div className="bg-background/80 p-2 rounded-2xl">
-                  <ul className="space-y-2">
-                    <li className="flex items-center justify-between p-2 bg-red-50 rounded-xl text-small">
-                      <span>Fentanyl 2mcg stock below threshold</span>
-                      <span className="text-red-600 font-semibold">
-                        Critical
-                      </span>
-                    </li>
-                    <li className="flex items-center justify-between p-2 bg-yellow-50 rounded-xl text-small">
-                      <span>Oxycodone 5mg stock low</span>
-                      <span className="text-yellow-600 font-semibold">Low</span>
-                    </li>
-                  </ul>
-                </div>
+                <ul className="space-y-2">
+                  <li className="flex items-center justify-between p-2 bg-red-50 rounded-xl text-sm">
+                    <span>Fentanyl 2mcg stock below threshold</span>
+                  </li>
+                  <li className="flex items-center justify-between p-2 bg-yellow-50 rounded-xl text-sm">
+                    <span>Oxycodone 5mg stock low</span>
+                  </li>
+                  <li className="flex items-center justify-between p-2 bg-red-200 rounded-xl text-sm">
+                    <span>Paracetamol 100mcg stock low</span>
+                  </li>
+                </ul>
               </div>
 
-              {/* Recent Activity */}
-              <div className="bg-card border rounded-2xl shadow-xl p-4">
-                <h3 className="text-lg font-semibold mb-2">Recent Activity</h3>
-                <div className="bg-background/80 p-2 rounded-2xl">
-                  <ul className="space-y-1 text-sm tracking-tight text-muted-foreground ">
-                    <li>-Verified 5 DEA numbers for Morphine (2026-01-30)</li>
-                    <li>
-                      -Generated compliance report for Oxycodone (2026-01-29)
-                    </li>
-                    <li>-Checked Fentanyl expiration date (2026-01-28)</li>
-                  </ul>
-                </div>
-              </div>
-
-              {/* Expiring DEA Licenses */}
-              <div className="bg-card border rounded-2xl shadow-xl p-4">
-                <h3 className="text-lg font-semibold mb-2">
-                  Expiring DEA Licenses
-                </h3>
-                <div className="bg-background/80 p-2 rounded-2xl">
-                  <ul className="space-y-2 text-small">
-                    {[
-                      { prescriber: "Dr. John Smith", daysLeft: 12 },
-                      { prescriber: "Dr. Alice Brown", daysLeft: 25 },
-                      { prescriber: "Dr. Mark Lee", daysLeft: 7 },
-                    ].map((item, i) => (
-                      <li
-                        key={i}
-                        className="flex justify-between p-2 rounded-xl bg-red-50 "
-                      >
-                        <span>{item.prescriber}</span>
-                        <span className="text-heading">
-                          {item.daysLeft} days
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="col-span-3 text-center px-4 text-small text-muted">
+                <span>{new Date().getFullYear()} Skypond AI. All rights reserved.</span>
               </div>
             </div>
           </div>
         </div>
-
-
-       
       </motion.div>
     </div>
   );

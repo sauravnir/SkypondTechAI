@@ -132,30 +132,12 @@ const MissionAnimation = () => {
 // Animation for WhyWeBuild Section
 const WhyBuildAnimation = () => {
   const whyWeBuild = [
-    // {
-    //   title: "Complex Workflows",
-    //   body: "Manual tasks and repetitive processes slow teams down",
-    //   icon: Target,
-    //   gradient: "bg-gradient-to-r from-[#5391f4ff] to-[#0e81c8ff]",
-    // },
-    // {
-    //   title: "Compliance Burden",
-    //   body: "Regulations are critical but cumbersome",
-    //   icon: Eye,
-    //   gradient: "bg-gradient-to-r from-[#18cd91ff] to-[#0d9488ff]",
-    // },
     {
       title: "Smart AI Assistance",
       body: "Automates tasks while supporting decision-making",
       icon: Handshake,
       gradient: "bg-gradient-to-r from-[#fcbf1eff] to-[#e1701eff]",
     },
-    // {
-    //   title: "Error Reduction",
-    //   body: "Minimizes mistakes, improves accuracy",
-    //   icon: CheckCircle,
-    //   gradient: "bg-gradient-to-r from-[#f87171] to-[#ef4444]",
-    // },
     {
       title: "Empowered Professionals",
       body: "Lets pharmacists focus on patient care",
@@ -174,18 +156,7 @@ const WhyBuildAnimation = () => {
       icon: Handshake,
       gradient: "bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed]",
     },
-    // {
-    //   title: "Seamless Integration",
-    //   body: "Connects effortlessly with existing pharmacy software",
-    //   icon: Eye,
-    //   gradient: "bg-gradient-to-r from-[#06b6d4] to-[#0e7490]",
-    // },
-    // {
-    //   title: "Patient-Centric Care",
-    //   body: "Ensures pharmacy teams can focus on improving patient outcomes",
-    //   icon: Award,
-    //   gradient: "bg-gradient-to-r from-[#f97316] to-[#ea580c]",
-    // },
+  
     {
       title: "Scalable Solutions",
       body: "Adaptable technology that grows with your organization",

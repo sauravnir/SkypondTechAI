@@ -13,6 +13,7 @@ import {
   Barcode,
 } from "lucide-react";
 import { NumberTicker } from "@/components/ui/number-ticker";
+import { Separator } from "@radix-ui/react-separator";
 
 const featureList = [
   {
@@ -65,36 +66,179 @@ const featureList = [
   },
 ];
 
-const stats = [
-  {
-    value: 75,
-    suffix: "% ",
-    body: "Reduction in inventory reconciliation time",
-  },
-  {
-    value: 98.8,
-    suffix: "%",
-    body: "DEA audit preparation accuracy",
-  },
-  {
-    value: 50,
-    prefix: "$",
-    suffix: "K+",
-    body: "Annual savings from elimated labor",
-  },
-];
+// Comparison section
+const ComparisonSection = () => {
+  const disadvantages = [
+    {
+      title: "Human Error Risk",
+      description:
+        "Data entry mistakes and calculation errors lead to 15-20% error rate in inventory records",
+    },
+    {
+      title: "Time-Consuming",
+      description:
+        "2-4 hours daily for manual reconciliation, with biennial inventory taking an entire week",
+    },
+    {
+      title: "No Real-Time Visibility",
+      description:
+        "Can't see current inventory status, causing delays in identifying theft or diversion",
+    },
+    {
+      title: "Compliance Risks",
+      description:
+        "High risk of DEA violations with potential $10K+ fines from incomplete audit trails",
+    },
+  ];
+
+  const advantages = [
+    {
+      title: "99.9% Accuracy",
+      description:
+        "Eliminates manual data entry errors with automatic calculations and real-time validation",
+    },
+    {
+      title: "Massive Time Savings",
+      description:
+        "Reconciliation takes 10 minutes vs 3 hours, with 75%+ reduction in administrative work",
+    },
+    {
+      title: "Real-Time Visibility",
+      description:
+        "Live inventory counts 24/7 with instant discrepancy detection and alerts",
+    },
+    {
+      title: "Audit-Ready Instantly",
+      description:
+        "One-click report generation with all DEA-required documentation organized and compliant",
+    },
+  ];
+
+  return (
+    <section className="py-12 bg-card shadow-2xl rounded-2xl mt-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Comparison Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          {/* Disadvantages Side (Left) */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            {/* Header Badge */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="px-4 py-2 rounded-full border ">
+                <span className="text-red-700 dark:text-red-300 font-bold text-h3">
+                  Manual Spreadsheets
+                </span>
+              </div>
+            </div>
+
+            {/* Disadvantages List */}
+            <div className="space-y-6">
+              {disadvantages.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative bg-background rounded-xl border p-6"
+                >
+                  <div className="flex gap-4 ml-4">
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+                        <svg
+                          className="w-5 h-5 text-red-500"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-start text-paragraph">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Advantages Side (Right) */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            {/* Header Badge */}
+            <div className="flex items-center gap-3 mb-8">
+              <div className="px-4 py-2  rounded-full border">
+                <span className="text-green-700 dark:text-green-300 font-bold text-h3">
+                  Automated Tracking
+                </span>
+              </div>
+            </div>
+
+            {/* Advantages List */}
+            <div className="space-y-6">
+              {advantages.map((item, index) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative bg-background dark:bg-gray-800 border rounded-xl p-6  "
+                >
+                 
+
+                  <div className="flex gap-4 ml-4">
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+                        <svg
+                          className="w-5 h-5 text-green-500"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-start text-paragraph">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+      
+      </div>
+    </section>
+  );
+};
 
 const ControlSubstanceFeatures = () => {
-  // Controlling the animation timer of the stats
-  const [limit, setLimit] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLimit((prev) => prev + 1);
-    }, 50000);
-
-    return () => clearInterval(interval);
-  }, []);
   return (
     <div className="relative overflow-hidden bg-background">
       <div className="flex flex-col justify-center items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 ">
@@ -127,10 +271,10 @@ const ControlSubstanceFeatures = () => {
             return (
               <Card
                 key={id}
-                className="group relative rounded-2xl borde md:h-[450px] border-accent bg-background/80 backdrop-blur-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center overflow-hidden"
+                className="group relative rounded-2xl border-accent bg-background/80 backdrop-blur-lg shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center overflow-hidden"
               >
                 {/* <div className="absolute bottom-0 left-0 w-full h-2 bg-altbackground" /> */}
-                <CardContent className="relative z-10 p-4 py-6 flex flex-col items-center space-y-6">
+                <CardContent className="relative z-10 p-4 py-4 flex flex-col items-center space-y-6">
                   <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-darkprimary ring-1 ring-white/20 shadow-lg">
                     {React.createElement(item.icon, {
                       className: "w-8 h-8 text-white",
@@ -156,9 +300,9 @@ const ControlSubstanceFeatures = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col items-center text-center relative overflow-hidden max-w-7xl mx-auto p-8 py-20"
+        className="flex flex-col items-center text-center relative overflow-hidden bg-white p-8 py-20"
       >
-        <div className="relative z-10 ">
+        <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -166,7 +310,7 @@ const ControlSubstanceFeatures = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mb-12 "
           >
-            <MainBadge heading="Real stats" />
+            <MainBadge heading="Compare and contrast" />
 
             <h2 className="font-heading text-h1 font-bold text-heading">
               Eliminate manual C-II through C-V tracking spreadsheets
@@ -177,46 +321,8 @@ const ControlSubstanceFeatures = () => {
               controlled substance inventory tracking built for regulatory
               compliance.
             </p>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {stats.map((item, index) => (
-                <div
-                  key={index}
-                  className="relative flex flex-col items-center text-center p-6 rounded-2xl bg-background border border-muted/20 shadow-md hover:shadow-xl transition-all duration-300 group overflow-hidden"
-                >
-                  {/* Hover glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                  {/* Number */}
-                  <div className="relative z-10 font-heading text-5xl font-extrabold text-heading flex items-baseline gap-1 mb-3">
-                    <NumberTicker
-                      key={limit}
-                      value={item.value}
-                      duration={4000}
-                      steps={100}
-                    />
-                    {item.suffix && (
-                      <span className="text-2xl font-body text-accent">
-                        {item.suffix}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="w-10 h-1 bg-gradient-to-r from-accent to-primary rounded-full mb-4" />
-
-                  <p className="relative z-10 font-body font-medium text-sm text-muted leading-relaxed">
-                    {item.body}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <ComparisonSection />
           </motion.div>
         </div>
       </motion.div>
