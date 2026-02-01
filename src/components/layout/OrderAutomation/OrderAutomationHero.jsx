@@ -83,15 +83,15 @@ export default function OrderAutomationHero() {
         animate={{ opacity: 1, y: 0, filter: ["blur(0px)"] }}
         transition={{ duration: 0.6, ease: "anticipate" }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 pt-40 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-8">
-          <div className="p-2 flex flex-col gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2  pt-40 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-8">
+          <div className="p-2 flex flex-col items-center md:items-start text-center md:text-start gap-6">
             {/* Badge */}
             <div>
               <MainBadge heading="Order Automation" />
             </div>
 
             {/* Text */}
-            <div className="max-w-3xl flex flex-col gap-6">
+            <div className="max-w-6xl flex flex-col gap-6">
               <h1 className="font-heading text-h1 font-bold text-heading">
                 Eliminate Manual Order Entry. Accelerate Every Order.
               </h1>
@@ -103,7 +103,8 @@ export default function OrderAutomationHero() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-start md:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+
               <PrimaryButton title="Get Started for FREE" size="lg" />
               <RequestDemo title="Request a Demo" size="lg" />
             </div>
@@ -145,7 +146,7 @@ export default function OrderAutomationHero() {
                     return (
                       <div
                         key={step}
-                        className="h-[80px] flex items-center gap-2 font-body text-small p-4 shadow mx-6 mt-4 rounded-2xl bg-muted/5 transition-all duration-300 hover:bg-muted/10"
+                        className="h-[80px] flex items-center gap-2 font-body text-small p-4 shadow-lg border mx-6 mt-4 rounded-2xl bg-card/5 transition-all duration-300 hover:bg-muted/10"
                       >
                         {completed ? (
                           <CircleCheck className="text-emerald-300" size={20} />

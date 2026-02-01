@@ -106,10 +106,10 @@ const ControlSubstanceFeatures = () => {
           className="flex flex-col justify-center items-center text-center "
         >
           <MainBadge heading="Features" />
-          <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
+          <h1 className="font-heading text-h1 w-full text-heading font-bold">
             Powerful features for Smarter Inventory Management
           </h1>
-          <p className="mt-4 max-w-xl font-body text-paragraph text-muted">
+          <p className="mt-4 max-w-5xl font-body text-paragraph text-muted">
             Track, monitor, and control your controlled substances with
             real-time updates, predictive alerts, and automated compliance
             reporting — all from a single intuitive dashboard.
@@ -156,7 +156,7 @@ const ControlSubstanceFeatures = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col items-center text-center relative overflow-hidden max-w-6xl mx-auto p-8 py-20"
+        className="flex flex-col items-center text-center relative overflow-hidden max-w-7xl mx-auto p-8 py-20"
       >
         <div className="relative z-10 ">
           <motion.div
@@ -168,11 +168,11 @@ const ControlSubstanceFeatures = () => {
           >
             <MainBadge heading="Real stats" />
 
-            <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-heading leading-tight max-w-3xl mx-auto">
+            <h2 className="font-heading text-h1 font-bold text-heading">
               Eliminate manual C-II through C-V tracking spreadsheets
             </h2>
 
-            <p className="mt-4 text-muted max-w-2xl mx-auto">
+            <p className="mt-4 text-muted max-w-5xl mx-auto">
               Replace error-prone spreadsheets with automated, real-time
               controlled substance inventory tracking built for regulatory
               compliance.

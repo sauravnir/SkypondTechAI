@@ -46,10 +46,10 @@ export default function HowItWorks() {
           className="flex flex-col justify-center items-center text-center"
         >
           <MainBadge heading="How It Works" />
-          <h1 className="font-heading text-h1 max-w-3xl text-heading font-bold">
-            From order capture to fulfillment — fully automated, end to end
+          <h1 className="font-heading text-h1 max-w-7xl text-heading font-bold">
+            From order capture to fulfillment—fully automated, end to end
           </h1>
-          <p className="mt-4 max-w-xl font-body text-paragraph text-muted">
+          <p className="mt-4 max-w-6xl font-body text-paragraph text-muted">
             Every order is processed automatically — with speed, accuracy, and
             complete visibility at every stage.
           </p>

@@ -127,12 +127,10 @@ const MainServices = ({ id }) => {
         >
           <div className="flex flex-col justify-center items-center text-center">
            <MainBadge heading={"Our Solutions"} />
-            <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
-              Enterprise Grade AI Solutions
-              <br></br>
-              Purpose - Built for LTC Pharmacy
+            <h1 className="font-heading text-h1 max-w-7xl text-heading font-bold">
+              Enterprise Grade AI Solutions Purpose - Built for LTC Pharmacy
             </h1>
-            <p className="mt-4 max-w-3xl font-body text-paragraph text-muted">
+            <p className="mt-4 max-w-4xl font-body text-paragraph text-muted">
               Transform every aspect of your pharmacy operations with our
               intergrated AI platform designed specifically for long-term care
               environments

@@ -105,19 +105,19 @@ const HeroSection = ({ id }) => {
       </svg>
 
       <div className="relative flex flex-col max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 justify-center items-center pointer-events-none ">
-        <div className="max-w-3xl items-center text-center ">
+        <div className="w-full items-center text-center ">
           {/* Referencing H1 for animation */}
           <motion.h1
             initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
           >
-            <h1 className="font-heading text-hero leading-[1.1] font-extrabold max-w-4xl">
+            <h1 className="font-heading text-hero leading-[1.1] font-extrabold ">
               <span className="block text-gradient">
-                Transforming Healthcare and Long-Term Care 
+                Transforming Healthcare and Long-Term Care  <span className="text-hero font-bold text-heading">with Enterprise AI</span>
               </span> 
             </h1>
-            <span className="text-hero font-bold text-heading">with Enterprise AI</span>
+           
           </motion.h1>
 
           <motion.div
@@ -126,7 +126,7 @@ const HeroSection = ({ id }) => {
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
           >
             <div className="flex flex-col justify-center items-center text-center mt-8 ">
-              <p className="font-body text-paragraph text-muted max-w-3xl leading-relaxed px-4">
+              <p className="font-body text-paragraph text-muted max-w-5xl leading-relaxed px-4">
                 Skypond delivers purpose-built AI solutions for pharmacies,
                 skilled nursing facilities, and healthcare providers—automating
                 operations, ensuring compliance, and driving measurable outcomes

@@ -80,16 +80,10 @@ export default function StepSection({id}) {
       {/* Bg color */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
   {/* Blue blob */}
-  {/* <div
+  <div
     className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
     style={{ transform: "translate(50%, 20%)" }}
-  /> */}
-
-  {/* Purple blob */}
-  {/* <div
-    className="absolute top-1/2 left-1/2 w-96 h-96 bg-primary/30 rounded-full blur-3xl opacity-50"
-    style={{ transform: "translate(-25%, -5%)" }}
-  /> */}
+  />
 </div>
     
       <motion.div
@@ -99,7 +93,7 @@ export default function StepSection({id}) {
           transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
       className="text-center mb-12 ">
         <MainBadge heading="Quick Integration" />
-        <h1 className="font-heading text-h1 max-w-3xl mx-auto font-bold">
+        <h1 className="font-heading text-h1 max-w-7xl mx-auto font-bold">
           From Integration to Transformation in {""}
            4 Simple Steps
         </h1>
@@ -116,7 +110,7 @@ export default function StepSection({id}) {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.4, ease: "easeIn" }}
-        className="grid grid-cols-1 lg:grid-cols-4 gap-10 max-w-5xl mx-auto "
+        className="grid grid-cols-1 lg:grid-cols-4 gap-10 max-w-6xl mx-auto "
       >
         {steps.map((item, index) => {
           const Icon = item.icon;
@@ -131,7 +125,7 @@ export default function StepSection({id}) {
               className="relative"
             >
               <Card
-                className={`group relative rounded-2xl border border-lg bg-background border-darkaccent backdrop-blur-xl shadow-lg cursor-pointer transition-all duration-300 animate-float mt-12 ${
+                className={`md:min-h-[300px] group relative rounded-2xl border border-lg bg-background border-darkaccent backdrop-blur-xl shadow-lg cursor-pointer transition-all duration-300 animate-float mt-12 ${
                   isActive ? `bg-muted/5 hover:shadow-2xl` : `bg-transparent`
                 }`}
               >

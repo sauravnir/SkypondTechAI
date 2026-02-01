@@ -44,10 +44,10 @@ export default function ProductsSection() {
         >
           <div className="flex flex-col justify-center items-center text-center">
             <Badge heading={"Our Products"}/>
-            <h1 className="font-heading text-h1 max-w-4xl text-heading font-bold">
+            <h1 className="font-heading text-h1 max-w-7xl text-heading font-bold">
               Empowering Pharmacies with Intelligent Technology
             </h1>
-            <p className="mt-4 max-w-3xl font-body text-paragraph text-muted">
+            <p className="mt-4 max-w-4xl font-body text-paragraph text-muted">
               From DEA Verification to controlled substance management and
               analytics - everything you need to operate with confidence and
               precision
@@ -55,7 +55,7 @@ export default function ProductsSection() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto mt-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto mt-24">
           {products.map((item, idx) => {
             return (
               <motion.div

@@ -158,12 +158,12 @@ const ControlSubstanceHero = () => {
             </div>
 
             {/* Text */}
-            <div className="max-w-3xl flex flex-col gap-6">
+            <div className="max-w-7xl flex flex-col gap-6">
               <h1 className="font-heading text-h1 font-bold text-heading">
                 Controlled Substance Inventory Management
               </h1>
 
-              <p className="font-body text-paragraph text-muted">
+              <p className="font-body text-paragraph text-muted max-w-6xl">
                 Comprehensive inventory management solution for controlled
                 substances. Track stock levels in real-time, maintain regulatory
                 compliance, automate reporting, and reduce discrepancies with
@@ -358,7 +358,7 @@ const ControlSubstanceHero = () => {
           </div>
         </div>
 
-        {/* Stats Section */}
+
        
       </motion.div>
     </div>

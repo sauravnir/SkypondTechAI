@@ -76,21 +76,21 @@ const menuItems = [
     subItems: [
       {
         icon: SearchCheck,
-        title: "DEA Lookup",
+        title: "DEA Lookup ",
         desc: "Essential tool for DEA Number Verification",
         subLink: "/Dealookup",
         gradient: "from-[#6366F1] to-[#06B6D4]",
       },
       {
         icon: LayoutGrid,
-        title: "Controlled Substance Inventory App",
+        title: "Controlled Substance Inventory Management",
         desc: "Comprehensive inventory management solution",
         subLink: "/ControlSubstanceInventoryApp",
         gradient: "from-[#4e50bd] to-[#6366F1]",
       },
       {
         icon: ChartArea,
-        title: "LTC Analysis",
+        title: "LTC Analysis Portal",
         desc: "Advanced analytics platform for long-term care facilities",
         subLink: "/404Error",
         gradient: "from-[#06B6D4] to-[#047d92]",

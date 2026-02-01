@@ -204,7 +204,7 @@ const WhyBuildAnimation = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="relative flex flex-col w-[full] max-w-sm md:max-w-md h-[470px] md:h-[450px] overflow-hidden p-2">
+    <div className="relative flex flex-col w-[full] max-w-lg h-[470px] md:h-[450px] overflow-hidden p-2 mx-auto">
       <AnimatedList key={listKey} delay={500}>
         {whyWeBuild.map((i) => {
           const Icons = i.icon;
@@ -248,7 +248,7 @@ export default function MissionSection() {
 
   return (
     <section className="relative overflow-hidden ">
-      <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
+      <div className="flex flex-col px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28 ">
         <div className="flex flex-col  lg:flex-row lg:items-end lg:justify-between ">
           <motion.div
             initial={{ opacity: 0 }}
@@ -258,17 +258,17 @@ export default function MissionSection() {
             className="items-start"
           >
             <MainBadge heading="Our Goals" />
-            <h1 className="text-start font-heading max-w-xl mx-auto text-h1 text-heading font-bold ">
+            <h1 className="text-start font-heading max-w-6xl mx-auto text-h1 text-heading font-bold ">
               Shaping the future of LTC Pharmacy
             </h1>
-            <p className="mt-8 mb-4 max-w-lg font-body text-paragraph text-muted ">
+            <p className="mt-8 mb-4 max-w-4xl font-body text-paragraph text-muted ">
               Smarter automation, measurable outcomes, and a new standard for
               long-term care pharmacy operations
             </p>
             <ScheduleDemoButton title="Schedule a demo"/>
           </motion.div>
         </div>
-        <div className="relative max-w-6xl mx-auto space-y-32 mt-8">
+        <div className="relative space-y-10 mt-8">
           <div className="absolute left-1/2 top-0 h-full w-px bg-border/40 -translate-x-1/2 hidden lg:block" />
           {content.map((item, index) => {
             return (
@@ -309,7 +309,7 @@ export default function MissionSection() {
                     </div>
                   </div>
 
-                  <div className="text-">
+                  <div className="max-w-xl">
                     <p className="font-body text-paragraph text-muted text-justify hyphens-auto">
                       {item.body}
                     </p>
@@ -366,7 +366,7 @@ export default function MissionSection() {
               d="M0,192L96,208C192,224,384,256,576,245.3C768,235,960,181,1152,160C1344,139,1440,160,1440,160L1440,0L0,0Z"
             />
           </svg>
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <div className="bg-white rounded-3xl shadow-xl border-2 p-8 lg:p-12 relative overflow-hidden animate-float">
               {/* Corner accent */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-accent/20 to-primary rounded-full -translate-y-1/2 translate-x-1/2 opacity-100"></div>

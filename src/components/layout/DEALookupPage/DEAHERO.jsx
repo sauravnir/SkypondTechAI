@@ -119,14 +119,14 @@ const DEAHERO = () => {
         transition={{ duration: 0.6, ease: "anticipate" }}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 pt-40 pb-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-8">
-          <div className="p-2 flex flex-col gap-6">
+          <div className="p-2 flex flex-col items-center text-center md:items-start md:text-start gap-6">
             {/* Badge */}
             <div>
               <MainBadge heading="DEA Lookup " />
             </div>
 
             {/* Text */}
-            <div className="max-w-3xl flex flex-col gap-6">
+            <div className="flex flex-col gap-6">
               <h1 className="font-heading text-h1 font-bold text-heading">
                 DEA Lookup & Compliance Verification
               </h1>

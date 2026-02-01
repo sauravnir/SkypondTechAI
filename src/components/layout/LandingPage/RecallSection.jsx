@@ -6,7 +6,7 @@ import {
   Shield,
 } from "lucide-react";
 
-import { PrimaryButton, RequestDemo, SecondaryButton } from "@/components/reusable/Button";
+import { PrimaryButton, RequestDemo } from "@/components/reusable/Button";
 
 export default function RecallSection({id}) {
   const advList = [
@@ -29,13 +29,13 @@ export default function RecallSection({id}) {
 
   return (
     <section id={id} className="relative overflow-hidden bg-altbackground">
-      <div className="flex flex-col max-w-7xl mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
+      <div className="flex flex-col  mx-auto px-6 py-20 sm:px-8 md:px-12 lg:px-20 xl:px-28">
         <div className="flex flex-col justify-center items-center text-center space-y-4">
           <h1 className="font-heading text-h1 max-w-5xl text-white font-bold">
             <span className="text-primary">Transform</span> Your Pharmacy
             Operations <span className="text-primary">Today</span>
           </h1>
-          <p className="mt-3 max-w-3xl font-body text-paragraph text-muted">
+          <p className="mt-3 max-w-5xl font-body text-paragraph text-muted">
             See how leading LTC pharmacies are reducing manual work, eliminating
             errors, and driving measurable growth with{" "}
             <span className="">Skypond AI</span> .
@@ -43,7 +43,7 @@ export default function RecallSection({id}) {
         </div>
 
         
-        <div className="flex flex-wrap gap-6 justify-center mt-16 pointer-events-auto">
+        <div className="flex flex-wrap gap-6 justify-center mt-8 pointer-events-auto">
          
           <PrimaryButton title="Get Started For FREE" size="lg"/>
           <RequestDemo title="Schedule A Demo" size="lg" />
