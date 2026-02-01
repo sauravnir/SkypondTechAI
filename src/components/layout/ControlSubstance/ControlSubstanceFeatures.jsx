@@ -127,7 +127,7 @@ const ComparisonSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative p-8 rounded-2xl shadow-2xl shadow-primary"
+            className="relative p-8 rounded-2xl border shadow-2xl "
           >
 
             

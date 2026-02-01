@@ -13,65 +13,7 @@ const LTCAnalyticsLayeredUI = () => {
     <div className="w-full h-full flex items-center justify-center p-2 pointer-events-none">
       <div className="relative w-full max-w-6xl h-[500px]">
         {/* LAYER 2 - Middle Cards (Slightly Elevated) */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 30, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="absolute top-20 left-12 right-12"
-          style={{ transform: 'translateZ(50px)' }}
-        >
-          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-md rounded-2xl shadow-xl border border-gray-300/50 dark:border-gray-600/50 p-8">
-            <div className="grid grid-cols-3 gap-6">
-              
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100/50 dark:from-purple-900/30 dark:to-purple-800/20 rounded-xl p-5 border border-purple-200 dark:border-purple-700">
-                <div className="text-xs text-purple-700 dark:text-purple-300 font-semibold mb-2">
-                  Active Patients
-                </div>
-                <div className="text-3xl font-bold text-purple-900 dark:text-purple-100 mb-2">
-                  342
-                </div>
-                <div className="flex items-center gap-1 text-xs">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-semibold text-green-700 dark:text-green-400">+8.2%</span>
-                </div>
-              </div>
-
-            
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-900/30 dark:to-blue-800/20 rounded-xl p-5 border border-blue-200 dark:border-blue-700">
-                <div className="text-xs text-blue-700 dark:text-blue-300 font-semibold mb-2">
-                  Medications Managed
-                </div>
-                <div className="text-3xl font-bold text-blue-900 dark:text-blue-100 mb-2">
-                  1,247
-                </div>
-                <div className="flex items-center gap-1 text-xs">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-semibold text-green-700 dark:text-green-400">+12.5%</span>
-                </div>
-              </div>
-
-            
-              <div className="bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-900/30 dark:to-green-800/20 rounded-xl p-5 border border-green-200 dark:border-green-700">
-                <div className="text-xs text-green-700 dark:text-green-300 font-semibold mb-2">
-                  Compliance Rate
-                </div>
-                <div className="text-3xl font-bold text-green-900 dark:text-green-100 mb-2">
-                  98.4%
-                </div>
-                <div className="flex items-center gap-1 text-xs">
-                  <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-semibold text-green-700 dark:text-green-400">+2.1%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div> */}
+        
 
         {/* LAYER 3 - Top Floating Cards (Most Prominent) */}
         
@@ -343,19 +285,19 @@ const LTCHero = () => {
               })}
             </div>
 
-            {/* Stats */}
+            
            
           </div>
           <LTCAnalyticsLayeredUI />
         </div>
-
+{/* Stats */}
              <motion.div
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
                         >
-                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-5 pb-20 max-w-6xl mx-auto">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-2 gap-6 mt-5 pb-20 max-w-6xl mx-auto">
                             {stats.map((item, index) => (
                               <div
                                 key={index}
