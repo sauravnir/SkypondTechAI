@@ -47,121 +47,89 @@ const reasons = [
 
 // Reduce Error Card
 export const ReduceErrorUI = () => {
-  const verificationSteps = [
-    {
-      step: "Drug Name Verification",
-      status: "passed",
-      detail: "Matched: Lisinopril 10mg",
-    },
-    { step: "Dosage Check", status: "passed", detail: "Within safe range" },
-    {
-      step: "Drug Interaction Scan",
-      status: "passed",
-      detail: "No conflicts detected",
-    },
-    {
-      step: "Patient Allergy Check",
-      status: "passed",
-      detail: "Safe to dispense",
-    },
-    {
-      step: "Final Verification",
-      status: "passed",
-      detail: "Ready for dispensing",
-    },
+  const checks = [
+    "Medication name verified",
+    "Dosage validated",
+    "Interactions screened",
+    "Allergies cross-checked",
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center mt-56 md:mt-32 pointer-events-none">
-      <div className="w-full ">
-        <div className="bg-gradient-to-b from-gray-850 to-gray-900 rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
-          {/* Header */}
-          <div className="hidden md:block px-6 py-4">
-            <div className="flex items-center gap-3">
-              <div>
-                <h3 className="text-lg sm:text-xl font-bold text-white">
-                  AI-Powered Verification
-                </h3>
-                <p className="text-red-100/80 text-xs sm:text-sm">
-                  Multi-layer error prevention system
-                </p>
+    <div className="w-full h-full flex items-center justify-center pointer-events-none mt-52 md:mt-0">
+      <div className="w-full">
+        <div className="relative rounded-2xl border border-white/10 bg-gradient-to-b from-gray-850 to-gray-900 shadow-2xl overflow-hidden">
+
+          <div className="relative z-10 p-8 space-y-8">
+
+            {/* Title */}
+            <div>
+              <h3 className="text-xl font-bold text-white">
+                Built to Prevent Errors
+              </h3>
+              <p className="text-sm text-neutral-400 max-w-md mt-2">
+                AI continuously safeguards every prescription — quietly,
+                automatically, and without disrupting workflows.
+              </p>
+            </div>
+
+            {/* Central Flow */}
+            <div className="flex items-center justify-between gap-4">
+
+              {/* Input */}
+              <div className="flex-1 rounded-xl border border-white/10 bg-gray-800/70 p-4">
+                <div className="text-xs text-neutral-400 mb-1">
+                  Incoming Prescription
+                </div>
+                <div className="text-sm font-semibold text-white">
+                  Lisinopril · 10mg · 30 tablets
+                </div>
+              </div>
+
+              {/* AI Node */}
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="relative flex items-center justify-center"
+              >
+                <div className="absolute w-20 h-20 rounded-full bg-emerald-500/20 blur-xl animate-pulse" />
+                <div className="w-12 h-12 rounded-full border border-emerald-500/40 bg-emerald-500/10 flex items-center justify-center text-emerald-300 text-xs font-bold">
+                  AI
+                </div>
+              </motion.div>
+
+              {/* Output */}
+              <div className="flex-1 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4">
+                <div className="text-xs text-emerald-300 mb-1">
+                  Safe to Dispense
+                </div>
+                <div className="text-sm font-semibold text-white">
+                  Cleared without intervention
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Prescription Preview */}
-          <div className="p-4 sm:p-6 border-b border-white/10">
-            <div className="bg-gray-800 border border-white/15 rounded-xl p-4">
-              <div className="flex justify-between items-start mb-3 gap-4">
-                <div>
-                  <div className="text-xs text-neutral-400 font-semibold mb-1">
-                    Patient
-                  </div>
-                  <div className="text-base sm:text-lg font-bold text-white">
-                    John Smith
-                  </div>
-                </div>
-
-                <div className="px-2.5 py-1 bg-emerald-500/15 text-emerald-300 text-xs font-bold rounded-full border border-emerald-500/30 whitespace-nowrap">
-                  VERIFIED
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-                <div>
-                  <div className="text-xs text-neutral-400">Medication</div>
-                  <div className="font-semibold text-white">
-                    Lisinopril 10mg
-                  </div>
-                </div>
-                <div>
-                  <div className="text-xs text-neutral-400">Quantity</div>
-                  <div className="font-semibold text-white">30 tablets</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Verification Steps */}
-          <div className="p-4 sm:p-6">
-            <h4 className="text-xs sm:text-sm font-bold text-neutral-300 mb-4">
-              Verification Process
-            </h4>
-
-            <div className="space-y-2">
-              {verificationSteps.map((step, index) => (
+            {/* Quiet Checks */}
+            <div className="grid grid-cols-2 gap-3">
+              {checks.map((item, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="flex items-start gap-3 p-3 bg-gray-800 rounded-lg border border-white/10"
+                  key={item}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.2 + index * 0.1 }}
+                  className="flex items-center gap-2 text-sm text-neutral-300"
                 >
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5 bg-emerald-500/15 border border-emerald-500/30">
-                    <svg
-                      className="w-4 h-4 text-emerald-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <div className="text-sm font-semibold text-white">
-                      {step.step}
-                    </div>
-                    <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
-                      {step.detail}
-                    </div>
-                  </div>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                  {item}
                 </motion.div>
               ))}
             </div>
+
+            {/* Footer */}
+            <div className="pt-4 border-t border-white/10 text-xs text-neutral-500">
+              No manual review · No alerts · No delays
+            </div>
+
           </div>
         </div>
       </div>
@@ -171,92 +139,78 @@ export const ReduceErrorUI = () => {
 
 // Real Time Card
 export const RealTimeUI = () => {
-  const metrics = [
-    { label: "Active Prescriptions", value: "47", trend: "+12%" },
-    { label: "Queue Time", value: "8min", trend: "-23%" },
-    { label: "Fill Rate", value: "94%", trend: "+5%" },
+  const events = [
+    "Prescription received",
+    "Order prioritized",
+    "Inventory Confirmed",
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center mt-4 md:mt-14 pointer-events-none">
-      <div className="bg-gradient-to-b from-gray-850 to-gray-900 rounded-2xl shadow-2xl border border-white/10 ">
-        {/* Header */}
-        <div className="hidden md:block p-4 rounded-tr-2xl rounded-tl-2xl ">
-          <div className="flex items-center gap-3">
+    <div className="w-full h-full flex items-center justify-center pointer-events-none mt-4 md:mt-0">
+      <div className="w-full max-w-md">
+        <div className="relative rounded-2xl border border-white/10 bg-gradient-to-b from-gray-850 to-gray-900 shadow-2xl overflow-hidden">
+
+          {/* Subtle motion glow */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/5 to-transparent animate-pulse" />
+
+          <div className="relative z-10 p-4 space-y-8">
+
+            {/* Header */}
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white">
-                Dashboard
+              <h3 className="text-xl font-bold text-white">
+                Real-Time Operations
               </h3>
-              <p className="text-red-100/80 text-xs sm:text-sm">
-                Updated 2 sec ago
+              <p className="text-sm text-neutral-400 max-w-sm mt-2">
+                Activity flows continuously across pharmacies, facilities, and
+                patients — without refresh or delay.
               </p>
             </div>
-          </div>
-        </div>
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-3 gap-3 mb-5 mt-4 p-4">
-          {metrics.map((metric, index) => (
-            <motion.div
-              key={metric.label}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="rounded-xl p-3 bg-white/5 border border-white/10 hover:border-white/20 transition"
-            >
-              <div
-                className={`text-2xl text-white font-bold text-${metric.color}-400 mb-1`}
-              >
-                {metric.value}
-              </div>
-              <div className="text-xs text-neutral-400 mb-2">
-                {metric.label}
-              </div>
-              <div
-                className={`text-xs font-semibold ${
-                  metric.trend.startsWith("+")
-                    ? "text-emerald-400"
-                    : "text-red-400"
-                }`}
-              >
-                {metric.trend}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Activity Feed */}
-        <div className="p-4 ">
-          <div className="bg-white/5 rounded-xl p-4 border border-white/10 ">
-            <div className="text-xs font-semibold text-neutral-300 mb-3">
-              Recent Activity
-            </div>
-            <div className="space-y-2">
-              {[
-                { action: "Prescription filled", time: "12s ago" },
-                { action: "Patient check-in", time: "34s ago" },
-                { action: "Inventory alert", time: "1m ago" },
-              ].map((activity, index) => (
+            {/* Live Flow */}
+            <div className="space-y-4">
+              {events.map((event, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -10 }}
+                  key={event}
+                  initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                  className="flex items-center justify-between text-xs"
+                  transition={{ delay: index * 0.15 }}
+                  className="flex items-center gap-3 rounded-xl border border-white/10 bg-gray-800/70 p-4"
                 >
-                  <span className="text-white font-medium">
-                    {activity.action}
+                  
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
                   </span>
-                  <span className="text-neutral-400">{activity.time}</span>
+
+                  <span className="text-sm text-neutral-200">
+                    {event}
+                  </span>
                 </motion.div>
               ))}
             </div>
+
+            {/* System Status */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="flex items-center justify-between rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3"
+            >
+              <span className="text-sm font-medium text-white">
+                System responding in real time
+              </span>
+              <span className="text-xs font-semibold text-emerald-300">
+                LIVE
+              </span>
+            </motion.div>
+
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 
 // Saving Timer Card
 export const SaveTimeUI = () => {
@@ -268,12 +222,12 @@ export const SaveTimeUI = () => {
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center p-0 mt-10">
+    <div className="w-full h-full flex items-center justify-center p-0 mt-4">
       <div className="w-full max-w-md">
-        <div className="bg-gradient-to-b from-gray-850 to-gray-900 rounded-2xl shadow-2xl border border-white/10 p-6">
+        <div className="bg-gradient-to-b from-gray-850 to-gray-900 rounded-2xl shadow-2xl border border-white/10 p-4">
 
           {/* Header */}
-          <div className="flex items-center justify-between mb-5">
+          <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               <div>
                 <h4 className="text-lg font-bold text-white">
@@ -296,7 +250,7 @@ export const SaveTimeUI = () => {
           </div>
 
           {/* Task List */}
-          <div className="space-y-3 mb-5">
+          <div className="space-y-3 mb-4">
             {taskItems.map((item, index) => (
               <motion.div
                 key={item.task}
@@ -360,8 +314,8 @@ export const HipaaComplianceUI = () => {
   ]
 
   return (
-    <div className="w-full h-full  flex items-center justify-center mt-6 md:mt-10 ">
-      <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-gradient-to-b from-gray-850 to-gray-900 p-8 shadow-2xl overflow-hidden">
+    <div className="w-full h-full  flex items-center justify-center mt-6 md:mt-4 ">
+      <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-gradient-to-b from-gray-850 to-gray-900 p-4 shadow-2xl overflow-hidden">
         <div className="relative z-10 space-y-6">
 
           {/* Header */}
@@ -419,13 +373,13 @@ export const HipaaComplianceUI = () => {
               </span>
             </div>
 
-            <div className="mt-3 h-2 rounded-full bg-emerald-500/20">
+            <div className="mt-2 h-2 rounded-full bg-emerald-500/20">
               <div className="h-2 w-full rounded-full bg-accent" />
             </div>
 
-            <p className="mt-2 text-xs text-accent">
+            {/* <p className="mt-2 text-xs text-accent">
               No violations • Continuous monitoring active
-            </p>
+            </p> */}
           </div>
 
         </div>
@@ -444,9 +398,9 @@ export const ScaleStaffingUI = () => {
   ];
 
   return (
-    <div className="w-full h-full flex items-center justify-center mt-6 md:mt-12 pointer-events-none">
+    <div className="w-full h-full flex items-center justify-center mt-6 md:mt-4 pointer-events-none">
       <div className="w-full max-w-md">
-        <div className="bg-gradient-to-b from-gray-850 to-gray-900 rounded-2xl shadow-2xl border border-white/10 p-8 relative overflow-hidden">
+        <div className="bg-gradient-to-b from-gray-850 to-gray-900 rounded-2xl shadow-2xl border border-white/10 p-4 relative overflow-hidden">
 
           <div className="relative z-10 space-y-6">
 
@@ -497,7 +451,7 @@ export const ScaleStaffingUI = () => {
                 </div>
                 <div className="text-right">
                   <div className="text-xs text-accent mb-1">Same team,</div>
-                  <div className="text-sm font-bold text-accent">75% more volume</div>
+                  <div className="text-sm font-bold text-accent">85% more volume</div>
                 </div>
               </div>
             </div>

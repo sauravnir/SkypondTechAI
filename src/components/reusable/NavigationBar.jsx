@@ -213,7 +213,7 @@ function NavigationBar() {
         {/* Menu Items */}
 
         {/* CTA Buttons */}
-        <div className=" flex hidden md:flex gap-3 font-body font-medium items-center">
+        <div className="hidden md:flex gap-3 font-body font-medium items-center">
           <SecondaryButton title="SkypondTech" size="sm" />
           <PrimaryButton title="Get Started" size="sm" />
           {/* Whatsapp Redirection */}
