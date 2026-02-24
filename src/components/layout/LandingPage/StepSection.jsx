@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import MainBadge from "@/components/reusable/Badge";
-import { Highlighter } from "../../ui/highlighter";
 import { Card, CardContent } from "../../ui/card";
 import {
   Plug,
   BrainCircuit,
   StepForward,
   Sparkles,
-  ChevronRight,
-  Lock,
+
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Button } from "../../ui/button";
 import { AnimatedCircularProgressBar } from "../../ui/animated-circular-progress-bar";
 import { ScheduleDemoButton } from "@/components/reusable/Button";
 export default function StepSection({id}) {

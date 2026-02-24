@@ -16,7 +16,6 @@ import {
   Card,
   CardHeader,
   CardDescription,
-  CardFooter,
 } from "@/components/ui/card";
 
 const steps = [
